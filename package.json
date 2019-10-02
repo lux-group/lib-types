@@ -1,0 +1,28 @@
+{
+  "name": "@luxuryescapes/lib-types",
+  "version": "1.0.0",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "repository": "git@github.com:brandsExclusive/lib-types.git",
+  "author": "Rufus Post <rufuspost@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "test": "echo \"todo tests\"",
+    "lint": "eslint src --ext .ts",
+    "lint-fix": "yarn run lint --fix",
+    "prepare": "yarn run build",
+    "prepublishOnly": "yarn test && yarn run lint",
+    "preversion": "yarn run lint",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.3"
+  }
+}
