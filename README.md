@@ -3,9 +3,9 @@
 API interfaces and factories for Luxury Escapes
 
 ```js
-import { APIPublicOffer } from "@luxuryescapes/lib-types";
+import { API } from "@luxuryescapes/lib-types";
 
-const { result } = (await response.json()) as APIPublicOffer;
+const { result } = (await response.json()) as API.PublicOffer.OffersResult;
 ```
 
 ## Contributing

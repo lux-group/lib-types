@@ -1,15 +1,14 @@
 {
   "name": "@luxuryescapes/lib-types",
   "version": "1.0.0",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "types": "types/index.d.ts",
   "repository": "git@github.com:brandsExclusive/lib-types.git",
   "author": "Rufus Post <rufuspost@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf lib && tsc",
     "test": "echo \"todo tests\"",
-    "lint": "eslint src --ext .ts",
+    "lint": "eslint types --ext .ts",
     "lint-fix": "yarn run lint --fix",
     "prepare": "yarn run build",
     "prepublishOnly": "yarn test && yarn run lint",
