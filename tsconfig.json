@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./lib",
-    "rootDir": "./src",
+    "rootDir": "./types",
     "target": "es5",
     "declaration": true,
     "lib": ["dom", "es7"],
