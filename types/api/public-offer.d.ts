@@ -9,7 +9,8 @@ export namespace PublicOffer {
 
   interface OffersLinks {
     self: Link;
-    next: Link;
+    next?: Link;
+    prev?: Link;
   }
 
   interface OfferLinks {
@@ -173,10 +174,10 @@ export namespace PublicOffer {
     sale_unit_with_flights: string;
     has_errors: boolean;
     errors: Errors;
-    property: Property;
-    room_type: RoomType;
-    tour: Tour;
-    tour_option: TourOption;
+    property?: Property;
+    room_type?: RoomType;
+    tour?: Tour;
+    tour_option?: TourOption;
   }
 
   interface PackageLinks {
@@ -406,5 +407,10 @@ export namespace PublicOffer {
     updated_at: Date;
     room_type_id: string;
     amenity_id: number;
+  }
+
+  interface ErrorResult {
+    message: string;
+    status: number;
   }
 }
