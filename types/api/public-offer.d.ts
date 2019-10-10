@@ -227,6 +227,7 @@ export namespace PublicOffer {
     room_types_count: number;
     reviews_count: number;
     name: string;
+    reviews: Review[];
     room_types: RoomType[];
     id: string;
     address: string;
