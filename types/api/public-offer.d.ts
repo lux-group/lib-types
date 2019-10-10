@@ -18,6 +18,29 @@ export namespace PublicOffer {
     voucher_status: Link;
   }
 
+  interface OfferFiltersLinks {
+    self: Link;
+  }
+
+  interface OfferFilterTotals {
+    [name: string]: number;
+  }
+
+  interface OfferFilters {
+    locations?: OfferFilterTotals;
+    holiday_types?: OfferFilterTotals;
+    type?: OfferFilterTotals;
+  }
+
+  interface OfferFiltersResult {
+    _links: OfferFiltersLinks;
+    message: null;
+    status: number;
+    result: OfferFilters;
+    count: number;
+    total: number;
+  }
+
   interface OfferResult {
     message: null | string;
     status: number;
