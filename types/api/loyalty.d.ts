@@ -1,6 +1,6 @@
 export namespace Loyalty {
   interface PartnershipsResult {
-    result: [Partnership];
+    result: Partnership[];
   }
 
   interface PartnershipAccountFieldsLabels {
