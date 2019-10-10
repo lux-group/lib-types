@@ -227,7 +227,7 @@ export namespace PublicOffer {
     room_types_count: number;
     reviews_count: number;
     name: string;
-    reviews: Review[];
+    reviews?: Review[];
     room_types: RoomType[];
     id: string;
     address: string;
@@ -255,7 +255,7 @@ export namespace PublicOffer {
     tour_legs_count: number;
     reviews_count: number;
     name: string;
-    reviews: Review[];
+    reviews?: Review[];
     id: string;
     itinerary: string;
     id_salesforce_external: string;
