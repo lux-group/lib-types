@@ -301,7 +301,7 @@ export namespace PublicOffer {
     id: string;
     property_id: string;
     availability_threshold: null | string;
-    size_sqm: null | string;
+    size_sqm: null | number;
     description: string;
     availability: Availability;
     capacities: Capacity[];
