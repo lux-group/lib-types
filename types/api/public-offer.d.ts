@@ -305,6 +305,7 @@ export namespace PublicOffer {
     description: string;
     availability: Availability;
     capacities: Capacity[];
+    included_guests: IncludedGuest[];
     amenities: Amenity[];
     images: Image[];
     is_limited: boolean;
@@ -341,6 +342,16 @@ export namespace PublicOffer {
     children: number;
     infants: number;
     legacy_id: null | string;
+    created_at: Date;
+    updated_at: Date;
+    room_type_id: string;
+  }
+
+  interface IncludedGuest {
+    id: string;
+    adults: number;
+    children: number;
+    infants: number;
     created_at: Date;
     updated_at: Date;
     room_type_id: string;
