@@ -1,3 +1,5 @@
+import { Image } from "./offer";
+
 export namespace PublicOffer {
   interface Link {
     href: string;
@@ -95,6 +97,7 @@ export namespace PublicOffer {
     packages: Package[];
     images_count: number;
     images: Image[];
+    hero_image: Image;
     booking_guarantee: string;
     getting_there: string;
     fine_print: string;
@@ -154,14 +157,6 @@ export namespace PublicOffer {
 
   interface Errors {
     [key: string]: string;
-  }
-
-  interface Image {
-    _links: SelfWithParentLinks;
-    id_image: number;
-    offer_id_salesforce_external: string;
-    id_cloudinary_external: string;
-    order: number;
   }
 
   interface ListVisibilitySchedules {
