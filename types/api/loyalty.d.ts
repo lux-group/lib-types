@@ -35,5 +35,6 @@ export namespace Loyalty {
     rewardEarn: number;
     rewardName: string;
     rewardPer: string;
+    rewardProgramName: string;
   }
 }
