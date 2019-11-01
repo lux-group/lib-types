@@ -192,6 +192,8 @@ export namespace PublicOffer {
     check_in_closes: Date;
     price: number;
     value: number;
+    price_with_flights?: number;
+    value_with_flights?: number;
     currency_code: string;
     duration_label: string;
     tracking_price: number;
