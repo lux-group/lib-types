@@ -115,8 +115,8 @@ export namespace PublicOffer {
     id: string;
     has_errors: boolean;
     errors: Errors;
-    availability_schedule: Schedule;
-    online_purchase_schedule: Schedule;
+    availability_schedule?: Schedule;
+    online_purchase_schedule?: Schedule;
     list_visibility_schedules: ListVisibilitySchedules;
     duration_label: string;
     video_vimeo_id: string;
@@ -186,7 +186,7 @@ export namespace PublicOffer {
     qff_bonus_description: null | string;
     regions: string[];
     prices: Price[];
-    room_occupancy: null | string;
+    room_occupancy: string;
     addons: Addon[];
     partnerships: PackagePartnership[];
     check_in_closes: Date;
