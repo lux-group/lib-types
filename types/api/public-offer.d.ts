@@ -132,7 +132,7 @@ export namespace PublicOffer {
     location_subheading: string;
     is_limited: boolean;
     urgency_label_type: string;
-    urgency_label_text: string;
+    urgency_label_text: null | string;
     flight_origin_list: string[];
     flight_cache_active: boolean;
   }
