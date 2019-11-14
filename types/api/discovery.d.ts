@@ -14,6 +14,7 @@ export namespace Discovery {
     lang: string;
     currency_formatting_locale: string;
     currency_code: string;
+    currency_prefix: string;
     flag_id: string;
     phone: RegionPhone;
     phone_prefix: string;
