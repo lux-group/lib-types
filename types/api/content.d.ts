@@ -44,7 +44,7 @@ export namespace Content {
     headerImage: string;
     content?: Content;
     locations: string[];
-    brand: ContentBrand;
+    brand: Brand;
     metaTitle?: string;
     metaDescription?: string;
   }
@@ -57,10 +57,10 @@ export namespace Content {
   }
 
   interface ContentBrand {
-    fields: ContentBrandFields;
+    fields: Brand;
   }
 
-  interface ContentBrandFields {
+  interface Brand {
     name: string;
   }
 }
