@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf lib && tsc",
-    "test": "echo \"todo tests\"",
+    "test": "tsc",
     "lint": "eslint types --ext .ts",
     "lint-fix": "yarn run lint --fix",
     "prepare": "yarn run build",

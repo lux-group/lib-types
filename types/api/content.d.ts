@@ -44,13 +44,9 @@ export namespace Content {
     headerImage: string;
     content?: Content;
     locations: string[];
-    brand: FieldsClass;
+    brand: ContentBrand;
     metaTitle?: string;
     metaDescription?: string;
-  }
-
-  interface FieldsClass {
-    name: string;
   }
 
   interface Content {
