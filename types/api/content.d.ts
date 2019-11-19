@@ -18,7 +18,7 @@ export namespace Content {
   interface ContentPageResult {
     status: number;
     message: string;
-    result: ContentPage;
+    result: ContentPage[];
   }
 
   interface ContentPage {
