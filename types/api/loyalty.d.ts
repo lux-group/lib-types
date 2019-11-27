@@ -44,7 +44,7 @@ export namespace Loyalty {
     price: number;
     currencyCode: string;
   }
-  
+
   interface Membership {
     code: string;
     prices: Array<MembershipPrice>;
