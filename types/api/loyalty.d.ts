@@ -39,4 +39,15 @@ export namespace Loyalty {
     rewardPer: string;
     rewardProgramName: string;
   }
+
+  interface MembershipPrice {
+    price: number;
+    currencyCode: string;
+  }
+  
+  interface Membership {
+    code: string;
+    prices: Array<MembershipPrice>;
+    regionCodes: string[];
+  }
 }
