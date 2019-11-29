@@ -42,12 +42,12 @@ export namespace Loyalty {
 
   interface MembershipPrice {
     price: number;
+    regionCode: string;
     currencyCode: string;
   }
 
   interface Membership {
     code: string;
     prices: Array<MembershipPrice>;
-    regionCodes: string[];
   }
 }
