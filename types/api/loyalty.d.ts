@@ -19,6 +19,8 @@ export namespace Loyalty {
     currencyCodes: string[];
     earnOrBurnLabel: string;
     earnOrBurnLabelExtended: string;
+    burnOnlyLabel: string;
+    burnOnlyLabelExtended: string;
     hasBurn: boolean;
     hasEarn: boolean;
     icon: string;
