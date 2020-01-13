@@ -178,6 +178,7 @@ export namespace PublicOffer {
     status: string;
     id_salesforce_external: string;
     offer_id_salesforce_external: string;
+    unique_key: string;
     name: string;
     description: string;
     inclusion_highlights: string;
