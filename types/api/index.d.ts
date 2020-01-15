@@ -4,6 +4,8 @@ import { Discovery } from "./discovery";
 import { Flights } from "./flights";
 import { Loyalty } from "./loyalty";
 import { Offer } from "./offer";
+import { Order } from "./order";
+import { Payment } from "./payment";
 import { PublicOffer } from "./public-offer";
 import { Wishlist } from "./wishlist";
 export {
@@ -13,6 +15,8 @@ export {
   Flights,
   Loyalty,
   Offer,
+  Order,
+  Payment,
   PublicOffer,
   Wishlist
 };
