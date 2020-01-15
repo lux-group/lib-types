@@ -48,8 +48,15 @@ export namespace Loyalty {
     currencyCode: string;
   }
 
+  interface MembershipLogo {
+    id: string;
+    color: string;
+  }
+
   interface Membership {
     code: string;
+    name: string;
+    logos: Array<MembershipLogo>;
     prices: Array<MembershipPrice>;
   }
 }
