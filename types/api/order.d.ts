@@ -35,6 +35,9 @@ export namespace Order {
     utm_ad: string;
     utm_adgroup: string;
     utm_term: string;
+    device_ip: string | null;
+    device_id: string | null;
+    platform: string | null;
     origin_url: string;
     le_label: string;
     le_attribution: string;
