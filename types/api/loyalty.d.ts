@@ -1,6 +1,14 @@
 export namespace Loyalty {
+  interface PartnershipResult {
+    status: number;
+    result: Partnership;
+  }
+
   interface PartnershipsResult {
+    status: number;
     result: Partnership[];
+    count: number;
+    total: number;
   }
 
   interface PartnershipAccountFieldsLabels {
@@ -40,6 +48,18 @@ export namespace Loyalty {
     rewardName: string;
     rewardPer: string;
     rewardProgramName: string;
+  }
+
+  interface MembershipResult {
+    status: number;
+    result: Membership;
+  }
+
+  interface MembershipsResult {
+    status: number;
+    result: Membership[];
+    count: number;
+    total: number;
   }
 
   interface MembershipPrice {
