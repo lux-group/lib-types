@@ -55,6 +55,7 @@ export namespace Loyalty {
 
   interface Membership {
     code: string;
+    shortName: string;
     name: string;
     logos: Array<MembershipLogo>;
     prices: Array<MembershipPrice>;
