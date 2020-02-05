@@ -96,6 +96,7 @@ export namespace PublicOffer {
     images_count: number;
     images: Image[];
     hero_image: Image;
+    benefit_labels: string[];
     booking_guarantee: string;
     getting_there: string;
     fine_print: string;
@@ -133,6 +134,7 @@ export namespace PublicOffer {
     is_limited: boolean;
     urgency_label_type: string;
     urgency_label_text: null | string;
+    available_for_purchase: boolean;
     flight_origin_list: string[];
     flight_cache_active: boolean;
   }
