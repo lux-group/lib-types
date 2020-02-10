@@ -29,6 +29,7 @@ export namespace PublicOffer {
   interface OfferFilters {
     locations?: OfferFilterTotals;
     holiday_types?: OfferFilterTotals;
+    campaigns?: OfferFilterTotals;
     type?: OfferFilterTotals;
   }
 
@@ -108,6 +109,7 @@ export namespace PublicOffer {
     flight_destination_port: null | string;
     insurance_countries: string[];
     holiday_types: string[];
+    campaigns: string[];
     sale_unit: string;
     display_value: boolean;
     subject_line: string;
