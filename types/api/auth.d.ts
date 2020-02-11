@@ -3,6 +3,18 @@ export namespace Auth {
     result: User;
   }
 
+  interface Membership {
+    code: string;
+    number: number | null;
+    expiry_date: string | null;
+  }
+
+  interface Partnership {
+    account_id: string;
+    first_name: string;
+    last_name: string;
+  }
+
   interface User {
     givenName: string;
     surname: string;
@@ -18,7 +30,9 @@ export namespace Auth {
     signup_domain: string;
     updated_at: string;
     gdpr: string;
+    partnerships: { [code: string]: Partnership };
+    membership: Membership;
     person_contact_id: string;
-    toggles: { [s: string]: boolean | null | string };
+    toggles: { [name: string]: boolean | null | string };
   }
 }
