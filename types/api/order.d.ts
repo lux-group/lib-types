@@ -61,7 +61,7 @@ export namespace Order {
     customer_qff: null;
     customer_qff_last_name: null;
     qff_enabled: boolean;
-    items: AnyItem[];
+    items: AccommodationItem[];
     accommodation_items: AccommodationItem[];
     addon_items: AddonItem[];
     flight_items: FlightItem[];
