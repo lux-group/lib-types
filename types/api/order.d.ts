@@ -77,37 +77,78 @@ export namespace Order {
     total: number;
   }
 
-  // TODO: finish interface
-  interface AddonItem {
-    [property: string]: string | number | boolean | null;
+  type AnyItem =
+    | AddonItem
+    | FlightItem
+    | GiftCardItem
+    | MembershipItem
+    | InsuranceItem
+    | AccommodationItem;
+
+  interface ItemLinks {
+    order: Link;
   }
 
-  // TODO: finish interface
-  interface FlightItem {
-    [property: string]: string | number | boolean | null;
-  }
-
-  // TODO: finish interface
-  interface GiftCardItem {
-    [property: string]: string | number | boolean | null;
-  }
-
-  // TODO: finish interface
-  interface MembershipItem {
-    [property: string]: string | number | boolean | null;
-  }
-
-  // TODO: finish interface
-  interface InsuranceItem {
-    [property: string]: string | number | boolean | null;
-  }
-
-  interface AccommodationItem {
-    _links: AccommodationItemLinks;
+  interface Item {
+    _links: ItemLinks;
     id: string;
+    status: string;
+    type: string;
+    total: string;
+    price: number;
+    value: number;
+    fk_order_id: string;
+  }
+
+  interface AddonItemLinks extends ItemLinks {
+    addon: Link;
+  }
+
+  interface AddonItem extends Item {
+    _links: AddonItemLinks;
+    item?: AccommodationItem;
+  }
+
+  interface FlightItemLinks extends ItemLinks {
+    flight_details: Link;
+    flight_reservation: Link;
+  }
+
+  interface FlightItem extends Item {
+    _links: FlightItemLinks;
+  }
+
+  interface GiftCardItemLinks extends ItemLinks {
+    gift_card: Link;
+  }
+
+  interface GiftCardItem extends Item {
+    _links: GiftCardItemLinks;
+  }
+
+  interface MembershipItem extends Item {
+    code: string;
+  }
+
+  interface InsuranceItemLinks extends ItemLinks {
+    subscription: Link;
+    pds: Link;
+  }
+
+  interface InsuranceItem extends Item {
+    _links: InsuranceItemLinks;
+  }
+
+  interface AccommodationItemLinks extends ItemLinks {
+    voucher: Link;
+    reservation: Link;
+    offer: Link;
+  }
+
+  interface AccommodationItem extends Item {
+    _links: AccommodationItemLinks;
     transaction_key: string;
     checksum: string;
-    status: string;
     booking_number: string;
     fk_vendor_id: string;
     offer: Offer;
@@ -122,22 +163,11 @@ export namespace Order {
     number_of_nights: number;
     extra_nights: number;
     fk_offer: string;
-    fk_order_id: string;
     fk_package: string;
     id_items: string;
     name: string;
     id_salesforce_external: string;
-    total: string;
-    price: number;
-    value: number;
     cvp_bonus_points: number;
-  }
-
-  interface AccommodationItemLinks {
-    voucher: Link;
-    order: Link;
-    reservation: Link;
-    offer: Link;
   }
 
   interface Offer {
