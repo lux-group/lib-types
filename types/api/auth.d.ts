@@ -6,7 +6,7 @@ export namespace Auth {
   interface Membership {
     code: string;
     number: number | null;
-    expiry_date: string | null;
+    expiration_date: string | null;
   }
 
   interface Partnership {
