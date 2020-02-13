@@ -381,9 +381,9 @@ export namespace PublicOffer {
   }
 
   interface PackageMembership {
-    code: string
-    fk_upgrade_offer_package_salesforce_id: string | null
-    benefit_label: BenefitLabel
+    code: string;
+    fk_upgrade_offer_package_salesforce_id: string | null;
+    benefit_label: BenefitLabel;
   }
 
   interface OfferPartnership {
@@ -394,12 +394,12 @@ export namespace PublicOffer {
   }
 
   interface BenefitLabel {
-    type: string
-    label: string
+    type: string;
+    label: string;
   }
 
   interface OfferMembership {
-    code: string
+    code: string;
     benefit_label: BenefitLabel | null;
   }
 
