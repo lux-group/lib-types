@@ -88,6 +88,7 @@ export namespace PublicOffer {
     qff_enabled: boolean;
     upsell_text_qantas: string;
     partnerships: OfferPartnership[];
+    memberships: OfferMembership[];
     tour_flight_details_required: boolean;
     staff_discount_enabled: boolean;
     no_index: boolean;
@@ -194,6 +195,7 @@ export namespace PublicOffer {
     room_occupancy: string;
     addons: Addon[];
     partnerships: PackagePartnership[];
+    memberships: PackageMembership[];
     check_in_closes: Date;
     price: number;
     value: number;
@@ -378,11 +380,27 @@ export namespace PublicOffer {
     package_points: number;
   }
 
+  interface PackageMembership {
+    code: string
+    fk_upgrade_offer_package_salesforce_id: string | null
+    benefit_label: BenefitLabel
+  }
+
   interface OfferPartnership {
     code: string;
     prefix: string;
     upsell_text: string;
     regions: string[];
+  }
+
+  interface BenefitLabel {
+    type: string
+    label: string
+  }
+
+  interface OfferMembership {
+    code: string
+    benefit_label: BenefitLabel | null;
   }
 
   interface AddonLinks {
