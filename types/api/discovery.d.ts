@@ -6,6 +6,8 @@ export namespace Discovery {
   interface RegionAndZeroDecimalCurrencies {
     regions: Region[];
     zero_decimal_currencies: string[];
+    default_region: Region;
+    current_region: string;
   }
 
   interface Region {
