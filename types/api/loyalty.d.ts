@@ -76,13 +76,13 @@ export namespace Loyalty {
   interface MembershipLink {
     url: string;
     path: string;
-    title: string
+    title: string;
   }
 
   interface MembershipHeadlineBenefit {
-    title: string
-    color: string
-    backgroundColor: string
+    title: string;
+    color: string;
+    backgroundColor: string;
   }
 
   interface Membership {
