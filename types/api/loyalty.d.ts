@@ -73,11 +73,26 @@ export namespace Loyalty {
     color: string;
   }
 
+  interface MembershipLink {
+    url: string;
+    path: string;
+    title: string
+  }
+
+  interface MembershipHeadlineBenefit {
+    title: string
+    color: string
+    backgroundColor: string
+  }
+
   interface Membership {
     code: string;
     shortName: string;
     name: string;
+    link: MembershipLink;
     logos: Array<MembershipLogo>;
+    defaultLogo: MembershipLogo;
+    headlineBenefit: MembershipHeadlineBenefit;
     prices: Array<MembershipPrice>;
   }
 }
