@@ -98,7 +98,7 @@ export namespace PublicOffer {
     images_count: number;
     images: Image[];
     hero_image: Image;
-    benefit_labels: string[];
+    benefit_labels: Array<BenefitLabel>;
     booking_guarantee: string;
     getting_there: string;
     fine_print: string;
