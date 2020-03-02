@@ -383,6 +383,7 @@ export namespace PublicOffer {
   interface PackageMembership {
     code: string;
     fk_upgrade_offer_package_salesforce_id: string | null;
+    fk_upgrade_offer_package_unique_key: string | null;
     benefit_label: BenefitLabel;
   }
 
