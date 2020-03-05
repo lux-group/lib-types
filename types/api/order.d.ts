@@ -196,6 +196,20 @@ export namespace Order {
     upsell_text: null;
   }
 
+  interface OfferUpgradePackageMembership {
+    id_salesforce_external: string;
+    max_extra_nights: number;
+    nightly_price: number;
+    nightly_value: number;
+    price: number;
+    value: number;
+  }
+
+  interface OfferPackageMembership {
+    code: string;
+    upgrade_package?: OfferUpgradePackageMembership;
+  }
+
   interface OfferPackage {
     id_salesforce_external: string;
     fk_property_id: string;
@@ -208,6 +222,7 @@ export namespace Order {
     number_of_nights: number;
     cost_price: number;
     cost_currency: string;
+    memberships: Array<OfferPackageMembership>;
   }
 
   interface Reservation {
