@@ -53,6 +53,7 @@ export namespace Order {
     refund_ticket_id: string;
     legacy_id_orders: null;
     customer_email: string;
+    customer_membership_code: string;
     customer_given_name: string;
     customer_surname: string;
     customer_full_name: string;
@@ -195,6 +196,20 @@ export namespace Order {
     upsell_text: null;
   }
 
+  interface OfferUpgradePackageMembership {
+    id_salesforce_external: string;
+    max_extra_nights: number;
+    nightly_price: number;
+    nightly_value: number;
+    price: number;
+    value: number;
+  }
+
+  interface OfferPackageMembership {
+    code: string;
+    upgrade_package?: OfferUpgradePackageMembership;
+  }
+
   interface OfferPackage {
     id_salesforce_external: string;
     fk_property_id: string;
@@ -207,6 +222,7 @@ export namespace Order {
     number_of_nights: number;
     cost_price: number;
     cost_currency: string;
+    memberships: Array<OfferPackageMembership>;
   }
 
   interface Reservation {
