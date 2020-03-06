@@ -62,6 +62,12 @@ export namespace Loyalty {
     total: number;
   }
 
+  interface MembershipsLimitsResult {
+    status: number;
+    message: string;
+    result: MembershipsLimits;
+  }
+
   interface MembershipPrice {
     price: number;
     regionCode: string;
@@ -94,5 +100,11 @@ export namespace Loyalty {
     defaultLogo: MembershipLogo;
     headlineBenefit: MembershipHeadlineBenefit;
     prices: Array<MembershipPrice>;
+  }
+
+  interface MembershipsLimits {
+    limit: number;
+    total: number;
+    left: number;
   }
 }
