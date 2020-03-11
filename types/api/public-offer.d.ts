@@ -385,6 +385,7 @@ export namespace PublicOffer {
     fk_upgrade_offer_package_salesforce_id: string | null;
     fk_upgrade_offer_package_unique_key: string | null;
     benefit_label: BenefitLabel;
+    is_exclusive: boolean;
   }
 
   interface OfferPartnership {
@@ -402,6 +403,7 @@ export namespace PublicOffer {
   interface OfferMembership {
     code: string;
     benefit_label: BenefitLabel | null;
+    is_exclusive: boolean;
   }
 
   interface AddonLinks {
