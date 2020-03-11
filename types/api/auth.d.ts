@@ -3,10 +3,15 @@ export namespace Auth {
     result: User;
   }
 
+  interface MembershipsResult {
+    result: Membership | Array<Membership>;
+  }
+
   interface Membership {
     code: string;
     number: number | null;
     expiration_date: string | null;
+    brand?: string;
   }
 
   interface Partnership {
