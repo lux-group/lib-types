@@ -94,6 +94,7 @@ export namespace Loyalty {
   interface Membership {
     code: string;
     shortName: string;
+    freeUpgradeLimit: number;
     name: string;
     link: MembershipLink;
     logos: Array<MembershipLogo>;

@@ -4,7 +4,7 @@ export namespace Auth {
   }
 
   interface MembershipsResult {
-    result: Membership | Array<Membership>;
+    result: Array<Membership>;
   }
 
   interface Membership {
