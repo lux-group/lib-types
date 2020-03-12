@@ -19,6 +19,7 @@ export namespace Loyalty {
     accountFields: string[];
     accountFieldsLabels: PartnershipAccountFieldsLabels;
     bonusPointCost: number;
+    freeUpgradeLimit: number;
     bonusUnit: string;
     brandName: string;
     code: string;
