@@ -129,6 +129,7 @@ export namespace Order {
 
   interface MembershipItem extends Item {
     code: string;
+    number: number;
   }
 
   interface InsuranceItemLinks extends ItemLinks {
