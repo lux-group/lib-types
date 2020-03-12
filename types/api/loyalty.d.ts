@@ -19,7 +19,6 @@ export namespace Loyalty {
     accountFields: string[];
     accountFieldsLabels: PartnershipAccountFieldsLabels;
     bonusPointCost: number;
-    freeUpgradeLimit: number;
     bonusUnit: string;
     brandName: string;
     code: string;
@@ -95,6 +94,7 @@ export namespace Loyalty {
   interface Membership {
     code: string;
     shortName: string;
+    freeUpgradeLimit: number;
     name: string;
     link: MembershipLink;
     logos: Array<MembershipLogo>;
