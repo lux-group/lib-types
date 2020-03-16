@@ -62,10 +62,14 @@ export namespace Loyalty {
     total: number;
   }
 
-  interface MembershipsLimitsResult {
+  interface MembershipsLimitsResponse {
     status: number;
     message: string;
-    result: MembershipsLimits;
+    result: MembershipsLimitsResult;
+  }
+
+  interface MembershipsLimitsResult {
+    freeUpgrade: MembershipsLimits;
   }
 
   interface MembershipPrice {
