@@ -112,6 +112,7 @@ export namespace Order {
     offer_package_salesforce_id: string;
     addon_parent_package_salesforce_id: string;
     fk_opportunity_salesforce_id: string;
+    categories: string[];
     item?: AccommodationItem;
   }
 
