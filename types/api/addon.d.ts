@@ -1,4 +1,10 @@
 export namespace Addon {
+  interface AddonResult {
+    message: null;
+    status: number;
+    result: Addon;
+  }
+
   interface AddonLinks {
     self: Link;
     addons: Link;
