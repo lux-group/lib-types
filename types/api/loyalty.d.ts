@@ -70,6 +70,7 @@ export namespace Loyalty {
 
   interface MembershipsLimitsResult {
     freeUpgrade: MembershipsLimits;
+    freeLoungePass: MembershipsLimits;
   }
 
   interface MembershipPrice {
@@ -99,6 +100,7 @@ export namespace Loyalty {
     code: string;
     shortName: string;
     freeUpgradeLimit: number;
+    freeLoungePasses: number;
     name: string;
     link: MembershipLink;
     logos: Array<MembershipLogo>;
