@@ -107,6 +107,12 @@ export namespace Order {
 
   interface AddonItem extends Item {
     _links: AddonItemLinks;
+    salesforce_id: string;
+    offer_salesforce_id: string;
+    offer_package_salesforce_id: string;
+    addon_parent_package_salesforce_id: string;
+    fk_opportunity_salesforce_id: string;
+    categories: string[];
     item?: AccommodationItem;
   }
 
