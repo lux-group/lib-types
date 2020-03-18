@@ -98,7 +98,7 @@ export namespace PublicOffer {
     images_count: number;
     images: Image[];
     hero_image: Image;
-    benefit_labels: Array<BenefitLabel>;
+    benefit_labels: BenefitLabelWithMembershipCode[];
     booking_guarantee: string;
     getting_there: string;
     fine_print: string;
@@ -398,6 +398,10 @@ export namespace PublicOffer {
   interface BenefitLabel {
     type: string;
     label: string;
+  }
+
+  interface BenefitLabelWithMembershipCode extends BenefitLabel {
+    membership_code: string;
   }
 
   interface OfferMembership {
