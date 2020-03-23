@@ -68,7 +68,7 @@ export namespace Loyalty {
     result: MembershipsLimitsResult;
   }
 
-  interface MembershipsAddonLimit {
+  interface MembershipAddonLimit {
     code: string;
     id_salesforce_external: string;
     limit: number;
@@ -76,7 +76,7 @@ export namespace Loyalty {
 
   interface MembershipsLimitsResult {
     freeUpgrade: MembershipsLimits;
-    addons: Array<MembershipsAddonLimit & MembershipsLimits>;
+    addons: Array<MembershipAddonLimit & MembershipsLimits>;
   }
 
   interface MembershipPrice {
