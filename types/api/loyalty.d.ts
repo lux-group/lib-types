@@ -106,7 +106,7 @@ export namespace Loyalty {
     code: string;
     shortName: string;
     freeUpgradeLimit: number;
-    addons: Array<MembershipsAddonLimit>;
+    addons: Array<MembershipAddonLimit>;
     name: string;
     link: MembershipLink;
     logos: Array<MembershipLogo>;
