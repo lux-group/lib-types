@@ -406,7 +406,7 @@ export namespace PublicOffer {
 
   interface OfferMembership {
     code: string;
-    benefit_label: BenefitLabel | null;
+    benefit_label: BenefitLabel;
     is_exclusive: boolean;
   }
 
