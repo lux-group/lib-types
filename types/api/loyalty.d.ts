@@ -68,15 +68,9 @@ export namespace Loyalty {
     result: MembershipsLimitsResult;
   }
 
-  interface MembershipAddonLimit {
-    code: string;
-    id_salesforce_external: string;
-    limit: number;
-  }
-
   interface MembershipsLimitsResult {
-    freeUpgrade: MembershipsLimits;
-    addons: Array<MembershipAddonLimit & MembershipsLimits>;
+    freeUpgrades: MembershipsLimits;
+    freeLoungePasses: MembershipsLimits;
   }
 
   interface MembershipPrice {
@@ -105,7 +99,8 @@ export namespace Loyalty {
   interface Membership {
     code: string;
     shortName: string;
-    freeUpgradeLimit: number;
+    freeUpgrades: number;
+    freeLoungePasses: number;
     addons: Array<MembershipAddonLimit>;
     name: string;
     link: MembershipLink;
@@ -113,6 +108,11 @@ export namespace Loyalty {
     defaultLogo: MembershipLogo;
     headlineBenefit: MembershipHeadlineBenefit;
     prices: Array<MembershipPrice>;
+  }
+
+  interface MembershipAddonLimit {
+    code: string;
+    idSalesforceExternal: string;
   }
 
   interface MembershipsLimits {
