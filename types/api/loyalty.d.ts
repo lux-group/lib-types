@@ -101,7 +101,7 @@ export namespace Loyalty {
     shortName: string;
     freeUpgrades: number;
     freeLoungePasses: number;
-    addons: Array<MembershipAddonLimit>;
+    addons: Array<MembershipAddons>;
     name: string;
     link: MembershipLink;
     logos: Array<MembershipLogo>;
@@ -110,7 +110,7 @@ export namespace Loyalty {
     prices: Array<MembershipPrice>;
   }
 
-  interface MembershipAddonLimit {
+  interface MembershipAddons {
     code: string;
     idSalesforceExternal: string;
   }
