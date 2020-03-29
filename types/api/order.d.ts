@@ -54,6 +54,7 @@ export namespace Order {
     legacy_id_orders: null;
     customer_email: string;
     customer_membership_code: string;
+    customer_membership_number: number | null;
     customer_given_name: string;
     customer_surname: string;
     customer_full_name: string;
