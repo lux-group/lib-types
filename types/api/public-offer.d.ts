@@ -1,3 +1,5 @@
+import { Geo } from "./geo";
+
 export namespace PublicOffer {
   interface Link {
     href: string;
@@ -251,7 +253,7 @@ export namespace PublicOffer {
     hotel_code: null | string;
     channel_managed: boolean;
     channel_region: string;
-    geo_data: GeoData;
+    geo_data: Geo.Data;
   }
 
   interface TourLinks {
@@ -272,7 +274,7 @@ export namespace PublicOffer {
     location_description: string;
     longitude: number;
     latitude: number;
-    geo_data: GeoData;
+    geo_data: Geo.Data;
     created_at: string;
     updated_at: string;
   }
@@ -281,21 +283,6 @@ export namespace PublicOffer {
     id: string;
     content: string;
     source: string;
-  }
-
-  interface GeoData {
-    continent_code: string;
-    country: string;
-    country_code: string;
-    administrative_area_level_1: string;
-    administrative_area_level_2: string;
-    administrative_area_level_3: string;
-    administrative_area_level_4: string;
-    administrative_area_level_5: string;
-    locality: string;
-    route: string;
-    street_number: string;
-    place_id: string;
   }
 
   interface RoomTypeLinks {
