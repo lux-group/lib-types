@@ -22,7 +22,7 @@ export namespace Auth {
 
   interface LastLogin {
     ip_address: string;
-    login_date: Date;
+    login_date: string;
   }
 
   interface User {

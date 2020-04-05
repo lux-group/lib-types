@@ -26,8 +26,8 @@ export namespace Order {
     region_code: string;
     status: string;
     display_status: string;
-    created_at: Date;
-    updated_at: Date;
+    created_at: string;
+    updated_at: string;
     utm_source: string;
     utm_medium: string;
     utm_campaign: string;
@@ -164,8 +164,8 @@ export namespace Order {
     offer_package: OfferPackage;
     reservation_type: string;
     reservation_made: boolean;
-    created_at: Date;
-    updated_at: Date;
+    created_at: string;
+    updated_at: string;
     customer_can_change_dates: boolean;
     has_reservation_history: boolean;
     reservation: Reservation;
@@ -186,7 +186,7 @@ export namespace Order {
     name: string;
     location: string;
     booking_type: string;
-    book_by_date: Date;
+    book_by_date: string;
     type: string;
     image: Image;
     partnerships: OfferPartnership[];
@@ -236,8 +236,8 @@ export namespace Order {
   interface Reservation {
     id: string;
     state: string;
-    check_in: Date;
-    check_out: Date;
+    check_in: string;
+    check_out: string;
     last_name: string;
     surcharge: number;
     first_name: string;
