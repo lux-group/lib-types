@@ -25,8 +25,8 @@ export namespace Content {
     _links: Links;
     id: string;
     contentType: ContentType;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt: string;
+    updatedAt: string;
     lang: string;
     fields: Fields;
   }

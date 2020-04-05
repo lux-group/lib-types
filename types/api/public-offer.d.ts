@@ -73,10 +73,10 @@ export namespace PublicOffer {
     highlights: string;
     what_we_like: string;
     facilities: string;
-    run_date: Date;
-    end_date: Date;
-    travel_to_date: Date;
-    book_by_date: Date;
+    run_date: string;
+    end_date: string;
+    travel_to_date: string;
+    book_by_date: string;
     slug: string;
     status: string;
     panel_cloudinary_id: string;
@@ -148,8 +148,8 @@ export namespace PublicOffer {
     _links: SelfWithParentLinks;
     id: number;
     offer_id_salesforce_external: string;
-    start: Date;
-    end: Date;
+    start: string;
+    end: string;
     type: string;
     region: string;
     brand: string;
@@ -198,7 +198,7 @@ export namespace PublicOffer {
     addons: Addon[];
     partnerships: PackagePartnership[];
     memberships: PackageMembership[];
-    check_in_closes: Date;
+    check_in_closes: string;
     price: number;
     value: number;
     price_with_flights?: number;
@@ -339,8 +339,8 @@ export namespace PublicOffer {
     children: number;
     infants: number;
     legacy_id: null | string;
-    created_at: Date;
-    updated_at: Date;
+    created_at: string;
+    updated_at: string;
     room_type_id: string;
   }
 
@@ -349,8 +349,8 @@ export namespace PublicOffer {
     adults: number;
     children: number;
     infants: number;
-    created_at: Date;
-    updated_at: Date;
+    created_at: string;
+    updated_at: string;
     room_type_id: string;
   }
 
@@ -433,9 +433,9 @@ export namespace PublicOffer {
     complimentary: boolean;
     price: number;
     value: number;
-    travel_from_date: Date;
-    travel_to_date: Date;
-    book_by_date: Date;
+    travel_from_date: string;
+    travel_to_date: string;
+    book_by_date: string;
     vendor_id: string;
     vendor_booking_email: string;
     vendor_contact_phone: string;
@@ -452,14 +452,14 @@ export namespace PublicOffer {
     id: number;
     name: string;
     built_in: boolean;
-    created_at: Date;
-    updated_at: Date;
+    created_at: string;
+    updated_at: string;
     room_types_amenities: RoomTypesAmenities;
   }
 
   interface RoomTypesAmenities {
-    created_at: Date;
-    updated_at: Date;
+    created_at: string;
+    updated_at: string;
     room_type_id: string;
     amenity_id: number;
   }
