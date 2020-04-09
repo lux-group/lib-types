@@ -177,6 +177,7 @@ export namespace Order {
     name: string;
     id_salesforce_external: string;
     cvp_bonus_points: number;
+    is_downgraded: boolean;
   }
 
   interface Offer {
