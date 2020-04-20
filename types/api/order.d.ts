@@ -149,9 +149,11 @@ export namespace Order {
   }
 
   interface AccommodationItemLinks extends ItemLinks {
+    self: Link;
     voucher: Link;
-    reservation: Link;
-    offer: Link;
+    reservation?: Link;
+    downgraded_from?: Link;
+    offer?: Link;
   }
 
   interface AccommodationItem extends Item {
@@ -178,6 +180,7 @@ export namespace Order {
     id_salesforce_external: string;
     cvp_bonus_points: number;
     is_downgraded: boolean;
+    fk_downgraded_from_id: null | string;
   }
 
   interface Offer {
