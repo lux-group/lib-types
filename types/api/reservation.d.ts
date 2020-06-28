@@ -75,8 +75,8 @@ export namespace Reservation {
     size_sqm: number;
     description: string;
     availability: Availability;
-    capacities: Capacity[];
-    included_guests: Capacity[];
+    capacities: AdultChildInfant[];
+    included_guests: AdultChildInfant[];
     amenities: Amenity[];
     images: Image[];
     additional_guest_amount_description: string;
@@ -88,6 +88,7 @@ export namespace Reservation {
     max_adult_included_guests: number;
     max_child_included_guests: number;
     max_infant_included_guests: number;
+    room_rates: RoomRate[];
   }
 
   interface RoomTypeLinks {
@@ -95,6 +96,30 @@ export namespace Reservation {
     property: Link;
     availability: TemplatedLink;
     enquiry: TemplatedLink;
+  }
+
+  interface RoomRate {
+    _links: RoomRateLinks;
+    id: string;
+    rate_plan: RatePlan;
+    included_guests: AdultChildInfant[];
+  }
+
+  interface RoomRateLinks {
+    self: Link;
+    surcharges: Link;
+  }
+
+  interface RatePlan {
+    _links: RatePlanLinks;
+    id: string;
+    id_salesforce_external: string;
+    name: string;
+    default_plan: boolean;
+  }
+
+  interface RatePlanLinks {
+    self: Link;
   }
 
   interface Amenity {
@@ -108,15 +133,17 @@ export namespace Reservation {
     left: number;
   }
 
-  interface Capacity {
+  interface AdultChildInfant {
+    _links: AdultChildInfantLinks;
     id: string;
+    room_type_id: string;
     adults: number;
     children: number;
     infants: number;
-    legacy_id?: null;
-    created_at: string;
-    updated_at: string;
-    room_type_id: string;
+  }
+
+  interface AdultChildInfantLinks {
+    self: Link;
   }
 
   interface Image {
