@@ -1,4 +1,5 @@
 import { Geo } from "./geo";
+import { RoomRate } from "./reservation";
 
 export namespace PublicOffer {
   interface Link {
@@ -211,6 +212,7 @@ export namespace PublicOffer {
     errors: Errors;
     property?: Property;
     room_type?: RoomType;
+    room_rate?: RoomRate;
     tour?: Tour;
     tour_option?: TourOption;
   }
