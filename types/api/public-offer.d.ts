@@ -247,6 +247,8 @@ export namespace PublicOffer {
     address: string;
     longitude: number;
     latitude: number;
+    timezone: string;
+    timezone_offset: number;
     id_salesforce_external: string;
     logo_id_cloudinary_external: string;
     location_heading: string;
@@ -276,6 +278,8 @@ export namespace PublicOffer {
     location_description: string;
     longitude: number;
     latitude: number;
+    timezone: string;
+    timezone_offset: number;
     geo_data: Geo.Data;
     created_at: string;
     updated_at: string;
