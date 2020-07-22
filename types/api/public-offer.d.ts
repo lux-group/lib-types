@@ -76,8 +76,9 @@ export namespace PublicOffer {
     facilities: string;
     run_date: string;
     end_date: string;
-    travel_to_date: string;
-    book_by_date: string;
+    travel_from_date: null | string;
+    travel_to_date: null | string;
+    book_by_date: null | string;
     slug: string;
     status: string;
     panel_cloudinary_id: string;
