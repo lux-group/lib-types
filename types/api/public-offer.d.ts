@@ -76,6 +76,7 @@ export namespace PublicOffer {
     facilities: string;
     run_date: string;
     end_date: string;
+    exclusive_extras: null | string;
     travel_from_date: null | string;
     travel_to_date: null | string;
     book_by_date: null | string;
@@ -190,6 +191,7 @@ export namespace PublicOffer {
     unique_key: string;
     name: string;
     description: string;
+    discount_percent: null | number;
     inclusion_highlights: string;
     prices_count: number;
     qff_bonus_points: null | string;
