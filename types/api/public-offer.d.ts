@@ -71,7 +71,7 @@ export namespace PublicOffer {
     name: string;
     description: string;
     location: string;
-    highlights: string;
+    highlights: null | string;
     what_we_like: string;
     facilities: string;
     run_date: string;
