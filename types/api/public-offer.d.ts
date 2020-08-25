@@ -60,6 +60,11 @@ export namespace PublicOffer {
     total: number;
   }
 
+  interface UrgencyTag {
+    type: string;
+    message: null | string;
+  }
+
   interface Offer {
     _links: OfferLinks;
     id_salesforce_external: string;
@@ -142,6 +147,7 @@ export namespace PublicOffer {
     is_limited: boolean;
     urgency_label_type: string;
     urgency_label_text: null | string;
+    urgency_tags: UrgencyTag[];
     available_for_purchase: boolean;
     flight_origin_list: string[];
     flight_cache_active: boolean;
