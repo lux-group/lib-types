@@ -63,7 +63,7 @@ export namespace PublicOffer {
   interface UrgencyTag {
     type: string;
     message: null | string;
-  };
+  }
 
   interface Offer {
     _links: OfferLinks;

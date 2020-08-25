@@ -9,7 +9,7 @@
     "build": "rm -rf lib && tsc",
     "test": "tsc",
     "lint": "eslint types --ext .ts",
-    "lint-fix": "yarn run lint --fix",
+    "lint:fix": "yarn run lint --fix",
     "prepare": "yarn run build",
     "prepublishOnly": "yarn test && yarn run lint",
     "preversion": "yarn run lint",
