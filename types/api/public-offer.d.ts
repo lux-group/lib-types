@@ -81,7 +81,10 @@ export namespace PublicOffer {
     facilities: string;
     run_date: string;
     end_date: string;
+    hand_picked_inclusions: null | string;
+    additional_description: null | string;
     exclusive_extras: null | string;
+    exclusive_extras_large: null | string;
     travel_from_date: null | string;
     travel_to_date: null | string;
     book_by_date: null | string;
