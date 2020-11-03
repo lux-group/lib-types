@@ -185,7 +185,6 @@ export namespace Order {
 
   interface Offer {
     id_salesforce_external: string;
-    survey_link: string;
     slug: string;
     name: string;
     location: string;

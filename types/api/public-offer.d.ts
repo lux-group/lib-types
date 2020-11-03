@@ -69,7 +69,6 @@ export namespace PublicOffer {
     _links: OfferLinks;
     id_salesforce_external: string;
     le_offer_id: string;
-    survey_link: null | string;
     satisfaction_survey_link: null | string;
     type: string;
     booking_type: string;
