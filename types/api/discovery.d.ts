@@ -27,6 +27,20 @@ export namespace Discovery {
     referral_min_spend_amount: string;
     gift_card_options: number[];
     has_flights: boolean;
+    flights?: Flights;
+  }
+
+  interface FlightPort {
+    code: string;
+    name: string;
+    latitude: number;
+    longitude: number;
+  }
+
+  interface Flights {
+    departure_ports: FlightPort[];
+    destination_ports: FlightPort[];
+    main_port: string;
   }
 
   interface RegionPhone {
@@ -38,5 +52,16 @@ export namespace Discovery {
   interface RegionPhoneNumber {
     human_readable: string;
     number: string;
+  }
+
+  interface Country {
+    code: string;
+    name: string;
+    native: string;
+    phone: string;
+    continent: string;
+    capital: string;
+    currency: string;
+    languages: string[];
   }
 }
