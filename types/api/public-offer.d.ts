@@ -193,7 +193,7 @@ export namespace PublicOffer {
     value: number;
     number_of_nights: number;
     number_of_days: number;
-    prices: Price[]
+    prices: Price[];
   }
 
   interface Package {
