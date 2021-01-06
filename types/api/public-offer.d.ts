@@ -187,6 +187,15 @@ export namespace PublicOffer {
     [regionCode: string]: Schedule;
   }
 
+  interface PackageRate {
+    unique_key: string;
+    price: number;
+    value: number;
+    number_of_nights: number;
+    number_of_days: number;
+    prices: Price[]
+  }
+
   interface Package {
     _links: PackageLinks;
     fk_room_type_id: string;
@@ -202,6 +211,7 @@ export namespace PublicOffer {
     offer_id_salesforce_external: string;
     unique_key: string;
     name: string;
+    rates: PackageRate[];
     deal_option_name: string;
     description: string;
     discount_percent: null | number;
