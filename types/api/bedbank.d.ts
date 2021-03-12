@@ -2,7 +2,7 @@ export namespace Bedbank {
   interface StrObject {
     [field: string]: string;
   }
-  
+
   interface ReservationCancellationPolicy {
     currency: string;
     start: string;
@@ -55,7 +55,7 @@ export namespace Bedbank {
     bedGroup: ReservationBedGroup;
     cancellationPolicies: Array<ReservationCancellationPolicy>;
   }
-  
+
   interface Reservation {
     id: string;
     state: string;
@@ -98,25 +98,25 @@ export namespace Bedbank {
     children: number;
     infants: number;
   }
-  
+
   interface AgeCategoryResponse {
     id: string;
     name: string;
     minimumAge: number;
   }
-  
+
   interface BedGroupResponse {
     id: string;
     description: string;
   }
-  
+
   interface FacilityGroups {
     name: string;
     values: Array<{
       name: string;
     }>;
   }
-  
+
   interface RateOccupancyPricingResponse {
     exclusive: number;
     inclusive: number;
@@ -148,11 +148,11 @@ export namespace Bedbank {
     value: number;
     discount: number;
   }
-  
+
   interface ImageResponse {
     id: string | null;
   }
-  
+
   interface RoomTypeResponse {
     id: string;
     name: string;
@@ -165,7 +165,7 @@ export namespace Bedbank {
     };
     facilityGroups: Array<FacilityGroups>;
   }
-  
+
   interface PropertyAddressResponse {
     line1?: string;
     line2?: string;
@@ -177,7 +177,7 @@ export namespace Bedbank {
     countryName?: string;
     obfuscationRequired: boolean;
   }
-  
+
   interface PropertyFinePrint {
     checkIn: {
       beginTime?: string;
