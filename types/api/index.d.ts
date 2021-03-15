@@ -7,7 +7,9 @@ import { Offer } from "./offer";
 import { Order } from "./order";
 import { Payment } from "./payment";
 import { PublicOffer } from "./public-offer";
+import { PublicOfferV2 } from "./public-offer-v2";
 import { Reservation } from "./reservation";
+import { Bedbank } from "./bedbank";
 import { Wishlist } from "./wishlist";
 export {
   Auth,
@@ -19,6 +21,8 @@ export {
   Order,
   Payment,
   PublicOffer,
+  PublicOfferV2,
   Reservation,
+  Bedbank,
   Wishlist
 };
