@@ -3,11 +3,13 @@ export namespace PublicOfferV2 {
     [field: string]: string;
   }
 
+  interface FacilityGroupValues {
+    name: string;
+  }
+
   interface FacilityGroups {
     name: string;
-    values: Array<{
-      name: string;
-    }>;
+    values: Array<FacilityGroupValues>;
   }
 
   interface Image {

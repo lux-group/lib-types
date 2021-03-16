@@ -108,13 +108,16 @@ export namespace Bedbank {
   interface BedGroupResponse {
     id: string;
     description: string;
+    configuration: Configuration[];
+  }
+
+  interface FacilityGroupValues {
+    name: string;
   }
 
   interface FacilityGroups {
     name: string;
-    values: Array<{
-      name: string;
-    }>;
+    values: Array<FacilityGroupValues>;
   }
 
   interface RateOccupancyPricingResponse {
@@ -140,7 +143,7 @@ export namespace Bedbank {
     currencyCode: string;
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricingResponse>;
-    nights?: number;
+    nights: number;
     facilities: string[];
     totals: RoomRateTotalResponse;
     bedGroups: BedGroupResponse[];
@@ -150,7 +153,12 @@ export namespace Bedbank {
   }
 
   interface ImageResponse {
-    id: string | null;
+    id: string;
+  }
+
+  interface RoomTypeCapacityResponse {
+    combinations: CapacityResponse[];
+    ageCategories: AgeCategoryResponse[];
   }
 
   interface RoomTypeResponse {
@@ -159,10 +167,7 @@ export namespace Bedbank {
     description: string;
     images: ImageResponse[];
     roomRates: RoomRateResponse[];
-    capacities: {
-      combinations: CapacityResponse[];
-      ageCategories: AgeCategoryResponse[];
-    };
+    capacities: RoomTypeCapacityResponse;
     facilityGroups: Array<FacilityGroups>;
   }
 
@@ -210,6 +215,6 @@ export namespace Bedbank {
     phone: string;
     propertyFinePrint: PropertyFinePrint;
     description: string;
-    metaDescription?: string;
+    metaDescription: string;
   }
 }
