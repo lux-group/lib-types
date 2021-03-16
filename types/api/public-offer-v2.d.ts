@@ -28,6 +28,13 @@ export namespace PublicOfferV2 {
     configuration: Configuration[];
   }
 
+  interface OccupancyFee {
+    type: string;
+    amount: number;
+    scope: string;
+    frequency: string;
+  }
+
   interface RateOccupancyPricing {
     exclusive: number;
     inclusive: number;
