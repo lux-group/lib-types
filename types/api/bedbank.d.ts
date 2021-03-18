@@ -115,7 +115,7 @@ export namespace Bedbank {
     name: string;
   }
 
-  interface FacilityGroups {
+  interface FacilityGroup {
     name: string;
     values: Array<FacilityGroupValues>;
   }
@@ -168,7 +168,7 @@ export namespace Bedbank {
     images: ImageResponse[];
     roomRates: RoomRateResponse[];
     capacities: RoomTypeCapacityResponse;
-    facilityGroups: Array<FacilityGroups>;
+    facilityGroups: Array<FacilityGroup>;
   }
 
   interface PropertyAddressResponse {
@@ -208,7 +208,7 @@ export namespace Bedbank {
     roomTypes: RoomTypeResponse[];
     images: ImageResponse[];
     popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroups>;
+    facilityGroups: Array<FacilityGroup>;
     address: PropertyAddressResponse;
     attractions?: string;
     location: PropertyLocation;
