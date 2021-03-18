@@ -128,9 +128,11 @@ export namespace PublicOfferV2 {
     pets?: Array<string | undefined>;
   }
 
+  type OfferType = "bedbank_hotel";
+
   interface Offer {
     id: string;
-    type: "bedbank_hotel";
+    type: OfferType;
     name: string;
     slug: string;
     description: string;
