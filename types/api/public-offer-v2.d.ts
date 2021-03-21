@@ -128,7 +128,9 @@ export namespace PublicOfferV2 {
     pets?: Array<string | undefined>;
   }
 
-  type OfferType = "bedbank_hotel";
+  enum OfferType {
+    BedbankHotel = "bedbank_hotel"
+  }
 
   interface Offer {
     id: string;
