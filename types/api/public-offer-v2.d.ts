@@ -7,7 +7,7 @@ export namespace PublicOfferV2 {
     name: string;
   }
 
-  interface FacilityGroups {
+  interface FacilityGroup {
     name: string;
     values: Array<FacilityGroupValues>;
   }
@@ -94,7 +94,7 @@ export namespace PublicOfferV2 {
     name: string;
     description: string;
     images: Array<Image>;
-    facilityGroups: Array<FacilityGroups>;
+    facilityGroups: Array<FacilityGroup>;
     capacities: Capacity;
   }
 
@@ -128,9 +128,13 @@ export namespace PublicOfferV2 {
     pets?: Array<string | undefined>;
   }
 
+  enum OfferType {
+    BedbankHotel = "bedbank_hotel"
+  }
+
   interface Offer {
     id: string;
-    type: "bedbank_hotel";
+    type: OfferType;
     name: string;
     slug: string;
     description: string;
@@ -138,7 +142,7 @@ export namespace PublicOfferV2 {
     packages: Array<Package>;
     images: Array<Image>;
     popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroups>;
+    facilityGroups: Array<FacilityGroup>;
     property: {
       id: string;
       address: PropertyAddressResponse;
