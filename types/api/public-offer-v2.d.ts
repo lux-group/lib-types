@@ -132,6 +132,15 @@ export namespace PublicOfferV2 {
     BedbankHotel = "bedbank_hotel"
   }
 
+  interface Property {
+    id: string;
+    address: PropertyAddressResponse;
+    location: {
+      longitude: number;
+      latitude: number;
+    };
+  }
+
   interface Offer {
     id: string;
     type: OfferType;
@@ -143,14 +152,7 @@ export namespace PublicOfferV2 {
     images: Array<Image>;
     popularFacilities: Array<string>;
     facilityGroups: Array<FacilityGroup>;
-    property: {
-      id: string;
-      address: PropertyAddressResponse;
-      location: {
-        longitude: number;
-        latitude: number;
-      };
-    };
+    property: Property;
     attractions?: string;
     propertyFinePrint: PropertyFinePrint;
   }
