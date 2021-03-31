@@ -77,6 +77,7 @@ export namespace Order {
     has_membership: boolean;
     has_insurance: boolean;
     total: number;
+    user_agent: string | null;
   }
 
   type AnyItem =
