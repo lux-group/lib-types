@@ -205,6 +205,7 @@ export namespace Bedbank {
     id: string;
     name: string;
     slug: string;
+    rating: string;
     roomTypes: RoomTypeResponse[];
     images: ImageResponse[];
     popularFacilities: Array<string>;
