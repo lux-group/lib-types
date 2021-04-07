@@ -93,7 +93,6 @@ export namespace PublicOfferV2 {
     rates: Array<RoomRate>;
     name: string;
     description: string;
-    noImages: boolean;
     images: Array<Image>;
     facilityGroups: Array<FacilityGroup>;
     capacities: Capacity;

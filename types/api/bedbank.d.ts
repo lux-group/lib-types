@@ -165,7 +165,6 @@ export namespace Bedbank {
     id: string;
     name: string;
     description: string;
-    noImages: boolean;
     images: ImageResponse[];
     roomRates: RoomRateResponse[];
     capacities: RoomTypeCapacityResponse;
