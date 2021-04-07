@@ -103,6 +103,7 @@ export namespace Reservation {
     id: string;
     rate_plan: RatePlan;
     included_guests: AdultChildInfant[];
+    capacities: AdultChildInfant[];
   }
 
   interface RoomRateLinks {
@@ -110,12 +111,24 @@ export namespace Reservation {
     surcharges: Link;
   }
 
+  type CancellationPolicy =
+    | "refundable"
+    | "non-refundable"
+    | "prior-to-check-in-one-day"
+    | "prior-to-check-in-two-days"
+    | "prior-to-check-in-seven-days"
+    | "prior-to-check-in-fourteen-days"
+    | "prior-to-check-in-twenty-one-days"
+    | "prior-to-check-in-thirty-one-days"
+    | "prior-to-check-in-sixty-days";
+
   interface RatePlan {
     _links: RatePlanLinks;
     id: string;
     id_salesforce_external: string;
     name: string;
     default_plan: boolean;
+    cancellation_policy: CancellationPolicy;
   }
 
   interface RatePlanLinks {
@@ -183,6 +196,8 @@ export namespace Reservation {
     channel_manager: string;
     siteminder_channel_region: string;
     geo_data: Geo.Data;
+    max_child_age: number | null;
+    max_infant_age: number | null;
   }
 
   interface PropertyLinks {
