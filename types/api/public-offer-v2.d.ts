@@ -140,9 +140,42 @@ export namespace PublicOfferV2 {
     };
   }
 
-  interface Offer {
+  interface Schedule {
+    start: string;
+    end: string;
+  }
+
+  interface Video {
     id: string;
-    type: OfferType;
+    type: "vimeo";
+  }
+
+  interface Partnership {
+    code: string;
+  }
+
+  interface UrgencyTag {
+    type: string;
+    message: string;
+  }
+
+  interface Flight {
+    cacheDisabled: boolean;
+    destinationCode: string;
+    earliestDestinationDepartureTime: string | null;
+    latestDestinationArrivalTime: string | null;
+    prices: Record<string, number>;
+    warning: {
+      heading: string;
+      description: string;
+    } | null;
+  }
+
+  type Offer = BedbankOffer | LeOffer;
+
+  interface BedbankOffer {
+    id: string;
+    type: Extract<OfferType, "bedbank_hotel">;
     name: string;
     slug: string;
     description: string;
@@ -154,5 +187,58 @@ export namespace PublicOfferV2 {
     property: Property;
     attractions?: string;
     propertyFinePrint: PropertyFinePrint;
+    copy: {
+      description: string;
+    };
+  }
+
+  interface LeOffer {
+    id: string;
+    type: Exclude<OfferType, "bedbank_hotel">;
+    name: string;
+    slug: string;
+    copy: {
+      additionalDescription: string | null;
+      description?: string;
+      facilities: string;
+      finePrint: string;
+      gettingThere: string;
+      highlights: string;
+      whatWeLike: string;
+    };
+    packages: Array<Package>;
+    metaDescription: string;
+    images: Array<Image>;
+    popularFacilities: Array<string>;
+    facilityGroups: Array<FacilityGroup>;
+    property: Property;
+    attractions?: string;
+    propertyFinePrint: PropertyFinePrint;
+    tags: {
+      holidayTypes: Array<string>;
+      location: Array<string>;
+      urgency: Array<UrgencyTag>;
+    };
+    location: {
+      description: string;
+      heading: string;
+      subheading: string;
+    };
+    durationLabel: string;
+    insurance: { countries: Array<string> };
+    partnerships: Array<Partnership>;
+    listVisibilitySchedule: Schedule;
+    onlinePurchaseSchedule: Schedule;
+    availabilitySchedule: Schedule;
+    panelImage: Image | null;
+    video: Video | null;
+    flights: Array<Flight>;
+    shouldDisplayValue: boolean;
+    recommendationTrackingCode: unknown; // TODO: type it
+    inclusions: {
+      description: string | null;
+      tileHeading: string | null;
+      tileDescription: string | null;
+    };
   }
 }
