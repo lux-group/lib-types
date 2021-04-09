@@ -95,7 +95,6 @@ export namespace PublicOfferV2 {
     fkRoomTypeId: string;
     rates: Array<RoomRate>;
     name: string;
-    description: string;
     images: Array<Image>;
     facilityGroups: Array<FacilityGroup>;
     capacities: Capacity;
