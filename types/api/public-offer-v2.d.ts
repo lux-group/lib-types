@@ -88,15 +88,38 @@ export namespace PublicOfferV2 {
     }>;
   }
 
-  interface Package {
+  type Package = LePackage | BedbankPackage;
+
+  interface LePackage {
+    id: string;
     fkRoomTypeId: string;
     rates: Array<RoomRate>;
     name: string;
     description: string;
-    noImages: boolean;
     images: Array<Image>;
     facilityGroups: Array<FacilityGroup>;
     capacities: Capacity;
+    inclusions: { description: string; bonus: string[] };
+    includedGuestsLabel: string;
+    sortOrder: number;
+    copy: {
+      description: string;
+    };
+  }
+
+  interface BedbankPackage {
+    fkRoomTypeId: string;
+    rates: Array<RoomRate>;
+    name: string;
+    description: string;
+    images: Array<Image>;
+    facilityGroups: Array<FacilityGroup>;
+    capacities: Capacity;
+  }
+
+  interface RoomType {
+    name: string;
+    images: Image[];
   }
 
   interface PropertyAddressResponse {
@@ -153,6 +176,8 @@ export namespace PublicOfferV2 {
 
   interface Partnership {
     code: string;
+    prefix: string;
+    upsellText: string | null;
   }
 
   interface UrgencyTag {
@@ -172,7 +197,7 @@ export namespace PublicOfferV2 {
     } | null;
   }
 
-  type Offer = BedbankOffer | LeOffer;
+  type Offer = LeOffer | BedbankOffer;
 
   interface BedbankOffer {
     id: string;
