@@ -129,7 +129,8 @@ export namespace PublicOfferV2 {
     pets?: Array<string | undefined>;
   }
 
-  type OfferType = "bedbank_hotel" | "hotel";
+  type OfferType = "bedbank_hotel" | "hotel" | "last_minute_hotel" | "tactical_ao_hotel";
+  type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
 
   interface Property {
     id: string;
@@ -194,7 +195,7 @@ export namespace PublicOfferV2 {
 
   interface LeOffer {
     id: string;
-    type: Exclude<OfferType, "bedbank_hotel">;
+    type: LeOfferType;
     name: string;
     slug: string;
     copy: {
@@ -207,7 +208,6 @@ export namespace PublicOfferV2 {
       whatWeLike: string;
     };
     packages: Array<Package>;
-    metaDescription: string;
     images: Array<Image>;
     popularFacilities: Array<string>;
     facilityGroups: Array<FacilityGroup>;
