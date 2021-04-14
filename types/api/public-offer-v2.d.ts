@@ -280,7 +280,6 @@ export namespace PublicOfferV2 {
     facilityGroups: Array<FacilityGroup>;
     property: Property;
     attractions?: string;
-    propertyFinePrint: PropertyFinePrint;
     tags: {
       holidayTypes: Array<string>;
       location: Array<string>;
