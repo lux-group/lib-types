@@ -74,6 +74,17 @@ export namespace PublicOfferV2 {
     extraGuestSurcharges: Surcharges[];
   }
 
+  type LeCancellationPolicyType =
+    | "refundable"
+    | "non-refundable"
+    | "prior-to-check-in-one-day"
+    | "prior-to-check-in-two-days"
+    | "prior-to-check-in-seven-days"
+    | "prior-to-check-in-fourteen-days"
+    | "prior-to-check-in-twenty-one-days"
+    | "prior-to-check-in-thirty-one-days"
+    | "prior-to-check-in-sixty-days";
+
   interface RatePlan {
     id: string;
     cancellationPolicy: {
