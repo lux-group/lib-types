@@ -69,7 +69,7 @@ export namespace PublicOfferV2 {
   interface RoomRate {
     id: string;
     capacities: Occupancy[];
-    ageCategories: AgeCategory[];
+    ageCategories: LeAgeCategory[];
     includedGuests: Occupancy[];
     extraGuestSurcharges: Surcharges[];
   }
@@ -117,14 +117,19 @@ export namespace PublicOfferV2 {
     discount: number;
   }
 
-  interface AgeCategory {
+  interface BedbankAgeCategory {
+    name: "Adult" | "ChildAgeA" | "Infant";
+    minimumAge: number;
+  }
+
+  interface LeAgeCategory {
     name: "Adult" | "Child" | "Infant";
     minimumAge: number;
   }
 
-  interface Capacity {
+  interface BedbankCapacity {
     combinations: Array<Occupancy>;
-    ageCategories: Array<AgeCategory>;
+    ageCategories: Array<BedbankAgeCategory>;
   }
 
   interface Occupancy {
@@ -152,7 +157,7 @@ export namespace PublicOfferV2 {
     description: string;
     images: Array<Image>;
     facilityGroups: Array<FacilityGroup>;
-    capacities: Capacity;
+    capacities: BedbankCapacity;
   }
 
   interface RoomType {
