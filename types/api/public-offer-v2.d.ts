@@ -101,7 +101,7 @@ export namespace PublicOfferV2 {
     discount: number;
   }
 
-  interface BedbankOption {
+  interface BedbankRate {
     id: string;
     refundable: boolean;
     regionCode: string;
@@ -147,7 +147,7 @@ export namespace PublicOfferV2 {
 
   interface BedbankPackage {
     fkRoomTypeId: string;
-    rates: Array<BedbankOption>;
+    rates: Array<BedbankRate>;
     name: string;
     description: string;
     images: Array<Image>;
