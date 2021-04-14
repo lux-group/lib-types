@@ -86,8 +86,6 @@ export namespace PublicOfferV2 {
     };
   }
 
-  type Option = LeOption | BedbankOption;
-
   interface LeOption {
     id: string;
     fkRoomRateId: string;
@@ -134,8 +132,6 @@ export namespace PublicOfferV2 {
     children: number;
     infants: number;
   }
-
-  type Package = LePackage | BedbankPackage;
 
   interface LePackage {
     id: string;
