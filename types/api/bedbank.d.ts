@@ -101,7 +101,7 @@ export namespace Bedbank {
 
   interface AgeCategoryResponse {
     id: string;
-    name: string;
+    name: "Adult" | "ChildAgeA" | "Infant";
     minimumAge: number;
   }
 

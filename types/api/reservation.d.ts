@@ -98,12 +98,23 @@ export namespace Reservation {
     enquiry: TemplatedLink;
   }
 
+  interface Surcharges {
+    currency: string;
+    adult_cost: number;
+    child_cost: number;
+    infant_cost: number;
+    adult_amount: number;
+    child_amount: number;
+    infant_amount: number;
+  }
+
   interface RoomRate {
     _links: RoomRateLinks;
     id: string;
     rate_plan: RatePlan;
     included_guests: AdultChildInfant[];
     capacities: AdultChildInfant[];
+    extra_guest_surcharges: Surcharges[];
   }
 
   interface RoomRateLinks {
@@ -129,6 +140,7 @@ export namespace Reservation {
     name: string;
     default_plan: boolean;
     cancellation_policy: CancellationPolicy;
+    cancellation_policy_detail?: Array<string>;
   }
 
   interface RatePlanLinks {

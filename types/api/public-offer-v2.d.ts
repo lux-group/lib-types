@@ -53,21 +53,64 @@ export namespace PublicOfferV2 {
     nights?: number;
   }
 
-  interface RoomRateTotal {
+  interface RateTotal {
     exclusive: number;
     inclusive: number;
     taxesAndFees: number;
     propertyFees?: number;
   }
 
+  interface Surcharges {
+    adultAmount: number;
+    childAmount: number;
+    infantAmount: number;
+  }
+
   interface RoomRate {
+    id: string;
+    capacities: Occupancy[];
+    ageCategories: AgeCategory[];
+    includedGuests: Occupancy[];
+    extraGuestSurcharges: Surcharges[];
+  }
+
+  interface RatePlan {
+    id: string;
+    cancellationPolicy: {
+      type: LeCancellationPolicyType;
+      description: Array<string>;
+    };
+    inclusions: {
+      bonus: string;
+      description: string;
+    };
+  }
+
+  type Option = LeOption | BedbankOption;
+
+  interface LeOption {
+    id: string;
+    fkRoomRateId: string;
+    fkRoomTypeId: string;
+    fkRatePlanId: string;
+    fkPackageId: string;
+    name: string;
+    totals: RateTotal;
+    nights: number;
+    value: number;
+    currencyCode: string;
+    price: number;
+    discount: number;
+  }
+
+  interface BedbankOption {
     id: string;
     refundable: boolean;
     regionCode: string;
     currencyCode: string;
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricing>;
-    totals: RoomRateTotal;
+    totals: RateTotal;
     nights: number;
     facilities: string[];
     bedGroups: Array<BedGroup>;
@@ -76,16 +119,20 @@ export namespace PublicOfferV2 {
     discount: number;
   }
 
+  interface AgeCategory {
+    name: "Adult" | "Child" | "Infant";
+    minimumAge: number;
+  }
+
   interface Capacity {
-    combinations: Array<{
-      adults: number;
-      children: number;
-      infants: number;
-    }>;
-    ageCategories: Array<{
-      name: string;
-      minimumAge: number;
-    }>;
+    combinations: Array<Occupancy>;
+    ageCategories: Array<AgeCategory>;
+  }
+
+  interface Occupancy {
+    adults: number;
+    children: number;
+    infants: number;
   }
 
   type Package = LePackage | BedbankPackage;
@@ -93,11 +140,7 @@ export namespace PublicOfferV2 {
   interface LePackage {
     id: string;
     fkRoomTypeId: string;
-    rates: Array<RoomRate>;
     name: string;
-    images: Array<Image>;
-    facilityGroups: Array<FacilityGroup>;
-    capacities: Capacity;
     inclusions: { description: string; bonus: string[] };
     includedGuestsLabel: string;
     sortOrder: number;
@@ -108,7 +151,7 @@ export namespace PublicOfferV2 {
 
   interface BedbankPackage {
     fkRoomTypeId: string;
-    rates: Array<RoomRate>;
+    rates: Array<BedbankOption>;
     name: string;
     description: string;
     images: Array<Image>;
@@ -117,6 +160,7 @@ export namespace PublicOfferV2 {
   }
 
   interface RoomType {
+    id: string;
     name: string;
     images: Image[];
   }
@@ -151,7 +195,11 @@ export namespace PublicOfferV2 {
     pets?: Array<string | undefined>;
   }
 
-  type OfferType = "bedbank_hotel" | "hotel" | "last_minute_hotel" | "tactical_ao_hotel";
+  type OfferType =
+    | "bedbank_hotel"
+    | "hotel"
+    | "last_minute_hotel"
+    | "tactical_ao_hotel";
   type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
 
   interface Property {
@@ -205,7 +253,7 @@ export namespace PublicOfferV2 {
     slug: string;
     description: string;
     metaDescription: string;
-    packages: Array<Package>;
+    packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
     facilityGroups: Array<FacilityGroup>;
@@ -231,7 +279,6 @@ export namespace PublicOfferV2 {
       highlights: string;
       whatWeLike: string;
     };
-    packages: Array<Package>;
     images: Array<Image>;
     popularFacilities: Array<string>;
     facilityGroups: Array<FacilityGroup>;
@@ -251,9 +298,11 @@ export namespace PublicOfferV2 {
     durationLabel: string;
     insurance: { countries: Array<string> };
     partnerships: Array<Partnership>;
-    listVisibilitySchedule: Schedule;
-    onlinePurchaseSchedule: Schedule;
-    availabilitySchedule: Schedule;
+    schedules: {
+      listVisibility: Schedule;
+      onlinePurchase: Schedule;
+      availability: Schedule;
+    };
     panelImage: Image | null;
     video: Video | null;
     flights: Array<Flight>;
@@ -264,5 +313,10 @@ export namespace PublicOfferV2 {
       tileHeading: string | null;
       tileDescription: string | null;
     };
+    roomRates: Record<string, RoomRate>;
+    ratePlans: Record<string, RatePlan>;
+    roomTypes: Record<string, RoomType>;
+    packages: Record<string, LePackage>;
+    options: Array<LeOption>;
   }
 }
