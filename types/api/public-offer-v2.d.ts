@@ -53,21 +53,73 @@ export namespace PublicOfferV2 {
     nights?: number;
   }
 
-  interface RoomRateTotal {
+  interface RateTotal {
     exclusive: number;
     inclusive: number;
     taxesAndFees: number;
     propertyFees?: number;
   }
 
+  interface Surcharges {
+    adultAmount: number;
+    childAmount: number;
+    infantAmount: number;
+  }
+
   interface RoomRate {
+    id: string;
+    capacities: Occupancy[];
+    ageCategories: LeAgeCategory[];
+    includedGuests: Occupancy[];
+    extraGuestSurcharges: Surcharges[];
+  }
+
+  type LeCancellationPolicyType =
+    | "refundable"
+    | "non-refundable"
+    | "prior-to-check-in-one-day"
+    | "prior-to-check-in-two-days"
+    | "prior-to-check-in-seven-days"
+    | "prior-to-check-in-fourteen-days"
+    | "prior-to-check-in-twenty-one-days"
+    | "prior-to-check-in-thirty-one-days"
+    | "prior-to-check-in-sixty-days";
+
+  interface RatePlan {
+    id: string;
+    cancellationPolicy: {
+      type: LeCancellationPolicyType;
+      description: Array<string>;
+    };
+    inclusions: {
+      bonus: string;
+      description: string;
+    };
+  }
+
+  interface LeOption {
+    id: string;
+    fkRoomRateId: string;
+    fkRoomTypeId: string;
+    fkRatePlanId: string;
+    fkPackageId: string;
+    name: string;
+    totals: RateTotal;
+    nights: number;
+    value: number;
+    currencyCode: string;
+    price: number;
+    discount: number;
+  }
+
+  interface BedbankRate {
     id: string;
     refundable: boolean;
     regionCode: string;
     currencyCode: string;
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricing>;
-    totals: RoomRateTotal;
+    totals: RateTotal;
     nights: number;
     facilities: string[];
     bedGroups: Array<BedGroup>;
@@ -76,26 +128,53 @@ export namespace PublicOfferV2 {
     discount: number;
   }
 
-  interface Capacity {
-    combinations: Array<{
-      adults: number;
-      children: number;
-      infants: number;
-    }>;
-    ageCategories: Array<{
-      name: string;
-      minimumAge: number;
-    }>;
+  interface BedbankAgeCategory {
+    name: "Adult" | "ChildAgeA" | "Infant";
+    minimumAge: number;
   }
 
-  interface Package {
+  interface LeAgeCategory {
+    name: "Adult" | "Child" | "Infant";
+    minimumAge: number;
+  }
+
+  interface BedbankCapacity {
+    combinations: Array<Occupancy>;
+    ageCategories: Array<BedbankAgeCategory>;
+  }
+
+  interface Occupancy {
+    adults: number;
+    children: number;
+    infants: number;
+  }
+
+  interface LePackage {
+    id: string;
     fkRoomTypeId: string;
-    rates: Array<RoomRate>;
+    name: string;
+    inclusions: { description: string; bonus: string[] };
+    includedGuestsLabel: string;
+    sortOrder: number;
+    copy: {
+      description: string;
+    };
+  }
+
+  interface BedbankPackage {
+    fkRoomTypeId: string;
+    rates: Array<BedbankRate>;
     name: string;
     description: string;
     images: Array<Image>;
     facilityGroups: Array<FacilityGroup>;
-    capacities: Capacity;
+    capacities: BedbankCapacity;
+  }
+
+  interface RoomType {
+    id: string;
+    name: string;
+    images: Image[];
   }
 
   interface PropertyAddressResponse {
@@ -128,7 +207,12 @@ export namespace PublicOfferV2 {
     pets?: Array<string | undefined>;
   }
 
-  type OfferType = "bedbank_hotel" | "hotel";
+  type OfferType =
+    | "bedbank_hotel"
+    | "hotel"
+    | "last_minute_hotel"
+    | "tactical_ao_hotel";
+  type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
 
   interface Property {
     id: string;
@@ -139,19 +223,111 @@ export namespace PublicOfferV2 {
     };
   }
 
-  interface Offer {
+  interface Schedule {
+    start: string;
+    end: string;
+  }
+
+  interface Video {
     id: string;
-    type: OfferType;
+    type: "vimeo";
+  }
+
+  interface Partnership {
+    code: string;
+    prefix: string;
+    upsellText: string | null;
+  }
+
+  interface UrgencyTag {
+    type: string;
+    message: string;
+  }
+
+  interface Flight {
+    cacheDisabled: boolean;
+    destinationCode: string;
+    earliestDestinationDepartureTime: string | null;
+    latestDestinationArrivalTime: string | null;
+    prices: Record<string, number>;
+    warning: {
+      heading: string;
+      description: string;
+    } | null;
+  }
+
+  type Offer = LeOffer | BedbankOffer;
+
+  interface BedbankOffer {
+    id: string;
+    type: Extract<OfferType, "bedbank_hotel">;
     name: string;
     slug: string;
     description: string;
     metaDescription: string;
-    packages: Array<Package>;
+    packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
     facilityGroups: Array<FacilityGroup>;
     property: Property;
     attractions?: string;
     propertyFinePrint: PropertyFinePrint;
+    copy: {
+      description: string;
+    };
+  }
+
+  interface LeOffer {
+    id: string;
+    type: LeOfferType;
+    name: string;
+    slug: string;
+    copy: {
+      additionalDescription: string | null;
+      description?: string;
+      facilities: string;
+      finePrint: string;
+      gettingThere: string;
+      highlights: string;
+      whatWeLike: string;
+    };
+    images: Array<Image>;
+    popularFacilities: Array<string>;
+    facilityGroups: Array<FacilityGroup>;
+    property: Property;
+    attractions?: string;
+    tags: {
+      holidayTypes: Array<string>;
+      location: Array<string>;
+      urgency: Array<UrgencyTag>;
+    };
+    location: {
+      description: string;
+      heading: string;
+      subheading: string;
+    };
+    durationLabel: string;
+    insurance: { countries: Array<string> };
+    partnerships: Array<Partnership>;
+    schedules: {
+      listVisibility: Schedule;
+      onlinePurchase: Schedule;
+      availability: Schedule;
+    };
+    panelImage: Image | null;
+    video: Video | null;
+    flights: Array<Flight>;
+    shouldDisplayValue: boolean;
+    recommendationTrackingCode: unknown; // TODO: type it
+    inclusions: {
+      description: string | null;
+      tileHeading: string | null;
+      tileDescription: string | null;
+    };
+    roomRates: Record<string, RoomRate>;
+    ratePlans: Record<string, RatePlan>;
+    roomTypes: Record<string, RoomType>;
+    packages: Record<string, LePackage>;
+    options: Array<LeOption>;
   }
 }
