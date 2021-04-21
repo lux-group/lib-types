@@ -99,7 +99,7 @@ export namespace PublicOfferV2 {
     };
   }
 
-  type Option = LeOption | BedbankOption;
+  type Option = LeOption | BedbankRate;
 
   interface LeOption {
     id: string;
