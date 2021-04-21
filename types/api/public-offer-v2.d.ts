@@ -342,7 +342,10 @@ export namespace PublicOfferV2 {
   interface LeOptions {
     offerType: LeOfferType;
     options: Array<LeOption>;
+    roomRates: Record<string, RoomRate>;
+    ratePlans: Record<string, RatePlan>;
     roomTypes: Record<string, RoomType>;
+    packages: Record<string, LePackage>;
   }
 
   interface BedbankOptions {
