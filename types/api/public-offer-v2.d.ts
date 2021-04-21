@@ -1,3 +1,5 @@
+import { API } from "..";
+
 export namespace PublicOfferV2 {
   interface StrObject {
     [field: string]: string;
@@ -97,6 +99,8 @@ export namespace PublicOfferV2 {
     };
   }
 
+  type Option = LeOption | BedbankOption;
+
   interface LeOption {
     id: string;
     fkRoomRateId: string;
@@ -148,6 +152,8 @@ export namespace PublicOfferV2 {
     children: number;
     infants: number;
   }
+
+  type Package = LePackage | BedbankPackage;
 
   interface LePackage {
     id: string;
@@ -212,7 +218,9 @@ export namespace PublicOfferV2 {
     | "hotel"
     | "last_minute_hotel"
     | "tactical_ao_hotel";
+
   type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
+  type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
 
   interface Property {
     id: string;
@@ -260,7 +268,7 @@ export namespace PublicOfferV2 {
 
   interface BedbankOffer {
     id: string;
-    type: Extract<OfferType, "bedbank_hotel">;
+    type: BedbankOfferType;
     name: string;
     slug: string;
     description: string;
@@ -329,5 +337,80 @@ export namespace PublicOfferV2 {
     roomTypes: Record<string, RoomType>;
     packages: Record<string, LePackage>;
     options: Array<LeOption>;
+  }
+
+  interface LeOptions {
+    offerType: LeOfferType;
+    options: Array<LeOption>;
+    roomTypes: Record<string, RoomType>;
+  }
+
+  interface BedbankOptions {
+    offerType: BedbankOfferType;
+    options: Array<BedbankRate>;
+    roomTypes: Record<string, API.Bedbank.RoomTypeResponse>;
+  }
+
+  type Options = LeOptions | BedbankOptions;
+
+  interface GetOfferQueryParams {
+    occupancy: Array<string> | string;
+    checkIn: string;
+    checkOut: string;
+    medium?: string;
+    region?: string;
+    brand?: string;
+    offerType?: OfferType;
+    flightOrigin?: string;
+  }
+
+  interface GetOffersQueryParams {
+    offerIds: string;
+    occupancy: Array<string> | string;
+    checkIn: string;
+    checkOut: string;
+    medium?: string;
+    region?: string;
+    brand?: string;
+    offerType?: OfferType;
+    flightOrigin?: string;
+  }
+
+  interface GetOptionsQueryParams {
+    occupancy: string;
+    checkIn: string;
+    checkOut: string;
+    medium: string;
+    region: string;
+    brand: string;
+    flightOrigin?: string;
+  }
+
+  interface GetOptionsPathParams {
+    id: string;
+  }
+
+  interface GetOptionsResponseBody {
+    status: 200;
+    message: null;
+    result: Options;
+  }
+
+  interface GetOfferListQueryParams {
+    placeIds: string[];
+    occupancy: Array<string> | string;
+    checkIn: string;
+    checkOut: string;
+    medium?: string;
+    region?: string;
+    brand?: string;
+    offerType?: OfferType;
+    flightOrigin?: string;
+  }
+
+  interface GetOfferResponseBody {
+    status: 200;
+    message: null;
+    result: Offer;
   }
 }
