@@ -1,4 +1,4 @@
-import { API } from "..";
+import { Bedbank } from "./bedbank";
 
 export namespace PublicOfferV2 {
   interface StrObject {
@@ -351,7 +351,7 @@ export namespace PublicOfferV2 {
   interface BedbankOptions {
     offerType: BedbankOfferType;
     options: Array<BedbankRate>;
-    roomTypes: Record<string, API.Bedbank.RoomTypeResponse>;
+    roomTypes: Record<string, Bedbank.RoomTypeResponse>;
   }
 
   type Options = LeOptions | BedbankOptions;
