@@ -360,7 +360,6 @@ export namespace PublicOfferV2 {
     occupancy: Array<string> | string;
     checkIn: string;
     checkOut: string;
-    medium?: string;
     region?: string;
     brand?: string;
     offerType?: OfferType;
@@ -372,7 +371,6 @@ export namespace PublicOfferV2 {
     occupancy: Array<string> | string;
     checkIn: string;
     checkOut: string;
-    medium?: string;
     region?: string;
     brand?: string;
     offerType?: OfferType;
@@ -383,7 +381,6 @@ export namespace PublicOfferV2 {
     occupancy: string;
     checkIn: string;
     checkOut: string;
-    medium: string;
     region: string;
     brand: string;
     flightOrigin?: string;
@@ -404,7 +401,6 @@ export namespace PublicOfferV2 {
     occupancy: Array<string> | string;
     checkIn: string;
     checkOut: string;
-    medium?: string;
     region?: string;
     brand?: string;
     offerType?: OfferType;
