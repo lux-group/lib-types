@@ -71,7 +71,6 @@ export namespace PublicOfferV2 {
   interface RoomRate {
     id: string;
     capacities: Occupancy[];
-    ageCategories: LeAgeCategory[];
     includedGuests: Occupancy[];
     extraGuestSurcharges: Surcharges[];
   }
@@ -222,6 +221,27 @@ export namespace PublicOfferV2 {
   type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
   type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
 
+  interface Review {
+    id: string;
+    source: string;
+    content: string;
+  }
+
+  interface GeoData {
+    continentCode: string;
+    country: string;
+    countryCode: string;
+    locality: string;
+    route: string;
+    streetNumber: string;
+    administrativeAreaLevel1: string;
+    administrativeAreaLevel2: string;
+    administrativeAreaLevel3: string;
+    administrativeAreaLevel4: string;
+    administrativeAreaLevel5: string;
+    placeId: string;
+  }
+
   interface Property {
     id: string;
     address: PropertyAddressResponse;
@@ -235,6 +255,14 @@ export namespace PublicOfferV2 {
     id: string;
     address: string;
     logo: Image;
+    name: string;
+    timezone: string;
+    timezoneOffset: number;
+    childrenPolicy: string;
+    ageCategories: LeAgeCategory[];
+    taxAndFeesContent: string;
+    reviews: Review[];
+    geoData: GeoData;
     location: {
       longitude: number;
       latitude: number;
