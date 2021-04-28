@@ -108,12 +108,12 @@ export namespace PublicOfferV2 {
     fkRatePlanId: string;
     fkPackageId: string;
     name: string;
-    totals: RateTotal;
+    totals?: RateTotal;
     nights: number;
-    value: number;
+    value?: number;
     currencyCode: string;
-    price: number;
-    discount: number;
+    price?: number;
+    discount?: number;
   }
 
   interface BedbankRate {
@@ -231,6 +231,16 @@ export namespace PublicOfferV2 {
     };
   }
 
+  interface LeProperty {
+    id: string;
+    address: string;
+    logo: Image;
+    location: {
+      longitude: number;
+      latitude: number;
+    };
+  }
+
   interface Schedule {
     start: string;
     end: string;
@@ -302,7 +312,7 @@ export namespace PublicOfferV2 {
     images: Array<Image>;
     popularFacilities: Array<string>;
     facilityGroups: Array<FacilityGroup>;
-    property: Property;
+    property: LeProperty;
     attractions?: string;
     tags: {
       holidayTypes: Array<string>;
