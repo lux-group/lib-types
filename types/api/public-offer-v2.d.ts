@@ -260,7 +260,7 @@ export namespace PublicOfferV2 {
     timezoneOffset: number;
     childrenPolicy: string;
     ageCategories: LeAgeCategory[];
-    taxAndFeesContent: string;
+    taxAndFeesContent?: string;
     reviews: Review[];
     geoData: GeoData;
     location: {
