@@ -1,28 +1,14 @@
-import { Auth } from "./auth";
-import { Content } from "./content";
-import { Discovery } from "./discovery";
-import { Flights } from "./flights";
-import { Loyalty } from "./loyalty";
-import { Offer } from "./offer";
-import { Order } from "./order";
-import { Payment } from "./payment";
-import { PublicOffer } from "./public-offer";
-import { PublicOfferV2 } from "./public-offer-v2";
-import { Reservation } from "./reservation";
-import { Bedbank } from "./bedbank";
-import { Wishlist } from "./wishlist";
-export {
-  Auth,
-  Content,
-  Discovery,
-  Flights,
-  Loyalty,
-  Offer,
-  Order,
-  Payment,
-  PublicOffer,
-  PublicOfferV2,
-  Reservation,
-  Bedbank,
-  Wishlist
-};
+export { Auth } from "./auth";
+export { Content } from "./content";
+export { Discovery } from "./discovery";
+export { Flights } from "./flights";
+export { Geo } from "./geo";
+export { Loyalty } from "./loyalty";
+export { Offer } from "./offer";
+export { Order } from "./order";
+export { Payment } from "./payment";
+export { PublicOffer } from "./public-offer";
+export { PublicOfferV2 } from "./public-offer-v2";
+export { Reservation } from "./reservation";
+export { Bedbank } from "./bedbank";
+export { Wishlist } from "./wishlist";

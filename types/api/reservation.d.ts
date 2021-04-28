@@ -210,6 +210,9 @@ export namespace Reservation {
     geo_data: Geo.Data;
     max_child_age: number | null;
     max_infant_age: number | null;
+    timezone: string;
+    timezone_offset: number;
+    taxes_and_fees_content?: string;
   }
 
   interface PropertyLinks {
