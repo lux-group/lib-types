@@ -93,7 +93,7 @@ export namespace PublicOfferV2 {
       description: Array<string>;
     };
     inclusions: {
-      bonus: string;
+      bonus: string[];
       description: string;
     };
   }
@@ -108,11 +108,12 @@ export namespace PublicOfferV2 {
     fkPackageId: string;
     name: string;
     totals?: RateTotal;
-    nights: number;
+    duration: number;
     value?: number;
     currencyCode: string;
     price?: number;
     discount?: number;
+    trackingPrice: number;
   }
 
   interface BedbankRate {
@@ -123,7 +124,8 @@ export namespace PublicOfferV2 {
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricing>;
     totals: RateTotal;
-    nights: number;
+    nights: number; // TODO: Remove
+    duration: number;
     facilities: string[];
     bedGroups: Array<BedGroup>;
     value: number;
@@ -161,8 +163,10 @@ export namespace PublicOfferV2 {
     inclusions: { description: string; bonus: string[] };
     includedGuestsLabel: string;
     sortOrder: number;
+    partnerships: PackagePartnership[];
     copy: {
       description: string;
+      roomPolicyDescription?: string;
     };
   }
 
@@ -176,10 +180,20 @@ export namespace PublicOfferV2 {
     capacities: BedbankCapacity;
   }
 
+  interface AmenityGroup {
+    name: string;
+    values: Array<FacilityGroupValues>;
+  }
+
   interface RoomType {
     id: string;
     name: string;
     images: Image[];
+    description: string;
+    amenityGroups: AmenityGroup[];
+    additionalGuestAmountDescription: string;
+    sizeSqm: number;
+    inclusions: unknown;
   }
 
   interface PropertyAddressResponse {
@@ -282,7 +296,18 @@ export namespace PublicOfferV2 {
   interface Partnership {
     code: string;
     prefix: string;
-    upsellText: string | null;
+    upsellText?: string;
+  }
+
+  interface PackagePartnership {
+    code: string;
+    prefix: string;
+    upsellText?: string;
+    bonusPoints: number;
+    bonusDescription?: string;
+    rewardCurrency: CurrencyCode;
+    rewardConversion: number;
+    localRewardConversionRate: number;
   }
 
   interface UrgencyTag {
@@ -293,13 +318,13 @@ export namespace PublicOfferV2 {
   interface Flight {
     cacheDisabled: boolean;
     destinationCode: string;
-    earliestDestinationDepartureTime: string | null;
-    latestDestinationArrivalTime: string | null;
+    earliestDestinationDepartureTime: string?;
+    latestDestinationArrivalTime: string?;
     prices: Record<string, number>;
-    warning: {
+    warning?: {
       heading: string;
       description: string;
-    } | null;
+    };
   }
 
   type Offer = LeOffer | BedbankOffer;
@@ -314,7 +339,8 @@ export namespace PublicOfferV2 {
     packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroup>;
+    facilityGroups: Array<FacilityGroup>; // TODO: Remove
+    amenityGroups: Array<FacilityGroup>;
     property: Property;
     attractions?: string;
     propertyFinePrint: PropertyFinePrint;
@@ -329,7 +355,7 @@ export namespace PublicOfferV2 {
     name: string;
     slug: string;
     copy: {
-      additionalDescription: string | null;
+      additionalDescription?: string;
       description?: string;
       facilities: string;
       finePrint: string;
@@ -338,8 +364,6 @@ export namespace PublicOfferV2 {
       whatWeLike: string;
     };
     images: Array<Image>;
-    popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroup>;
     property: LeProperty;
     attractions?: string;
     tags: {
@@ -360,15 +384,18 @@ export namespace PublicOfferV2 {
       onlinePurchase: Schedule;
       availability: Schedule;
     };
-    panelImage: Image | null;
-    video: Video | null;
+    panelImage?: Image;
+    video?: Video;
     flights: Array<Flight>;
     shouldDisplayValue: boolean;
     recommendationTrackingCode: unknown; // TODO: type it
+    saleUnit: string;
+    noIndex: boolean;
+    daysBeforeCheckInChangesDisallowed: number;
     inclusions: {
-      description: string | null;
-      tileHeading: string | null;
-      tileDescription: string | null;
+      description?: string;
+      tileHeading?: string;
+      tileDescription?: string;
     };
     roomRates: Record<string, RoomRate>;
     ratePlans: Record<string, RatePlan>;
