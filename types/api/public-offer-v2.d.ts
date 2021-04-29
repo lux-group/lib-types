@@ -305,7 +305,7 @@ export namespace PublicOfferV2 {
     upsellText?: string;
     bonusPoints: number;
     bonusDescription?: string;
-    rewardCurrency: CurrencyCode;
+    rewardCurrency: string;
     rewardConversion: number;
     localRewardConversionRate: number;
   }
@@ -318,8 +318,8 @@ export namespace PublicOfferV2 {
   interface Flight {
     cacheDisabled: boolean;
     destinationCode: string;
-    earliestDestinationDepartureTime: string?;
-    latestDestinationArrivalTime: string?;
+    earliestDestinationDepartureTime?: string;
+    latestDestinationArrivalTime?: string;
     prices: Record<string, number>;
     warning?: {
       heading: string;
