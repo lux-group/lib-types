@@ -124,7 +124,7 @@ export namespace PublicOfferV2 {
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricing>;
     totals: RateTotal;
-    nights: number; // TODO: Remove
+    nights: number; // TODO: Remove as part of TBB-111
     duration: number;
     facilities: string[];
     bedGroups: Array<BedGroup>;
@@ -339,8 +339,8 @@ export namespace PublicOfferV2 {
     packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroup>; // TODO: Remove
-    amenityGroups: Array<FacilityGroup>;
+    facilityGroups: Array<FacilityGroup>; // TODO: Remove as part of TBB-111
+    amenityGroups?: Array<FacilityGroup>; // TODO: Change to mandatory as part of TBB-111
     property: Property;
     attractions?: string;
     propertyFinePrint: PropertyFinePrint;
