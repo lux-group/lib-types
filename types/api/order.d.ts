@@ -6,6 +6,7 @@ export namespace Order {
   interface OrderLinks {
     self: Link;
     payments: Link;
+    refunds: Link;
     status: Link;
   }
 
@@ -264,5 +265,20 @@ export namespace Order {
     account_id: string;
     first_name: string;
     last_name: string;
+  }
+
+  interface Refund {
+    item_id: string;
+    amount: string;
+    refund_method: string;
+    created_at: string;
+    refund_fee: string;
+    accounting_amount: string;
+  }
+
+  interface RefundResult {
+    message: string;
+    status: number;
+    result: Refund[];
   }
 }
