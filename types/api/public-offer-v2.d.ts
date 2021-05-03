@@ -193,7 +193,7 @@ export namespace PublicOfferV2 {
     amenityGroups: AmenityGroup[];
     additionalGuestAmountDescription: string;
     sizeSqm: number;
-    inclusions: unknown;
+    inclusions: string;
   }
 
   interface PropertyAddressResponse {

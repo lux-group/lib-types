@@ -142,6 +142,7 @@ export namespace Reservation {
     default_plan: boolean;
     cancellation_policy: CancellationPolicy;
     cancellation_policy_detail?: Array<string>;
+    inclusions: string | null;
   }
 
   interface RatePlanLinks {
