@@ -113,7 +113,7 @@ export namespace PublicOfferV2 {
     currencyCode: string;
     price?: number;
     discount?: number;
-    trackingPrice: number;
+    trackingPrice?: number;
   }
 
   interface BedbankRate {
