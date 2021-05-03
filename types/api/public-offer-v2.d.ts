@@ -93,7 +93,7 @@ export namespace PublicOfferV2 {
       description: Array<string>;
     };
     inclusions: {
-      bonus: string[];
+      bonus: BonusInclusion[];
       description?: string;
     };
   }
@@ -154,13 +154,19 @@ export namespace PublicOfferV2 {
     infants: number;
   }
 
+  interface BonusInclusion {
+    fromNights: number;
+    toNights: number;
+    content: string;
+  }
+
   type Package = LePackage | BedbankPackage;
 
   interface LePackage {
     id: string;
     fkRoomTypeId: string;
     name: string;
-    inclusions: { description: string; bonus: string[] };
+    inclusions: { description: string; bonus: BonusInclusion[] };
     includedGuestsLabel: string;
     sortOrder: number;
     partnerships: PackagePartnership[];
