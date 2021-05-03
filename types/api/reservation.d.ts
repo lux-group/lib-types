@@ -89,6 +89,7 @@ export namespace Reservation {
     max_child_included_guests: number;
     max_infant_included_guests: number;
     room_rates: RoomRate[];
+    room_inclusions: string | null;
   }
 
   interface RoomTypeLinks {
@@ -141,6 +142,7 @@ export namespace Reservation {
     default_plan: boolean;
     cancellation_policy: CancellationPolicy;
     cancellation_policy_detail?: Array<string>;
+    inclusions: string | null;
   }
 
   interface RatePlanLinks {

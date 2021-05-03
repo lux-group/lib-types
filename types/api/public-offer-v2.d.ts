@@ -93,8 +93,8 @@ export namespace PublicOfferV2 {
       description: Array<string>;
     };
     inclusions: {
-      bonus: string;
-      description: string;
+      bonus: BonusInclusion[];
+      description?: string;
     };
   }
 
@@ -108,11 +108,12 @@ export namespace PublicOfferV2 {
     fkPackageId: string;
     name: string;
     totals?: RateTotal;
-    nights: number;
+    duration: number;
     value?: number;
     currencyCode: string;
     price?: number;
     discount?: number;
+    trackingPrice?: number;
   }
 
   interface BedbankRate {
@@ -123,7 +124,8 @@ export namespace PublicOfferV2 {
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricing>;
     totals: RateTotal;
-    nights: number;
+    nights: number; // TODO: Remove as part of TBB-111
+    duration: number;
     facilities: string[];
     bedGroups: Array<BedGroup>;
     value: number;
@@ -152,17 +154,25 @@ export namespace PublicOfferV2 {
     infants: number;
   }
 
+  interface BonusInclusion {
+    fromNights: number;
+    toNights: number;
+    content: string;
+  }
+
   type Package = LePackage | BedbankPackage;
 
   interface LePackage {
     id: string;
     fkRoomTypeId: string;
     name: string;
-    inclusions: { description: string; bonus: string[] };
+    inclusions: { description: string; bonus: BonusInclusion[] };
     includedGuestsLabel: string;
     sortOrder: number;
+    partnerships: PackagePartnership[];
     copy: {
       description: string;
+      roomPolicyDescription?: string;
     };
   }
 
@@ -176,10 +186,20 @@ export namespace PublicOfferV2 {
     capacities: BedbankCapacity;
   }
 
+  interface AmenityGroup {
+    name: string;
+    values: Array<FacilityGroupValues>;
+  }
+
   interface RoomType {
     id: string;
     name: string;
     images: Image[];
+    description: string;
+    amenityGroups: AmenityGroup[];
+    additionalGuestAmountDescription: string;
+    sizeSqm: number;
+    inclusions?: string;
   }
 
   interface PropertyAddressResponse {
@@ -282,7 +302,18 @@ export namespace PublicOfferV2 {
   interface Partnership {
     code: string;
     prefix: string;
-    upsellText: string | null;
+    upsellText?: string;
+  }
+
+  interface PackagePartnership {
+    code: string;
+    prefix: string;
+    upsellText?: string;
+    bonusPoints: number;
+    bonusDescription?: string;
+    rewardCurrency: string;
+    rewardConversion: number;
+    localRewardConversionRate: number;
   }
 
   interface UrgencyTag {
@@ -293,13 +324,13 @@ export namespace PublicOfferV2 {
   interface Flight {
     cacheDisabled: boolean;
     destinationCode: string;
-    earliestDestinationDepartureTime: string | null;
-    latestDestinationArrivalTime: string | null;
+    earliestDestinationDepartureTime?: string;
+    latestDestinationArrivalTime?: string;
     prices: Record<string, number>;
-    warning: {
+    warning?: {
       heading: string;
       description: string;
-    } | null;
+    };
   }
 
   type Offer = LeOffer | BedbankOffer;
@@ -314,7 +345,8 @@ export namespace PublicOfferV2 {
     packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroup>;
+    facilityGroups: Array<FacilityGroup>; // TODO: Remove as part of TBB-111
+    amenityGroups?: Array<FacilityGroup>; // TODO: Change to mandatory as part of TBB-111
     property: Property;
     attractions?: string;
     propertyFinePrint: PropertyFinePrint;
@@ -329,7 +361,7 @@ export namespace PublicOfferV2 {
     name: string;
     slug: string;
     copy: {
-      additionalDescription: string | null;
+      additionalDescription?: string;
       description?: string;
       facilities: string;
       finePrint: string;
@@ -338,8 +370,6 @@ export namespace PublicOfferV2 {
       whatWeLike: string;
     };
     images: Array<Image>;
-    popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroup>;
     property: LeProperty;
     attractions?: string;
     tags: {
@@ -360,15 +390,18 @@ export namespace PublicOfferV2 {
       onlinePurchase: Schedule;
       availability: Schedule;
     };
-    panelImage: Image | null;
-    video: Video | null;
+    panelImage?: Image;
+    video?: Video;
     flights: Array<Flight>;
     shouldDisplayValue: boolean;
     recommendationTrackingCode: unknown; // TODO: type it
+    saleUnit: string;
+    noIndex: boolean;
+    daysBeforeCheckInChangesDisallowed: number;
     inclusions: {
-      description: string | null;
-      tileHeading: string | null;
-      tileDescription: string | null;
+      description?: string;
+      tileHeading?: string;
+      tileDescription?: string;
     };
     roomRates: Record<string, RoomRate>;
     ratePlans: Record<string, RatePlan>;
