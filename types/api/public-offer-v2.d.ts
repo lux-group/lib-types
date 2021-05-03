@@ -94,7 +94,7 @@ export namespace PublicOfferV2 {
     };
     inclusions: {
       bonus: string[];
-      description: string;
+      description?: string;
     };
   }
 
