@@ -9,9 +9,12 @@ export namespace Reservation {
     templated: boolean;
   }
 
-  interface HotelReservationResult {
+  interface Result {
     message: null;
     status: number;
+  }
+
+  interface HotelReservationResult extends Result {
     result: HotelReservation;
   }
 
@@ -226,5 +229,69 @@ export namespace Reservation {
     id: string;
     content: string;
     source: string;
+  }
+
+  interface TourOptionLinks {
+    self: Link;
+    tour: Link;
+    enquiry: TemplatedLink;
+  }
+
+  interface TourOptionAvailability {
+    total: number;
+    left: number;
+  }
+
+  interface TourOption {
+    _links: TourOptionLinks;
+    name: string;
+    id: string;
+    tour_id: string;
+    availability: TourOptionAvailability;
+  }
+
+  interface TourLinks {
+    tour_option: TemplatedLink;
+    tour_legs: TemplatedLink;
+    self: Link;
+  }
+
+  interface TourGeoData {
+    continent_code: string;
+    country: string;
+    country_code: string;
+    administrative_area_level_1: string;
+    administrative_area_level_2: string | null;
+    administrative_area_level_3: string | null;
+    administrative_area_level_4: string | null;
+    administrative_area_level_5: string | null;
+    locality: string;
+    route: string | null;
+    street_number: string | null;
+    place_id: string;
+  }
+
+  interface Tour {
+    _links: TourLinks;
+    tour_options_count: number;
+    tour_legs_count: number;
+    reviews_count: number;
+    has_availability: boolean;
+    name: string;
+    tour_options: TourOption[];
+    reviews: Review[];
+    id: string;
+    itinerary: string;
+    id_salesforce_external: string;
+    location_description: string;
+    longitude: number;
+    latitude: number;
+    timezone: string;
+    timezone_offset: number;
+    geo_data: TourGeoData;
+  }
+
+  interface TourResult extends Result {
+    result: Tour;
   }
 }
