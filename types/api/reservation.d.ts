@@ -273,7 +273,7 @@ export namespace Reservation {
     latitude: number;
     timezone: string;
     timezone_offset: number;
-    geo_data: Geo;
+    geo_data: Geo.Data;
   }
 
   interface TourResult extends Result {
