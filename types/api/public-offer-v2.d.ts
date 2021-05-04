@@ -386,7 +386,7 @@ export namespace PublicOfferV2 {
     insurance: { countries: Array<string> };
     partnerships: Array<Partnership>;
     schedules: {
-      listVisibility: Schedule;
+      listVisibility?: Schedule;
       onlinePurchase: Schedule;
       availability: Schedule;
     };
