@@ -248,17 +248,17 @@ export namespace PublicOfferV2 {
   }
 
   interface GeoData {
-    continentCode: string;
+    continentCode: string | null;
     country: string;
     countryCode: string;
-    locality: string;
-    route: string;
-    streetNumber: string;
+    locality: string | null;
+    route: string | null;
+    streetNumber: string | null;
     administrativeAreaLevel1: string;
-    administrativeAreaLevel2: string;
-    administrativeAreaLevel3: string;
-    administrativeAreaLevel4: string;
-    administrativeAreaLevel5: string;
+    administrativeAreaLevel2: string | null;
+    administrativeAreaLevel3: string | null;
+    administrativeAreaLevel4: string | null;
+    administrativeAreaLevel5: string | null;
     placeId: string;
   }
 

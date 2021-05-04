@@ -256,21 +256,6 @@ export namespace Reservation {
     self: Link;
   }
 
-  interface TourGeoData {
-    continent_code: string;
-    country: string;
-    country_code: string;
-    administrative_area_level_1: string;
-    administrative_area_level_2: string | null;
-    administrative_area_level_3: string | null;
-    administrative_area_level_4: string | null;
-    administrative_area_level_5: string | null;
-    locality: string;
-    route: string | null;
-    street_number: string | null;
-    place_id: string;
-  }
-
   interface Tour {
     _links: TourLinks;
     tour_options_count: number;
@@ -288,7 +273,7 @@ export namespace Reservation {
     latitude: number;
     timezone: string;
     timezone_offset: number;
-    geo_data: TourGeoData;
+    geo_data: Geo.Data;
   }
 
   interface TourResult extends Result {
