@@ -324,6 +324,10 @@ export namespace PublicOfferV2 {
     };
   }
 
+  interface Tour {
+    onHold: boolean;
+  }
+
   type OfferType =
     | "bedbank_hotel"
     | "hotel"
@@ -359,13 +363,8 @@ export namespace PublicOfferV2 {
     };
   }
 
-  interface LeTourOffer {
-    type: LeTourOfferType;
-  }
-
-  interface LeHotelOffer {
+  interface LeOfferProps extends LeOfferProps {
     id: string;
-    type: LeHotelOfferType;
     name: string;
     slug: string;
     copy: {
@@ -411,11 +410,21 @@ export namespace PublicOfferV2 {
       tileHeading?: string;
       tileDescription?: string;
     };
-    roomRates: Record<string, RoomRate>;
+
     ratePlans: Record<string, RatePlan>;
-    roomTypes: Record<string, RoomType>;
     packages: Record<string, LePackage>;
     options: Array<LeOption>;
+  }
+
+  interface LeHotelOffer extends LeOfferProps {
+    type: LeHotelOfferType;
+    roomRates: Record<string, RoomRate>;
+    roomTypes: Record<string, RoomType>;
+  }
+
+  interface LeTourOffer extends LeOfferProps {
+    type: LeTourOfferType;
+    tour: Tour;
   }
 
   interface LeOptions {
