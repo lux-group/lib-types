@@ -169,7 +169,7 @@ export namespace PublicOfferV2 {
     name: string;
     inclusions: { description: string; bonus: BonusInclusion[] };
     includedGuestsLabel: string;
-    sortOrder: number;
+    sortOrder?: number;
     partnerships: PackagePartnership[];
     copy: {
       description: string;
