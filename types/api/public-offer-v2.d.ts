@@ -117,7 +117,9 @@ export namespace PublicOfferV2 {
 
   type LeTourOption = Omit<
     LeHotelOption,
-    "fkRoomRateId" | "fkRoomTypeId" | "fkRatePlanId"
+    | "fkRoomRateId"
+    | "fkRoomTypeId"
+    | "fkRatePlanId" & { availability: { total: number; left: number } }
   >;
 
   interface BedbankRate {
