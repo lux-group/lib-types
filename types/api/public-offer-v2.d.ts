@@ -236,7 +236,8 @@ export namespace PublicOfferV2 {
     | "bedbank_hotel"
     | "hotel"
     | "last_minute_hotel"
-    | "tactical_ao_hotel";
+    | "tactical_ao_hotel"
+    | "tour";
 
   type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
   type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
