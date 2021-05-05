@@ -457,25 +457,6 @@ export namespace PublicOfferV2 {
     flightOrigin?: string;
   }
 
-  interface GetOptionsQueryParams {
-    occupancy: string;
-    checkIn: string;
-    checkOut: string;
-    region: string;
-    brand: string;
-    flightOrigin?: string;
-  }
-
-  interface GetOptionsPathParams {
-    id: string;
-  }
-
-  interface GetOptionsResponseBody {
-    status: 200;
-    message: null;
-    result: Options;
-  }
-
   interface GetOfferListQueryParams {
     placeIds: string[];
     occupancy: Array<string> | string;
