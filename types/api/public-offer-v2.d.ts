@@ -335,8 +335,8 @@ export namespace PublicOfferV2 {
 
   interface Tour {
     onHold?: TourSetting;
-    dateChange: TourSetting;
-    latestDepartureDateChangeAllowed: string;
+    dateChange?: TourSetting;
+    latestDepartureDateChangeAllowed?: string;
   }
 
   type OfferType =
