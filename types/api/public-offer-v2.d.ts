@@ -1,5 +1,3 @@
-import { Bedbank } from "./bedbank";
-
 export namespace PublicOfferV2 {
   interface StrObject {
     [field: string]: string;
@@ -98,9 +96,10 @@ export namespace PublicOfferV2 {
     };
   }
 
+  type LeOption = LeHotelOption | LeTourOption;
   type Option = LeOption | BedbankRate;
 
-  interface LeOption {
+  interface LeHotelOption {
     id: string;
     fkRoomRateId: string;
     fkRoomTypeId: string;
@@ -115,6 +114,11 @@ export namespace PublicOfferV2 {
     discount?: number;
     trackingPrice?: number;
   }
+
+  type LeTourOption = Omit<
+    LeHotelOption,
+    "fkRoomRateId" | "fkRoomTypeId" | "fkRatePlanId"
+  >;
 
   interface BedbankRate {
     id: string;
@@ -420,33 +424,17 @@ export namespace PublicOfferV2 {
     ratePlans: Record<string, RatePlan>;
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
-    options: Array<LeOption>;
+    options: Array<LeHotelOption>;
   }
 
   type LeTourOffer = Omit<
     LeHotelOffer,
-    "property" | "ratePlans" | "roomRates" | "roomTypes" | "type"
+    "options" | "property" | "ratePlans" | "roomRates" | "roomTypes" | "type"
   > & {
+    options: Array<LeTourOption>;
     tour: Tour;
     type: LeTourOfferType;
   };
-
-  interface LeOptions {
-    offerType: LeOfferType;
-    options: Array<LeOption>;
-    roomRates: Record<string, RoomRate>;
-    ratePlans: Record<string, RatePlan>;
-    roomTypes: Record<string, RoomType>;
-    packages: Record<string, LePackage>;
-  }
-
-  interface BedbankOptions {
-    offerType: BedbankOfferType;
-    options: Array<BedbankRate>;
-    roomTypes: Record<string, Bedbank.RoomTypeResponse>;
-  }
-
-  type Options = LeOptions | BedbankOptions;
 
   interface GetOfferQueryParams {
     occupancy: Array<string> | string;
