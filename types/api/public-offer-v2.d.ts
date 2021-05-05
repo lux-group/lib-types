@@ -363,7 +363,7 @@ export namespace PublicOfferV2 {
     };
   }
 
-  interface LeOfferProps extends LeOfferProps {
+  interface LeOfferProps {
     id: string;
     name: string;
     slug: string;
@@ -409,7 +409,6 @@ export namespace PublicOfferV2 {
       tileHeading?: string;
       tileDescription?: string;
     };
-    ratePlans: Record<string, RatePlan>;
     packages: Record<string, LePackage>;
     options: Array<LeOption>;
   }
@@ -417,6 +416,7 @@ export namespace PublicOfferV2 {
   interface LeHotelOffer extends LeOfferProps {
     type: LeHotelOfferType;
     property: LeProperty;
+    ratePlans: Record<string, RatePlan>;
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
   }
