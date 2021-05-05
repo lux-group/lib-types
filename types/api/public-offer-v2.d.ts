@@ -377,7 +377,6 @@ export namespace PublicOfferV2 {
       whatWeLike: string;
     };
     images: Array<Image>;
-    property: LeProperty;
     attractions?: string;
     tags: {
       holidayTypes: Array<string>;
@@ -410,7 +409,6 @@ export namespace PublicOfferV2 {
       tileHeading?: string;
       tileDescription?: string;
     };
-
     ratePlans: Record<string, RatePlan>;
     packages: Record<string, LePackage>;
     options: Array<LeOption>;
@@ -418,6 +416,7 @@ export namespace PublicOfferV2 {
 
   interface LeHotelOffer extends LeOfferProps {
     type: LeHotelOfferType;
+    property: LeProperty;
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
   }
