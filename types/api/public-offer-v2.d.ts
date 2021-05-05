@@ -232,17 +232,6 @@ export namespace PublicOfferV2 {
     pets?: Array<string | undefined>;
   }
 
-  type OfferType =
-    | "bedbank_hotel"
-    | "hotel"
-    | "last_minute_hotel"
-    | "tactical_ao_hotel"
-    | "tour";
-
-  type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
-  type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
-  type TourOfferType = Extract<OfferType, "tour">;
-
   interface Review {
     id: string;
     source: string;
@@ -335,6 +324,19 @@ export namespace PublicOfferV2 {
     };
   }
 
+  type OfferType =
+    | "bedbank_hotel"
+    | "hotel"
+    | "last_minute_hotel"
+    | "tactical_ao_hotel"
+    | "tour";
+
+  type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
+  type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
+  type LeHotelOfferType = Exclude<OfferType, "tour">;
+  type LeTourOfferType = Extract<OfferType, "tour">;
+
+  type LeOffer = LeHotelOffer | LeTourOffer;
   type Offer = LeOffer | BedbankOffer;
 
   interface BedbankOffer {
@@ -357,13 +359,13 @@ export namespace PublicOfferV2 {
     };
   }
 
-  interface TourOffer {
-    type: TourOfferType;
+  interface LeTourOffer {
+    type: LeTourOfferType;
   }
 
-  interface LeOffer {
+  interface LeHotelOffer {
     id: string;
-    type: LeOfferType;
+    type: LeHotelOfferType;
     name: string;
     slug: string;
     copy: {
