@@ -241,6 +241,7 @@ export namespace PublicOfferV2 {
 
   type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
   type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
+  type TourOfferType = Extract<OfferType, "tour">;
 
   interface Review {
     id: string;
@@ -354,6 +355,10 @@ export namespace PublicOfferV2 {
     copy: {
       description: string;
     };
+  }
+
+  interface TourOffer {
+    type: TourOfferType;
   }
 
   interface LeOffer {
