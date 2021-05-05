@@ -160,9 +160,10 @@ export namespace PublicOfferV2 {
     content: string;
   }
 
+  type LePackage = LeHotelPackage | LeTourPackage;
   type Package = LePackage | BedbankPackage;
 
-  interface LePackage {
+  interface LeHotelPackage {
     id: string;
     fkRoomTypeId: string;
     name: string;
@@ -175,6 +176,8 @@ export namespace PublicOfferV2 {
       roomPolicyDescription?: string;
     };
   }
+
+  type LeTourPackage = Omit<LeHotelPackage, "fkRoomTypeId">;
 
   interface BedbankPackage {
     fkRoomTypeId: string;
@@ -363,8 +366,9 @@ export namespace PublicOfferV2 {
     };
   }
 
-  interface LeOfferProps {
+  interface LeHotelOffer {
     id: string;
+    type: LeHotelOfferType;
     name: string;
     slug: string;
     copy: {
@@ -410,21 +414,20 @@ export namespace PublicOfferV2 {
       tileDescription?: string;
     };
     packages: Record<string, LePackage>;
-    options: Array<LeOption>;
-  }
-
-  interface LeHotelOffer extends LeOfferProps {
-    type: LeHotelOfferType;
     property: LeProperty;
     ratePlans: Record<string, RatePlan>;
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
+    options: Array<LeOption>;
   }
 
-  interface LeTourOffer extends LeOfferProps {
-    type: LeTourOfferType;
+  type LeTourOffer = Omit<
+    LeHotelOffer,
+    "property" | "ratePlans" | "roomRates" | "roomTypes" | "type"
+  > & {
     tour: Tour;
-  }
+    type: LeTourOfferType;
+  };
 
   interface LeOptions {
     offerType: LeOfferType;
