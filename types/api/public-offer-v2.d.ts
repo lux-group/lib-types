@@ -327,8 +327,10 @@ export namespace PublicOfferV2 {
     };
   }
 
+  type TourSetting = "Self Serve" | "On Request";
+
   interface Tour {
-    onHold: boolean;
+    onHold?: TourSetting;
   }
 
   type OfferType =
