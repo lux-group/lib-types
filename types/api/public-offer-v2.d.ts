@@ -440,6 +440,7 @@ export namespace PublicOfferV2 {
 
   interface LeTourOffer extends LeOfferBase {
     options: Array<LeTourOption>;
+    packages: Record<string, LeTourPackage>;
     tour: Tour;
     type: LeTourOfferType;
   }
