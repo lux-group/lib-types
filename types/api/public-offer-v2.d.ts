@@ -99,11 +99,8 @@ export namespace PublicOfferV2 {
   type LeOption = LeHotelOption | LeTourOption;
   type Option = LeOption | BedbankRate;
 
-  interface LeHotelOption {
+  interface OptionBase {
     id: string;
-    fkRoomRateId: string;
-    fkRoomTypeId: string;
-    fkRatePlanId: string;
     fkPackageId: string;
     name: string;
     totals?: RateTotal;
@@ -115,10 +112,15 @@ export namespace PublicOfferV2 {
     trackingPrice?: number;
   }
 
-  type LeTourOption = Omit<
-    LeHotelOption,
-    "fkRoomRateId" | "fkRoomTypeId" | "fkRatePlanId"
-  > & { availability: { total: number; left: number } };
+  interface LeHotelOption extends OptionBase {
+    fkRoomRateId: string;
+    fkRoomTypeId: string;
+    fkRatePlanId: string;
+  }
+
+  type LeTourOption = {
+    availability: { total: number; left: number };
+  };
 
   interface BedbankRate {
     id: string;
@@ -167,9 +169,8 @@ export namespace PublicOfferV2 {
   type LePackage = LeHotelPackage | LeTourPackage;
   type Package = LePackage | BedbankPackage;
 
-  interface LeHotelPackage {
+  interface LePackageBase {
     id: string;
-    fkRoomTypeId: string;
     name: string;
     inclusions: { description: string; bonus: BonusInclusion[] };
     includedGuestsLabel: string;
@@ -181,7 +182,12 @@ export namespace PublicOfferV2 {
     };
   }
 
-  type LeTourPackage = Omit<LeHotelPackage, "fkRoomTypeId">;
+  interface LeHotelPackage extends LePackageBase {
+    fkRoomTypeId: string;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface LeTourPackage extends LePackageBase {}
 
   interface BedbankPackage {
     fkRoomTypeId: string;
@@ -374,9 +380,8 @@ export namespace PublicOfferV2 {
     };
   }
 
-  interface LeHotelOffer {
+  interface LeOfferBase {
     id: string;
-    type: LeHotelOfferType;
     name: string;
     slug: string;
     copy: {
@@ -421,7 +426,11 @@ export namespace PublicOfferV2 {
       tileHeading?: string;
       tileDescription?: string;
     };
-    packages: Record<string, LePackage>;
+  }
+
+  interface LeHotelOffer extends LeOfferBase {
+    type: LeHotelOfferType;
+    packages: Record<string, LeHotelPackage>;
     property: LeProperty;
     ratePlans: Record<string, RatePlan>;
     roomRates: Record<string, RoomRate>;
@@ -429,14 +438,11 @@ export namespace PublicOfferV2 {
     options: Array<LeHotelOption>;
   }
 
-  type LeTourOffer = Omit<
-    LeHotelOffer,
-    "options" | "property" | "ratePlans" | "roomRates" | "roomTypes" | "type"
-  > & {
+  interface LeTourOffer extends LeOfferBase {
     options: Array<LeTourOption>;
     tour: Tour;
     type: LeTourOfferType;
-  };
+  }
 
   interface GetOfferQueryParams {
     occupancy: Array<string> | string;
