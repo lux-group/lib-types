@@ -99,7 +99,7 @@ export namespace PublicOfferV2 {
   type LeOption = LeHotelOption | LeTourOption;
   type Option = LeOption | BedbankRate;
 
-  interface OptionBase {
+  interface LeOptionBase {
     id: string;
     fkPackageId: string;
     name: string;
@@ -112,15 +112,15 @@ export namespace PublicOfferV2 {
     trackingPrice?: number;
   }
 
-  interface LeHotelOption extends OptionBase {
+  interface LeHotelOption extends LeOptionBase {
     fkRoomRateId: string;
     fkRoomTypeId: string;
     fkRatePlanId: string;
   }
 
-  type LeTourOption = {
+  interface LeTourOption extends LeOptionBase {
     availability: { total: number; left: number };
-  };
+  }
 
   interface BedbankRate {
     id: string;
