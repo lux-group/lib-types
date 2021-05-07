@@ -86,6 +86,7 @@ export namespace PublicOfferV2 {
 
   interface RatePlan {
     id: string;
+    discount: number;
     cancellationPolicy: {
       type: LeCancellationPolicyType;
       description: Array<string>;
