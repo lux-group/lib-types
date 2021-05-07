@@ -1,5 +1,3 @@
-import { Bedbank } from "./bedbank";
-
 export namespace PublicOfferV2 {
   interface StrObject {
     [field: string]: string;
@@ -98,13 +96,11 @@ export namespace PublicOfferV2 {
     };
   }
 
+  type LeOption = LeHotelOption | LeTourOption;
   type Option = LeOption | BedbankRate;
 
-  interface LeOption {
+  interface LeOptionBase {
     id: string;
-    fkRoomRateId: string;
-    fkRoomTypeId: string;
-    fkRatePlanId: string;
     fkPackageId: string;
     name: string;
     totals?: RateTotal;
@@ -114,6 +110,16 @@ export namespace PublicOfferV2 {
     price?: number;
     discount?: number;
     trackingPrice?: number;
+  }
+
+  interface LeHotelOption extends LeOptionBase {
+    fkRoomRateId: string;
+    fkRoomTypeId: string;
+    fkRatePlanId: string;
+  }
+
+  interface LeTourOption extends LeOptionBase {
+    availability: { total: number; left: number };
   }
 
   interface BedbankRate {
@@ -160,21 +166,28 @@ export namespace PublicOfferV2 {
     content: string;
   }
 
+  type LePackage = LeHotelPackage | LeTourPackage;
   type Package = LePackage | BedbankPackage;
 
-  interface LePackage {
+  interface LePackageBase {
     id: string;
-    fkRoomTypeId: string;
     name: string;
     inclusions: { description: string; bonus: BonusInclusion[] };
     includedGuestsLabel: string;
-    sortOrder: number;
+    sortOrder?: number;
     partnerships: PackagePartnership[];
     copy: {
       description: string;
       roomPolicyDescription?: string;
     };
   }
+
+  interface LeHotelPackage extends LePackageBase {
+    fkRoomTypeId: string;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface LeTourPackage extends LePackageBase {}
 
   interface BedbankPackage {
     fkRoomTypeId: string;
@@ -231,15 +244,6 @@ export namespace PublicOfferV2 {
     policies?: StrObject;
     pets?: Array<string | undefined>;
   }
-
-  type OfferType =
-    | "bedbank_hotel"
-    | "hotel"
-    | "last_minute_hotel"
-    | "tactical_ao_hotel";
-
-  type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
-  type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
 
   interface Review {
     id: string;
@@ -333,6 +337,27 @@ export namespace PublicOfferV2 {
     };
   }
 
+  type TourSetting = "Self Serve" | "On Request";
+
+  interface Tour {
+    onHold?: TourSetting;
+    dateChange?: TourSetting;
+    latestDepartureDateChangeAllowed?: string;
+  }
+
+  type OfferType =
+    | "bedbank_hotel"
+    | "hotel"
+    | "last_minute_hotel"
+    | "tactical_ao_hotel"
+    | "tour";
+
+  type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
+  type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
+  type LeHotelOfferType = Exclude<OfferType, "tour">;
+  type LeTourOfferType = Extract<OfferType, "tour">;
+
+  type LeOffer = LeHotelOffer | LeTourOffer;
   type Offer = LeOffer | BedbankOffer;
 
   interface BedbankOffer {
@@ -355,9 +380,8 @@ export namespace PublicOfferV2 {
     };
   }
 
-  interface LeOffer {
+  interface LeOfferBase {
     id: string;
-    type: LeOfferType;
     name: string;
     slug: string;
     copy: {
@@ -370,7 +394,6 @@ export namespace PublicOfferV2 {
       whatWeLike: string;
     };
     images: Array<Image>;
-    property: LeProperty;
     attractions?: string;
     tags: {
       holidayTypes: Array<string>;
@@ -403,29 +426,24 @@ export namespace PublicOfferV2 {
       tileHeading?: string;
       tileDescription?: string;
     };
-    roomRates: Record<string, RoomRate>;
+  }
+
+  interface LeHotelOffer extends LeOfferBase {
+    type: LeHotelOfferType;
+    packages: Record<string, LeHotelPackage>;
+    property: LeProperty;
     ratePlans: Record<string, RatePlan>;
-    roomTypes: Record<string, RoomType>;
-    packages: Record<string, LePackage>;
-    options: Array<LeOption>;
-  }
-
-  interface LeOptions {
-    offerType: LeOfferType;
-    options: Array<LeOption>;
     roomRates: Record<string, RoomRate>;
-    ratePlans: Record<string, RatePlan>;
     roomTypes: Record<string, RoomType>;
-    packages: Record<string, LePackage>;
+    options: Array<LeHotelOption>;
   }
 
-  interface BedbankOptions {
-    offerType: BedbankOfferType;
-    options: Array<BedbankRate>;
-    roomTypes: Record<string, Bedbank.RoomTypeResponse>;
+  interface LeTourOffer extends LeOfferBase {
+    options: Array<LeTourOption>;
+    packages: Record<string, LeTourPackage>;
+    tour: Tour;
+    type: LeTourOfferType;
   }
-
-  type Options = LeOptions | BedbankOptions;
 
   interface GetOfferQueryParams {
     occupancy: Array<string> | string;
@@ -446,25 +464,6 @@ export namespace PublicOfferV2 {
     brand?: string;
     offerType?: OfferType;
     flightOrigin?: string;
-  }
-
-  interface GetOptionsQueryParams {
-    occupancy: string;
-    checkIn: string;
-    checkOut: string;
-    region: string;
-    brand: string;
-    flightOrigin?: string;
-  }
-
-  interface GetOptionsPathParams {
-    id: string;
-  }
-
-  interface GetOptionsResponseBody {
-    status: 200;
-    message: null;
-    result: Options;
   }
 
   interface GetOfferListQueryParams {
