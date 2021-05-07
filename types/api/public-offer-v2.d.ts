@@ -484,7 +484,7 @@ export namespace PublicOfferV2 {
   }
 
   interface GetOfferListByPropertyQueryParams {
-    region:string;
+    region: string;
     brand: string;
     occupancy: Array<string> | string;
     searchNearby: string;
@@ -499,6 +499,6 @@ export namespace PublicOfferV2 {
       id: string;
       kind: string;
       packages?: string[];
-    }>
+    }>;
   }
 }
