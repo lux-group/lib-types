@@ -108,7 +108,6 @@ export namespace PublicOfferV2 {
     value?: number;
     currencyCode: string;
     price?: number;
-    discount?: number;
     trackingPrice?: number;
   }
 
