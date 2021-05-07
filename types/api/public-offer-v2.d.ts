@@ -482,4 +482,23 @@ export namespace PublicOfferV2 {
     message: null;
     result: Offer;
   }
+
+  interface GetOfferListByPropertyQueryParams {
+    region:string;
+    brand: string;
+    occupancy: Array<string> | string;
+    searchNearby: string;
+    checkIn?: string;
+    checkOut?: string;
+  }
+
+  interface GetOfferListByPropertyResponseBody {
+    status: number;
+    message: null;
+    result: Array<{
+      id: string;
+      kind: string;
+      packages?: string[];
+    }>
+  }
 }
