@@ -199,7 +199,7 @@ export namespace Reservation {
     name: string;
     has_availability: boolean;
     room_types: RoomType[];
-    reviews: Review[];
+    reviews?: Review[];
     id: string;
     address: string;
     longitude: number;
@@ -265,7 +265,7 @@ export namespace Reservation {
     has_availability: boolean;
     name: string;
     tour_options: TourOption[];
-    reviews: Review[];
+    reviews?: Review[];
     id: string;
     itinerary: string;
     id_salesforce_external: string;
