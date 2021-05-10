@@ -340,9 +340,20 @@ export namespace PublicOfferV2 {
   type TourSetting = "Self Serve" | "On Request";
 
   interface Tour {
+    id: string;
+    name: string;
+    itinerary: string;
+    location: {
+      longitude: number;
+      latitude: number;
+    };
+    timezone: string;
+    timezoneOffset: number;
+    geoData: GeoData;
     onHold?: TourSetting;
     dateChange?: TourSetting;
     latestDepartureDateChangeAllowed?: string;
+    reviews: Review[];
   }
 
   type OfferType =
