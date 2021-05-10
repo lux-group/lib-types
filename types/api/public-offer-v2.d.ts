@@ -342,7 +342,7 @@ export namespace PublicOfferV2 {
   interface Tour {
     id: string;
     name: string;
-    itinery: string;
+    itinerary: string;
     location: {
       longitude: number;
       latitude: number;
