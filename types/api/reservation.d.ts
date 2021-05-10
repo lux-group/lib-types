@@ -142,6 +142,7 @@ export namespace Reservation {
     id: string;
     id_salesforce_external: string;
     name: string;
+    discount: number;
     default_plan: boolean;
     cancellation_policy: CancellationPolicy;
     cancellation_policy_detail?: Array<string>;
