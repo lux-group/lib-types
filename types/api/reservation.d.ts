@@ -137,6 +137,13 @@ export namespace Reservation {
     | "prior-to-check-in-thirty-one-days"
     | "prior-to-check-in-sixty-days";
 
+  interface BonusInclusion {
+    id: string;
+    from_nights: number;
+    to_nights: number;
+    content: string;
+  }
+
   interface RatePlan {
     _links: RatePlanLinks;
     id: string;
@@ -147,6 +154,7 @@ export namespace Reservation {
     cancellation_policy: CancellationPolicy;
     cancellation_policy_detail?: Array<string>;
     inclusions: string | null;
+    bonus_inclusions?: Array<BonusInclusion>;
   }
 
   interface RatePlanLinks {
