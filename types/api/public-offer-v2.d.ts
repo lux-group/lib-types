@@ -294,8 +294,16 @@ export namespace PublicOfferV2 {
   }
 
   interface Schedule {
-    start: string;
+    start?: string;
     end: string;
+  }
+
+  interface Schedules {
+    listVisibility?: Schedule;
+    onlinePurchase: Schedule;
+    availability: Schedule;
+    bookBy?: Schedule;
+    travelBy?: Schedule;
   }
 
   interface Video {
@@ -419,11 +427,7 @@ export namespace PublicOfferV2 {
     durationLabel: string;
     insurance: { countries: Array<string> };
     partnerships: Array<Partnership>;
-    schedules: {
-      listVisibility?: Schedule;
-      onlinePurchase: Schedule;
-      availability: Schedule;
-    };
+    schedules: Schedules;
     panelImage?: Image;
     video?: Video;
     flights: Array<Flight>;
