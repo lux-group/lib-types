@@ -217,7 +217,7 @@ export namespace Reservation {
     location_heading: string;
     location_subheading: string;
     children_policy: string;
-    hotel_code: null;
+    hotel_code: string | null;
     channel_managed: boolean;
     channel_manager: string;
     siteminder_channel_region: string;
