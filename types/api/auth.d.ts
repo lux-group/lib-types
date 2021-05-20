@@ -51,4 +51,11 @@ export namespace Auth {
     person_contact_id?: string;
     toggles: { [name: string]: boolean | null | string };
   }
+
+  interface TokenResponse {
+    access_token: string;
+    refresh_token: string | null;
+    expires_in: number;
+    token_type: string;
+  }
 }
