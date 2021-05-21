@@ -494,8 +494,15 @@ export namespace PublicOfferV2 {
 
   interface GetOfferResponseBody {
     status: 200;
-    message: null;
+    message: undefined;
     result: Offer;
+  }
+
+  interface GetOffersResponseBody {
+    status: 200;
+    message: undefined;
+    result: Offer[];
+    count: number;
   }
 
   interface GetOfferListByPropertyQueryParams {
@@ -509,7 +516,7 @@ export namespace PublicOfferV2 {
 
   interface GetOfferListByPropertyResponseBody {
     status: number;
-    message: null;
+    message: undefined;
     result: Array<{
       id: string;
       kind: string;
