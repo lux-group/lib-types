@@ -3,6 +3,15 @@ export namespace PublicOfferV2 {
     [field: string]: string;
   }
 
+  interface AmenityGroupValues {
+    name: string;
+  }
+
+  interface AmenityGroup {
+    name: string;
+    values: Array<AmenityGroupValues>;
+  }
+
   interface FacilityGroupValues {
     name: string;
   }
@@ -194,13 +203,8 @@ export namespace PublicOfferV2 {
     name: string;
     description: string;
     images: Array<Image>;
-    facilityGroups: Array<FacilityGroup>;
+    amenityGroups: Array<AmenityGroup>;
     capacities: BedbankCapacity;
-  }
-
-  interface AmenityGroup {
-    name: string;
-    values: Array<FacilityGroupValues>;
   }
 
   interface RoomType {
@@ -387,7 +391,7 @@ export namespace PublicOfferV2 {
     packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
-    amenityGroups: Array<FacilityGroup>;
+    amenityGroups: Array<AmenityGroup>;
     property: Property;
     attractions?: string;
     propertyFinePrint: PropertyFinePrint;
