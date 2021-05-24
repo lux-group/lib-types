@@ -487,7 +487,7 @@ export namespace PublicOfferV2 {
     checkIn: string;
     checkOut: string;
     region?: string;
-    brand?: string;
+    brand: string;
     offerType?: OfferType;
     flightOrigin?: string;
   }
