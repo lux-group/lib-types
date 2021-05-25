@@ -387,16 +387,16 @@ export namespace PublicOfferV2 {
     type: BedbankOfferType;
     name: string;
     slug: string;
-    metaDescription: string;
     packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
     amenityGroups: Array<AmenityGroup>;
     property: Property;
-    attractions?: string;
     propertyFinePrint: PropertyFinePrint;
     copy: {
       description: string;
+      metaDescription: string;
+      attractions?: string;
     };
   }
 
