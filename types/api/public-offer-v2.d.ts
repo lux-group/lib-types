@@ -3,6 +3,15 @@ export namespace PublicOfferV2 {
     [field: string]: string;
   }
 
+  interface AmenityGroupValues {
+    name: string;
+  }
+
+  interface AmenityGroup {
+    name: string;
+    values: Array<AmenityGroupValues>;
+  }
+
   interface FacilityGroupValues {
     name: string;
   }
@@ -130,7 +139,6 @@ export namespace PublicOfferV2 {
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricing>;
     totals: RateTotal;
-    nights: number; // TODO: Remove as part of TBB-111
     duration: number;
     facilities: string[];
     bedGroups: Array<BedGroup>;
@@ -195,13 +203,8 @@ export namespace PublicOfferV2 {
     name: string;
     description: string;
     images: Array<Image>;
-    facilityGroups: Array<FacilityGroup>;
+    amenityGroups: Array<AmenityGroup>;
     capacities: BedbankCapacity;
-  }
-
-  interface AmenityGroup {
-    name: string;
-    values: Array<FacilityGroupValues>;
   }
 
   interface RoomType {
@@ -384,18 +387,16 @@ export namespace PublicOfferV2 {
     type: BedbankOfferType;
     name: string;
     slug: string;
-    description: string;
-    metaDescription: string;
     packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroup>; // TODO: Remove as part of TBB-111
-    amenityGroups?: Array<FacilityGroup>; // TODO: Change to mandatory as part of TBB-111
+    amenityGroups: Array<AmenityGroup>;
     property: Property;
-    attractions?: string;
     propertyFinePrint: PropertyFinePrint;
     copy: {
       description: string;
+      metaDescription: string;
+      attractions?: string;
     };
   }
 
