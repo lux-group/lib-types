@@ -144,6 +144,12 @@ export namespace Reservation {
     content: string;
   }
 
+  interface RatePlanResult {
+    message: null;
+    status: number;
+    result: RatePlan;
+  }
+
   interface RatePlan {
     _links: RatePlanLinks;
     id: string;
@@ -155,6 +161,7 @@ export namespace Reservation {
     cancellation_policy_detail?: Array<string>;
     inclusions: string | null;
     bonus_inclusions?: Array<BonusInclusion>;
+    rate_plan_code: string | null;
   }
 
   interface RatePlanLinks {
