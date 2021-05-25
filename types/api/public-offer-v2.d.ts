@@ -486,9 +486,9 @@ export namespace PublicOfferV2 {
     occupancy: Array<string> | string;
     checkIn: string;
     checkOut: string;
-    region?: string;
-    brand?: string;
-    offerType?: OfferType;
+    region: string;
+    brand: string;
+    offerType: OfferType;
     flightOrigin?: string;
   }
 
