@@ -387,6 +387,8 @@ export namespace PublicOfferV2 {
     type: BedbankOfferType;
     name: string;
     slug: string;
+    metaDescription: string;
+    attractions?: string;
     packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
