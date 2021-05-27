@@ -32,7 +32,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - establish_authenticity:
+      - run:
           name: Establish Github authenticity
           command: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - add_ssh_keys:
