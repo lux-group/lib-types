@@ -54,5 +54,4 @@ workflows:
           filters:
             branches:
               only:
-                - master
-                - beta
+                - /publish-test-.*/
