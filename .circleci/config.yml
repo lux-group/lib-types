@@ -34,7 +34,7 @@ jobs:
           at: ~/repo
       - run:
           name: Publish package
-          command: echo "PLACEHOLDER"
+          command: yarn semantic-release
 
 workflows:
   version: 2

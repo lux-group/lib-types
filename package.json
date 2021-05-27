@@ -12,8 +12,7 @@
     "lint:fix": "yarn run lint --fix",
     "prepare": "yarn run build",
     "prepublishOnly": "yarn test && yarn run lint",
-    "preversion": "yarn run lint",
-    "postversion": "git push && git push --tags"
+    "preversion": "yarn run lint"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.3.2",
@@ -22,6 +21,7 @@
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.18.2",
+    "semantic-release": "^17.4.3",
     "typescript": "^3.6.3"
   }
 }
