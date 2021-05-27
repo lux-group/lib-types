@@ -32,9 +32,15 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - add_ssh_keys:
+          fingerprints:
+            - "72:1b:34:97:ab:77:79:43:1f:84:a6:4b:aa:7f:8a:aa"
+      - run:
+          name: Establish Github authenticity
+          command: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run:
           name: Publish package
-          command: echo "Skipped"
+          command: yarn semantic-release
 
 workflows:
   version: 2
@@ -46,4 +52,6 @@ workflows:
             - test
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - beta
