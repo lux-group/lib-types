@@ -34,7 +34,7 @@ jobs:
           at: ~/repo
       - run:
           name: Publish package
-          command: npm publish
+          command: yarn publish
 workflows:
   version: 2
   test-publish:
