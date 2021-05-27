@@ -392,6 +392,7 @@ export namespace PublicOfferV2 {
     packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;
+    facilityGroups: Array<AmenityGroup>;
     amenityGroups: Array<AmenityGroup>;
     property: Property;
     propertyFinePrint: PropertyFinePrint;
