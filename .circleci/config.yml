@@ -32,6 +32,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - add_ssh_keys:
+          fingerprints:
+            - "72:1b:34:97:ab:77:79:43:1f:84:a6:4b:aa:7f:8a:aa"
       - run:
           name: Publish package
           command: yarn semantic-release
