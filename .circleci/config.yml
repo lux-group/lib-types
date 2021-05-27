@@ -34,7 +34,7 @@ jobs:
           at: ~/repo
       - run:
           name: Publish package
-          command: echo "Skipped"
+          command: yarn semantic-release
 
 workflows:
   version: 2
@@ -46,4 +46,6 @@ workflows:
             - test
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - beta
