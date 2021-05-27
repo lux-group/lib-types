@@ -40,7 +40,7 @@ workflows:
   version: 2
   test-publish:
     jobs:
-      - test:
+      - test
       - publish:
           requires:
             - test
