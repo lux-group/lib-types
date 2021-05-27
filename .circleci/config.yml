@@ -29,6 +29,7 @@ jobs:
           paths: .
   publish:
     <<: *defaults
+    context: LE
     steps:
       - attach_workspace:
           at: ~/repo
