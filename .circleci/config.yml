@@ -23,7 +23,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn ci
+      - run: yarn tsc types/**/*.d.ts
       - persist_to_workspace:
           root: ~/repo
           paths: .
@@ -34,20 +34,15 @@ jobs:
           at: ~/repo
       - run:
           name: Publish package
-          command: yarn publish
+          command: yarn publish --patch
 workflows:
   version: 2
   test-publish:
     jobs:
       - test:
-          filters:
-            tags:
-              only: /^v.*/
       - publish:
           requires:
             - test
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              ignore: /.*/
+              only: master
