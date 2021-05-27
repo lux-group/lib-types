@@ -1,0 +1,57 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:14
+
+jobs:
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn tsc types/**/*.d.ts
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+  publish:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - add_ssh_keys:
+          fingerprints:
+            - "72:1b:34:97:ab:77:79:43:1f:84:a6:4b:aa:7f:8a:aa"
+      - run:
+          name: Establish Github authenticity
+          command: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run:
+          name: Publish package
+          command: yarn semantic-release
+
+workflows:
+  version: 2
+  test-publish:
+    jobs:
+      - test
+      - publish:
+          context: LE
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - /publish-test-.*/
