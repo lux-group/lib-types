@@ -35,6 +35,7 @@ jobs:
       - run:
           name: Publish package
           command: yarn publish --patch
+
 workflows:
   version: 2
   test-publish:
