@@ -93,6 +93,7 @@ export namespace Reservation {
     max_infant_included_guests: number;
     room_rates: RoomRate[];
     room_inclusions: string | null;
+    room_type_code: string | null;
   }
 
   interface RoomTypeLinks {
