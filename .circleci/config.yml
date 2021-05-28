@@ -46,7 +46,8 @@ workflows:
   version: 2
   test-publish:
     jobs:
-      - test
+      - test:
+          context: LE
       - publish:
           context: LE
           requires:
