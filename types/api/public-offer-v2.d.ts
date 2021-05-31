@@ -376,8 +376,8 @@ export namespace PublicOfferV2 {
 
   type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
   type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
-  type LeHotelOfferType = Exclude<OfferType, "tour">;
-  type LeTourOfferType = Extract<OfferType, "tour">;
+  type LeHotelOfferType = Exclude<LeOfferType, "tour">;
+  type LeTourOfferType = Extract<LeOfferType, "tour">;
 
   type LeOffer = LeHotelOffer | LeTourOffer;
   type Offer = LeOffer | BedbankOffer;
