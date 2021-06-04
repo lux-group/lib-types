@@ -180,10 +180,10 @@ export namespace PublicOfferV2 {
   interface LePackageBase {
     id: string;
     name: string;
-    inclusions: { 
-      description: string; 
+    inclusions: {
+      description: string;
       highlights?: string;
-      bonus: BonusInclusion[] 
+      bonus: BonusInclusion[];
     };
     includedGuestsLabel: string;
     sortOrder?: number;
