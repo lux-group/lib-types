@@ -180,12 +180,15 @@ export namespace PublicOfferV2 {
   interface LePackageBase {
     id: string;
     name: string;
-    inclusions: { description: string; bonus: BonusInclusion[] };
+    inclusions: { 
+      description: string; 
+      highlights?: string;
+      bonus: BonusInclusion[] 
+    };
     includedGuestsLabel: string;
     sortOrder?: number;
     partnerships: PackagePartnership[];
     copy: {
-      description: string;
       roomPolicyDescription?: string;
     };
   }
