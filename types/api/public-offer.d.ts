@@ -285,6 +285,7 @@ export namespace PublicOffer {
     hotel_code: null | string;
     channel_managed: boolean;
     channel_region: string;
+    use_connection: boolean;
     geo_data: Geo.Data;
   }
 

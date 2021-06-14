@@ -43,6 +43,7 @@ export namespace Reservation {
     surcharge_cost_total: number;
     channel_managed: boolean;
     channel_manager: string;
+    use_connection: boolean;
     room_type: RoomTypeMemo;
     property: PropertyMemo;
   }

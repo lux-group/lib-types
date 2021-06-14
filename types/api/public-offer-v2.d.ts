@@ -286,6 +286,7 @@ export namespace PublicOfferV2 {
     address: string;
     logo: Image;
     name: string;
+    useConnection: boolean;
     timezone: string;
     timezoneOffset: number;
     childrenPolicy: string;
