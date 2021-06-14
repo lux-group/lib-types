@@ -43,7 +43,6 @@ export namespace Reservation {
     surcharge_cost_total: number;
     channel_managed: boolean;
     channel_manager: string;
-    use_connection: boolean;
     room_type: RoomTypeMemo;
     property: PropertyMemo;
   }
@@ -229,6 +228,7 @@ export namespace Reservation {
     hotel_code: string | null;
     channel_managed: boolean;
     channel_manager: string;
+    use_connection: boolean;
     siteminder_channel_region: string;
     geo_data: Geo.Data;
     max_child_age: number | null;
