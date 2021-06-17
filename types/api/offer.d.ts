@@ -14,5 +14,6 @@ export namespace Offer {
     offer_id_salesforce_external: string;
     id_cloudinary_external: string;
     order: number;
+    title: string | null;
   }
 }

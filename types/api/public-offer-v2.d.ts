@@ -23,6 +23,7 @@ export namespace PublicOfferV2 {
 
   interface Image {
     id: string;
+    title?: string;
   }
 
   interface Configuration {
