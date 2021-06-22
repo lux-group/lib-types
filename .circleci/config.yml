@@ -27,20 +27,15 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
+
   publish:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/repo
-      - add_ssh_keys:
-          fingerprints:
-            - "72:1b:34:97:ab:77:79:43:1f:84:a6:4b:aa:7f:8a:aa"
-      - run:
-          name: Establish Github authenticity
-          command: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run:
           name: Publish package
-          command: yarn semantic-release
+          command: yarn publish
 
 workflows:
   version: 2
@@ -51,8 +46,9 @@ workflows:
       - publish:
           context: LE
           requires:
-            - test
+            - build
           filters:
+            tags:
+              only: /^v.*/
             branches:
-              only:
-                - /publish-test-.*/
+              ignore: /.*/
