@@ -119,7 +119,7 @@ export namespace Reservation {
     rate_plan: RatePlan;
     included_guests: AdultChildInfant[];
     capacities: AdultChildInfant[];
-    extra_guest_surcharges: Surcharges[];
+    extra_guest_surcharges?: Surcharges[];
   }
 
   interface RoomRateLinks {
