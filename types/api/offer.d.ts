@@ -16,4 +16,14 @@ export namespace Offer {
     order: number;
     title: string | null;
   }
+
+  interface Package {
+    package_options: PackageOption[];
+  }
+
+  interface PackageOption {
+    id: string;
+    fk_room_rate_id: string;
+    name: string;
+  }
 }

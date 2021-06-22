@@ -104,6 +104,7 @@ export namespace Reservation {
   }
 
   interface Surcharges {
+    id: string;
     currency: string;
     adult_cost: number;
     child_cost: number;
