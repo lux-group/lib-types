@@ -46,7 +46,7 @@ workflows:
       - publish:
           context: LE
           requires:
-            - build
+            - test
           filters:
             tags:
               only: /^v.*/
