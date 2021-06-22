@@ -307,8 +307,8 @@ export namespace PublicOfferV2 {
 
   interface Schedules {
     listVisibility?: Schedule;
-    onlinePurchase: Schedule;
-    availability: Schedule;
+    onlinePurchase?: Schedule;
+    availability?: Schedule;
     bookBy?: Schedule;
     travelBy?: Schedule;
   }
