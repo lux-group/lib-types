@@ -23,6 +23,7 @@ export namespace PublicOfferV2 {
 
   interface Image {
     id: string;
+    title?: string;
   }
 
   interface Configuration {
@@ -306,8 +307,8 @@ export namespace PublicOfferV2 {
 
   interface Schedules {
     listVisibility?: Schedule;
-    onlinePurchase: Schedule;
-    availability: Schedule;
+    onlinePurchase?: Schedule;
+    availability?: Schedule;
     bookBy?: Schedule;
     travelBy?: Schedule;
   }
