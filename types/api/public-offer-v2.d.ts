@@ -79,7 +79,7 @@ export namespace PublicOfferV2 {
     id: string;
     capacities: Occupancy[];
     includedGuests: Occupancy[];
-    extraGuestSurcharges?: [];
+    extraGuestSurcharges: [];
   }
 
   type LeCancellationPolicyType =
