@@ -285,6 +285,8 @@ export namespace PublicOffer {
     hotel_code: null | string;
     channel_managed: boolean;
     channel_region: string;
+    use_dynamic_taxes_fees: boolean;
+    use_dynamic_cancellation_policies: boolean;
     geo_data: Geo.Data;
   }
 
