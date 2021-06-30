@@ -229,6 +229,8 @@ export namespace Reservation {
     hotel_code: string | null;
     channel_managed: boolean;
     channel_manager: string;
+    use_dynamic_taxes_fees: boolean;
+    use_dynamic_cancellation_policies: boolean;
     siteminder_channel_region: string;
     geo_data: Geo.Data;
     max_child_age: number | null;
