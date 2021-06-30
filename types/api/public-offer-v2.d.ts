@@ -298,6 +298,8 @@ export namespace PublicOfferV2 {
       longitude: number;
       latitude: number;
     };
+    useDynamicTaxesFees: boolean;
+    useDynamicCancellationPolicies: boolean;
   }
 
   interface Schedule {
