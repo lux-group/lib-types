@@ -175,7 +175,7 @@ export namespace Bedbank {
     line1?: string;
     line2?: string;
     city?: string;
-    stateProvinceCode?: string;
+    stateProvinceCode?: string | null;
     stateProvinceName?: string;
     postalCode?: string;
     countryCode?: string;

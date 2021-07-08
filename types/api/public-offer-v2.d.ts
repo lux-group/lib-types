@@ -3,6 +3,15 @@ export namespace PublicOfferV2 {
     [field: string]: string;
   }
 
+  interface AmenityGroupValues {
+    name: string;
+  }
+
+  interface AmenityGroup {
+    name: string;
+    values: Array<AmenityGroupValues>;
+  }
+
   interface FacilityGroupValues {
     name: string;
   }
@@ -14,6 +23,7 @@ export namespace PublicOfferV2 {
 
   interface Image {
     id: string;
+    title?: string;
   }
 
   interface Configuration {
@@ -69,7 +79,6 @@ export namespace PublicOfferV2 {
   interface RoomRate {
     id: string;
     capacities: Occupancy[];
-    ageCategories: LeAgeCategory[];
     includedGuests: Occupancy[];
     extraGuestSurcharges: Surcharges[];
   }
@@ -87,29 +96,40 @@ export namespace PublicOfferV2 {
 
   interface RatePlan {
     id: string;
+    discount: number;
     cancellationPolicy: {
       type: LeCancellationPolicyType;
       description: Array<string>;
     };
     inclusions: {
-      bonus: string;
-      description: string;
+      bonus: BonusInclusion[];
+      description?: string;
     };
   }
 
-  interface LeOption {
+  type LeOption = LeHotelOption | LeTourOption;
+  type Option = LeOption | BedbankRate;
+
+  interface LeOptionBase {
     id: string;
+    fkPackageId: string;
+    name: string;
+    totals?: RateTotal;
+    duration: number;
+    value?: number;
+    currencyCode: string;
+    price?: number;
+    trackingPrice?: number;
+  }
+
+  interface LeHotelOption extends LeOptionBase {
     fkRoomRateId: string;
     fkRoomTypeId: string;
     fkRatePlanId: string;
-    fkPackageId: string;
-    name: string;
-    totals: RateTotal;
-    nights: number;
-    value: number;
-    currencyCode: string;
-    price: number;
-    discount: number;
+  }
+
+  interface LeTourOption extends LeOptionBase {
+    availability: { total: number; left: number };
   }
 
   interface BedbankRate {
@@ -120,7 +140,7 @@ export namespace PublicOfferV2 {
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricing>;
     totals: RateTotal;
-    nights: number;
+    duration: number;
     facilities: string[];
     bedGroups: Array<BedGroup>;
     value: number;
@@ -149,17 +169,37 @@ export namespace PublicOfferV2 {
     infants: number;
   }
 
-  interface LePackage {
+  interface BonusInclusion {
+    fromNights: number;
+    toNights: number;
+    content: string;
+  }
+
+  type LePackage = LeHotelPackage | LeTourPackage;
+  type Package = LePackage | BedbankPackage;
+
+  interface LePackageBase {
     id: string;
-    fkRoomTypeId: string;
     name: string;
-    inclusions: { description: string; bonus: string[] };
-    includedGuestsLabel: string;
-    sortOrder: number;
-    copy: {
+    inclusions: {
       description: string;
+      highlights?: string;
+      bonus: BonusInclusion[];
+    };
+    includedGuestsLabel: string;
+    sortOrder?: number;
+    partnerships: PackagePartnership[];
+    copy: {
+      roomPolicyDescription?: string;
     };
   }
+
+  interface LeHotelPackage extends LePackageBase {
+    fkRoomTypeId: string;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface LeTourPackage extends LePackageBase {}
 
   interface BedbankPackage {
     fkRoomTypeId: string;
@@ -167,7 +207,7 @@ export namespace PublicOfferV2 {
     name: string;
     description: string;
     images: Array<Image>;
-    facilityGroups: Array<FacilityGroup>;
+    amenityGroups: Array<AmenityGroup>;
     capacities: BedbankCapacity;
   }
 
@@ -175,6 +215,11 @@ export namespace PublicOfferV2 {
     id: string;
     name: string;
     images: Image[];
+    description: string;
+    amenityGroups: AmenityGroup[];
+    additionalGuestAmountDescription: string;
+    sizeSqm: number;
+    inclusions?: string;
   }
 
   interface PropertyAddressResponse {
@@ -207,12 +252,26 @@ export namespace PublicOfferV2 {
     pets?: Array<string | undefined>;
   }
 
-  type OfferType =
-    | "bedbank_hotel"
-    | "hotel"
-    | "last_minute_hotel"
-    | "tactical_ao_hotel";
-  type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
+  interface Review {
+    id: string;
+    source: string;
+    content: string;
+  }
+
+  interface GeoData {
+    continentCode: string | null;
+    country: string;
+    countryCode: string;
+    locality: string | null;
+    route: string | null;
+    streetNumber: string | null;
+    administrativeAreaLevel1: string;
+    administrativeAreaLevel2: string | null;
+    administrativeAreaLevel3: string | null;
+    administrativeAreaLevel4: string | null;
+    administrativeAreaLevel5: string | null;
+    placeId: string;
+  }
 
   interface Property {
     id: string;
@@ -223,9 +282,37 @@ export namespace PublicOfferV2 {
     };
   }
 
+  interface LeProperty {
+    id: string;
+    address: string;
+    logo: Image;
+    name: string;
+    timezone: string;
+    timezoneOffset: number;
+    childrenPolicy: string;
+    ageCategories: LeAgeCategory[];
+    taxAndFeesContent?: string;
+    reviews: Review[];
+    geoData: GeoData;
+    location: {
+      longitude: number;
+      latitude: number;
+    };
+    useDynamicTaxesFees: boolean;
+    useDynamicCancellationPolicies: boolean;
+  }
+
   interface Schedule {
-    start: string;
+    start?: string;
     end: string;
+  }
+
+  interface Schedules {
+    listVisibility?: Schedule;
+    onlinePurchase?: Schedule;
+    availability?: Schedule;
+    bookBy?: Schedule;
+    travelBy?: Schedule;
   }
 
   interface Video {
@@ -236,7 +323,18 @@ export namespace PublicOfferV2 {
   interface Partnership {
     code: string;
     prefix: string;
-    upsellText: string | null;
+    upsellText?: string;
+  }
+
+  interface PackagePartnership {
+    code: string;
+    prefix: string;
+    upsellText?: string;
+    bonusPoints: number;
+    bonusDescription?: string;
+    rewardCurrency: string;
+    rewardConversion: number;
+    localRewardConversionRate: number;
   }
 
   interface UrgencyTag {
@@ -247,43 +345,73 @@ export namespace PublicOfferV2 {
   interface Flight {
     cacheDisabled: boolean;
     destinationCode: string;
-    earliestDestinationDepartureTime: string | null;
-    latestDestinationArrivalTime: string | null;
+    earliestDestinationDepartureTime?: string;
+    latestDestinationArrivalTime?: string;
     prices: Record<string, number>;
-    warning: {
+    warning?: {
       heading: string;
-      description: string;
-    } | null;
-  }
-
-  type Offer = LeOffer | BedbankOffer;
-
-  interface BedbankOffer {
-    id: string;
-    type: Extract<OfferType, "bedbank_hotel">;
-    name: string;
-    slug: string;
-    description: string;
-    metaDescription: string;
-    packages: Array<BedbankPackage>;
-    images: Array<Image>;
-    popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroup>;
-    property: Property;
-    attractions?: string;
-    propertyFinePrint: PropertyFinePrint;
-    copy: {
       description: string;
     };
   }
 
-  interface LeOffer {
+  type TourSetting = "Self Serve" | "On Request";
+
+  interface Tour {
     id: string;
-    type: LeOfferType;
+    name: string;
+    itinerary: string;
+    location: {
+      longitude: number;
+      latitude: number;
+    };
+    timezone: string;
+    timezoneOffset: number;
+    geoData: GeoData;
+    onHold?: TourSetting;
+    dateChange?: TourSetting;
+    latestDepartureDateChangeAllowed?: string;
+    reviews: Review[];
+  }
+
+  type OfferType =
+    | "bedbank_hotel"
+    | "hotel"
+    | "last_minute_hotel"
+    | "tactical_ao_hotel"
+    | "tour";
+
+  type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
+  type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
+  type LeHotelOfferType = Exclude<LeOfferType, "tour">;
+  type LeTourOfferType = Extract<LeOfferType, "tour">;
+
+  type LeOffer = LeHotelOffer | LeTourOffer;
+  type Offer = LeOffer | BedbankOffer;
+
+  interface BedbankOffer {
+    id: string;
+    type: BedbankOfferType;
+    name: string;
+    slug: string;
+    packages: Array<BedbankPackage>;
+    images: Array<Image>;
+    popularFacilities: Array<string>;
+    amenityGroups: Array<AmenityGroup>;
+    property: Property;
+    propertyFinePrint: PropertyFinePrint;
+    copy: {
+      description: string;
+      metaDescription: string;
+      attractions?: string;
+    };
+  }
+
+  interface LeOfferBase {
+    id: string;
     name: string;
     slug: string;
     copy: {
-      additionalDescription: string | null;
+      additionalDescription?: string;
       description?: string;
       facilities: string;
       finePrint: string;
@@ -292,9 +420,6 @@ export namespace PublicOfferV2 {
       whatWeLike: string;
     };
     images: Array<Image>;
-    popularFacilities: Array<string>;
-    facilityGroups: Array<FacilityGroup>;
-    property: Property;
     attractions?: string;
     tags: {
       holidayTypes: Array<string>;
@@ -309,25 +434,100 @@ export namespace PublicOfferV2 {
     durationLabel: string;
     insurance: { countries: Array<string> };
     partnerships: Array<Partnership>;
-    schedules: {
-      listVisibility: Schedule;
-      onlinePurchase: Schedule;
-      availability: Schedule;
-    };
-    panelImage: Image | null;
-    video: Video | null;
+    schedules: Schedules;
+    panelImage?: Image;
+    video?: Video;
     flights: Array<Flight>;
     shouldDisplayValue: boolean;
     recommendationTrackingCode: unknown; // TODO: type it
+    saleUnit: string;
+    noIndex: boolean;
+    daysBeforeCheckInChangesDisallowed: number;
     inclusions: {
-      description: string | null;
-      tileHeading: string | null;
-      tileDescription: string | null;
+      description?: string;
+      tileHeading?: string;
+      tileDescription?: string;
     };
-    roomRates: Record<string, RoomRate>;
+  }
+
+  interface LeHotelOffer extends LeOfferBase {
+    type: LeHotelOfferType;
+    packages: Record<string, LeHotelPackage>;
+    property: LeProperty;
     ratePlans: Record<string, RatePlan>;
+    roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
-    packages: Record<string, LePackage>;
-    options: Array<LeOption>;
+    options: Array<LeHotelOption>;
+  }
+
+  interface LeTourOffer extends LeOfferBase {
+    options: Array<LeTourOption>;
+    packages: Record<string, LeTourPackage>;
+    tour: Tour;
+    type: LeTourOfferType;
+  }
+
+  interface GetOfferQueryParams {
+    occupancy: Array<string> | string;
+    checkIn: string;
+    checkOut: string;
+    region?: string;
+    brand?: string;
+    offerType?: OfferType;
+    flightOrigin?: string;
+  }
+
+  interface GetOffersQueryParams {
+    offerIds: string;
+    occupancy: Array<string> | string;
+    checkIn: string;
+    checkOut: string;
+    region?: string;
+    brand?: string;
+    offerType?: OfferType;
+    flightOrigin?: string;
+  }
+
+  interface GetOfferListQueryParams {
+    placeIds: string[];
+    occupancy: Array<string> | string;
+    checkIn: string;
+    checkOut: string;
+    region: string;
+    brand: string;
+    offerType: OfferType;
+    flightOrigin?: string;
+  }
+
+  interface GetOfferResponseBody {
+    status: 200;
+    message: undefined;
+    result: Offer;
+  }
+
+  interface GetOffersResponseBody {
+    status: 200;
+    message: undefined;
+    result: Offer[];
+    count: number;
+  }
+
+  interface GetOfferListByPropertyQueryParams {
+    region: string;
+    brand: string;
+    occupancy: Array<string> | string;
+    searchNearby: string;
+    checkIn?: string;
+    checkOut?: string;
+  }
+
+  interface GetOfferListByPropertyResponseBody {
+    status: number;
+    message: undefined;
+    result: Array<{
+      id: string;
+      kind: string;
+      packages?: string[];
+    }>;
   }
 }

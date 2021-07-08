@@ -26,29 +26,37 @@ export namespace Auth {
   }
 
   interface User {
-    givenName: string;
-    surname: string;
+    givenName: string | null;
+    surname: string | null;
     email: string;
-    fullName: string;
+    fullName: string | null;
+    id_member: string;
     memberId: string;
     status: string;
-    dob: string;
+    dob: string | null;
     roles: string[];
     vendors: string[];
     country_code: string;
     postcode: string;
     phone_prefix: string;
     phone: string;
-    signup_domain?: string;
+    signup_domain: string | null;
     updated_at: string;
     gdpr: string;
-    number_of_purchases?: number;
+    number_of_purchases: number | null;
     legacy_id?: number;
-    legacy_platform?: string;
+    legacy_platform: string | null;
     partnerships: { [code: string]: Partnership };
     membership: Membership;
     lastLogin: LastLogin;
     person_contact_id?: string;
     toggles: { [name: string]: boolean | null | string };
+  }
+
+  interface TokenResponse {
+    access_token: string;
+    refresh_token: string | null;
+    expires_in: number;
+    token_type: string;
   }
 }

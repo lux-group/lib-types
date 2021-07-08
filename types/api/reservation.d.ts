@@ -9,9 +9,12 @@ export namespace Reservation {
     templated: boolean;
   }
 
-  interface HotelReservationResult {
+  interface Result {
     message: null;
     status: number;
+  }
+
+  interface HotelReservationResult extends Result {
     result: HotelReservation;
   }
 
@@ -89,6 +92,8 @@ export namespace Reservation {
     max_child_included_guests: number;
     max_infant_included_guests: number;
     room_rates: RoomRate[];
+    room_inclusions: string | null;
+    room_type_code: string | null;
   }
 
   interface RoomTypeLinks {
@@ -99,6 +104,7 @@ export namespace Reservation {
   }
 
   interface Surcharges {
+    id: string;
     currency: string;
     adult_cost: number;
     child_cost: number;
@@ -133,14 +139,31 @@ export namespace Reservation {
     | "prior-to-check-in-thirty-one-days"
     | "prior-to-check-in-sixty-days";
 
+  interface BonusInclusion {
+    id: string;
+    from_nights: number;
+    to_nights: number;
+    content: string;
+  }
+
+  interface RatePlanResult {
+    message: null;
+    status: number;
+    result: RatePlan;
+  }
+
   interface RatePlan {
     _links: RatePlanLinks;
     id: string;
     id_salesforce_external: string;
     name: string;
+    discount: number;
     default_plan: boolean;
     cancellation_policy: CancellationPolicy;
     cancellation_policy_detail?: Array<string>;
+    inclusions: string | null;
+    bonus_inclusions?: Array<BonusInclusion>;
+    rate_plan_code: string | null;
   }
 
   interface RatePlanLinks {
@@ -193,7 +216,7 @@ export namespace Reservation {
     name: string;
     has_availability: boolean;
     room_types: RoomType[];
-    reviews: Review[];
+    reviews?: Review[];
     id: string;
     address: string;
     longitude: number;
@@ -203,13 +226,18 @@ export namespace Reservation {
     location_heading: string;
     location_subheading: string;
     children_policy: string;
-    hotel_code: null;
+    hotel_code: string | null;
     channel_managed: boolean;
     channel_manager: string;
+    use_dynamic_taxes_fees: boolean;
+    use_dynamic_cancellation_policies: boolean;
     siteminder_channel_region: string;
     geo_data: Geo.Data;
     max_child_age: number | null;
     max_infant_age: number | null;
+    timezone: string;
+    timezone_offset: number;
+    taxes_and_fees_content?: string;
   }
 
   interface PropertyLinks {
@@ -221,5 +249,54 @@ export namespace Reservation {
     id: string;
     content: string;
     source: string;
+  }
+
+  interface TourOptionLinks {
+    self: Link;
+    tour: Link;
+    enquiry: TemplatedLink;
+  }
+
+  interface TourOptionAvailability {
+    total: number;
+    left: number;
+  }
+
+  interface TourOption {
+    _links: TourOptionLinks;
+    name: string;
+    id: string;
+    tour_id: string;
+    availability: TourOptionAvailability;
+  }
+
+  interface TourLinks {
+    tour_option: TemplatedLink;
+    tour_legs: TemplatedLink;
+    self: Link;
+  }
+
+  interface Tour {
+    _links: TourLinks;
+    tour_options_count: number;
+    tour_legs_count: number;
+    reviews_count: number;
+    has_availability: boolean;
+    name: string;
+    tour_options: TourOption[];
+    reviews?: Review[];
+    id: string;
+    itinerary: string;
+    id_salesforce_external: string;
+    location_description: string;
+    longitude: number;
+    latitude: number;
+    timezone: string;
+    timezone_offset: number;
+    geo_data: Geo.Data;
+  }
+
+  interface TourResult extends Result {
+    result: Tour;
   }
 }
