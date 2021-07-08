@@ -12,22 +12,23 @@ export namespace Discovery {
 
   interface Region {
     code: string;
-    name: string;
-    lang: string;
-    currency_formatting_locale: string;
     currency_code: string;
+    currency_formatting_locale: string;
     currency_prefix: string;
     flag_id: string;
-    phone: RegionPhone;
-    phone_prefix: string;
-    mailing_address: string;
-    latitude_threshold: number;
-    referral_amount: string;
-    payment_methods: string[];
-    referral_min_spend_amount: string;
+    flights?: Flights;
     gift_card_options: number[];
     has_flights: boolean;
-    flights?: Flights;
+    insurance_product_name: string;
+    lang: string;
+    latitude_threshold: number;
+    mailing_address: string;
+    name: string;
+    payment_methods: string[];
+    phone_prefix: string;
+    phone: RegionPhone;
+    referral_amount: string;
+    referral_min_spend_amount: string;
   }
 
   interface FlightPort {
