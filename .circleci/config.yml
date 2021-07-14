@@ -35,7 +35,7 @@ jobs:
           at: ~/repo
       - run:
           name: Publish package
-          command: yarn publish
+          command: npm publish
 
 workflows:
   version: 2
@@ -43,15 +43,10 @@ workflows:
     jobs:
       - test:
           context: LE
-          filters:
-            tags:
-              only: /^v.*/
       - publish:
           context: LE
           requires:
             - test
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              ignore: /.*/
+              only: master
