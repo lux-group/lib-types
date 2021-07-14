@@ -299,4 +299,43 @@ export namespace Reservation {
   interface TourResult extends Result {
     result: Tour;
   }
+
+  interface EnquiryRate {
+    id: string;
+    duration_surcharge_total: number;
+    duration_extra_guest_surcharge_total: number;
+    duration_peak_period_surcharge_total: number;
+    duration_blackout_applies: boolean;
+    duration_rates_applies: boolean;
+    duration_amount: number;
+    duration_tax: number;
+    check_in_blackout_applies: boolean;
+    check_in_surcharge_applies: boolean;
+    check_in_surcharge_amount: number;
+    check_in_extra_guest_surcharge_amount: number;
+    check_in_peak_period_surcharge_amount: number;
+    check_in_amount: number;
+    check_in_tax: number;
+    check_in_rates_applies: boolean;
+  }
+
+  interface EnquiryDate {
+    check_in: string;
+    check_out: string;
+    last_night: string;
+    rates: EnquiryRate;
+  }
+
+  interface EnquiryResult {
+    property_id: string;
+    room_type_id: string;
+    room_rate_ids: string[];
+    unique_key: string;
+    dates: EnquiryDate[];
+  }
+
+  interface CreateEnquiryResult extends Result {
+    _links: string;
+    result: EnquiryResult[];
+  }
 }
