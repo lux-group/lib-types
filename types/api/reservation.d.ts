@@ -285,6 +285,7 @@ export namespace Reservation {
     name: string;
     tour_options: TourOption[];
     reviews?: Review[];
+    logo_id: string;
     id: string;
     itinerary: string;
     id_salesforce_external: string;
