@@ -361,7 +361,7 @@ export namespace PublicOfferV2 {
     name: string;
     itinerary: string;
     logo: {
-      id: string;
+      id?: string;
     };
     location: {
       longitude: number;
