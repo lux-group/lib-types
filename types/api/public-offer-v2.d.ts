@@ -360,6 +360,9 @@ export namespace PublicOfferV2 {
     id: string;
     name: string;
     itinerary: string;
+    logo: {
+      id: string;
+    };
     location: {
       longitude: number;
       latitude: number;
