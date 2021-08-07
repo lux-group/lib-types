@@ -451,6 +451,7 @@ export namespace PublicOfferV2 {
       tileHeading?: string;
       tileDescription?: string;
     };
+    badge?: Badge;
   }
 
   interface LeHotelOffer extends LeOfferBase {
@@ -468,6 +469,15 @@ export namespace PublicOfferV2 {
     packages: Record<string, LeTourPackage>;
     tour: Tour;
     type: LeTourOfferType;
+  }
+
+  interface Badge {
+    name: string;
+    url?: string;
+    image: string;
+    tagIcon: string;
+    tagText: string;
+    tagTooltip: string;
   }
 
   interface GetOfferQueryParams {
