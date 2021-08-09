@@ -396,6 +396,7 @@ export namespace PublicOfferV2 {
     type: BedbankOfferType;
     name: string;
     slug: string;
+    dateFloorOffset: number;
     packages: Array<BedbankPackage>;
     images: Array<Image>;
     popularFacilities: Array<string>;

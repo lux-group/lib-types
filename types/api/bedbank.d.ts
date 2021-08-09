@@ -206,6 +206,7 @@ export namespace Bedbank {
     name: string;
     slug: string;
     rating: string;
+    dateFloorOffset: number;
     roomTypes: RoomTypeResponse[];
     images: ImageResponse[];
     popularFacilities: Array<string>;
