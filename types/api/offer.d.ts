@@ -10,7 +10,7 @@ export namespace Offer {
 
   interface BrandSchedule {
     id: number;
-    type: "list_visibility";
+    type: "list_visibility" | "availability" | "online_purchase";
     offer_id_salesforce_external: string;
     start: string;
     end: string;
