@@ -8,10 +8,21 @@ export namespace Offer {
     offer: Link;
   }
 
+  interface BrandSchedule {
+    id: number;
+    type: "list_visibility";
+    offer_id_salesforce_external: string;
+    start: string;
+    end: string;
+    region: string;
+  }
+
   interface HotelOffer {
+    brand_schedules: BrandSchedule[];
     id_salesforce_external: string;
     name: string;
     packages: HotelPackage[];
+    slug: string;
   }
 
   interface Image {
