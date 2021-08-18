@@ -64,5 +64,4 @@ export namespace Offer {
     updated_at: string;
     url?: string;
   }
-
 }
