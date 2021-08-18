@@ -52,4 +52,17 @@ export namespace Offer {
     fk_room_rate_id: string;
     name: string;
   }
+
+  interface Badge {
+    id: number;
+    image: string;
+    name: string;
+    regions: string[];
+    tag_icon: string;
+    tag_text: string;
+    tag_tooltip: string;
+    updated_at: string;
+    url?: string;
+  }
+
 }
