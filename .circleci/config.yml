@@ -24,6 +24,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn tsc types/**/*.d.ts
+
+      - run: yarn run lint
+
       - persist_to_workspace:
           root: ~/repo
           paths: .
