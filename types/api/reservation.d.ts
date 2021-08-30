@@ -231,6 +231,7 @@ export namespace Reservation {
     channel_manager: string;
     use_dynamic_taxes_fees: boolean;
     use_dynamic_cancellation_policies: boolean;
+    use_dynamic_occupancy: boolean;
     siteminder_channel_region: string;
     geo_data: Geo.Data;
     max_child_age: number | null;

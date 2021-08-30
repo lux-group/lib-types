@@ -287,6 +287,7 @@ export namespace PublicOffer {
     channel_region: string;
     use_dynamic_taxes_fees: boolean;
     use_dynamic_cancellation_policies: boolean;
+    use_dynamic_occupancy: boolean;
     geo_data: Geo.Data;
   }
 
