@@ -300,6 +300,7 @@ export namespace PublicOfferV2 {
     };
     useDynamicTaxesFees: boolean;
     useDynamicCancellationPolicies: boolean;
+    useDynamicOccupancy: boolean;
   }
 
   interface Schedule {
