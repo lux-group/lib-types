@@ -71,6 +71,7 @@ export namespace Order {
     gift_card_items: GiftCardItem[];
     membership_items: MembershipItem[];
     insurance_items: InsuranceItem[];
+    bedbank_items: BedbankItem[];
     partnerships: Partnerships;
     has_addons: boolean;
     has_flight: boolean;
@@ -280,5 +281,144 @@ export namespace Order {
     message: string;
     status: number;
     result: Refund[];
+  }
+
+  interface BedbankItem {
+    id: string;
+    type: string;
+    fk_order_id: string;
+    fk_property_id: string;
+    fk_room_type_id: string;
+    fk_room_rate_id: string;
+    id_reservation: string;
+    transaction_key: string;
+    booking_number: string;
+    booking_email: string;
+    booking_phone: string;
+    check_in: string;
+    check_out: string;
+    nights: number;
+    status: string;
+    total: number;
+    exclusive_price: number;
+    taxes_and_fees: number;
+    property_fees: number;
+    offer: BedbankOffer;
+    rooms: BedbankItemRoom[];
+  }
+
+  interface BedbankOffer {
+    id: string;
+    name: string;
+    slug: string;
+    type: string;
+    description: string;
+    attractions: string;
+    phone: string;
+    timezone: string;
+    location: {
+      longitude: number;
+      latitude: number;
+    };
+    address: BedbankOfferAddress;
+    image: Image;
+    fine_print: BedbankPropertyFinePrint;
+    facility_groups: Array<BedbankFacilityGroup>;
+    room: BedbankOfferRoom;
+  }
+
+  interface BedbankOfferRoom {
+    id: string;
+    name: string;
+    description: string;
+    image: Image;
+    facility_groups: Array<BedbankFacilityGroup>;
+  }
+
+  interface BedbankFacilityValue {
+    name: string;
+  }
+
+  interface BedbankFacilityGroup {
+    name: string;
+    values: Array<BedbankFacilityValue>;
+  }
+
+  interface BedbankPropertyFinePrint {
+    checkIn?: {
+      beginTime?: string;
+      endTime?: string;
+      instructions?: string;
+      specialInstructions?: string;
+    };
+    checkOut?: {
+      time?: string;
+    };
+    fees?: {
+      mandatory?: string;
+      optional?: string;
+    };
+    policies?: {
+      knowBeforeYouGo?: string;
+    };
+    pets?: Array<string>;
+  }
+
+  interface BedbankOfferAddress {
+    line1?: string;
+    line2?: string;
+    city?: string;
+    stateProvinceCode?: string;
+    stateProvinceName?: string;
+    postalCode?: string;
+    countryCode?: string;
+    countryName?: string;
+    obfuscationRequired: boolean;
+  }
+
+  interface BedbankItemRoom {
+    id: string;
+    id_reservation_room: string;
+    confirmation_id?: string;
+    name: string;
+    status: string;
+    refundable: boolean;
+    room_index: number;
+    number_of_adults: number;
+    number_of_children: number;
+    number_of_infants: number;
+    children_ages: number[];
+    guest_first_name: string;
+    guest_last_name: string;
+    guest_special_requests: string;
+    price: number;
+    exclusive_price: number;
+    cost_price: number;
+    taxes_and_fees: number;
+    sales_tax: number;
+    facilities: string[];
+    bed_group: RoomBedGroups;
+    cancellation_policies: BedbankCancellationPolicy[];
+  }
+
+  interface BedbankCancellationPolicy {
+    currency: string;
+    start: string;
+    end: string;
+    percent?: number;
+    amount?: number;
+    nights?: number;
+  }
+
+  interface RoomBedGroups {
+    id: string;
+    description: string;
+    configuration: Array<BedGroupsConfiguration>;
+  }
+
+  interface BedGroupsConfiguration {
+    type: string;
+    size: string;
+    quantity: string;
   }
 }
