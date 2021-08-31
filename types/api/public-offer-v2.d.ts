@@ -276,6 +276,7 @@ export namespace PublicOfferV2 {
   interface Property {
     id: string;
     address: PropertyAddressResponse;
+    timezone: string;
     location: {
       longitude: number;
       latitude: number;
