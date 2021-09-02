@@ -141,6 +141,7 @@ export namespace Bedbank {
     refundable: boolean;
     regionCode: string;
     currencyCode: string;
+    timezone: string;
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricingResponse>;
     nights: number;

@@ -137,6 +137,7 @@ export namespace PublicOfferV2 {
     refundable: boolean;
     regionCode: string;
     currencyCode: string;
+    timezone: string;
     cancellationPolicies: Array<RateCancellationPolicy>;
     occupancyPricing: Array<RateOccupancyPricing>;
     totals: RateTotal;
