@@ -449,6 +449,7 @@ export namespace PublicOfferV2 {
     noIndex: boolean;
     daysBeforeCheckInChangesDisallowed: number;
     inclusions: {
+      heading?: string;
       description?: string;
       tileHeading?: string;
       tileDescription?: string;
