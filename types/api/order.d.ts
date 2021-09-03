@@ -166,7 +166,7 @@ export namespace Order {
     booking_number: string;
     fk_vendor_id: string;
     offer: Offer;
-    offer_package: OfferPackage;
+    offer_package: OfferHotelPackage | OfferTourPackage;
     reservation_type: string;
     reservation_made: boolean;
     created_at: string;
@@ -224,16 +224,33 @@ export namespace Order {
     upgrade_package?: OfferUpgradePackageMembership;
   }
 
-  interface OfferPackage {
+  interface OfferHotelPackage {
     id_salesforce_external: string;
     fk_property_id: string;
     fk_room_type_id: string;
+    fk_room_rate_id: string;
     name: string;
     description: string;
     price: number;
     value: number;
     cvp_bonus_points: number;
     number_of_nights: number;
+    cost_price: number;
+    cost_currency: string;
+    memberships: Array<OfferPackageMembership>;
+    nightly_price: number;
+    nightly_value: number;
+    nightly_cost_price: number;
+  }
+
+  interface OfferTourPackage {
+    id_salesforce_external: string;
+    name: string;
+    description: string;
+    price: number;
+    value: number;
+    cvp_bonus_points: number;
+    number_of_days: number;
     cost_price: number;
     cost_currency: string;
     memberships: Array<OfferPackageMembership>;
