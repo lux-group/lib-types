@@ -166,7 +166,7 @@ export namespace Order {
     booking_number: string;
     fk_vendor_id: string;
     offer: Offer;
-    offer_package: OfferHotelPackage | OfferTourPackage;
+    offer_package: OfferPackage;
     reservation_type: string;
     reservation_made: boolean;
     created_at: string;
@@ -259,6 +259,8 @@ export namespace Order {
     cost_currency: string;
     memberships: Array<OfferPackageMembership>;
   }
+
+  type OfferPackage = OfferHotelPackage | OfferTourPackage;
 
   interface Reservation {
     id: string;
