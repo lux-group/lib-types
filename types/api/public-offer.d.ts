@@ -84,6 +84,9 @@ export namespace PublicOffer {
     additional_description: null | string;
     exclusive_extras: null | string;
     exclusive_extras_large: null | string;
+    offer_inclusions_heading: null | string,
+    offer_inclusions_long: null | string,
+    offer_inclusions_short: null | string,
     travel_from_date: null | string;
     travel_to_date: null | string;
     book_by_date: null | string;
