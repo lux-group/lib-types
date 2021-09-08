@@ -546,4 +546,22 @@ export namespace PublicOfferV2 {
       packages?: string[];
     }>;
   }
+
+  interface GetOfferListByMapAreaQueryParams {
+    region: string;
+    brand: string;
+    occupancy: Array<string> | string;
+    checkIn?: string;
+    checkOut?: string;
+  }
+
+  interface GetOfferListByMapAreaResponseBody {
+    status: number;
+    message: undefined;
+    result: Array<{
+      id: string;
+      kind: string;
+      packages?: string[];
+    }>;
+  }
 }
