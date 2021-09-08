@@ -558,9 +558,10 @@ export namespace PublicOfferV2 {
   interface GetOfferListByMapAreaResponseBody {
     status: number;
     message: undefined;
-    result: {
-      leOfferIds: string[];
-      bedbankPropertyIds: string[];
-    };
+    result: Array<{
+      id: string;
+      kind: string;
+      packages?: string[];
+    }>;
   }
 }
