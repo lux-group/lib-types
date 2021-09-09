@@ -218,6 +218,5 @@ export namespace Bedbank {
     propertyFinePrint: PropertyFinePrint;
     description: string;
     metaDescription: string;
-    airport: string;
   }
 }
