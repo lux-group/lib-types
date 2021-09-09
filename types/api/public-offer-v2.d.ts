@@ -409,6 +409,7 @@ export namespace PublicOfferV2 {
       metaDescription: string;
       attractions?: string;
     };
+    airport: string;
   }
 
   interface LeOfferBase {
