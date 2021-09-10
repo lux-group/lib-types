@@ -12,3 +12,4 @@ export { PublicOfferV2 } from "./public-offer-v2";
 export { Reservation } from "./reservation";
 export { Bedbank } from "./bedbank";
 export { Wishlist } from "./wishlist";
+export { Reporting } from "./reporting";
