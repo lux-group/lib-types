@@ -11,9 +11,9 @@ export namespace Reporting {
 
   interface OrderStats {
     period: {
-      from: string,
+      from: string;
       to: string;
-    },
+    };
     min: number;
     count: number;
     is_popular: boolean;
@@ -25,7 +25,7 @@ export namespace Reporting {
     result: OfferResult;
   }
 
-  type OfferResult = Array<OfferStats>
+  type OfferResult = Array<OfferStats>;
 
   interface OfferStats {
     total_purchase: string;
@@ -33,5 +33,4 @@ export namespace Reporting {
     page_views: string | null;
     region: string;
   }
-
 }
