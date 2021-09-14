@@ -212,6 +212,7 @@ export namespace Bedbank {
     facilityGroups: Array<FacilityGroup>;
     address: PropertyAddressResponse;
     attractions?: string;
+    amenities?: string;
     timezone: string;
     location: PropertyLocation;
     phone: string;
