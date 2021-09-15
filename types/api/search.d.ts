@@ -1,4 +1,11 @@
 export namespace Search {
+  type OfferType =
+    | "bedbank_hotel"
+    | "hotel"
+    | "last_minute_hotel"
+    | "tactical_ao_hotel"
+    | "tour";
+
   export type SearchResult = Array<{
     id: string;
     kind: string;
@@ -9,7 +16,7 @@ export namespace Search {
     region: string;
     brand: string;
     occupancy: Array<string> | string;
-    offerTypes: string;
+    offerTypes: OfferType[];
     userAgent: string;
     checkIn?: string;
     checkOut?: string;
