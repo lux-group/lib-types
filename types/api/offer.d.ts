@@ -52,7 +52,13 @@ export namespace Offer {
     title: string | null;
   }
 
+  interface Addon {
+    id_salesforce_external: string;
+  }
+
   interface BasePackage {
+    addons: Addon[];
+    id_salesforce_external: string;
     regions: string[];
   }
 
@@ -61,7 +67,6 @@ export namespace Offer {
     fk_room_rate_id: string;
     fk_room_type_id: string;
     flexible_nights: boolean;
-    id_salesforce_external: string;
     max_extra_nights: number;
     max_days_in_future_check_in_is_allowed: number | undefined;
     number_of_nights: number;
@@ -70,6 +75,8 @@ export namespace Offer {
 
   interface TourPackage extends BasePackage {
     number_of_days: number;
+    fk_tour_id: string;
+    fk_tour_option_id: string;
   }
 
   type Package = AccommodationPackage | TourPackage;
