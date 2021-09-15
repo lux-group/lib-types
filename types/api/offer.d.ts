@@ -20,6 +20,7 @@ export namespace Offer {
   interface BaseOffer {
     brand_schedules: BrandSchedule[];
     id_salesforce_external: string;
+    images: Image[];
     name: string;
     slug: string;
   }
