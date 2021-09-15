@@ -10,6 +10,7 @@ export namespace Search {
     brand: string;
     occupancy: Array<string> | string;
     offerTypes: string;
+    userAgent: string;
     checkIn?: string;
     checkOut?: string;
     // Params to perform different search types
