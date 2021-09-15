@@ -21,6 +21,7 @@ export namespace Offer {
     brand_schedules: BrandSchedule[];
     id_salesforce_external: string;
     images: Image[];
+    locations: string[];
     name: string;
     slug: string;
   }
