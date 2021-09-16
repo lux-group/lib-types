@@ -27,6 +27,19 @@ export namespace Search {
     bounds?: string;
   }
 
+  // An itermediate interface for search by either place ids or map area
+  // TODO: remove this interface after introduced /list endpoint
+  export interface SearchParams {
+    region: string;
+    brand: string;
+    occupancy: Array<string> | string;
+    userAgent: string;
+    checkIn?: string;
+    checkOut?: string;
+    placeIds?: string[];
+    bounds?: string;
+  }
+
   export interface ListOffersResponseBody {
     status: number;
     message: string | null;
