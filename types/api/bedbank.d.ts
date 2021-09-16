@@ -237,5 +237,6 @@ export namespace Bedbank {
     description: string;
     metaDescription: string;
     airport: string;
+    flights_enabled: boolean;
   }
 }
