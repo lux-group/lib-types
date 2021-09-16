@@ -428,6 +428,7 @@ export namespace PublicOfferV2 {
     };
     airport: string;
     flightPrices: BedBankFlightPrices | null;
+    flights_enabled: boolean;
   }
 
   interface LeOfferBase {
