@@ -24,6 +24,23 @@ export namespace Bedbank {
     configuration: Configuration[];
   }
 
+  interface BedBankOutboundReturningRoute {
+    cost_per_adult: number;
+    departure_date: string;
+    arrival_date: string;
+    depature_time: string;
+    arrival_time: string;
+    total_time_difference: number;
+    is_sold_out: boolean;
+  }
+
+  interface BedBankFlightPrices {
+    cost: number;
+    fees: number;
+    outbound_route: BedBankOutboundReturningRoute;
+    returning_route: BedBankOutboundReturningRoute;
+  }
+
   interface OccupancyFee {
     type: string;
     amount: number;
