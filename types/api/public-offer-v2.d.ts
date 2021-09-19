@@ -425,6 +425,7 @@ export namespace PublicOfferV2 {
       description: string;
       metaDescription: string;
       attractions?: string;
+      amenities?: string;
     };
     airport: string;
     flightPrices: BedBankFlightPrices | null;
