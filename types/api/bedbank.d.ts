@@ -236,7 +236,7 @@ export namespace Bedbank {
     propertyFinePrint: PropertyFinePrint;
     description: string;
     metaDescription: string;
-    airport: string;
+    airport: string | null;
     flights_enabled: boolean;
   }
 }

@@ -427,7 +427,7 @@ export namespace PublicOfferV2 {
       attractions?: string;
       amenities?: string;
     };
-    airport: string;
+    airport: string | null;
     flightPrices: BedBankFlightPrices | null;
     flights_enabled: boolean;
   }
