@@ -1,24 +1,18 @@
-import { Geo } from "./geo";
-
-export namespace Reservation {
-  interface Link {
+import * as Geo from "./geo";
+export interface Link {
     href: string;
-  }
-
-  interface TemplatedLink extends Link {
+}
+export interface TemplatedLink extends Link {
     templated: boolean;
-  }
-
-  interface Result {
+}
+export interface Result {
     message: null;
     status: number;
-  }
-
-  interface HotelReservationResult extends Result {
+}
+export interface HotelReservationResult extends Result {
     result: HotelReservation;
-  }
-
-  interface HotelReservation {
+}
+export interface HotelReservation {
     _links: HotelReservationLinks;
     id: string;
     state: string;
@@ -45,31 +39,26 @@ export namespace Reservation {
     channel_manager: string;
     room_type: RoomTypeMemo;
     property: PropertyMemo;
-  }
-
-  interface HotelReservationLinks {
+}
+export interface HotelReservationLinks {
     self: Link;
     room_type: Link;
     property: Link;
     orders: Link;
     parent: Link;
-  }
-
-  interface PropertyMemo {
+}
+export interface PropertyMemo {
     name: string;
-  }
-
-  interface RoomTypeMemo {
+}
+export interface RoomTypeMemo {
     name: string;
-  }
-
-  interface RoomTypeResult {
+}
+export interface RoomTypeResult {
     message: null;
     status: number;
     result: RoomType;
-  }
-
-  interface RoomType {
+}
+export interface RoomType {
     _links: RoomTypeLinks;
     name: string;
     id: string;
@@ -94,16 +83,14 @@ export namespace Reservation {
     room_rates: RoomRate[];
     room_inclusions: string | null;
     room_type_code: string | null;
-  }
-
-  interface RoomTypeLinks {
+}
+export interface RoomTypeLinks {
     self: Link;
     property: Link;
     availability: TemplatedLink;
     enquiry: TemplatedLink;
-  }
-
-  interface Surcharges {
+}
+export interface Surcharges {
     id: string;
     currency: string;
     adult_cost: number;
@@ -112,47 +99,32 @@ export namespace Reservation {
     adult_amount: number;
     child_amount: number;
     infant_amount: number;
-  }
-
-  interface RoomRate {
+}
+export interface RoomRate {
     _links: RoomRateLinks;
     id: string;
     rate_plan: RatePlan;
     included_guests: AdultChildInfant[];
     capacities: AdultChildInfant[];
     extra_guest_surcharges: Surcharges[];
-  }
-
-  interface RoomRateLinks {
+}
+export interface RoomRateLinks {
     self: Link;
     surcharges: Link;
-  }
-
-  type CancellationPolicy =
-    | "refundable"
-    | "non-refundable"
-    | "prior-to-check-in-one-day"
-    | "prior-to-check-in-two-days"
-    | "prior-to-check-in-seven-days"
-    | "prior-to-check-in-fourteen-days"
-    | "prior-to-check-in-twenty-one-days"
-    | "prior-to-check-in-thirty-one-days"
-    | "prior-to-check-in-sixty-days";
-
-  interface BonusInclusion {
+}
+declare type CancellationPolicy = "refundable" | "non-refundable" | "prior-to-check-in-one-day" | "prior-to-check-in-two-days" | "prior-to-check-in-seven-days" | "prior-to-check-in-fourteen-days" | "prior-to-check-in-twenty-one-days" | "prior-to-check-in-thirty-one-days" | "prior-to-check-in-sixty-days";
+export interface BonusInclusion {
     id: string;
     from_nights: number;
     to_nights: number;
     content: string;
-  }
-
-  interface RatePlanResult {
+}
+export interface RatePlanResult {
     message: null;
     status: number;
     result: RatePlan;
-  }
-
-  interface RatePlan {
+}
+export interface RatePlan {
     _links: RatePlanLinks;
     id: string;
     id_salesforce_external: string;
@@ -164,52 +136,44 @@ export namespace Reservation {
     inclusions: string | null;
     bonus_inclusions?: Array<BonusInclusion>;
     rate_plan_code: string | null;
-  }
-
-  interface RatePlanLinks {
+}
+export interface RatePlanLinks {
     self: Link;
-  }
-
-  interface Amenity {
+}
+export interface Amenity {
     id: number;
     name: string;
     built_in: boolean;
-  }
-
-  interface Availability {
+}
+export interface Availability {
     total: number;
     left: number;
-  }
-
-  interface AdultChildInfant {
+}
+export interface AdultChildInfant {
     _links: AdultChildInfantLinks;
     id: string;
     room_type_id: string;
     adults: number;
     children: number;
     infants: number;
-  }
-
-  interface AdultChildInfantLinks {
+}
+export interface AdultChildInfantLinks {
     self: Link;
-  }
-
-  interface Image {
+}
+export interface Image {
     id: string;
     id_cloudinary_external: string;
     room_type_id: string;
     order: number;
     created_at: string;
     updated_at: string;
-  }
-
-  interface PropertyResult {
+}
+export interface PropertyResult {
     message: null;
     status: number;
     result: Property;
-  }
-
-  interface Property {
+}
+export interface Property {
     _links: PropertyLinks;
     room_types_count: number;
     reviews_count: number;
@@ -239,45 +203,38 @@ export namespace Reservation {
     timezone: string;
     timezone_offset: number;
     taxes_and_fees_content?: string;
-  }
-
-  interface PropertyLinks {
+}
+export interface PropertyLinks {
     room_type: TemplatedLink;
     self: Link;
-  }
-
-  interface Review {
+}
+export interface Review {
     id: string;
     content: string;
     source: string;
-  }
-
-  interface TourOptionLinks {
+}
+export interface TourOptionLinks {
     self: Link;
     tour: Link;
     enquiry: TemplatedLink;
-  }
-
-  interface TourOptionAvailability {
+}
+export interface TourOptionAvailability {
     total: number;
     left: number;
-  }
-
-  interface TourOption {
+}
+export interface TourOption {
     _links: TourOptionLinks;
     name: string;
     id: string;
     tour_id: string;
     availability: TourOptionAvailability;
-  }
-
-  interface TourLinks {
+}
+export interface TourLinks {
     tour_option: TemplatedLink;
     tour_legs: TemplatedLink;
     self: Link;
-  }
-
-  interface Tour {
+}
+export interface Tour {
     _links: TourLinks;
     tour_options_count: number;
     tour_legs_count: number;
@@ -296,13 +253,11 @@ export namespace Reservation {
     timezone: string;
     timezone_offset: number;
     geo_data: Geo.Data;
-  }
-
-  interface TourResult extends Result {
+}
+export interface TourResult extends Result {
     result: Tour;
-  }
-
-  interface EnquiryRate {
+}
+export interface EnquiryRate {
     id: string;
     duration_surcharge_total: number;
     duration_extra_guest_surcharge_total: number;
@@ -319,25 +274,22 @@ export namespace Reservation {
     check_in_amount: number;
     check_in_tax: number;
     check_in_rates_applies: boolean;
-  }
-
-  interface EnquiryDate {
+}
+export interface EnquiryDate {
     check_in: string;
     check_out: string;
     last_night: string;
     rates: EnquiryRate;
-  }
-
-  interface EnquiryResult {
+}
+export interface EnquiryResult {
     property_id: string;
     room_type_id: string;
     room_rate_ids: string[];
     unique_key: string;
     dates: EnquiryDate[];
-  }
-
-  interface CreateEnquiryResult extends Result {
+}
+export interface CreateEnquiryResult extends Result {
     _links: string;
     result: EnquiryResult[];
-  }
 }
+export {};

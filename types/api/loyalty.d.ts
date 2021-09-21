@@ -1,21 +1,17 @@
-export namespace Loyalty {
-  interface PartnershipResult {
+export interface PartnershipResult {
     status: number;
     result: Partnership;
-  }
-
-  interface PartnershipsResult {
+}
+export interface PartnershipsResult {
     status: number;
     result: Partnership[];
     count: number;
     total: number;
-  }
-
-  interface PartnershipAccountFieldsLabels {
+}
+export interface PartnershipAccountFieldsLabels {
     [key: string]: string;
-  }
-
-  interface Partnership {
+}
+export interface Partnership {
     accountFields: string[];
     accountFieldsLabels: PartnershipAccountFieldsLabels;
     bonusPointCost: number;
@@ -48,55 +44,46 @@ export namespace Loyalty {
     rewardName: string;
     rewardPer: string;
     rewardProgramName: string;
-  }
-
-  interface MembershipResult {
+}
+export interface MembershipResult {
     status: number;
     result: Membership;
-  }
-
-  interface MembershipsResult {
+}
+export interface MembershipsResult {
     status: number;
     result: Membership[];
     count: number;
     total: number;
-  }
-
-  interface MembershipsLimitsResponse {
+}
+export interface MembershipsLimitsResponse {
     status: number;
     message: string;
     result: MembershipsLimitsResult;
-  }
-
-  interface MembershipsLimitsResult {
+}
+export interface MembershipsLimitsResult {
     freeUpgrades: MembershipsLimits;
     freeLoungePasses: MembershipsLimits;
-  }
-
-  interface MembershipPrice {
+}
+export interface MembershipPrice {
     price: number;
     regionCode: string;
     currencyCode: string;
-  }
-
-  interface MembershipLogo {
+}
+export interface MembershipLogo {
     id: string;
     color: string;
-  }
-
-  interface MembershipLink {
+}
+export interface MembershipLink {
     url: string;
     path: string;
     title: string;
-  }
-
-  interface MembershipHeadlineBenefit {
+}
+export interface MembershipHeadlineBenefit {
     title: string;
     color: string;
     backgroundColor: string;
-  }
-
-  interface Membership {
+}
+export interface Membership {
     code: string;
     shortName: string;
     freeUpgrades: number;
@@ -108,16 +95,13 @@ export namespace Loyalty {
     defaultLogo: MembershipLogo;
     headlineBenefit: MembershipHeadlineBenefit;
     prices: Array<MembershipPrice>;
-  }
-
-  interface MembershipAddons {
+}
+export interface MembershipAddons {
     code: string;
     idSalesforceExternal: string;
-  }
-
-  interface MembershipsLimits {
+}
+export interface MembershipsLimits {
     limit: number;
     total: number;
     left: number;
-  }
 }

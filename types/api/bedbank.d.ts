@@ -1,30 +1,25 @@
-export namespace Bedbank {
-  interface StrObject {
+export interface StrObject {
     [field: string]: string;
-  }
-
-  interface ReservationCancellationPolicy {
+}
+export interface ReservationCancellationPolicy {
     currency: string;
     start: string;
     end: string;
     percent: number | null;
     amount: number | null;
     nights: number | null;
-  }
-
-  interface Configuration {
+}
+export interface Configuration {
     type: string;
     size: string;
     quantity: number;
-  }
-
-  interface ReservationBedGroup {
+}
+export interface ReservationBedGroup {
     id: string;
     description: string;
     configuration: Configuration[];
-  }
-
-  interface BedBankOutboundReturningRoute {
+}
+export interface BedBankOutboundReturningRoute {
     cost_per_adult: number;
     departure_date: string;
     arrival_date: string;
@@ -32,29 +27,25 @@ export namespace Bedbank {
     arrival_time: string;
     total_time_difference: number;
     is_sold_out: boolean;
-  }
-
-  interface BedBankFlightPrices {
+}
+export interface BedBankFlightPrices {
     cost: number;
     fees: number;
     outbound_route: BedBankOutboundReturningRoute;
     returning_route: BedBankOutboundReturningRoute;
-  }
-
-  interface FlightPricesWithAirportCode {
+}
+export interface FlightPricesWithAirportCode {
     flightPrices: BedBankFlightPrices | undefined;
     flightsEnabled: boolean;
     airportCode: string | undefined;
-  }
-
-  interface OccupancyFee {
+}
+export interface OccupancyFee {
     type: string;
     amount: number;
     scope: string;
     frequency: string;
-  }
-
-  interface ReservationRoom {
+}
+export interface ReservationRoom {
     id: string;
     confirmationId: string;
     name: string;
@@ -77,9 +68,8 @@ export namespace Bedbank {
     facilities: string[];
     bedGroup: ReservationBedGroup;
     cancellationPolicies: Array<ReservationCancellationPolicy>;
-  }
-
-  interface Reservation {
+}
+export interface Reservation {
     id: string;
     state: string;
     transactionKey: string;
@@ -99,67 +89,57 @@ export namespace Bedbank {
     costPriceInclusive: number;
     marketingFee: number;
     rooms: Array<ReservationRoom>;
-  }
-
-  interface RateCancellationPolicy {
+}
+export interface RateCancellationPolicy {
     currency: string;
     start: string;
     end: string;
     percent?: number;
     amount?: number;
     nights?: number;
-  }
-
-  interface PropertyLocation {
+}
+export interface PropertyLocation {
     longitude: number;
     latitude: number;
-  }
-
-  interface CapacityResponse {
+}
+export interface CapacityResponse {
     id: string;
     adults: number;
     children: number;
     infants: number;
-  }
-
-  interface AgeCategoryResponse {
+}
+export interface AgeCategoryResponse {
     id: string;
     name: "Adult" | "ChildAgeA" | "Infant";
     minimumAge: number;
-  }
-
-  interface BedGroupResponse {
+}
+export interface BedGroupResponse {
     id: string;
     description: string;
     configuration: Configuration[];
-  }
-
-  interface FacilityGroupValues {
+}
+export interface FacilityGroupValues {
     name: string;
-  }
-
-  interface FacilityGroup {
+}
+export interface FacilityGroup {
     name: string;
     values: Array<FacilityGroupValues>;
-  }
-
-  interface RateOccupancyPricingResponse {
+}
+export interface RateOccupancyPricingResponse {
     exclusive: number;
     inclusive: number;
     taxesAndFees: number;
     occupancy: string;
     fees: OccupancyFee[];
     salesTax: number;
-  }
-
-  interface RoomRateTotalResponse {
+}
+export interface RoomRateTotalResponse {
     exclusive: number;
     inclusive: number;
     taxesAndFees: number;
     propertyFees?: number;
-  }
-
-  interface RoomRateResponse {
+}
+export interface RoomRateResponse {
     id: string;
     refundable: boolean;
     regionCode: string;
@@ -173,18 +153,15 @@ export namespace Bedbank {
     price: number;
     value: number;
     discount: number;
-  }
-
-  interface ImageResponse {
+}
+export interface ImageResponse {
     id: string;
-  }
-
-  interface RoomTypeCapacityResponse {
+}
+export interface RoomTypeCapacityResponse {
     combinations: CapacityResponse[];
     ageCategories: AgeCategoryResponse[];
-  }
-
-  interface RoomTypeResponse {
+}
+export interface RoomTypeResponse {
     id: string;
     name: string;
     description: string;
@@ -192,9 +169,8 @@ export namespace Bedbank {
     roomRates: RoomRateResponse[];
     capacities: RoomTypeCapacityResponse;
     facilityGroups: Array<FacilityGroup>;
-  }
-
-  interface PropertyAddressResponse {
+}
+export interface PropertyAddressResponse {
     line1?: string;
     line2?: string;
     city?: string;
@@ -204,27 +180,25 @@ export namespace Bedbank {
     countryCode?: string;
     countryName?: string;
     obfuscationRequired: boolean;
-  }
-
-  interface PropertyFinePrint {
+}
+export interface PropertyFinePrint {
     checkIn: {
-      beginTime?: string;
-      endTime?: string;
-      instructions?: string;
-      specialInstructions?: string;
+        beginTime?: string;
+        endTime?: string;
+        instructions?: string;
+        specialInstructions?: string;
     };
     checkOut: {
-      time?: string;
+        time?: string;
     };
     fees: {
-      mandatory?: string;
-      optional?: string;
+        mandatory?: string;
+        optional?: string;
     };
     policies?: StrObject;
     finePrintPets?: Array<string | undefined>;
-  }
-
-  interface PropertyResponse {
+}
+export interface PropertyResponse {
     id: string;
     name: string;
     slug: string;
@@ -244,5 +218,4 @@ export namespace Bedbank {
     metaDescription: string;
     airport: string | undefined;
     flightsEnabled: boolean;
-  }
 }

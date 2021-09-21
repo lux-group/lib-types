@@ -1,24 +1,19 @@
-export namespace Flights {
-  interface AirportsResult {
+export interface AirportsResult {
     result: AirportRegion;
-  }
-
-  interface StringMap<T> {
+}
+export interface StringMap<T> {
     [code: string]: T;
-  }
-
-  interface AirportRegion {
+}
+export interface AirportRegion {
     airports: StringMap<Airport>;
     origins: string[];
     destinations: string[];
     main_port: string;
     closest_port: string;
-  }
-
-  interface Airport {
+}
+export interface Airport {
     code: string;
     name: string;
     latitude: number;
     longitude: number;
-  }
 }

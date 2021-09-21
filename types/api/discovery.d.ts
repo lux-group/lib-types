@@ -1,16 +1,13 @@
-export namespace Discovery {
-  interface RegionsResult {
+export interface RegionsResult {
     result: RegionAndZeroDecimalCurrencies;
-  }
-
-  interface RegionAndZeroDecimalCurrencies {
+}
+export interface RegionAndZeroDecimalCurrencies {
     regions: Region[];
     zero_decimal_currencies: string[];
     default_region: Region;
     current_region: string;
-  }
-
-  interface Region {
+}
+export interface Region {
     code: string;
     currency_code: string;
     currency_formatting_locale: string;
@@ -29,33 +26,28 @@ export namespace Discovery {
     phone: RegionPhone;
     referral_amount: string;
     referral_min_spend_amount: string;
-  }
-
-  interface FlightPort {
+}
+export interface FlightPort {
     code: string;
     name: string;
     latitude: number;
     longitude: number;
-  }
-
-  interface Flights {
+}
+export interface Flights {
     departure_ports: FlightPort[];
     destination_ports: FlightPort[];
     main_port: string;
-  }
-
-  interface RegionPhone {
+}
+export interface RegionPhone {
     local: RegionPhoneNumber;
     international: RegionPhoneNumber;
     default: string;
-  }
-
-  interface RegionPhoneNumber {
+}
+export interface RegionPhoneNumber {
     human_readable: string;
     number: string;
-  }
-
-  interface Country {
+}
+export interface Country {
     code: string;
     name: string;
     native: string;
@@ -64,5 +56,4 @@ export namespace Discovery {
     capital: string;
     currency: string;
     languages: string[];
-  }
 }

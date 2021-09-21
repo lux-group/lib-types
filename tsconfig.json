@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "rootDir": "./types",
+    "rootDir": "./src",
+    "outDir": "./types",
     "target": "es5",
     "declaration": true,
     "lib": ["dom", "es7"],
@@ -10,6 +11,6 @@
     "skipLibCheck": false
   },
   "exclude": [
-    "*/**.test.ts"
+    "types",
   ]
 }

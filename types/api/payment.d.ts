@@ -1,13 +1,11 @@
-export namespace Payment {
-  interface PaymentsResult {
+export interface PaymentsResult {
     data: Payment[];
     message: string;
     status: number;
     result: Payment[];
     count: number;
-  }
-
-  interface Payment {
+}
+export interface Payment {
     success: boolean;
     type: string;
     response_json: ResponseJson;
@@ -25,9 +23,7 @@ export namespace Payment {
     transaction_key: string;
     ext_transaction_id: string;
     stripe_account_id: string;
-  }
-
-  interface ResponseJson {
+}
+export interface ResponseJson {
     [property: string]: string | number | boolean | null;
-  }
 }

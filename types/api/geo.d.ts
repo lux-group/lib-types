@@ -1,5 +1,4 @@
-export namespace Geo {
-  interface Data {
+export interface Data {
     continent_code: string | null;
     country: string;
     country_code: string;
@@ -12,5 +11,4 @@ export namespace Geo {
     route: string | null;
     street_number: string | null;
     place_id: string;
-  }
 }

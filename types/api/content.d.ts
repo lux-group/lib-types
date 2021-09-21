@@ -1,27 +1,22 @@
-export namespace Content {
-  interface Link {
+export interface Link {
     href: string;
-  }
-
-  interface Links {
+}
+export interface Links {
     self: Link;
-  }
-
-  interface ContentPagesResult {
+}
+export interface ContentPagesResult {
     _links: Links;
     status: number;
     message: string;
     total: number;
     result: ContentPage[];
-  }
-
-  interface ContentPageResult {
+}
+export interface ContentPageResult {
     status: number;
     message: string;
     result: ContentPage[];
-  }
-
-  interface ContentPage {
+}
+export interface ContentPage {
     _links: Links;
     id: string;
     contentType: ContentType;
@@ -29,15 +24,13 @@ export namespace Content {
     updatedAt: string;
     lang: string;
     fields: Fields;
-  }
-
-  interface ContentType {
+}
+export interface ContentType {
     type: string;
     linkType: string;
     id: string;
-  }
-
-  interface Fields {
+}
+export interface Fields {
     title: string;
     destinationSubtitle: string;
     slug: string;
@@ -47,20 +40,16 @@ export namespace Content {
     brand: Brand;
     metaTitle?: string;
     metaDescription?: string;
-  }
-
-  interface Content {
+}
+export interface Content {
     title: string;
     description: string;
     brand?: ContentBrand;
     videoUrl?: string;
-  }
-
-  interface ContentBrand {
+}
+export interface ContentBrand {
     fields: Brand;
-  }
-
-  interface Brand {
+}
+export interface Brand {
     name: string;
-  }
 }

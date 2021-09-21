@@ -1,71 +1,58 @@
-import { Geo } from "./geo";
-import { Reservation } from "./reservation";
-
-export namespace PublicOffer {
-  interface Link {
+import * as Geo from "./geo";
+import * as Reservation from "./reservation";
+export interface Link {
     href: string;
-  }
-
-  interface LinkWithTemplate extends Link {
+}
+export interface LinkWithTemplate extends Link {
     templated: boolean;
-  }
-
-  interface OffersLinks {
+}
+export interface OffersLinks {
     self: Link;
     next?: Link;
     prev?: Link;
-  }
-
-  interface OfferLinks {
+}
+export interface OfferLinks {
     self: Link;
     voucher_status: Link;
-  }
-
-  interface OfferFiltersLinks {
+}
+export interface OfferFiltersLinks {
     self: Link;
-  }
-
-  interface OfferFilterTotals {
+}
+export interface OfferFilterTotals {
     [name: string]: number;
-  }
-
-  interface OfferFilters {
+}
+export interface OfferFilters {
     locations?: OfferFilterTotals;
     holiday_types?: OfferFilterTotals;
     campaigns?: OfferFilterTotals;
     type?: OfferFilterTotals;
-  }
-
-  interface OfferFiltersResult {
+}
+export interface OfferFiltersResult {
     _links: OfferFiltersLinks;
     message: null;
     status: number;
     result: OfferFilters;
     count: number;
     total: number;
-  }
-
-  interface OfferResult {
+}
+export interface OfferResult {
     message: null | string;
     status: number;
     result: Offer;
-  }
-
-  interface OffersResult {
+}
+export interface OffersResult {
     _links: OffersLinks;
     message: null | string;
     status: number;
     result: Offer[];
     count: number;
     total: number;
-  }
-
-  interface UrgencyTag {
+}
+export interface UrgencyTag {
     type: string;
     message: null | string;
-  }
-
-  interface Offer {
+}
+export interface Offer {
     _links: OfferLinks;
     id_salesforce_external: string;
     le_offer_id: string;
@@ -156,9 +143,8 @@ export namespace PublicOffer {
     available_for_purchase: boolean;
     flight_origin_list: string[];
     flight_cache_active: boolean;
-  }
-
-  interface Schedule {
+}
+export interface Schedule {
     _links: SelfWithParentLinks;
     id: number;
     offer_id_salesforce_external: string;
@@ -167,39 +153,33 @@ export namespace PublicOffer {
     type: string;
     region: string;
     brand: string;
-  }
-
-  interface SelfWithParentLinks {
+}
+export interface SelfWithParentLinks {
     self: Link;
     offer: Link;
-  }
-
-  interface Errors {
+}
+export interface Errors {
     [key: string]: string;
-  }
-
-  interface Image {
+}
+export interface Image {
     _links: SelfWithParentLinks;
     id_image: number;
     offer_id_salesforce_external: string;
     id_cloudinary_external: string;
     order: number;
-  }
-
-  interface ListVisibilitySchedules {
+}
+export interface ListVisibilitySchedules {
     [regionCode: string]: Schedule;
-  }
-
-  interface PackageRate {
+}
+export interface PackageRate {
     unique_key: string;
     price: number;
     value: number;
     number_of_nights: number;
     number_of_days: number;
     prices: Price[];
-  }
-
-  interface Package {
+}
+export interface Package {
     _links: PackageLinks;
     fk_room_type_id: string;
     fk_property_id: string;
@@ -246,28 +226,24 @@ export namespace PublicOffer {
     room_rate?: Reservation.RoomRate;
     tour?: Tour;
     tour_option?: TourOption;
-  }
-
-  interface PackageLinks {
+}
+export interface PackageLinks {
     self: Link;
     offer: Link;
     addons: Link;
     room_type: Link;
     property: Link;
-  }
-
-  interface Price {
+}
+export interface Price {
     currency_code: string;
     price: number;
     value: number;
-  }
-
-  interface PropertyLinks {
+}
+export interface PropertyLinks {
     room_type: LinkWithTemplate;
     self: Link;
-  }
-
-  interface Property {
+}
+export interface Property {
     _links: PropertyLinks;
     room_types_count: number;
     reviews_count: number;
@@ -292,14 +268,12 @@ export namespace PublicOffer {
     use_dynamic_cancellation_policies: boolean;
     use_dynamic_occupancy: boolean;
     geo_data: Geo.Data;
-  }
-
-  interface TourLinks {
+}
+export interface TourLinks {
     tour_option: LinkWithTemplate;
     self: Link;
-  }
-
-  interface Tour {
+}
+export interface Tour {
     _links: TourLinks;
     tour_options_count: number;
     tour_legs_count: number;
@@ -317,22 +291,19 @@ export namespace PublicOffer {
     geo_data: Geo.Data;
     created_at: string;
     updated_at: string;
-  }
-
-  interface Review {
+}
+export interface Review {
     id: string;
     content: string;
     source: string;
-  }
-
-  interface RoomTypeLinks {
+}
+export interface RoomTypeLinks {
     self: Link;
     property: Link;
     availability: LinkWithTemplate;
     enquiry: LinkWithTemplate;
-  }
-
-  interface RoomType {
+}
+export interface RoomType {
     _links: RoomTypeLinks;
     name: string;
     id: string;
@@ -346,34 +317,30 @@ export namespace PublicOffer {
     amenities: Amenity[];
     images: Image[];
     is_limited: boolean;
-  }
-
-  interface TourOptionLinks {
+}
+export interface TourOptionLinks {
     self: Link;
     tour: Link;
     enquiry: LinkWithTemplate;
-  }
-
-  interface TourOption {
+}
+export interface TourOption {
     _links: TourOptionLinks;
     name: string;
     id: string;
     tour_id: string;
     availability: {
-      total: number;
-      left: number;
+        total: number;
+        left: number;
     };
     created_at: string;
     updated_at: string;
     is_limited: boolean;
-  }
-
-  interface Availability {
+}
+export interface Availability {
     total: number;
     left: number;
-  }
-
-  interface Capacity {
+}
+export interface Capacity {
     id: string;
     adults: number;
     children: number;
@@ -382,9 +349,8 @@ export namespace PublicOffer {
     created_at: string;
     updated_at: string;
     room_type_id: string;
-  }
-
-  interface IncludedGuest {
+}
+export interface IncludedGuest {
     id: string;
     adults: number;
     children: number;
@@ -392,57 +358,48 @@ export namespace PublicOffer {
     created_at: string;
     updated_at: string;
     room_type_id: string;
-  }
-
-  interface Voucher {
+}
+export interface Voucher {
     limit_reached: boolean;
-  }
-
-  interface PackagePartnership {
+}
+export interface PackagePartnership {
     code: string;
     prefix: string;
     bonus_points: number;
     bonus_description: string;
     regions: string[];
     package_points: number;
-  }
-
-  interface PackageMembership {
+}
+export interface PackageMembership {
     code: string;
     fk_upgrade_offer_package_salesforce_id: string | null;
     fk_upgrade_offer_package_unique_key: string | null;
     benefit_label: BenefitLabel;
     is_exclusive: boolean;
-  }
-
-  interface OfferPartnership {
+}
+export interface OfferPartnership {
     code: string;
     prefix: string;
     upsell_text: string;
     regions: string[];
-  }
-
-  interface BenefitLabel {
+}
+export interface BenefitLabel {
     type: string;
     label: string;
-  }
-
-  interface BenefitLabelWithMembershipCode extends BenefitLabel {
+}
+export interface BenefitLabelWithMembershipCode extends BenefitLabel {
     membership_code: string;
-  }
-
-  interface OfferMembership {
+}
+export interface OfferMembership {
     code: string;
     benefit_label: BenefitLabel;
     is_exclusive: boolean;
-  }
-
-  interface AddonLinks {
+}
+export interface AddonLinks {
     self: Link;
     addons: Link;
-  }
-
-  interface Addon {
+}
+export interface Addon {
     _links: AddonLinks;
     id_salesforce_external: string;
     fk_opportunity_salesforce_id: string;
@@ -486,26 +443,22 @@ export namespace PublicOffer {
     escalation_email: string;
     escalation_name: string;
     escalation_phone: string;
-  }
-
-  interface Amenity {
+}
+export interface Amenity {
     id: number;
     name: string;
     built_in: boolean;
     created_at: string;
     updated_at: string;
     room_types_amenities: RoomTypesAmenities;
-  }
-
-  interface RoomTypesAmenities {
+}
+export interface RoomTypesAmenities {
     created_at: string;
     updated_at: string;
     room_type_id: string;
     amenity_id: number;
-  }
-
-  interface ErrorResult {
+}
+export interface ErrorResult {
     message: string;
     status: number;
-  }
 }

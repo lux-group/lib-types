@@ -1,9 +1,16 @@
 export * as Auth from "./auth";
+// export { Content } from "./content";
+// export { Discovery } from "./discovery";
+// export { Flights } from "./flights";
 export * as Geo from "./geo";
+// export { Loyalty } from "./loyalty";
 export * as Offer from "./offer";
+// export { Order } from "./order";
+// export { Payment } from "./payment";
 export * as PublicOffer from "./public-offer";
 export * as PublicOfferV2 from "./public-offer-v2";
 export * as Reservation from "./reservation";
 export * as Bedbank from "./bedbank";
+// export { Wishlist } from "./wishlist";
 export * as Reporting from "./reporting";
 export * as Search from "./search";

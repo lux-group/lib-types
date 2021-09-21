@@ -1,23 +1,19 @@
-export namespace Order {
-  interface Link {
+export interface Link {
     href: string;
-  }
-
-  interface OrderLinks {
+}
+export interface OrderLinks {
     self: Link;
     payments: Link;
     refunds: Link;
     status: Link;
-  }
-
-  interface OrderResult {
+}
+export interface OrderResult {
     message: null;
     status: number;
     result: Order;
     fk_customer_id: string;
-  }
-
-  interface Order {
+}
+export interface Order {
     _links: OrderLinks;
     id: string;
     checksum: string;
@@ -80,21 +76,11 @@ export namespace Order {
     has_insurance: boolean;
     total: number;
     user_agent: string | null;
-  }
-
-  type AnyItem =
-    | AddonItem
-    | FlightItem
-    | GiftCardItem
-    | MembershipItem
-    | InsuranceItem
-    | AccommodationItem;
-
-  interface ItemLinks {
+}
+export interface ItemLinks {
     order: Link;
-  }
-
-  interface Item {
+}
+export interface Item {
     _links: ItemLinks;
     id: string;
     status: string;
@@ -103,13 +89,11 @@ export namespace Order {
     price: number;
     value: number;
     fk_order_id: string;
-  }
-
-  interface AddonItemLinks extends ItemLinks {
+}
+export interface AddonItemLinks extends ItemLinks {
     addon: Link;
-  }
-
-  interface AddonItem extends Item {
+}
+export interface AddonItem extends Item {
     _links: AddonItemLinks;
     salesforce_id: string;
     offer_salesforce_id: string;
@@ -118,48 +102,39 @@ export namespace Order {
     fk_opportunity_salesforce_id: string;
     categories: string[];
     item?: AccommodationItem;
-  }
-
-  interface FlightItemLinks extends ItemLinks {
+}
+export interface FlightItemLinks extends ItemLinks {
     flight_details: Link;
     flight_reservation: Link;
-  }
-
-  interface FlightItem extends Item {
+}
+export interface FlightItem extends Item {
     _links: FlightItemLinks;
-  }
-
-  interface GiftCardItemLinks extends ItemLinks {
+}
+export interface GiftCardItemLinks extends ItemLinks {
     gift_card: Link;
-  }
-
-  interface GiftCardItem extends Item {
+}
+export interface GiftCardItem extends Item {
     _links: GiftCardItemLinks;
-  }
-
-  interface MembershipItem extends Item {
+}
+export interface MembershipItem extends Item {
     code: string;
     number: number;
-  }
-
-  interface InsuranceItemLinks extends ItemLinks {
+}
+export interface InsuranceItemLinks extends ItemLinks {
     subscription: Link;
     pds: Link;
-  }
-
-  interface InsuranceItem extends Item {
+}
+export interface InsuranceItem extends Item {
     _links: InsuranceItemLinks;
-  }
-
-  interface AccommodationItemLinks extends ItemLinks {
+}
+export interface AccommodationItemLinks extends ItemLinks {
     self: Link;
     voucher: Link;
     reservation?: Link;
     downgraded_from?: Link;
     offer?: Link;
-  }
-
-  interface AccommodationItem extends Item {
+}
+export interface AccommodationItem extends Item {
     _links: AccommodationItemLinks;
     transaction_key: string;
     checksum: string;
@@ -184,9 +159,8 @@ export namespace Order {
     cvp_bonus_points: number;
     is_downgraded: boolean;
     fk_downgraded_from_id: null | string;
-  }
-
-  interface Offer {
+}
+export interface Offer {
     id_salesforce_external: string;
     slug: string;
     name: string;
@@ -198,39 +172,33 @@ export namespace Order {
     partnerships: OfferPartnership[];
     tour_flight_details_required: boolean;
     enable_customer_portal_date_change: boolean;
-  }
-
-  interface Image {
+}
+export interface Image {
     id_cloudinary_external: string;
-  }
-
-  interface OfferPartnership {
+}
+export interface OfferPartnership {
     code: string;
     prefix: string;
     upsell_text: null;
-  }
-
-  interface OfferUpgradePackageMembership {
+}
+export interface OfferUpgradePackageMembership {
     id_salesforce_external: string;
     max_extra_nights: number;
     nightly_price: number;
     nightly_value: number;
     price: number;
     value: number;
-  }
-
-  interface OfferPackageMembership {
+}
+export interface OfferPackageMembership {
     code: string;
     upgrade_package?: OfferUpgradePackageMembership;
-  }
-
-  interface OfferPackagePartnership {
+}
+export interface OfferPackagePartnership {
     cvp_bonus_points?: number;
     kfp_bonus_points?: number;
     qff_bonus_points?: number;
-  }
-
-  interface OfferHotelPackage extends OfferPackagePartnership {
+}
+export interface OfferHotelPackage extends OfferPackagePartnership {
     id_salesforce_external: string;
     fk_property_id: string;
     fk_room_type_id: string;
@@ -246,9 +214,8 @@ export namespace Order {
     nightly_price: number;
     nightly_value: number;
     nightly_cost_price: number;
-  }
-
-  interface OfferTourPackage extends OfferPackagePartnership {
+}
+export interface OfferTourPackage extends OfferPackagePartnership {
     id_salesforce_external: string;
     name: string;
     description: string;
@@ -258,11 +225,9 @@ export namespace Order {
     cost_price: number;
     cost_currency: string;
     memberships: Array<OfferPackageMembership>;
-  }
-
-  type OfferPackage = OfferHotelPackage | OfferTourPackage;
-
-  interface Reservation {
+}
+declare type OfferPackage = OfferHotelPackage | OfferTourPackage;
+export interface Reservation {
     id: string;
     state: string;
     check_in: string;
@@ -279,36 +244,31 @@ export namespace Order {
     surcharge_cost_total: number;
     guest_special_requests: string;
     surcharge_paid_direct_to_vendor: boolean;
-  }
-
-  interface Partnerships {
+}
+export interface Partnerships {
     qff?: Partnership;
     cvp?: Partnership;
     kfp?: Partnership;
-  }
-
-  interface Partnership {
+}
+export interface Partnership {
     account_id: string;
     first_name: string;
     last_name: string;
-  }
-
-  interface Refund {
+}
+export interface Refund {
     item_id: string;
     amount: string;
     refund_method: string;
     created_at: string;
     refund_fee: string;
     accounting_amount: string;
-  }
-
-  interface RefundResult {
+}
+export interface RefundResult {
     message: string;
     status: number;
     result: Refund[];
-  }
-
-  interface BedbankItem {
+}
+export interface BedbankItem {
     id: string;
     type: string;
     fk_order_id: string;
@@ -330,9 +290,8 @@ export namespace Order {
     property_fees: number;
     offer: BedbankOffer;
     rooms: BedbankItemRoom[];
-  }
-
-  interface BedbankOffer {
+}
+export interface BedbankOffer {
     id: string;
     name: string;
     slug: string;
@@ -342,54 +301,49 @@ export namespace Order {
     phone: string;
     timezone: string;
     location: {
-      longitude: number;
-      latitude: number;
+        longitude: number;
+        latitude: number;
     };
     address: BedbankOfferAddress;
     image: Image;
     fine_print: BedbankPropertyFinePrint;
     facility_groups: Array<BedbankFacilityGroup>;
     room: BedbankOfferRoom;
-  }
-
-  interface BedbankOfferRoom {
+}
+export interface BedbankOfferRoom {
     id: string;
     name: string;
     description: string;
     image: Image;
     facility_groups: Array<BedbankFacilityGroup>;
-  }
-
-  interface BedbankFacilityValue {
+}
+export interface BedbankFacilityValue {
     name: string;
-  }
-
-  interface BedbankFacilityGroup {
+}
+export interface BedbankFacilityGroup {
     name: string;
     values: Array<BedbankFacilityValue>;
-  }
-
-  interface BedbankPropertyFinePrint {
+}
+export interface BedbankPropertyFinePrint {
     checkIn?: {
-      beginTime?: string;
-      endTime?: string;
-      instructions?: string;
-      specialInstructions?: string;
+        beginTime?: string;
+        endTime?: string;
+        instructions?: string;
+        specialInstructions?: string;
     };
     checkOut?: {
-      time?: string;
+        time?: string;
     };
     fees?: {
-      mandatory?: string;
-      optional?: string;
+        mandatory?: string;
+        optional?: string;
     };
     policies?: {
-      knowBeforeYouGo?: string;
+        knowBeforeYouGo?: string;
     };
     pets?: Array<string>;
-  }
-
-  interface BedbankOfferAddress {
+}
+export interface BedbankOfferAddress {
     line1?: string;
     line2?: string;
     city?: string;
@@ -399,9 +353,8 @@ export namespace Order {
     countryCode?: string;
     countryName?: string;
     obfuscationRequired: boolean;
-  }
-
-  interface BedbankItemRoom {
+}
+export interface BedbankItemRoom {
     id: string;
     id_reservation_room: string;
     confirmation_id?: string;
@@ -424,26 +377,23 @@ export namespace Order {
     facilities: string[];
     bed_group: RoomBedGroups;
     cancellation_policies: BedbankCancellationPolicy[];
-  }
-
-  interface BedbankCancellationPolicy {
+}
+export interface BedbankCancellationPolicy {
     currency: string;
     start: string;
     end: string;
     percent?: number;
     amount?: number;
     nights?: number;
-  }
-
-  interface RoomBedGroups {
+}
+export interface RoomBedGroups {
     id: string;
     description: string;
     configuration: Array<BedGroupsConfiguration>;
-  }
-
-  interface BedGroupsConfiguration {
+}
+export interface BedGroupsConfiguration {
     type: string;
     size: string;
     quantity: string;
-  }
 }
+export {};

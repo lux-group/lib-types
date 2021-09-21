@@ -1,31 +1,25 @@
-export namespace Auth {
-  interface MeResult {
+export interface MeResult {
     result: User;
-  }
-
-  interface MembershipsResult {
+}
+export interface MembershipsResult {
     result: Array<Membership>;
-  }
-
-  interface Membership {
+}
+export interface Membership {
     code: string;
     number: number | null;
     expiration_date: string | null;
     brand?: string;
-  }
-
-  interface Partnership {
+}
+export interface Partnership {
     account_id: string;
     first_name: string;
     last_name: string;
-  }
-
-  interface LastLogin {
+}
+export interface LastLogin {
     ip_address: string;
     login_date: string;
-  }
-
-  interface User {
+}
+export interface User {
     givenName: string | null;
     surname: string | null;
     email: string;
@@ -46,17 +40,19 @@ export namespace Auth {
     number_of_purchases: number | null;
     legacy_id?: number;
     legacy_platform: string | null;
-    partnerships: { [code: string]: Partnership };
+    partnerships: {
+        [code: string]: Partnership;
+    };
     membership: Membership;
     lastLogin: LastLogin;
     person_contact_id?: string;
-    toggles: { [name: string]: boolean | null | string };
-  }
-
-  interface TokenResponse {
+    toggles: {
+        [name: string]: boolean | null | string;
+    };
+}
+export interface TokenResponse {
     access_token: string;
     refresh_token: string | null;
     expires_in: number;
     token_type: string;
-  }
 }

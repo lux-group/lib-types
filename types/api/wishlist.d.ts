@@ -1,16 +1,12 @@
-export namespace Wishlist {
-  interface Offer {
+export interface Offer {
     offer_id: string;
-  }
-
-  interface Wishlists {
+}
+export interface Wishlists {
     count: number;
     offer_list: Offer[];
-  }
-
-  interface Result {
+}
+export interface Result {
     status: number;
     message: string;
     result: Wishlists;
-  }
 }

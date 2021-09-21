@@ -1,70 +1,55 @@
-export namespace Offer {
-  interface Link {
+export interface Link {
     href: string;
-  }
-
-  interface SelfWithParentLinks {
+}
+export interface SelfWithParentLinks {
     self: Link;
     offer: Link;
-  }
-
-  interface BrandSchedule {
+}
+export interface BrandSchedule {
     id: number;
     type: "list_visibility" | "availability" | "online_purchase";
     offer_id_salesforce_external: string;
     start: string;
     end: string;
     region: string;
-  }
-
-  interface BaseOffer {
+}
+export interface BaseOffer {
     brand_schedules: BrandSchedule[];
     id_salesforce_external: string;
     images: Image[];
     locations: string[];
     name: string;
     slug: string;
-  }
-
-  type AccommodationOfferType =
-    | "hotel"
-    | "tactical_ao_hotel"
-    | "last_minute_hotel";
-
-  type TourOfferType = "tour";
-
-  interface AccommodationOffer extends BaseOffer {
+}
+export declare type AccommodationOfferType = "hotel" | "tactical_ao_hotel" | "last_minute_hotel";
+export declare type TourOfferType = "tour";
+export interface AccommodationOffer extends BaseOffer {
     type: AccommodationOfferType;
     packages: AccommodationPackage[];
-  }
-
-  interface TourOffer extends BaseOffer {
+}
+export interface TourOffer extends BaseOffer {
     type: TourOfferType;
     packages: TourPackage[];
-  }
-
-  type Offer = AccommodationOffer | TourOffer;
-
-  interface Image {
+}
+export declare type Offer = AccommodationOffer | TourOffer;
+export interface Image {
     _links: SelfWithParentLinks;
     id_image: number;
     offer_id_salesforce_external: string;
     id_cloudinary_external: string;
     order: number;
     title: string | null;
-  }
-
-  interface Addon {
+}
+export interface Addon {
     id_salesforce_external: string;
-  }
-
-  interface BasePackage {
+}
+export interface BasePackage {
     addons: Addon[];
     id_salesforce_external: string;
+    prices: Price[];
     regions: string[];
-  }
-
-  interface AccommodationPackage extends BasePackage {
+}
+export interface AccommodationPackage extends BasePackage {
     fk_property_id: string;
     fk_room_rate_id: string;
     fk_room_type_id: string;
@@ -73,23 +58,19 @@ export namespace Offer {
     max_days_in_future_check_in_is_allowed: number | undefined;
     number_of_nights: number;
     package_options: PackageOption[];
-  }
-
-  interface TourPackage extends BasePackage {
+}
+export interface TourPackage extends BasePackage {
     number_of_days: number;
     fk_tour_id: string;
     fk_tour_option_id: string;
-  }
-
-  type Package = AccommodationPackage | TourPackage;
-
-  interface PackageOption {
+}
+export declare type Package = AccommodationPackage | TourPackage;
+export interface PackageOption {
     id: string;
     fk_room_rate_id: string;
     name: string;
-  }
-
-  interface Badge {
+}
+export interface Badge {
     id: number;
     image: string;
     name: string;
@@ -99,5 +80,11 @@ export namespace Offer {
     tag_tooltip: string;
     updated_at: string;
     url?: string;
-  }
+}
+export interface Price {
+    currency_code: string;
+    price: number;
+    value: number;
+    nightly_price: number;
+    nightly_value: number;
 }
