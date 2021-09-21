@@ -2,10 +2,16 @@
 
 API interfaces and factories for Luxury Escapes
 
-```js
+```ts
 import { API } from "@luxuryescapes/lib-types";
 
 const { result } = (await response.json()) as API.PublicOffer.OffersResult;
+```
+
+```ts
+import { Factories } from "@luxuryescapes/lib-types";
+
+const price = Factories.Offer.Price.buildList(1); // returns an API.Offer.Price[]
 ```
 
 ## Contributing
