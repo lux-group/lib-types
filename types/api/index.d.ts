@@ -13,3 +13,4 @@ export { Reservation } from "./reservation";
 export { Bedbank } from "./bedbank";
 export { Wishlist } from "./wishlist";
 export { Reporting } from "./reporting";
+export { Search } from "./search";

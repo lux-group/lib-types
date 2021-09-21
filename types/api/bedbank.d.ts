@@ -24,6 +24,29 @@ export namespace Bedbank {
     configuration: Configuration[];
   }
 
+  interface BedBankOutboundReturningRoute {
+    cost_per_adult: number;
+    departure_date: string;
+    arrival_date: string;
+    depature_time: string;
+    arrival_time: string;
+    total_time_difference: number;
+    is_sold_out: boolean;
+  }
+
+  interface BedBankFlightPrices {
+    cost: number;
+    fees: number;
+    outbound_route: BedBankOutboundReturningRoute;
+    returning_route: BedBankOutboundReturningRoute;
+  }
+
+  interface FlightPricesWithAirportCode {
+    flightPrices: BedBankFlightPrices | undefined;
+    flightsEnabled: boolean;
+    airportCode: string | undefined;
+  }
+
   interface OccupancyFee {
     type: string;
     amount: number;
@@ -219,6 +242,7 @@ export namespace Bedbank {
     propertyFinePrint: PropertyFinePrint;
     description: string;
     metaDescription: string;
-    airport: string;
+    airport: string | undefined;
+    flightsEnabled: boolean;
   }
 }

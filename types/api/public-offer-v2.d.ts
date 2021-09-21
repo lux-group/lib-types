@@ -393,6 +393,29 @@ export namespace PublicOfferV2 {
   type LeOffer = LeHotelOffer | LeTourOffer;
   type Offer = LeOffer | BedbankOffer;
 
+  interface BedBankOutboundReturningRoute {
+    cost_per_adult: number;
+    departure_date: string;
+    arrival_date: string;
+    depature_time: string;
+    arrival_time: string;
+    total_time_difference: number;
+    is_sold_out: boolean;
+  }
+
+  interface BedBankFlightPrices {
+    cost: number;
+    fees: number;
+    outbound_route: BedBankOutboundReturningRoute;
+    returning_route: BedBankOutboundReturningRoute;
+  }
+
+  interface FlightPricesWithAirportCode {
+    flightPrices: BedBankFlightPrices | undefined;
+    airportCode: string | undefined;
+    flightsEnabled: boolean;
+  }
+
   interface BedbankOffer {
     id: string;
     type: BedbankOfferType;
@@ -408,8 +431,9 @@ export namespace PublicOfferV2 {
       description: string;
       metaDescription: string;
       attractions?: string;
+      amenities?: string;
     };
-    airport: string;
+    flight: FlightPricesWithAirportCode;
   }
 
   interface LeOfferBase {
