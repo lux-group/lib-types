@@ -1,9 +1,0 @@
-export * as Auth from "./auth";
-export * as Geo from "./geo";
-export * as Offer from "./offer";
-export * as PublicOffer from "./public-offer";
-export * as PublicOfferV2 from "./public-offer-v2";
-export * as Reservation from "./reservation";
-export * as Bedbank from "./bedbank";
-export * as Reporting from "./reporting";
-export * as Search from "./search";
