@@ -17,13 +17,33 @@ export namespace Offer {
     region: string;
   }
 
-  interface HotelOffer {
+  interface BaseOffer {
     brand_schedules: BrandSchedule[];
     id_salesforce_external: string;
+    images: Image[];
+    locations: string[];
     name: string;
-    packages: HotelPackage[];
     slug: string;
   }
+
+  type AccommodationOfferType =
+    | "hotel"
+    | "tactical_ao_hotel"
+    | "last_minute_hotel";
+
+  type TourOfferType = "tour";
+
+  interface AccommodationOffer extends BaseOffer {
+    type: AccommodationOfferType;
+    packages: AccommodationPackage[];
+  }
+
+  interface TourOffer extends BaseOffer {
+    type: TourOfferType;
+    packages: TourPackage[];
+  }
+
+  type Offer = AccommodationOffer | TourOffer;
 
   interface Image {
     _links: SelfWithParentLinks;
@@ -34,18 +54,34 @@ export namespace Offer {
     title: string | null;
   }
 
-  interface HotelPackage {
+  interface Addon {
+    id_salesforce_external: string;
+  }
+
+  interface BasePackage {
+    addons: Addon[];
+    id_salesforce_external: string;
+    regions: string[];
+  }
+
+  interface AccommodationPackage extends BasePackage {
     fk_property_id: string;
     fk_room_rate_id: string;
     fk_room_type_id: string;
     flexible_nights: boolean;
-    id_salesforce_external: string;
     max_extra_nights: number;
     max_days_in_future_check_in_is_allowed: number | undefined;
     number_of_nights: number;
     package_options: PackageOption[];
-    regions: string[];
   }
+
+  interface TourPackage extends BasePackage {
+    number_of_days: number;
+    fk_tour_id: string;
+    fk_tour_option_id: string;
+  }
+
+  type Package = AccommodationPackage | TourPackage;
 
   interface PackageOption {
     id: string;
