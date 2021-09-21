@@ -41,6 +41,12 @@ export namespace Bedbank {
     returning_route: BedBankOutboundReturningRoute;
   }
 
+  interface FlightPricesWithAirportCode {
+    flightPrices: BedBankFlightPrices | undefined;
+    flightsEnabled: boolean;
+    airportCode: string | undefined;
+  }
+
   interface OccupancyFee {
     type: string;
     amount: number;
@@ -236,7 +242,7 @@ export namespace Bedbank {
     propertyFinePrint: PropertyFinePrint;
     description: string;
     metaDescription: string;
-    airport: string | null;
-    flights_enabled: boolean;
+    airport: string | undefined;
+    flightsEnabled: boolean;
   }
 }

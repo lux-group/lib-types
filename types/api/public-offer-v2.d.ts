@@ -410,6 +410,12 @@ export namespace PublicOfferV2 {
     returning_route: BedBankOutboundReturningRoute;
   }
 
+  interface FlightPricesWithAirportCode {
+    flightPrices: BedBankFlightPrices | undefined;
+    airportCode: string | undefined;
+    flightsEnabled: boolean;
+  }
+
   interface BedbankOffer {
     id: string;
     type: BedbankOfferType;
@@ -427,9 +433,7 @@ export namespace PublicOfferV2 {
       attractions?: string;
       amenities?: string;
     };
-    airport: string | null;
-    flightPrices: BedBankFlightPrices | null;
-    flights_enabled: boolean;
+    flight: FlightPricesWithAirportCode;
   }
 
   interface LeOfferBase {
