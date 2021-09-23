@@ -79,6 +79,18 @@ export namespace Bedbank {
     cancellationPolicies: Array<ReservationCancellationPolicy>;
   }
 
+  interface BedbankPropertyWithFlightEnableStatus {
+    propertyId: string;
+    isEnabled: boolean;
+    airportCode: string | undefined;
+  }
+
+  interface PropertyWithAirport {
+    status: number;
+    message: string | null;
+    result: Array<BedbankPropertyWithFlightEnableStatus>;
+  }
+
   interface Reservation {
     id: string;
     state: string;
