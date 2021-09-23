@@ -84,7 +84,7 @@ export namespace Bedbank {
     isEnabled: boolean;
     airportCode: string | undefined;
   }
-  
+
   interface PropertyWithAirport {
     status: number;
     message: string | null;
