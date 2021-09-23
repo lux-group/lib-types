@@ -27,7 +27,7 @@ export namespace Calendar {
 
   interface GetRatesQueryParams {
     region: string;
-    number_of_nights: string;
+    number_of_nights: number;
     occupancy: string[];
     package_ids: string;
     brand: string;
