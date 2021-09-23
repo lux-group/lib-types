@@ -2,8 +2,10 @@ export namespace Calendar {
   interface Rate {
     accommodationPrice: number;
     extraGuestSurcharge: number;
+    flightPrice: number | null;
     roomRateId: string;
     surcharge: number;
+    taxesAndFees: number;
   }
 
   interface Price {
@@ -16,11 +18,16 @@ export namespace Calendar {
   }
 
   interface GetRatesResult {
+    flightCacheActive: boolean;
+    flightsNotAvailable: boolean;
     packageId: string;
     prices: Price[];
+    uniqueKey: string;
   }
 
   interface GetRatesResponse {
+    message: null;
     result: GetRatesResult[];
+    status: 200;
   }
 }
