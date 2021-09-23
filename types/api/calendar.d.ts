@@ -25,6 +25,15 @@ export namespace Calendar {
     uniqueKey: string;
   }
 
+  interface GetRatesQueryParams {
+    region: string;
+    number_of_nights: string;
+    occupancy: string[];
+    package_ids: string;
+    brand: string;
+    enquiryType?: "admin" | "customer";
+  }
+
   interface GetRatesResponse {
     message: null;
     result: GetRatesResult[];
