@@ -321,6 +321,30 @@ export namespace Reservation {
     check_in_rates_applies: boolean;
   }
 
+  interface EnquiryRateFull {
+    id: string;
+    duration_surcharge_total: number;
+    duration_extra_guest_surcharge_total: number;
+    duration_peak_period_surcharge_total: number;
+    duration_blackout_applies: boolean;
+    duration_rates_applies: boolean;
+    duration_amount: number;
+    duration_tax: number;
+    check_in: string;
+    check_in_blackout_applies: boolean;
+    check_in_surcharge_applies: boolean;
+    check_in_surcharge_amount: number;
+    check_in_extra_guest_surcharge_amount: number;
+    check_in_peak_period_surcharge_amount: number;
+    check_in_amount: number;
+    check_in_tax: number;
+    check_in_rates_applies: boolean;
+    check_out: string;
+    last_night: string;
+    number_of_rooms: number;
+    use_dynamic_price_calculation_by_rooms: boolean;
+  }
+
   interface EnquiryDate {
     check_in: string;
     check_out: string;
@@ -339,5 +363,10 @@ export namespace Reservation {
   interface CreateEnquiryResult extends Result {
     _links: string;
     result: EnquiryResult[];
+  }
+
+  interface GetEnquiryResult extends Result {
+    result: EnquiryRateFull[];
+    total: number;
   }
 }
