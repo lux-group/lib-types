@@ -1,5 +1,5 @@
 export namespace Experience {
-  interface IExperience {
+  interface ExperienceItem {
     prices: string[];
     id_salesforce_external: string;
     fk_opportunity_salesforce_id: string;
@@ -31,12 +31,12 @@ export namespace Experience {
     cost_price_currency: string;
   }
   
-  interface IGetExperiencesResponse {
-    experiences: IExperience[];
+  interface GetExperiencesResponse {
+    experiences: ExperienceItem[];
     total: number;
   }
   
-  interface IGetExperienceResponse {
-    experience: IExperience;
+  interface GetExperienceResponse {
+    experience: ExperienceItem;
   }
 }
