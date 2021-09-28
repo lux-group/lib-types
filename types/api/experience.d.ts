@@ -30,12 +30,12 @@ export namespace Experience {
     fare_type_display_value: string;
     cost_price_currency: string;
   }
-  
+
   interface GetExperiencesResponse {
     experiences: ExperienceItem[];
     total: number;
   }
-  
+
   interface GetExperienceResponse {
     experience: ExperienceItem;
   }
