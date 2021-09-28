@@ -15,6 +15,7 @@ export namespace Offer {
     start: string;
     end: string;
     region: string;
+    brand: string;
   }
 
   interface BaseOffer {
@@ -24,6 +25,7 @@ export namespace Offer {
     locations: string[];
     name: string;
     slug: string;
+    holiday_types: string[];
   }
 
   type AccommodationOfferType =
