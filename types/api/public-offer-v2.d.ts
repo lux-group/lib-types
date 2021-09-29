@@ -509,11 +509,11 @@ export namespace PublicOfferV2 {
   }
 
   interface GetOfferQueryParams {
-    occupancy: Array<string> | string;
-    checkIn: string;
-    checkOut: string;
-    region?: string;
-    brand?: string;
+    occupancy?: Array<string> | string;
+    checkIn?: string;
+    checkOut?: string;
+    region: string;
+    brand: string;
     offerType?: OfferType;
     flightOrigin?: string;
   }
