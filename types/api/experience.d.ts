@@ -1,6 +1,13 @@
 export namespace Experience {
+
+  interface Price {
+    currency_code: string;
+    value: number;
+    price: number;
+  }
+
   interface ExperienceItem {
-    prices: string[];
+    prices: Price[];
     id_salesforce_external: string;
     fk_opportunity_salesforce_id: string;
     offer_salesforce_id: string;
