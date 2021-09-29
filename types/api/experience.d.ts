@@ -1,5 +1,4 @@
 export namespace Experience {
-
   interface Price {
     currency_code: string;
     value: number;
