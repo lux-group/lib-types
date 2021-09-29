@@ -31,7 +31,7 @@ export namespace Calendar {
     occupancy: string[];
     package_ids: string;
     brand: string;
-    enquiryType?: "admin" | "customer";
+    enquiry_type?: "admin" | "customer";
   }
 
   interface GetRatesResponse {
