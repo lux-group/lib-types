@@ -1,4 +1,5 @@
 export { Auth } from "./auth";
+export { Calendar } from "./calendar";
 export { Content } from "./content";
 export { Discovery } from "./discovery";
 export { Flights } from "./flights";
