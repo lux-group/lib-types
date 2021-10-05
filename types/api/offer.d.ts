@@ -18,7 +18,15 @@ export namespace Offer {
     brand: string;
   }
 
-  interface BaseOffer {
+  interface OfferInclusions {
+    offer_tile_inclusion_heading: string;
+    offer_tile_inclusions: string;
+    offer_inclusions_heading: string;
+    offer_inclusions_long: string;
+    offer_inclusions_short: string;
+  }
+
+  interface BaseOffer extends OfferInclusions {
     brand_schedules: BrandSchedule[];
     id_salesforce_external: string;
     images: Image[];
