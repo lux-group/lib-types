@@ -15,4 +15,4 @@ export { Bedbank } from "./bedbank";
 export { Wishlist } from "./wishlist";
 export { Reporting } from "./reporting";
 export { Search } from "./search";
-export { TourV2 } from "./tour";
+export { Tour } from "./tour";

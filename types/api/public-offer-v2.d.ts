@@ -1,47 +1,47 @@
-declare namespace TourV2 {
-  interface Offer {
-    id: string;
-    type: "tour_v2";
-    source: Source;
-    name: string;
-    brand: string;
-    slug?: string;
-    copy?: {
-      overview: string;
-      location: string;
-    };
-    images?: Array<Image>;
-    monthlyPrices?: Array<Price>;
-    itinerary?: Array<ItineraryDay>;
-  }
-
-  type Source = "ttc";
-
-  interface Image {
-    id: string;
-    title?: string;
-  }
-
-  interface Price {
-    year: string;
-    month: string;
-    price: number;
-  }
-
-  interface ItineraryDay {
-    day: string;
-    numberOfNights: string;
-    region: number;
-    title: string;
-    description: string;
-    location: {
-      start: string;
-      end?: string;
-    };
-  }
-}
-
 export namespace PublicOfferV2 {
+  export namespace TourV2 {
+    interface Offer {
+      id: string;
+      type: "tour_v2";
+      source: Source;
+      name: string;
+      brand: string;
+      slug?: string;
+      copy?: {
+        overview: string;
+        location: string;
+      };
+      images?: Array<Image>;
+      monthlyPrices?: Array<Price>;
+      itinerary?: Array<ItineraryDay>;
+    }
+
+    type Source = "ttc";
+
+    interface Image {
+      id: string;
+      title?: string;
+    }
+
+    interface Price {
+      year: string;
+      month: string;
+      price: number;
+    }
+
+    interface ItineraryDay {
+      day: string;
+      numberOfNights: string;
+      region: number;
+      title: string;
+      description: string;
+      location: {
+        start: string;
+        end?: string;
+      };
+    }
+  }
+
   interface StrObject {
     [field: string]: string;
   }
