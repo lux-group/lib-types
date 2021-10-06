@@ -393,7 +393,7 @@ export namespace PublicOfferV2 {
   type LeTourOfferType = Extract<LeOfferType, "tour">;
 
   type LeOffer = LeHotelOffer | LeTourOffer;
-  type Offer = LeOffer | BedbankOffer | TourV2.Offer;
+  type Offer = LeOffer | BedbankOffer | TourV2.PublicOffer;
 
   interface BedBankOutboundReturningRoute {
     cost_per_adult: number;

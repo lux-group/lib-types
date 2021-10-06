@@ -7,7 +7,7 @@ export namespace TourV2 {
     brand: string;
   }
 
-  interface Offer extends TourBase {
+  interface PublicOffer extends TourBase {
     slug?: string;
     copy?: {
       overview: string;
