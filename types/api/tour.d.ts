@@ -4,23 +4,21 @@ export namespace Tour {
   interface TourBase {
     id: string;
     type: "tour_v2";
-    source: Source;
+    source: "ttc";
     name: string;
     brand: string;
-    status: string;
+    status: "content-approved" | "draft";
   }
 
-  type Source = "ttc";
-
-  export interface Offer {
-    slug?: string;
-    copy?: {
+  interface Offer {
+    slug: string;
+    copy: {
       overview: string;
       location: string;
     };
-    images?: Array<Image>;
-    monthlyPrices?: Array<Price>;
-    itinerary?: Array<ItineraryDay>;
+    images: Array<Image>;
+    monthlyPrices: Array<Price>;
+    itinerary: Array<ItineraryDay>;
   }
 
   interface Image {
@@ -35,14 +33,14 @@ export namespace Tour {
   }
 
   interface ItineraryDay {
-    day: string;
-    numberOfNights: string;
-    region: number;
+    day: number;
+    numberOfNights: number;
+    region: string;
     title: string;
     description: string;
     location: {
-      start: string;
-      end?: string;
+      startLocation: string;
+      endLocation?: string;
     };
   }
 

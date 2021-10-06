@@ -3,20 +3,18 @@ export namespace PublicOfferV2 {
     interface Offer {
       id: string;
       type: "tour_v2";
-      source: Source;
+      source: "ttc";
       name: string;
       brand: string;
-      slug?: string;
-      copy?: {
+      slug: string;
+      copy: {
         overview: string;
         location: string;
       };
-      images?: Array<Image>;
-      monthlyPrices?: Array<Price>;
-      itinerary?: Array<ItineraryDay>;
+      images: Array<Image>;
+      monthlyPrices: Array<Price>;
+      itinerary: Array<ItineraryDay>;
     }
-
-    type Source = "ttc";
 
     interface Image {
       id: string;
@@ -30,14 +28,14 @@ export namespace PublicOfferV2 {
     }
 
     interface ItineraryDay {
-      day: string;
-      numberOfNights: string;
-      region: number;
+      day: number;
+      numberOfNights: number;
+      region: string;
       title: string;
       description: string;
       location: {
-        start: string;
-        end?: string;
+        startLocation: string;
+        endLocation?: string;
       };
     }
   }
