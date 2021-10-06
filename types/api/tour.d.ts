@@ -1,5 +1,5 @@
 export namespace TourV2 {
-  interface Tour {
+  interface TourBase {
     id: string;
     type: "tours_v2";
     source: "ttc";
@@ -7,18 +7,20 @@ export namespace TourV2 {
     brand: string;
   }
 
-  interface Offer extends Tour {
+  interface Offer extends TourBase {
     slug?: string;
     copy?: {
       overview: string;
       location: string;
     };
-    images?: {
-      id: string;
-      title?: string;
-    };
+    images?: Array<Image>;
     monthlyPrices?: Array<Price>;
     itinerary?: Array<ItineraryDay>;
+  }
+
+  interface Image {
+    id: string;
+    title?: string;
   }
 
   interface Price {
