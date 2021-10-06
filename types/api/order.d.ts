@@ -279,10 +279,10 @@ export namespace Order {
     surcharge_cost_total: number;
     guest_special_requests: string;
     surcharge_paid_direct_to_vendor: boolean;
-    traveller_details_required: boolean;
-    traveller_flight_details_required: boolean;
-    start_date: string;
-    end_date: string;
+    traveller_details_required?: boolean;
+    traveller_flight_details_required?: boolean;
+    start_date?: string;
+    end_date?: string;
   }
 
   interface Partnerships {
