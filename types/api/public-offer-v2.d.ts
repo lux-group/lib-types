@@ -13,7 +13,7 @@ export namespace PublicOfferV2 {
       };
       images: Array<Image>;
       monthlyPrices: Array<Price>;
-      itinerary: Array<ItineraryDay>;
+      itinerary: Array<ItineraryItem>;
     }
 
     interface Image {
@@ -27,9 +27,9 @@ export namespace PublicOfferV2 {
       price: number;
     }
 
-    interface ItineraryDay {
-      day: number;
-      numberOfNights: number;
+    interface ItineraryItem {
+      startDay: number;
+      duration: number;
       region: string;
       title: string;
       description: string;

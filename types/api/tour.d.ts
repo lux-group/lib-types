@@ -18,7 +18,7 @@ export namespace Tour {
     };
     images: Array<Image>;
     monthlyPrices: Array<Price>;
-    itinerary: Array<ItineraryDay>;
+    itinerary: Array<ItineraryItem>;
   }
 
   interface Image {
@@ -32,9 +32,9 @@ export namespace Tour {
     price: number;
   }
 
-  interface ItineraryDay {
-    day: number;
-    numberOfNights: number;
+  interface ItineraryItem {
+    startDay: number;
+    duration: number;
     region: string;
     title: string;
     description: string;
