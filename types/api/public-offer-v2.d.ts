@@ -480,6 +480,8 @@ export namespace PublicOfferV2 {
       tileDescription?: string;
     };
     badge?: Badge;
+    whitelistedCarrierCodes?: Array<string>;
+    bundledWithFlightsOnly?: boolean;
   }
 
   interface LeHotelOffer extends LeOfferBase {
