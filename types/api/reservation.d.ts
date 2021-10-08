@@ -165,7 +165,7 @@ export namespace Reservation {
     bonus_inclusions?: Array<BonusInclusion>;
     rate_plan_code: string | null;
     commission?: number;
-    rate_type: string;
+    rate_type?: string;
   }
 
   interface RatePlanLinks {
