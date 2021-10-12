@@ -13,12 +13,8 @@ export namespace Flights {
     errors: Common.ValidationError[];
   }
 
-  interface StringMap<T> {
-    [code: string]: T;
-  }
-
   interface AirportRegion {
-    airports: StringMap<Airport>;
+    airports: Record<string, Airport>;
     origins: string[];
     destinations: string[];
     main_port: string;
