@@ -5,4 +5,18 @@ export namespace Common {
     value: any;
     message: string;
   }
+
+  export type NoContent = "";
+
+  export interface OkResponse<T> {
+    status: 200;
+    message: null;
+    result: T;
+  }
+
+  export interface BadRequestResponse {
+    status: 400;
+    message: string;
+    errors: ValidationError[];
+  }
 }
