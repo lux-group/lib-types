@@ -1,5 +1,21 @@
+import { API } from "../index";
+
 export namespace PublicOfferV2 {
   export namespace TourV2 {
+    export type GetTourResponse = GetTourResponseSuccess | TourErrorResponse;
+
+    export interface GetTourResponseSuccess {
+      status: number;
+      message?: string;
+      result: API.Tour.Tour;
+    }
+
+    export interface TourErrorResponse {
+      status: number;
+      message?: string;
+      errors: string[];
+    }
+
     interface Offer {
       id: string;
       type: "tour_v2";

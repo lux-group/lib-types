@@ -1,7 +1,12 @@
 export namespace Tour {
-  type Tour = TourBase & Offer & Links;
+  type Tour = TourBase & Offer;
 
   interface TourBase {
+    _links: {
+      self: {
+        href: string;
+      };
+    };
     id: string;
     type: "tour_v2";
     source: "ttc";
@@ -41,14 +46,6 @@ export namespace Tour {
     location: {
       startLocation: string;
       endLocation?: string;
-    };
-  }
-
-  interface Links {
-    _links: {
-      self: {
-        href: string;
-      };
     };
   }
 }
