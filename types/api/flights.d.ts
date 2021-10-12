@@ -7,12 +7,6 @@ export namespace Flights {
     result: AirportRegion;
   }
 
-  interface AirportsErrorResponse {
-    status: 400;
-    message: string;
-    errors: Common.ValidationError[];
-  }
-
   interface AirportRegion {
     airports: Record<string, Airport>;
     origins: string[];
@@ -28,5 +22,16 @@ export namespace Flights {
     longitude: number;
   }
 
-  type AirportsResponse = AirportsResult | AirportsErrorResponse;
+  interface SingleCheapestSearchResult {
+    journey: [{ cost: number; fees: number }];
+  }
+
+  type AirportsResponse =
+    | Common.OkResponse<AirportRegion>
+    | Common.BadRequestResponse;
+
+  type SingleCheapestSearchResponse =
+    | Common.OkResponse<SingleCheapestSearchResult>
+    | Common.NoContent
+    | Common.BadRequestResponse;
 }
