@@ -34,6 +34,8 @@ export namespace Offer {
     name: string;
     slug: string;
     holiday_types: string[];
+    flight_regions: string[];
+    flight_destination_port: string | null;
   }
 
   type AccommodationOfferType =
