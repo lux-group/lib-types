@@ -1,14 +1,20 @@
+import { Common } from "./common";
+
 export namespace Flights {
   interface AirportsResult {
+    status: 200;
+    message: null;
     result: AirportRegion;
   }
 
-  interface StringMap<T> {
-    [code: string]: T;
+  interface AirportsErrorResponse {
+    status: 400;
+    message: string;
+    errors: Common.ValidationError[];
   }
 
   interface AirportRegion {
-    airports: StringMap<Airport>;
+    airports: Record<string, Airport>;
     origins: string[];
     destinations: string[];
     main_port: string;
@@ -21,4 +27,6 @@ export namespace Flights {
     latitude: number;
     longitude: number;
   }
+
+  type AirportsResponse = AirportsResult | AirportsErrorResponse;
 }
