@@ -7,7 +7,7 @@ export namespace Tour {
     | Common.NotFoundResponse
     | Common.InternalServerErrorResponse;
 
-  type Tour = TourBase & Offer;
+  export type Tour = TourBase & Offer;
 
   interface TourBase {
     _links: {
@@ -17,11 +17,21 @@ export namespace Tour {
     };
     id: string;
     type: "tour_v2";
-    source: "ttc";
+    source: Source;
     name: string;
-    brand: string;
+    brand: Brand;
     status: "content-approved" | "draft";
   }
+
+  type Source = "ttc" | "curated";
+
+  type Brand =
+    | "luxurygold"
+    | "trafalgar"
+    | "contiki"
+    | "aatkings"
+    | "costsaver"
+    | "insightvacations";
 
   interface Offer {
     slug: string;

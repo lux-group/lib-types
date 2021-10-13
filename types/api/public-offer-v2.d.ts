@@ -1,13 +1,11 @@
-import { API } from "../index";
-
 export namespace PublicOfferV2 {
   export namespace TourV2 {
     interface Offer {
       id: string;
       type: "tour_v2";
-      source: "ttc";
+      source: Source;
       name: string;
-      brand: string;
+      brand: Brand;
       slug: string;
       copy: {
         overview: string;
@@ -17,6 +15,16 @@ export namespace PublicOfferV2 {
       monthlyPrices: Array<Price>;
       itinerary: Array<ItineraryItem>;
     }
+
+    type Source = "ttc" | "curated";
+
+    type Brand =
+      | "luxurygold"
+      | "trafalgar"
+      | "contiki"
+      | "aatkings"
+      | "costsaver"
+      | "insightvacations";
 
     interface Image {
       id: string;
