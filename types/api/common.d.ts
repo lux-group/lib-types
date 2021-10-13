@@ -19,4 +19,9 @@ export namespace Common {
     message: string;
     errors: ValidationError[];
   }
+
+  export interface NotFoundResponse {
+    status: 404;
+    message: "not found";
+  }
 }

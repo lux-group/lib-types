@@ -1,3 +1,5 @@
+import { Common } from "./common";
+
 export namespace Offer {
   interface Link {
     href: string;
@@ -29,13 +31,15 @@ export namespace Offer {
   interface BaseOffer extends OfferInclusions {
     brand_schedules: BrandSchedule[];
     id_salesforce_external: string;
+    flight_destination_port: string | null;
+    flight_regions: string[];
+    flights_cache_disabled: boolean;
+    flights_enabled: boolean;
+    holiday_types: string[];
     images: Image[];
     locations: string[];
     name: string;
     slug: string;
-    holiday_types: string[];
-    flight_regions: string[];
-    flight_destination_port: string | null;
   }
 
   type AccommodationOfferType =
@@ -112,4 +116,6 @@ export namespace Offer {
     updated_at: string;
     url?: string;
   }
+
+  type GetOfferResponse = Common.OkResponse<Offer> | Common.NotFoundResponse;
 }
