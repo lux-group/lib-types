@@ -1,4 +1,24 @@
+import { Common } from "./common";
+
 export namespace Tour {
+  export type GetTourResponse =
+    | Common.OkResponse<Tour>
+    | Common.BadRequestResponse
+    | Common.NotFoundResponse
+    | Common.InternalServerErrorResponse;
+
+  // export interface GetTourResponseSuccess {
+  //   status: 200;
+  //   message?: string;
+  //   result: Tour;
+  // }
+
+  // export interface TourErrorResponse {
+  //   status: 400 | 404 | 500;
+  //   message?: string;
+  //   errors: string[];
+  // }
+
   type Tour = TourBase & Offer;
 
   interface TourBase {

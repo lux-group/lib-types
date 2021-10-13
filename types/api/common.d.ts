@@ -17,11 +17,17 @@ export namespace Common {
   export interface BadRequestResponse {
     status: 400;
     message: string;
-    errors: ValidationError[];
+    errors: ValidationError[] | string[];
   }
 
   export interface NotFoundResponse {
     status: 404;
-    message: "not found";
+    message: string;
+  }
+
+  export interface InternalServerErrorResponse {
+    status: 500;
+    message?: string;
+    errors: string[];
   }
 }
