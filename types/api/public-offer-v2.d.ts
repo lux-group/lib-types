@@ -484,13 +484,13 @@ export namespace PublicOfferV2 {
     amenityGroups: Array<AmenityGroup>;
     property: Property;
     propertyFinePrint: PropertyFinePrint;
+    airport?: string;
     copy: {
       description: string;
       metaDescription: string;
       attractions?: string;
       amenities?: string;
     };
-    flight: FlightPricesWithAirportCode;
   }
 
   interface LeOfferBase {
@@ -537,6 +537,8 @@ export namespace PublicOfferV2 {
       tileDescription?: string;
     };
     badge?: Badge;
+    whitelistedCarrierCodes?: Array<string>;
+    bundledWithFlightsOnly?: boolean;
   }
 
   interface LeHotelOffer extends LeOfferBase {

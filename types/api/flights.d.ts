@@ -1,14 +1,14 @@
+import { Common } from "./common";
+
 export namespace Flights {
   interface AirportsResult {
+    status: 200;
+    message: null;
     result: AirportRegion;
   }
 
-  interface StringMap<T> {
-    [code: string]: T;
-  }
-
   interface AirportRegion {
-    airports: StringMap<Airport>;
+    airports: Record<string, Airport>;
     origins: string[];
     destinations: string[];
     main_port: string;
@@ -21,4 +21,17 @@ export namespace Flights {
     latitude: number;
     longitude: number;
   }
+
+  interface SingleCheapestSearchResult {
+    journey: [{ cost: number; fees: number }];
+  }
+
+  type AirportsResponse =
+    | Common.OkResponse<AirportRegion>
+    | Common.BadRequestResponse;
+
+  type SingleCheapestSearchResponse =
+    | Common.OkResponse<SingleCheapestSearchResult>
+    | Common.NoContent
+    | Common.BadRequestResponse;
 }

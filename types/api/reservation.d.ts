@@ -164,8 +164,8 @@ export namespace Reservation {
     inclusions: string | null;
     bonus_inclusions?: Array<BonusInclusion>;
     rate_plan_code: string | null;
-    commission: number;
-    rate_type: string;
+    commission?: number;
+    rate_type?: string;
   }
 
   interface RatePlanLinks {
@@ -211,6 +211,12 @@ export namespace Reservation {
     result: Property;
   }
 
+  interface TaxesAndFees {
+    name: string;
+    unit: "percentage" | "amount";
+    value: number;
+  }
+
   interface Property {
     _links: PropertyLinks;
     room_types_count: number;
@@ -240,6 +246,7 @@ export namespace Reservation {
     max_infant_age: number | null;
     timezone: string;
     timezone_offset: number;
+    taxes_and_fees?: TaxesAndFees[];
     taxes_and_fees_content?: string;
   }
 
