@@ -5,6 +5,15 @@ export namespace Experience {
     price: number;
   }
 
+  interface Category {
+    name: string;
+    value: string;
+  }
+
+  interface GetCategoriesResponse {
+    categories: Category[];
+  }
+
   interface CreateExperience {
     vendorId: string;
     vendor: string;
