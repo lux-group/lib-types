@@ -5,7 +5,7 @@ export namespace Experience {
     price: number;
   }
 
-  interface ICreateExperience {
+  interface CreateExperience {
     vendorId: string;
     vendor: string;
   }
