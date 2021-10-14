@@ -80,10 +80,7 @@ export namespace PublicOffer {
     facilities: string;
     run_date: string;
     end_date: string;
-    hand_picked_inclusions: null | string;
     additional_description: null | string;
-    exclusive_extras: null | string;
-    exclusive_extras_large: null | string;
     offer_inclusions_heading: null | string;
     offer_inclusions_long: null | string;
     offer_inclusions_short: null | string;
