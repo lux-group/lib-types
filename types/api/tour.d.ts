@@ -58,12 +58,8 @@ export namespace Tour {
   interface ItineraryItem {
     startDay: number;
     duration: number;
-    region: string;
+    region?: string;
     title: string;
     description: string;
-    location: {
-      startLocation: string;
-      endLocation?: string;
-    };
   }
 }
