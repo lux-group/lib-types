@@ -74,9 +74,18 @@ export namespace Offer {
     id_salesforce_external: string;
   }
 
+  interface Price {
+    currency_code: string;
+    price: number;
+    value: number;
+    nightly_price: number;
+    nightly_value: number;
+  }
+
   interface BasePackage {
     addons: Addon[];
     id_salesforce_external: string;
+    prices: Price[];
     regions: string[];
   }
 
