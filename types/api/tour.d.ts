@@ -23,7 +23,7 @@ export namespace Tour {
     status: "content-approved" | "draft";
   }
 
-  type Source = "ttc" | "curated";
+  type Source = "ttc";
 
   type Brand =
     | "luxurygold"

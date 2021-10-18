@@ -16,7 +16,7 @@ export namespace PublicOfferV2 {
       itinerary: Array<ItineraryItem>;
     }
 
-    type Source = "ttc" | "curated";
+    type Source = "ttc";
 
     type Brand =
       | "luxurygold"
