@@ -5,6 +5,37 @@ export namespace Experience {
     price: number;
   }
 
+  interface Category {
+    name: string;
+    value: string;
+  }
+
+  interface GetCategoriesResponse {
+    categories: Category[];
+  }
+
+  interface CreateExperience {
+    vendorId: string;
+    vendor: string;
+  }
+
+  interface ActivityFilter {
+    text?: string; // Text search
+    city_in?: string; // Cities, ids comma separated
+    sort_by?: string;
+    category_in?: string; // Filter by category | Category code need to be passed,
+    country_in?: string; // Filter, include only results from given countries identified by a collection of 2 chars country code,
+    default_price_range?: string; // Price range as comma separated values, accepts only floats positive or equals to 0, two points precision
+    limit?: number;
+    offset?: number;
+    available_from?: string; // Specify the availability starting date range [YYYY-MM-DD]
+    available_to?: string; // Specify the availability ending date range [YYYY-MM-DD]
+    currency?: string;
+    id?: string; // Filter by activity id
+    coordinates?: string;
+    distance?: string;
+  }
+
   interface ExperienceItem {
     prices: Price[];
     id_salesforce_external: string;
@@ -35,6 +66,7 @@ export namespace Experience {
     complimentary: boolean;
     fare_type_display_value: string;
     cost_price_currency: string;
+    curated?: boolean;
   }
 
   interface GetExperiencesResponse {
