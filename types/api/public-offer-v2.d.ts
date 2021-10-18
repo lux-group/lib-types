@@ -1,4 +1,51 @@
 export namespace PublicOfferV2 {
+  export namespace TourV2 {
+    interface Offer {
+      id: string;
+      type: "tour_v2";
+      source: Source;
+      name: string;
+      brand: Brand;
+      slug: string;
+      copy: {
+        overview: string;
+        location: string;
+      };
+      images: Array<Image>;
+      monthlyPrices: Array<Price>;
+      itinerary: Array<ItineraryItem>;
+    }
+
+    type Source = "ttc";
+
+    type Brand =
+      | "luxurygold"
+      | "trafalgar"
+      | "contiki"
+      | "aatkings"
+      | "costsaver"
+      | "insightvacations";
+
+    interface Image {
+      id: string;
+      title?: string;
+    }
+
+    interface Price {
+      year: string;
+      month: string;
+      price: number;
+    }
+
+    interface ItineraryItem {
+      startDay: number;
+      duration: number;
+      region?: string;
+      title: string;
+      description: string;
+    }
+  }
+
   interface StrObject {
     [field: string]: string;
   }
@@ -391,7 +438,7 @@ export namespace PublicOfferV2 {
   type LeTourOfferType = Extract<LeOfferType, "tour">;
 
   type LeOffer = LeHotelOffer | LeTourOffer;
-  type Offer = LeOffer | BedbankOffer;
+  type Offer = LeOffer | BedbankOffer | TourV2.Offer;
 
   interface BedBankOutboundReturningRoute {
     cost_per_adult: number;
