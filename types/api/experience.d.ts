@@ -66,6 +66,7 @@ export namespace Experience {
     complimentary: boolean;
     fare_type_display_value: string;
     cost_price_currency: string;
+    curated?: boolean;
   }
 
   interface GetExperiencesResponse {
