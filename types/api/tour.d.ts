@@ -1,8 +1,10 @@
 import { Common } from "./common";
 
 export namespace Tour {
-  export type GetTourResponse =
-    | Common.OkResponse<Tour>
+  export type GetTourResponse = GetResponse<Tour>;
+
+  type GetResponse<T> =
+    | Common.OkResponse<T>
     | Common.BadRequestResponse
     | Common.NotFoundResponse
     | Common.InternalServerErrorResponse;
