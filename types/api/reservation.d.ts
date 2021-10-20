@@ -248,6 +248,7 @@ export namespace Reservation {
     timezone_offset: number;
     taxes_and_fees?: TaxesAndFees[];
     taxes_and_fees_content?: string;
+    outgoing_connections?: string[];
   }
 
   interface PropertyLinks {
