@@ -297,6 +297,7 @@ export namespace PublicOfferV2 {
     };
     policies?: StrObject;
     pets?: Array<string | undefined>;
+    general?: Array<string | undefined>;
   }
 
   interface Review {

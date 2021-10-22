@@ -391,6 +391,7 @@ export namespace Order {
       knowBeforeYouGo?: string;
     };
     pets?: Array<string>;
+    general?: Array<string | undefined>;
   }
 
   interface BedbankOfferAddress {
