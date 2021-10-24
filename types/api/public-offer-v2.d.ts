@@ -430,11 +430,12 @@ export namespace PublicOfferV2 {
     | "hotel"
     | "last_minute_hotel"
     | "tactical_ao_hotel"
-    | "tour";
+    | "tour"
+    | "tour_v2";
 
-  type LeOfferType = Exclude<OfferType, "bedbank_hotel">;
+  type LeOfferType = Exclude<OfferType, "bedbank_hotel" | "tour_v2">;
   type BedbankOfferType = Extract<OfferType, "bedbank_hotel">;
-  type LeHotelOfferType = Exclude<LeOfferType, "tour">;
+  type LeHotelOfferType = Exclude<LeOfferType, "tour" | "tour_v2">;
   type LeTourOfferType = Extract<LeOfferType, "tour">;
 
   type LeOffer = LeHotelOffer | LeTourOffer;
