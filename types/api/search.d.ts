@@ -6,13 +6,13 @@ export namespace Search {
     | "tactical_ao_hotel"
     | "tour";
 
-  export type SearchResult = Array<{
+  type SearchResult = Array<{
     id: string;
     kind: string;
     packages?: string[];
   }>;
 
-  export interface ListOffersParams {
+  interface ListOffersParams {
     region: string;
     brand: string;
     occupancy: Array<string> | string;
@@ -29,7 +29,7 @@ export namespace Search {
 
   // An itermediate interface for search by either place ids or map area
   // TODO: remove this interface after introduced /list endpoint
-  export interface SearchParams {
+  interface SearchParams {
     region: string;
     brand: string;
     occupancy: Array<string> | string;
@@ -40,13 +40,13 @@ export namespace Search {
     bounds?: string;
   }
 
-  export interface ListOffersResponseBody {
+  interface ListOffersResponseBody {
     status: number;
     message: string | null;
     result: SearchResult;
   }
 
-  export interface SearchByPlaceQueryParams {
+  interface SearchByPlaceQueryParams {
     placeIds: string[];
     userAgent: string;
     brand: string;
@@ -58,28 +58,28 @@ export namespace Search {
 
   // TODO: change to `SearchResult`
   // to make the response align with other endpoints
-  export type SearchLeByPlaceResult = Array<{
+  type SearchLeByPlaceResult = Array<{
     id_salesforce_external: string;
     packages: Array<{
       id_salesforce_external: string;
     }>;
   }>;
 
-  export interface SearchLeByPlaceResponseBody {
+  interface SearchLeByPlaceResponseBody {
     status: number;
     message: string | null;
     result: SearchLeByPlaceResult;
   }
 
-  export type SearchBedbankByPlaceResult = string[];
+  type SearchBedbankByPlaceResult = string[];
 
-  export interface SearchBedbankByPlaceResponseBody {
+  interface SearchBedbankByPlaceResponseBody {
     status: number;
     message: string | null;
     result: SearchBedbankByPlaceResult;
   }
 
-  export interface SearchByPropertyQueryParams {
+  interface SearchByPropertyQueryParams {
     propertyId: string;
     brand: string;
     region: string;
@@ -90,11 +90,11 @@ export namespace Search {
     searchNearby?: boolean;
   }
 
-  export type SearchByPropertyResult = SearchResult;
+  type SearchByPropertyResult = SearchResult;
 
-  export type SearchByPropertyResponseBody = ListOffersResponseBody;
+  type SearchByPropertyResponseBody = ListOffersResponseBody;
 
-  export interface SearchByMapAreaQueryParams {
+  interface SearchByMapAreaQueryParams {
     bounds: string;
     brand: string;
     region: string;
@@ -104,7 +104,7 @@ export namespace Search {
     checkOut?: string;
   }
 
-  export type SearchByMapAreaResult = SearchResult;
+  type SearchByMapAreaResult = SearchResult;
 
-  export type SearchByMapAreaResponseBody = ListOffersResponseBody;
+  type SearchByMapAreaResponseBody = ListOffersResponseBody;
 }
