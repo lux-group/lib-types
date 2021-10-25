@@ -589,6 +589,7 @@ export namespace PublicOfferV2 {
     brand: string;
     offerType: OfferType;
     flightOrigin?: string;
+    sortBy?: string;
   }
 
   interface GetOfferResponseBody {
@@ -611,6 +612,7 @@ export namespace PublicOfferV2 {
     searchNearby: string;
     checkIn?: string;
     checkOut?: string;
+    sortBy?: string;
   }
 
   interface GetOfferListByPropertyResponseBody {
@@ -629,6 +631,7 @@ export namespace PublicOfferV2 {
     occupancy: Array<string> | string;
     checkIn?: string;
     checkOut?: string;
+    sortBy?: string;
   }
 
   interface GetOfferListByMapAreaResponseBody {
