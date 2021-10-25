@@ -6,6 +6,8 @@ export namespace Search {
     | "tactical_ao_hotel"
     | "tour";
 
+  type SortBy = "price.asc" | "price.desc";
+
   type SearchResult = Array<{
     id: string;
     kind: string;
@@ -38,6 +40,7 @@ export namespace Search {
     checkOut?: string;
     placeIds?: string[];
     bounds?: string;
+    sortBy?: SortBy;
   }
 
   interface ListOffersResponseBody {
@@ -54,6 +57,7 @@ export namespace Search {
     checkIn?: string;
     checkOut?: string;
     region: string;
+    sortBy?: SortBy;
   }
 
   // TODO: change to `SearchResult`
@@ -88,6 +92,7 @@ export namespace Search {
     checkIn?: string;
     checkOut?: string;
     searchNearby?: boolean;
+    sortBy?: SortBy;
   }
 
   type SearchByPropertyResult = SearchResult;
@@ -102,6 +107,7 @@ export namespace Search {
     userAgent: string;
     checkIn?: string;
     checkOut?: string;
+    sortBy?: SortBy;
   }
 
   type SearchByMapAreaResult = SearchResult;
