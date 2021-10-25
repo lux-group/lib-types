@@ -23,6 +23,7 @@ export namespace Tour {
     name: string;
     brand: Brand;
     status: "content-approved" | "draft";
+    tourOptions: Array<TourOption>;
   }
 
   type Source = "ttc";
@@ -44,6 +45,7 @@ export namespace Tour {
     images: Array<Image>;
     monthlyPrices: Array<Price>;
     itinerary: Array<ItineraryItem>;
+    tourOptions: Array<TourOption>;
   }
 
   interface Image {
@@ -63,5 +65,19 @@ export namespace Tour {
     region?: string;
     title: string;
     description: string;
+  }
+
+  interface Season {
+    id: string;
+    fromDate: Date;
+    toDate: Date;
+    name: string;
+    description: string;
+  }
+
+  interface TourOption {
+    id: string;
+    name?: string;
+    seasons: Array<Season>;
   }
 }
