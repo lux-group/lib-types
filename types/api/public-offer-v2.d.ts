@@ -296,8 +296,8 @@ export namespace PublicOfferV2 {
       optional?: string;
     };
     policies?: StrObject;
-    pets?: Array<string | undefined>;
-    general?: Array<string | undefined>;
+    pets?: Array<string>;
+    general?: Array<string>;
   }
 
   interface Review {

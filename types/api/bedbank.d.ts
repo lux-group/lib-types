@@ -233,8 +233,8 @@ export namespace Bedbank {
       optional?: string;
     };
     policies?: StrObject;
-    finePrintPets?: Array<string | undefined>;
-    general?: Array<string | undefined>;
+    finePrintPets?: Array<string>;
+    general?: Array<string>;
   }
 
   interface PropertyResponse {
