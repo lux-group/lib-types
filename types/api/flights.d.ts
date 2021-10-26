@@ -22,8 +22,24 @@ export namespace Flights {
     longitude: number;
   }
 
+  interface Route {
+    cost_per_adult: number;
+    departure_date: string;
+    arrival_date: string;
+    depature_time: string;
+    arrival_time: string;
+    total_time_difference: number;
+    is_sold_out: boolean;
+  }
+
   interface SingleCheapestSearchResult {
-    journey: [{ cost: number; fees: number }];
+    journey: {
+      cost: number;
+      fees: number;
+      price_breakdown?: unknown;
+      outbound_route: Route;
+      returning_route: Route;
+    };
   }
 
   type AirportsResponse =
