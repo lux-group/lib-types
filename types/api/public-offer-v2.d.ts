@@ -580,6 +580,8 @@ export namespace PublicOfferV2 {
     flightOrigin?: string;
   }
 
+  type SortBy = "price.asc" | "price.desc";
+
   interface GetOfferListQueryParams {
     placeIds: string[];
     occupancy: Array<string> | string;
@@ -589,7 +591,7 @@ export namespace PublicOfferV2 {
     brand: string;
     offerType: OfferType;
     flightOrigin?: string;
-    sortBy?: string;
+    sortBy?: SortBy;
   }
 
   interface GetOfferResponseBody {
@@ -612,7 +614,7 @@ export namespace PublicOfferV2 {
     searchNearby: string;
     checkIn?: string;
     checkOut?: string;
-    sortBy?: string;
+    sortBy?: SortBy;
   }
 
   interface GetOfferListByPropertyResponseBody {
@@ -631,7 +633,7 @@ export namespace PublicOfferV2 {
     occupancy: Array<string> | string;
     checkIn?: string;
     checkOut?: string;
-    sortBy?: string;
+    sortBy?: SortBy;
   }
 
   interface GetOfferListByMapAreaResponseBody {
