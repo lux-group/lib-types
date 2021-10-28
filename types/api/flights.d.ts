@@ -51,6 +51,10 @@ export namespace Flights {
     | Common.NoContent
     | Common.BadRequestResponse;
 
+  type JourneySearchResponse =
+    | Common.OkResponse<JourneySearchResult>
+    | Common.BadRequestResponse;
+
   interface JourneySearchResult {
     status: 200;
     message: null;
@@ -69,7 +73,7 @@ export namespace Flights {
     price_breakdown: { adults: Price; children: Price; infants: Price };
     departing: Itinerary;
     returning: Itinerary;
-    segments: any[];
+    segments: unknown[];
     seat_selection_policy: string;
     is_itx_fare: boolean;
     validating_carrier_logo: string;
