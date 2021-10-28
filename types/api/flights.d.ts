@@ -66,7 +66,7 @@ export namespace Flights {
     fees: number;
     validating_carrier: string;
     validating_carrier_name: string;
-    price_breakdown: { adults: Price; children: Price; infants: Price; };
+    price_breakdown: { adults: Price; children: Price; infants: Price };
     departing: Itinerary;
     returning: Itinerary;
     segments: any[];
@@ -80,7 +80,7 @@ export namespace Flights {
 
   interface Itinerary {
     journey_key: string;
-    flight_time: { hours: number; minutes: number; };
+    flight_time: { hours: number; minutes: number };
     flights: Flight[];
     extras: { baggage: Baggage[] };
     departing_date: string;
@@ -98,13 +98,13 @@ export namespace Flights {
     is_through_flight: boolean;
     departing_airport: string;
     departing_airport_name: string;
-    departing_display_names: { primary: string; secondary: string | null; };
+    departing_display_names: { primary: string; secondary: string | null };
     departing_country: string;
     departing_date: string;
     departing_time: string;
     arrival_airport: string;
     arrival_airport_name: string;
-    arrival_display_names: { primary: string; secondary: string| null; };
+    arrival_display_names: { primary: string; secondary: string | null };
     arrival_country: string;
     arrival_date: string;
     arrival_time: string;
@@ -114,7 +114,7 @@ export namespace Flights {
     free_carry_on_baggage_description: string;
     free_checked_in_baggage_description: string;
     free_checked_in_baggage_included: boolean;
-    aircraft_type: string
+    aircraft_type: string;
     booking_class: string;
     fare_class: string;
     fare_basis: string;
@@ -123,21 +123,15 @@ export namespace Flights {
     carrier_name: string;
     operating_carrier_name: string;
     operated_by_text: string | null;
-    layover_time: { hours: number; minutes: number; };
-    _links: { fare_rules: { href: string; }; };
+    layover_time: { hours: number; minutes: number };
+    _links: { fare_rules: { href: string } };
   }
-
 
   interface Price {
     cost: number;
     tax: number;
     totalCost: number | null;
     totalTax: number;
-    margin: number
+    margin: number;
   }
-
-
-
-
-
 }
