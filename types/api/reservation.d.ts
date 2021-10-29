@@ -214,6 +214,8 @@ export namespace Reservation {
   interface TaxesAndFees {
     name: string;
     unit: "percentage" | "amount";
+    type: "night" | "stay";
+    per_person: boolean;
     value: number;
   }
 
