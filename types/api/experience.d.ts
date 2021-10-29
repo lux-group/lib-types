@@ -16,8 +16,9 @@ export namespace Experience {
 
   interface CreateExperience {
     externalId: string;
-    curated?: boolean;
     vendor: string;
+    curated?: boolean;
+    notes?: string;
   }
 
   interface ActivityFilter {
@@ -70,6 +71,7 @@ export namespace Experience {
     fare_type_display_value: string;
     cost_price_currency: string;
     curated?: boolean;
+    notes?: string;
   }
 
   interface GetExperiencesResponse {
