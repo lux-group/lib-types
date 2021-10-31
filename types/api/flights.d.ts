@@ -52,14 +52,8 @@ export namespace Flights {
     | Common.BadRequestResponse;
 
   type JourneySearchResponse =
-    | Common.OkResponse<JourneySearchResult>
+    | Common.OkResponse<Journey>
     | Common.BadRequestResponse;
-
-  interface JourneySearchResult {
-    status: 200;
-    message: null;
-    result: Journey;
-  }
 
   interface Journey {
     id: string;
