@@ -6,13 +6,15 @@ export namespace Search {
     | "tactical_ao_hotel"
     | "tour";
 
-  export type SearchResult = Array<{
+  type SortBy = "price.asc" | "price.desc";
+
+  type SearchResult = Array<{
     id: string;
     kind: string;
     packages?: string[];
   }>;
 
-  export interface ListOffersParams {
+  interface ListOffersParams {
     region: string;
     brand: string;
     occupancy: Array<string> | string;
@@ -29,7 +31,7 @@ export namespace Search {
 
   // An itermediate interface for search by either place ids or map area
   // TODO: remove this interface after introduced /list endpoint
-  export interface SearchParams {
+  interface SearchParams {
     region: string;
     brand: string;
     occupancy: Array<string> | string;
@@ -38,15 +40,16 @@ export namespace Search {
     checkOut?: string;
     placeIds?: string[];
     bounds?: string;
+    sortBy?: SortBy;
   }
 
-  export interface ListOffersResponseBody {
+  interface ListOffersResponseBody {
     status: number;
     message: string | null;
     result: SearchResult;
   }
 
-  export interface SearchByPlaceQueryParams {
+  interface SearchByPlaceQueryParams {
     placeIds: string[];
     userAgent: string;
     brand: string;
@@ -54,32 +57,33 @@ export namespace Search {
     checkIn?: string;
     checkOut?: string;
     region: string;
+    sortBy?: SortBy;
   }
 
   // TODO: change to `SearchResult`
   // to make the response align with other endpoints
-  export type SearchLeByPlaceResult = Array<{
+  type SearchLeByPlaceResult = Array<{
     id_salesforce_external: string;
     packages: Array<{
       id_salesforce_external: string;
     }>;
   }>;
 
-  export interface SearchLeByPlaceResponseBody {
+  interface SearchLeByPlaceResponseBody {
     status: number;
     message: string | null;
     result: SearchLeByPlaceResult;
   }
 
-  export type SearchBedbankByPlaceResult = string[];
+  type SearchBedbankByPlaceResult = string[];
 
-  export interface SearchBedbankByPlaceResponseBody {
+  interface SearchBedbankByPlaceResponseBody {
     status: number;
     message: string | null;
     result: SearchBedbankByPlaceResult;
   }
 
-  export interface SearchByPropertyQueryParams {
+  interface SearchByPropertyQueryParams {
     propertyId: string;
     brand: string;
     region: string;
@@ -88,13 +92,14 @@ export namespace Search {
     checkIn?: string;
     checkOut?: string;
     searchNearby?: boolean;
+    sortBy?: SortBy;
   }
 
-  export type SearchByPropertyResult = SearchResult;
+  type SearchByPropertyResult = SearchResult;
 
-  export type SearchByPropertyResponseBody = ListOffersResponseBody;
+  type SearchByPropertyResponseBody = ListOffersResponseBody;
 
-  export interface SearchByMapAreaQueryParams {
+  interface SearchByMapAreaQueryParams {
     bounds: string;
     brand: string;
     region: string;
@@ -102,9 +107,10 @@ export namespace Search {
     userAgent: string;
     checkIn?: string;
     checkOut?: string;
+    sortBy?: SortBy;
   }
 
-  export type SearchByMapAreaResult = SearchResult;
+  type SearchByMapAreaResult = SearchResult;
 
-  export type SearchByMapAreaResponseBody = ListOffersResponseBody;
+  type SearchByMapAreaResponseBody = ListOffersResponseBody;
 }

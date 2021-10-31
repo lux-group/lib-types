@@ -15,8 +15,10 @@ export namespace Experience {
   }
 
   interface CreateExperience {
-    vendorId: string;
+    externalId: string;
     vendor: string;
+    curated?: boolean;
+    notes?: string;
   }
 
   interface ActivityFilter {
@@ -34,6 +36,8 @@ export namespace Experience {
     id?: string; // Filter by activity id
     coordinates?: string;
     distance?: string;
+    rating?: string;
+    status?: string;
   }
 
   interface ExperienceItem {
@@ -67,6 +71,7 @@ export namespace Experience {
     fare_type_display_value: string;
     cost_price_currency: string;
     curated?: boolean;
+    notes?: string;
   }
 
   interface GetExperiencesResponse {
