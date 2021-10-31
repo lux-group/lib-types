@@ -18,12 +18,11 @@ export namespace Search {
     region: string;
     brand: string;
     occupancy: Array<string> | string;
-    offerTypes: OfferType[];
-    userAgent: string;
+    offerType: string;
     checkIn?: string;
     checkOut?: string;
-    // Params to perform different search types
-    placeIds?: string[];
+    // Params for different search type
+    placeIds?: string;
     propertyId?: string;
     nearby?: boolean;
     bounds?: string;
