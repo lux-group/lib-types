@@ -17,3 +17,4 @@ export { Reporting } from "./reporting";
 export { Search } from "./search";
 export { Experience } from "./experience";
 export { Tour } from "./tour";
+export { Promo } from "./promo";
