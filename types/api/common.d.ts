@@ -10,7 +10,7 @@ export namespace Common {
 
   export interface OkResponse<T> {
     status: 200;
-    message: null;
+    message: undefined | null;
     result: T;
   }
 

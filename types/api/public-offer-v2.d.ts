@@ -1,3 +1,5 @@
+import { Common } from "./common";
+
 export namespace PublicOfferV2 {
   export namespace TourV2 {
     interface Offer {
@@ -575,38 +577,38 @@ export namespace PublicOfferV2 {
     occupancy: Array<string> | string;
     checkIn: string;
     checkOut: string;
-    region?: string;
-    brand?: string;
+    region: string;
+    brand: string;
     offerType?: OfferType;
     flightOrigin?: string;
   }
 
-  type SortBy = "price.asc" | "price.desc";
+  type V1SortBy = "endingsoon" | "newest" | "popularity";
+  type V2SortBy = "price.asc" | "price.desc";
+  type Strategy = "topYMAL" | "sortByLocations" | "sortByHolidayTypes";
 
   interface GetOfferListQueryParams {
-    placeIds: string[];
-    occupancy: Array<string> | string;
+    placeIds: string;
+    occupancy: string | undefined;
     checkIn: string;
     checkOut: string;
     region: string;
     brand: string;
     offerType: OfferType;
     flightOrigin?: string;
-    sortBy?: SortBy;
+    sortBy?: V1SortBy;
+    campaigns: string | undefined;
+    holidayTypes: string | undefined;
+    locations: string | undefined;
+    strategyApplied: Strategy | undefined;
+    userId: string | undefined;
+    bounds: string | undefined;
+    usePersonalisation: string;
   }
 
-  interface GetOfferResponseBody {
-    status: 200;
-    message: undefined;
-    result: Offer;
-  }
-
-  interface GetOffersResponseBody {
-    status: 200;
-    message: undefined;
-    result: Offer[];
-    count: number;
-  }
+  type GetOfferListResponseBody = Common.OkResponse<string[]>;
+  type GetOfferResponseBody = Common.OkResponse<Offer>;
+  type GetOffersResponseBody = Common.OkResponse<Offer[]>;
 
   interface GetOfferListByPropertyQueryParams {
     region: string;
@@ -615,7 +617,7 @@ export namespace PublicOfferV2 {
     searchNearby: string;
     checkIn?: string;
     checkOut?: string;
-    sortBy?: SortBy;
+    sortBy?: V1SortBy;
   }
 
   interface GetOfferListByPropertyResponseBody {
@@ -634,7 +636,7 @@ export namespace PublicOfferV2 {
     occupancy: Array<string> | string;
     checkIn?: string;
     checkOut?: string;
-    sortBy?: SortBy;
+    sortBy?: V1SortBy;
   }
 
   interface GetOfferListByMapAreaResponseBody {
