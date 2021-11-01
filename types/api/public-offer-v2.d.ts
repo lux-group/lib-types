@@ -48,10 +48,6 @@ export namespace PublicOfferV2 {
     }
   }
 
-  interface StrObject {
-    [field: string]: string;
-  }
-
   interface AmenityGroupValues {
     name: string;
   }
@@ -298,7 +294,7 @@ export namespace PublicOfferV2 {
       mandatory?: string;
       optional?: string;
     };
-    policies?: StrObject;
+    policies?: Record<string, string>;
     pets?: Array<string>;
     general?: Array<string>;
   }
@@ -583,8 +579,13 @@ export namespace PublicOfferV2 {
     flightOrigin?: string;
   }
 
-  type V1SortBy = "endingsoon" | "newest" | "popularity";
-  type V2SortBy = "price.asc" | "price.desc";
+  type SortBy =
+    | "endingsoon"
+    | "newest"
+    | "popularity"
+    | "price.asc"
+    | "price.desc";
+
   type Strategy = "topYMAL" | "sortByLocations" | "sortByHolidayTypes";
 
   interface GetOfferListQueryParams {
@@ -596,7 +597,7 @@ export namespace PublicOfferV2 {
     brand: string;
     offerType: OfferType;
     flightOrigin?: string;
-    sortBy?: V1SortBy;
+    sortBy?: SortBy;
     campaigns: string | undefined;
     holidayTypes: string | undefined;
     locations: string | undefined;
@@ -617,7 +618,7 @@ export namespace PublicOfferV2 {
     searchNearby: string;
     checkIn?: string;
     checkOut?: string;
-    sortBy?: V1SortBy;
+    sortBy?: SortBy;
   }
 
   interface GetOfferListByPropertyResponseBody {
@@ -636,7 +637,7 @@ export namespace PublicOfferV2 {
     occupancy: Array<string> | string;
     checkIn?: string;
     checkOut?: string;
-    sortBy?: V1SortBy;
+    sortBy?: SortBy;
   }
 
   interface GetOfferListByMapAreaResponseBody {
