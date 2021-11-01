@@ -604,7 +604,7 @@ export namespace PublicOfferV2 {
     strategyApplied?: Strategy;
     userId?: string;
     bounds?: string;
-    usePersonalisation: string;
+    usePersonalisation?: string;
   }
 
   type GetOfferListResponseBody = Common.OkResponse<string[]>;
