@@ -12,6 +12,7 @@ export namespace Common {
     status: 200;
     message: undefined | null;
     result: T;
+    count?: number;
   }
 
   export interface BadRequestResponse {
