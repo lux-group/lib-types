@@ -590,7 +590,7 @@ export namespace PublicOfferV2 {
 
   interface GetOfferListQueryParams {
     placeIds: string;
-    occupancy: string | undefined;
+    occupancy?: string;
     checkIn: string;
     checkOut: string;
     region: string;
@@ -598,12 +598,12 @@ export namespace PublicOfferV2 {
     offerType: OfferType;
     flightOrigin?: string;
     sortBy?: SortBy;
-    campaigns: string | undefined;
-    holidayTypes: string | undefined;
-    locations: string | undefined;
-    strategyApplied: Strategy | undefined;
-    userId: string | undefined;
-    bounds: string | undefined;
+    campaigns?: string;
+    holidayTypes?: string;
+    locations?: string;
+    strategyApplied?: Strategy;
+    userId?: string;
+    bounds?: string;
     usePersonalisation: string;
   }
 
