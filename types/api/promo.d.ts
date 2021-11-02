@@ -13,7 +13,7 @@ export namespace Promo {
     code_limit: number;
     min_spend?: number;
     currency: string;
-    promo_type: "percentage" | "fixed";
+    promo_type: "percentage" | "fixed_amount";
     brand: string;
     warning?: string;
     limit_per_user: number;
