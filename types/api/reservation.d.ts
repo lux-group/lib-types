@@ -251,6 +251,8 @@ export namespace Reservation {
     taxes_and_fees?: TaxesAndFees[];
     taxes_and_fees_content?: string;
     outgoing_connections?: string[];
+    channel_supplier_id?: string;
+    channel_ari_type?: string;
   }
 
   interface PropertyLinks {
