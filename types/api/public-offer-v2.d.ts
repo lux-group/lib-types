@@ -520,7 +520,7 @@ export namespace PublicOfferV2 {
 
   interface TourV2Offer extends LeOfferSkeleton {
     defaultOptionId: string; // Fk which tells the FE which tourOption to display on the offer page
-    tourOptions: Record<string, TourOption>; // Contains the details of all the default option
+    tourOptions: Record<string, TourOption>; // Contains the details of the default option
     // and all other options for this offer. Required for the "Other packages for this tour" component. Refer to latest designs.
     type: "tour_v2";
     source: Tour.Source;
@@ -531,10 +531,12 @@ export namespace PublicOfferV2 {
       month: string;
       price: number;
     }>;
-    options: Array<Prices>;
+    options: Array<Price>;
   }
 
-  interface Prices extends OptionBase {
+  // From the designs, the purchasable options may be picked on another page.
+  // Yet to be determined if this is to be part of booking flow or at the bottom of the offer page.
+  interface Price extends OptionBase {
     fkDepartureId: string; // Fk to show which departure this price is for
     fkSeasonId: string; // FK to show which season this price/departure is for
   }
@@ -550,9 +552,6 @@ export namespace PublicOfferV2 {
   interface Season {
     id: string;
     departures: Record<string, Departure>;
-    // departures is the list of purchasable options for this offer.
-    // From the designs, the purchasable options are picked on another page.
-    // Yet to be determined if this page is to be part of booking flow or a modal on the offer page.
   }
 
   interface ContentSeason {
@@ -577,7 +576,7 @@ export namespace PublicOfferV2 {
 
   interface Departure {
     id: string;
-    seasonId: string;
+    fkSeasonId: string;
     startDate: Date;
     endDate: Date;
   }
