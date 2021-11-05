@@ -510,6 +510,12 @@ export namespace PublicOfferV2 {
     id: string;
     name: string;
     slug?: string;
+    options: Array<OptionBase>;
+  }
+
+  interface OptionBase {
+    id: string;
+    price: number;
   }
 
   interface TourV2Offer extends LeOfferSkeleton {
@@ -525,6 +531,14 @@ export namespace PublicOfferV2 {
       month: string;
       price: number;
     }>;
+    options: Array<Prices>;
+  }
+
+  interface Prices extends OptionBase {
+    guestType: "adult"; // The most common guest type on a tour
+    roomType: "twin"; // This would be the most common room type for customers
+    fkDepartureId: string; // Fk to show which departure this price is for
+    fkSeasonId: string; // FK to show which season this price/departure is for
   }
 
   interface TourOption {
@@ -537,7 +551,7 @@ export namespace PublicOfferV2 {
 
   interface Season {
     id: string;
-    // departures: Array<Departure>;
+    departures: Record<string, Departure>;
     // departures is the list of purchasable options for this offer.
     // From the designs, the purchasable options are picked on its own page.
     // Yet to be determined if this page is to be part of booking flow or a modal on the offer page.
@@ -563,12 +577,12 @@ export namespace PublicOfferV2 {
     description: string;
   }
 
-  // interface Departure {
-  //   id: string;
-  //   seasonId: string;
-  //   startDate: Date;
-  //   endDate: Date;
-  // }
+  interface Departure {
+    id: string;
+    seasonId: string;
+    startDate: Date;
+    endDate: Date;
+  }
 
   interface Badge {
     name: string;
