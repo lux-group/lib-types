@@ -535,8 +535,6 @@ export namespace PublicOfferV2 {
   }
 
   interface Prices extends OptionBase {
-    guestType: "adult"; // The most common guest type on a tour
-    roomType: "twin"; // This would be the most common room type for customers
     fkDepartureId: string; // Fk to show which departure this price is for
     fkSeasonId: string; // FK to show which season this price/departure is for
   }
@@ -544,8 +542,8 @@ export namespace PublicOfferV2 {
   interface TourOption {
     id: string;
     fromPrice: number; // From price to be displayed in the overview.
-    defaultSeasonId: string; // The id of the CopySeason.
-    copy: CopySeason; // The default season of which the contents of this tour will rendered from.
+    defaultSeasonId: string; // The id of the ContentSeason.
+    content: ContentSeason; // The default season of which the contents of this tour will rendered from.
     seasons: Record<string, Season>; //List of seasons
   }
 
@@ -553,12 +551,12 @@ export namespace PublicOfferV2 {
     id: string;
     departures: Record<string, Departure>;
     // departures is the list of purchasable options for this offer.
-    // From the designs, the purchasable options are picked on its own page.
+    // From the designs, the purchasable options are picked on another page.
     // Yet to be determined if this page is to be part of booking flow or a modal on the offer page.
   }
 
-  interface CopySeason {
-    // The equivalent of the 'copy' section for LE offers
+  interface ContentSeason {
+    // The equivalent of the entire content section for LE offers
     overview: string;
     name: string;
     startLocation?: string;
