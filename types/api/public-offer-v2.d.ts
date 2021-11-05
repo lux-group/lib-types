@@ -531,6 +531,8 @@ export namespace PublicOfferV2 {
       month: string;
       price: number;
     }>;
+    // seasons: Record<string, Season>; // List of seasons, seems redundant
+    departures: Record<string, Departure>; // List of departures
     options: Array<Price>;
   }
 
@@ -544,18 +546,16 @@ export namespace PublicOfferV2 {
   interface TourOption {
     id: string;
     fromPrice: number; // From price to be displayed in the overview.
-    defaultSeasonId: string; // The id of the ContentSeason.
-    content: ContentSeason; // The default season of which the contents of this tour will rendered from.
-    seasons: Record<string, Season>; //List of seasons
+    defaultSeason: ContentSeason; // The default season of which the contents of this tour will rendered from.
   }
 
   interface Season {
     id: string;
-    departures: Record<string, Departure>;
   }
 
   interface ContentSeason {
     // The equivalent of the entire content section for LE offers
+    id: string;
     overview: string;
     name: string;
     startLocation?: string;
