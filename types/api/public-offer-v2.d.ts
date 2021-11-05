@@ -1,51 +1,6 @@
+import { Tour } from "./tour";
+
 export namespace PublicOfferV2 {
-  export namespace TourV2 {
-    interface Offer {
-      id: string;
-      type: "tour_v2";
-      source: Source;
-      name: string;
-      brand: Brand;
-      slug: string;
-      copy: {
-        overview: string;
-        location: string;
-      };
-      images: Array<Image>;
-      monthlyPrices: Array<Price>;
-      itinerary: Array<ItineraryItem>;
-    }
-
-    type Source = "ttc";
-
-    type Brand =
-      | "luxurygold"
-      | "trafalgar"
-      | "contiki"
-      | "aatkings"
-      | "costsaver"
-      | "insightvacations";
-
-    interface Image {
-      id: string;
-      title?: string;
-    }
-
-    interface Price {
-      year: string;
-      month: string;
-      price: number;
-    }
-
-    interface ItineraryItem {
-      startDay: number;
-      duration: number;
-      region?: string;
-      title: string;
-      description: string;
-    }
-  }
-
   interface StrObject {
     [field: string]: string;
   }
@@ -441,7 +396,7 @@ export namespace PublicOfferV2 {
   type LeTourOfferType = Extract<LeOfferType, "tour">;
 
   type LeOffer = LeHotelOffer | LeTourOffer;
-  type Offer = LeOffer | BedbankOffer | TourV2.Offer;
+  type Offer = LeOffer | BedbankOffer | TourV2Offer;
 
   interface BedBankOutboundReturningRoute {
     cost_per_adult: number;
@@ -550,6 +505,70 @@ export namespace PublicOfferV2 {
     tour: Tour;
     type: LeTourOfferType;
   }
+
+  interface LeOfferSkeleton {
+    id: string;
+    name: string;
+    slug?: string;
+  }
+
+  interface TourV2Offer extends LeOfferSkeleton {
+    defaultOptionId: string; // Fk which tells the FE which tourOption to display on the offer page
+    tourOptions: Record<string, TourOption>; // Contains the details of all the default option
+    // and all other options for this offer. Required for the "Other packages for this tour" component. Refer to latest designs.
+    type: "tour_v2";
+    source: Tour.Source;
+    brand: Tour.Brand;
+    monthlyPrices: Array<{
+      // Array of monthly prices for the default tourOption
+      year: string;
+      month: string;
+      price: number;
+    }>;
+  }
+
+  interface TourOption {
+    id: string;
+    fromPrice: number; // From price to be displayed in the overview.
+    defaultSeasonId: string; // The id of the CopySeason.
+    copy: CopySeason; // The default season of which the contents of this tour will rendered from.
+    seasons: Record<string, Season>; //List of seasons
+  }
+
+  interface Season {
+    id: string;
+    // departures: Array<Departure>;
+    // departures is the list of purchasable options for this offer.
+    // From the designs, the purchasable options are picked on its own page.
+    // Yet to be determined if this page is to be part of booking flow or a modal on the offer page.
+  }
+
+  interface CopySeason {
+    // The equivalent of the 'copy' section for LE offers
+    overview: string;
+    name: string;
+    startLocation?: string;
+    endLocation?: string;
+    images: Array<Image>;
+    highlights?: string;
+    itinerary: ItineraryItem[];
+    inclusions?: string;
+  }
+
+  interface ItineraryItem {
+    startDay: number;
+    duration: number;
+    region?: string;
+    title: string;
+    description: string;
+  }
+
+  // interface Departure {
+  //   id: string;
+  //   seasonId: string;
+  //   startDate: Date;
+  //   endDate: Date;
+  // }
 
   interface Badge {
     name: string;

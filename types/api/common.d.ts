@@ -17,7 +17,7 @@ export namespace Common {
   export interface BadRequestResponse {
     status: 400;
     message: string;
-    errors: ValidationError[] | string[];
+    errors: ValidationError[];
   }
 
   export interface NotFoundResponse {

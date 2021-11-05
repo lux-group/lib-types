@@ -26,9 +26,9 @@ export namespace Tour {
     tourOptions: Array<TourOption>;
   }
 
-  type Source = "ttc";
+  export type Source = "ttc";
 
-  type Brand =
+  export type Brand =
     | "luxurygold"
     | "trafalgar"
     | "contiki"
@@ -42,7 +42,6 @@ export namespace Tour {
       overview: string;
       location: string;
     };
-    images: Array<Image>;
     monthlyPrices: Array<Price>;
     itinerary: Array<ItineraryItem>;
     tourOptions: Array<TourOption>;
