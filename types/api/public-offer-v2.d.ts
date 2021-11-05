@@ -519,33 +519,30 @@ export namespace PublicOfferV2 {
   }
 
   interface TourV2Offer extends LeOfferSkeleton {
-    defaultOptionId: string; // Fk which tells the FE which tourOption to display on the offer page
+    defaultOptionId?: string; // Fk which tells the FE which tourOption to display on the offer page.
+    // If empty, FE will just pick the option with the lowest price.
     tourOptions: Record<string, TourOption>; // Contains the details of the default option
     // and all other options for this offer. Required for the "Other packages for this tour" component. Refer to latest designs.
     type: "tour_v2";
     source: Tour.Source;
     brand: Tour.Brand;
-    monthlyPrices: Array<{
-      // Array of monthly prices for the default tourOption
-      year: string;
-      month: string;
-      price: number;
-    }>;
-    // seasons: Record<string, Season>; // List of seasons, seems redundant
+    // seasons: Record<string, Season>; // List of seasons, seems redundant to me.
     departures: Record<string, Departure>; // List of departures
     options: Array<Price>;
   }
 
   // From the designs, the purchasable options may be picked on another page.
   // Yet to be determined if this is to be part of booking flow or at the bottom of the offer page.
+  // Used to display the default prices for all the available departure dates for an adult twin room.
+  // From price and monthly prices to be calculated from this.
   interface Price extends OptionBase {
     fkDepartureId: string; // Fk to show which departure this price is for
     fkSeasonId: string; // FK to show which season this price/departure is for
+    fkTourOptionId: string; // KF to show which tourOptions this price is for
   }
 
   interface TourOption {
     id: string;
-    fromPrice: number; // From price to be displayed in the overview.
     defaultSeason: ContentSeason; // The default season of which the contents of this tour will rendered from.
   }
 
