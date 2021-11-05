@@ -42,6 +42,7 @@ export namespace Tour {
       overview: string;
       location: string;
     };
+    images: Array<Image>;
     monthlyPrices: Array<Price>;
     itinerary: Array<ItineraryItem>;
     tourOptions: Array<TourOption>;
