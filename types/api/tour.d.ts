@@ -9,9 +9,7 @@ export namespace Tour {
     | Common.NotFoundResponse
     | Common.InternalServerErrorResponse;
 
-  export type Tour = TourBase & Offer;
-
-  interface TourBase {
+  interface Tour {
     _links: {
       self: {
         href: string;
@@ -23,6 +21,7 @@ export namespace Tour {
     name: string;
     brand: Brand;
     status: "content-approved" | "draft";
+    slug: string;
     tourOptions: Array<TourOption>;
   }
 
@@ -36,27 +35,9 @@ export namespace Tour {
     | "costsaver"
     | "insightvacations";
 
-  interface Offer {
-    slug: string;
-    copy: {
-      overview: string;
-      location: string;
-    };
-    images: Array<Image>;
-    monthlyPrices: Array<Price>;
-    itinerary: Array<ItineraryItem>;
-    tourOptions: Array<TourOption>;
-  }
-
   interface Image {
     id: string;
     title?: string;
-  }
-
-  interface Price {
-    year: string;
-    month: string;
-    price: number;
   }
 
   interface ItineraryItem {
@@ -64,7 +45,6 @@ export namespace Tour {
     duration: number;
     region?: string;
     title: string;
-    description: string;
   }
 
   interface Season {
@@ -73,6 +53,8 @@ export namespace Tour {
     toDate: Date;
     name: string;
     description: string;
+    images: Image[];
+    itinerary: ItineraryItem[];
   }
 
   interface TourOption {
