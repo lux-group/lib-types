@@ -101,6 +101,7 @@ export namespace Bedbank {
     roomRateId: string;
     bookingEmail: string;
     bookingPhone: string;
+    taxRegistrationNumber: string;
     checkIn: string;
     checkOut: string;
     nights: number;
