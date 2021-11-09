@@ -70,6 +70,8 @@ export namespace Experience {
     complimentary: boolean;
     fare_type_display_value: string;
     cost_price_currency: string;
+    reviews_number: number;
+    reviews_score: number;
     curated?: boolean;
     notes?: string;
   }
