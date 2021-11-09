@@ -441,10 +441,14 @@ export namespace PublicOfferV2 {
     };
   }
 
-  interface LeOfferBase {
+  // Parent offer interface that forms the basis for Le Offers and TourV2 offers
+  interface LeOfferSkeleton {
     id: string;
     name: string;
     slug: string;
+  }
+
+  interface LeOfferBase extends LeOfferSkeleton {
     copy: {
       additionalDescription?: string;
       description?: string;
@@ -506,51 +510,39 @@ export namespace PublicOfferV2 {
     type: LeTourOfferType;
   }
 
-  interface LeOfferSkeleton {
-    id: string;
-    name: string;
-    slug?: string;
-    options: Array<OptionBase>;
-  }
-
-  interface OptionBase {
-    id: string;
-    price: number;
-  }
-
   interface TourV2Offer extends LeOfferSkeleton {
     defaultOptionId?: string; // Fk which tells the FE which tourOption to display on the offer page.
     // If empty, FE will just pick the option with the lowest price.
-    tourOptions: Record<string, TourOption>; // Contains the details of the default option
-    // and all other options for this offer. Required for the "Other packages for this tour" component. Refer to latest designs.
+    tourOptions: Record<string, TourOption>; // Contains the details of the default option, and all other options
+    // for this offer which is required for the "Other packages for this tour" component. Refer to latest designs.
     type: "tour_v2";
     source: Tour.Source;
     brand: Tour.Brand;
     // seasons: Record<string, Season>; // List of seasons, seems redundant to me.
     departures: Record<string, Departure>; // List of departures
-    options: Array<Price>;
+    purchasableOptions: Array<PurchasableOptions>;
   }
 
   // From the designs, the purchasable options may be picked on another page.
   // Yet to be determined if this is to be part of booking flow or at the bottom of the offer page.
   // Used to display the default prices for all the available departure dates for an adult twin room.
   // From price and monthly prices to be calculated from this.
-  interface Price extends OptionBase {
-    fkDepartureId: string; // Fk to show which departure this price is for
-    fkSeasonId: string; // FK to show which season this price/departure is for
-    fkTourOptionId: string; // KF to show which tourOptions this price is for
+  interface PurchasableOptions {
+    id: string; // Id of the price to display. This will be the most popular price type adult twin share.
+    price: number; // Tax inclusive
+    priceTaxExclusive?: number; // Tax exclusive
+    currencyCode: string; // Might make this have enum type based on the selling regions/currencies available.
+    fkDepartureId: string;
+    fkSeasonId: string;
+    fkTourOptionId: string;
   }
 
   interface TourOption {
     id: string;
-    defaultSeason: ContentSeason; // The default season of which the contents of this tour will rendered from.
+    defaultSeason: Season; // The default season of which the contents of this tour will rendered from.
   }
 
   interface Season {
-    id: string;
-  }
-
-  interface ContentSeason {
     // The equivalent of the entire content section for LE offers
     id: string;
     overview: string;
@@ -575,7 +567,17 @@ export namespace PublicOfferV2 {
     id: string;
     fkSeasonId: string;
     startDate: Date;
+    startTimeLocal?: string;
     endDate: Date;
+    endTimeLocal?: string;
+    definiteDeparture: boolean; // Some departures are not definite departures, unsure if we will sell these.
+    availability?: {
+      // Availability for LE curated tours, I believe this is overall availability (seats left on the bus).
+      total: number;
+      left: number;
+    };
+    numberOfBookings?: number; // Number of bookings made in a recent time period.
+    // For partner tours where we have no availability information, this is used to determine the 'selling fast' tag
   }
 
   interface Badge {
