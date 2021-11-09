@@ -1,4 +1,6 @@
 export namespace Bedbank {
+  type SalesEnvironment = "hotel_only" | "hotel_package";
+
   interface StrObject {
     [field: string]: string;
   }
@@ -175,6 +177,7 @@ export namespace Bedbank {
   interface RoomRateResponse {
     id: string;
     refundable: boolean;
+    salesEnvironment: SalesEnvironment;
     regionCode: string;
     currencyCode: string;
     cancellationPolicies: Array<RateCancellationPolicy>;
