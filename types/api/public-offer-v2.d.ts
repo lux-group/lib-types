@@ -442,6 +442,7 @@ export namespace PublicOfferV2 {
   }
 
   // Parent offer interface that forms the basis for Le Offers and TourV2 offers
+  // This will potentially expand to include common things such as flights etc.
   interface LeOfferSkeleton {
     id: string;
     name: string;
@@ -511,14 +512,13 @@ export namespace PublicOfferV2 {
   }
 
   interface TourV2Offer extends LeOfferSkeleton {
+    type: "tour_v2";
+    source: Tour.Source;
+    brand: Tour.Brand;
     defaultOptionId?: string; // Fk which tells the FE which tourOption to display on the offer page.
     // If empty, FE will just pick the option with the lowest price.
     tourOptions: Record<string, TourOption>; // Contains the details of the default option, and all other options
     // for this offer which is required for the "Other packages for this tour" component. Refer to latest designs.
-    type: "tour_v2";
-    source: Tour.Source;
-    brand: Tour.Brand;
-    // seasons: Record<string, Season>; // List of seasons, seems redundant to me.
     departures: Record<string, Departure>; // List of departures
     purchasableOptions: Array<PurchasableOptions>;
   }
@@ -528,10 +528,11 @@ export namespace PublicOfferV2 {
   // Used to display the default prices for all the available departure dates for an adult twin room.
   // From price and monthly prices to be calculated from this.
   interface PurchasableOptions {
-    id: string; // Id of the price to display. This will be the most popular price type adult twin share.
+    id: string;
+    roomType: string; // Multiple room types for each departure, FE will display the cheapest room type.
+    travellerType: "adult"; // Adult prices only, TBC.
     price: number; // Tax inclusive
     priceTaxExclusive?: number; // Tax exclusive
-    currencyCode: string; // Might make this have enum type based on the selling regions/currencies available.
     fkDepartureId: string;
     fkSeasonId: string;
     fkTourOptionId: string;
@@ -576,8 +577,10 @@ export namespace PublicOfferV2 {
       total: number;
       left: number;
     };
+    currencyCode: string; // Might make this have enum type based on the selling regions/currencies available.
     numberOfBookings?: number; // Number of bookings made in a recent time period.
-    // For partner tours where we have no availability information, this is used to determine the 'selling fast' tag
+    // For partner tours where we have no availability information, this is used to determine the 'selling fast' tag.
+    groupSize?: string; // To show the group size, small/large.
   }
 
   interface Badge {
