@@ -41,10 +41,11 @@ export namespace Tour {
   }
 
   interface ItineraryItem {
+    title: string;
+    description: string;
     startDay: number;
     duration: number;
     region?: string;
-    title: string;
   }
 
   interface Season {

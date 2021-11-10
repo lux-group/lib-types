@@ -546,7 +546,7 @@ export namespace PublicOfferV2 {
   interface Season {
     // The equivalent of the entire content section for LE offers
     id: string;
-    overview: string;
+    description: string;
     name: string;
     startLocation?: string;
     endLocation?: string;
