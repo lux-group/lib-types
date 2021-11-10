@@ -441,7 +441,7 @@ export namespace PublicOfferV2 {
     };
   }
 
-  // Parent offer interface that forms the basis for Le Offers and TourV2 offers
+  // Parent offer interface that forms the basis for Le Hotel Offers and TourV2 offers
   // This will potentially expand to include common things such as flights etc.
   interface LeOfferSkeleton {
     id: string;
@@ -515,12 +515,10 @@ export namespace PublicOfferV2 {
     type: "tour_v2";
     source: Tour.Source;
     brand: Tour.Brand;
-    defaultOptionId?: string; // Fk which tells the FE which tourOption to display on the offer page.
-    // If empty, FE will just pick the option with the lowest price.
     tourOptions: Record<string, TourOption>; // Contains the details of the default option, and all other options
     // for this offer which is required for the "Other packages for this tour" component. Refer to latest designs.
     departures: Record<string, Departure>; // List of departures
-    purchasableOptions: Array<PurchasableOptions>;
+    options: Array<PurchasableOptions>;
   }
 
   // From the designs, the purchasable options may be picked on another page.
@@ -567,9 +565,9 @@ export namespace PublicOfferV2 {
   interface Departure {
     id: string;
     fkSeasonId: string;
-    startDate: Date;
+    startDate: string;
     startTimeLocal?: string;
-    endDate: Date;
+    endDate: string;
     endTimeLocal?: string;
     definiteDeparture: boolean; // Some departures are not definite departures, unsure if we will sell these.
     availability?: {

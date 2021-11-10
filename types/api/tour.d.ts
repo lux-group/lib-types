@@ -50,8 +50,8 @@ export namespace Tour {
 
   interface Season {
     id: string;
-    fromDate: Date;
-    toDate: Date;
+    fromDate: string;
+    toDate: string;
     name: string;
     description: string;
     images: Image[];
