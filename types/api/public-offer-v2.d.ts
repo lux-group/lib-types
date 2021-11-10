@@ -446,7 +446,8 @@ export namespace PublicOfferV2 {
   interface LeOfferSkeleton {
     id: string;
     name: string;
-    slug: string;
+    slug: string; // Should we display a different slug based on the tour option selected?
+    // If so slug will need to be moved to the tourOption level.
   }
 
   interface LeOfferBase extends LeOfferSkeleton {
@@ -515,8 +516,9 @@ export namespace PublicOfferV2 {
     type: "tour_v2";
     source: Tour.Source;
     brand: Tour.Brand;
-    tourOptions: Record<string, TourOption>; // Contains the details of the default option, and all other options
-    // for this offer which is required for the "Other packages for this tour" component. Refer to latest designs.
+    tourOptions: Record<string, TourOption>; // Contains the details of the options for this offer
+    // which is required for the "Other packages for this tour" component. Refer to latest designs.
+    // FE by default will display the option which has the lowest price, prices found in the options array.
     departures: Record<string, Departure>; // List of departures
     options: Array<PurchasableOptions>;
   }
@@ -569,7 +571,7 @@ export namespace PublicOfferV2 {
     startTimeLocal?: string;
     endDate: string;
     endTimeLocal?: string;
-    definiteDeparture: boolean; // Some departures are not definite departures, unsure if we will sell these.
+    definiteDeparture?: boolean; // Some departures are not definite departures, unsure if we will sell these.
     availability?: {
       // Availability for LE curated tours, I believe this is overall availability (seats left on the bus).
       total: number;
