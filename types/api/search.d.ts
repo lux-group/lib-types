@@ -22,7 +22,7 @@ export namespace Search {
     checkIn?: string;
     checkOut?: string;
     // Params for different search type
-    placeIds?: string;
+    placeIds?: string[];
     propertyId?: string;
     nearby?: boolean;
     bounds?: string;
@@ -37,7 +37,7 @@ export namespace Search {
     userAgent: string;
     checkIn?: string;
     checkOut?: string;
-    placeIds?: string;
+    placeIds?: string[];
     bounds?: string;
     sortBy?: SortBy;
   }
@@ -49,7 +49,7 @@ export namespace Search {
   }
 
   interface SearchByPlaceQueryParams {
-    placeIds: string;
+    placeIds: string[];
     userAgent: string;
     brand: string;
     occupancy: string | string[];
