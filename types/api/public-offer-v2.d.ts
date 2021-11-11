@@ -1,51 +1,6 @@
+import { Tour } from "./tour";
+
 export namespace PublicOfferV2 {
-  export namespace TourV2 {
-    interface Offer {
-      id: string;
-      type: "tour_v2";
-      source: Source;
-      name: string;
-      brand: Brand;
-      slug: string;
-      copy: {
-        overview: string;
-        location: string;
-      };
-      images: Array<Image>;
-      monthlyPrices: Array<Price>;
-      itinerary: Array<ItineraryItem>;
-    }
-
-    type Source = "ttc";
-
-    type Brand =
-      | "luxurygold"
-      | "trafalgar"
-      | "contiki"
-      | "aatkings"
-      | "costsaver"
-      | "insightvacations";
-
-    interface Image {
-      id: string;
-      title?: string;
-    }
-
-    interface Price {
-      year: string;
-      month: string;
-      price: number;
-    }
-
-    interface ItineraryItem {
-      startDay: number;
-      duration: number;
-      region?: string;
-      title: string;
-      description: string;
-    }
-  }
-
   interface StrObject {
     [field: string]: string;
   }
@@ -441,7 +396,7 @@ export namespace PublicOfferV2 {
   type LeTourOfferType = Extract<LeOfferType, "tour">;
 
   type LeOffer = LeHotelOffer | LeTourOffer;
-  type Offer = LeOffer | BedbankOffer | TourV2.Offer;
+  type Offer = LeOffer | BedbankOffer | TourV2Offer;
 
   interface BedBankOutboundReturningRoute {
     cost_per_adult: number;
@@ -549,6 +504,84 @@ export namespace PublicOfferV2 {
     packages: Record<string, LeTourPackage>;
     tour: Tour;
     type: LeTourOfferType;
+  }
+
+  interface TourV2Offer {
+    id: string; // uuid prefixed with tour-
+    name: string;
+    slug: string; // Should we display a different slug based on the tour option selected?
+    // If so slug will need to be moved to the tourOption level.
+    type: "tour_v2";
+    source: Tour.Source;
+    brand: Tour.Brand;
+    tourOptions: Record<string, TourOption>; // Contains the details of the options for this offer
+    // which is required for the "Other packages for this tour" component. Refer to latest designs.
+    // FE by default will display the option which has the lowest price, prices found in the options array.
+    departures: Record<string, Departure>; // List of departures
+    options: Array<PurchasableOptions>;
+  }
+
+  // From the designs, the purchasable options may be picked on another page.
+  // Yet to be determined if this is to be part of booking flow or at the bottom of the offer page.
+  // Used to display the default prices for all the available departure dates for an adult twin room.
+  // From price and monthly prices to be calculated from this.
+  interface PurchasableOptions {
+    id: string;
+    roomType: string; // Multiple room types for each departure, FE will display the cheapest room type.
+    travellerType: "adult"; // Adult prices only, TBC.
+    price: number; // Tax inclusive
+    priceTaxExclusive?: number; // Tax exclusive
+    fkDepartureId: string;
+    fkSeasonId: string;
+    fkTourOptionId: string;
+  }
+
+  interface TourOption {
+    id: string;
+    defaultSeason: Season; // The default season of which the contents of this tour will rendered from.
+  }
+
+  interface Season {
+    // The equivalent of the entire content section for LE offers
+    id: string;
+    name: string;
+    startLocation?: string;
+    endLocation?: string;
+    images: Array<Image>;
+    itinerary: ItineraryItem[];
+    copy: {
+      // Large chunks of text go here
+      description: string;
+      highlights?: string;
+      inclusions?: string;
+    };
+  }
+
+  interface ItineraryItem {
+    startDay: number;
+    duration: number;
+    region?: string;
+    title: string;
+    description: string;
+  }
+
+  interface Departure {
+    id: string;
+    fkSeasonId: string;
+    startDate: string;
+    startTimeLocal?: string;
+    endDate: string;
+    endTimeLocal?: string;
+    definiteDeparture?: boolean; // Some departures are not definite departures, unsure if we will sell these.
+    availability?: {
+      // Availability for LE curated tours, I believe this is overall availability (seats left on the bus).
+      total: number;
+      left: number;
+    };
+    currencyCode: string; // Might make this have enum type based on the selling regions/currencies available.
+    numberOfBookings?: number; // Number of bookings made in a recent time period.
+    // For partner tours where we have no availability information, this is used to determine the 'selling fast' tag.
+    groupSize?: string; // To show the group size, small/large.
   }
 
   interface Badge {
