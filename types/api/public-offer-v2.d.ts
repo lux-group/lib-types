@@ -441,16 +441,10 @@ export namespace PublicOfferV2 {
     };
   }
 
-  // Parent offer interface that forms the basis for Le Hotel Offers and TourV2 offers
-  // This will potentially expand to include common things such as flights etc.
-  interface LeOfferSkeleton {
+  interface LeOfferBase {
     id: string;
     name: string;
-    slug: string; // Should we display a different slug based on the tour option selected?
-    // If so slug will need to be moved to the tourOption level.
-  }
-
-  interface LeOfferBase extends LeOfferSkeleton {
+    slug: string;
     copy: {
       additionalDescription?: string;
       description?: string;
@@ -512,7 +506,11 @@ export namespace PublicOfferV2 {
     type: LeTourOfferType;
   }
 
-  interface TourV2Offer extends LeOfferSkeleton {
+  interface TourV2Offer {
+    id: string; // uuid prefixed with tour-
+    name: string;
+    slug: string; // Should we display a different slug based on the tour option selected?
+    // If so slug will need to be moved to the tourOption level.
     type: "tour_v2";
     source: Tour.Source;
     brand: Tour.Brand;
