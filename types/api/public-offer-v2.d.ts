@@ -546,14 +546,17 @@ export namespace PublicOfferV2 {
   interface Season {
     // The equivalent of the entire content section for LE offers
     id: string;
-    description: string;
     name: string;
     startLocation?: string;
     endLocation?: string;
     images: Array<Image>;
-    highlights?: string;
     itinerary: ItineraryItem[];
-    inclusions?: string;
+    copy: {
+      // Large chunks of text go here
+      description: string;
+      highlights?: string;
+      inclusions?: string;
+    };
   }
 
   interface ItineraryItem {
