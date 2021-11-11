@@ -166,6 +166,7 @@ export namespace Reservation {
     rate_plan_code: string | null;
     commission?: number;
     rate_type?: string;
+    markup?: number;
   }
 
   interface RatePlanLinks {
