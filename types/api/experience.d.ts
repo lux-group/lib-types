@@ -40,7 +40,7 @@ export namespace Experience {
     status?: string;
   }
 
-  interface CategoriesInExperience {
+  interface ActivityCategory {
     id: number;
     name: string;
     url?: string;
@@ -85,7 +85,7 @@ export namespace Experience {
     notes?: string;
     latitude?: number;
     longitude?: number;
-    categories: CategoriesInExperience[];
+    categories: ActivityCategory[];
   }
 
   interface GetExperiencesResponse {
