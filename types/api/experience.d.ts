@@ -83,8 +83,8 @@ export namespace Experience {
     reviews_score: number;
     curated?: boolean;
     notes?: string;
-    latitude?: number,
-    longitude?: number,
+    latitude?: number;
+    longitude?: number;
     categories: CategoriesInExperience[];
   }
 
