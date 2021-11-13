@@ -40,6 +40,16 @@ export namespace Experience {
     status?: string;
   }
 
+  interface CategoriesInExperience {
+    id: number;
+    name: string;
+    url?: string;
+    code?: string;
+    level?: string;
+    cover_image_url?: string;
+    event_image_url?: string;
+  }
+
   interface ExperienceItem {
     prices: Price[];
     id_salesforce_external: string;
@@ -61,7 +71,6 @@ export namespace Experience {
     display_value: boolean;
     highlighted_text: string;
     location_text: string;
-    categories: string[];
     order_index: number;
     channel_offline_booking: boolean;
     channel_max_days_to_book_before_checkin: number;
@@ -74,6 +83,9 @@ export namespace Experience {
     reviews_score: number;
     curated?: boolean;
     notes?: string;
+    latitude?: number,
+    longitude?: number,
+    categories: CategoriesInExperience[];
   }
 
   interface GetExperiencesResponse {
