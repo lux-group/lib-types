@@ -26,6 +26,7 @@ export namespace Search {
     propertyId?: string;
     nearby?: boolean;
     bounds?: string;
+    sortBy?: SortBy;
   }
 
   // An itermediate interface for search by either place ids or map area
