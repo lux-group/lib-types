@@ -61,6 +61,7 @@ export namespace Bedbank {
     status: string;
     roomIndex: number;
     refundable: boolean;
+    package: boolean;
     price: number;
     exclusivePrice: number;
     taxesAndFees: number;

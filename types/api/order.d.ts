@@ -413,6 +413,7 @@ export namespace Order {
     name: string;
     status: string;
     refundable: boolean;
+    package: boolean;
     room_index: number;
     number_of_adults: number;
     number_of_children: number;
