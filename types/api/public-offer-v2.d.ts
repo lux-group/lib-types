@@ -137,7 +137,6 @@ export namespace PublicOfferV2 {
   interface BedbankRate {
     id: string;
     refundable: boolean;
-    package: boolean;
     regionCode: string;
     currencyCode: string;
     cancellationPolicies: Array<RateCancellationPolicy>;
