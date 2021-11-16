@@ -384,4 +384,16 @@ export namespace Reservation {
     result: EnquiryRateFull[];
     total: number;
   }
+
+  interface RoomLowestPrice {
+    id: string;
+    duration_amount: number;
+    currency: string;
+  }
+
+  interface LowestPricesResult extends Result {
+    result: RoomLowestPrice[];
+    count: number;
+    total: number;
+  }
 }
