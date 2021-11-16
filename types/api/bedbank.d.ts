@@ -61,6 +61,7 @@ export namespace Bedbank {
     status: string;
     roomIndex: number;
     refundable: boolean;
+    isFlightBundle: boolean;
     price: number;
     exclusivePrice: number;
     taxesAndFees: number;
@@ -175,6 +176,7 @@ export namespace Bedbank {
   interface RoomRateResponse {
     id: string;
     refundable: boolean;
+    isFlightBundle: boolean;
     regionCode: string;
     currencyCode: string;
     cancellationPolicies: Array<RateCancellationPolicy>;
