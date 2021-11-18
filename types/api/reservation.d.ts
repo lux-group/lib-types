@@ -121,6 +121,10 @@ export namespace Reservation {
     included_guests: AdultChildInfant[];
     capacities: AdultChildInfant[];
     extra_guest_surcharges: Surcharges[];
+    max_occupancy: number;
+    max_adult_occupancy: number;
+    max_child_occupancy: number;
+    max_infant_occupancy: number;
   }
 
   interface RoomRateLinks {
