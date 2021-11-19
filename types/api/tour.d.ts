@@ -35,6 +35,22 @@ export namespace Tour {
     | "costsaver"
     | "insightvacations";
 
+  export type SellingRegion = "au";
+
+  interface Departure {
+    id: string;
+    currencyCode: string;
+    endDate: string;
+    endTime?: string;
+    endTimeLocal: string;
+    sellingRegion: SellingRegion;
+    startDate: string;
+    startTime?: string;
+    startTimeLocal: string;
+    prices: Price[];
+    fkSeasonId: string;
+  }
+
   interface Image {
     id: string;
     title?: string;
@@ -48,6 +64,13 @@ export namespace Tour {
     region?: string;
   }
 
+  interface Price {
+    id: string;
+    basePrice: number;
+    roomType: string;
+    guestType: string;
+  }
+
   interface Season {
     id: string;
     fromDate: string;
@@ -56,6 +79,7 @@ export namespace Tour {
     description: string;
     images: Image[];
     itinerary: ItineraryItem[];
+    departures: Departure[];
   }
 
   interface TourOption {
