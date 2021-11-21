@@ -569,7 +569,7 @@ export namespace PublicOfferV2 {
 
   interface Departure {
     id: string;
-    fkSeasonId: string;
+    fkSeasonId?: string;
     startDate: string;
     startTimeLocal?: string;
     endDate: string;

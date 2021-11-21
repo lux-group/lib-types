@@ -48,7 +48,6 @@ export namespace Tour {
     startTime?: string;
     startTimeLocal: string;
     prices: Price[];
-    fkSeasonId: string;
   }
 
   interface Image {
