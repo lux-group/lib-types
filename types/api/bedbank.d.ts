@@ -179,7 +179,7 @@ export namespace Bedbank {
     category: string;
     offerType: string;
     frequency?: string;
-    person_count?: number;
+    personCount?: number;
   }
 
   interface RoomRateResponse {
