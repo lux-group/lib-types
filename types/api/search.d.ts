@@ -26,6 +26,7 @@ export namespace Search {
     propertyId?: string;
     nearby?: boolean;
     bounds?: string;
+    sortBy?: SortBy;
     optimiseRanking?: boolean;
   }
 
