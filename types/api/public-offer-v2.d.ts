@@ -145,6 +145,7 @@ export namespace PublicOfferV2 {
     totals: RateTotal;
     duration: number;
     facilities: string[];
+    promotions: string[];
     bedGroups: Array<BedGroup>;
     value: number;
     price: number;
@@ -255,6 +256,7 @@ export namespace PublicOfferV2 {
     policies?: StrObject;
     pets?: Array<string>;
     general?: Array<string>;
+    safety?: Array<string>;
   }
 
   interface Review {

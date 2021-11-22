@@ -173,6 +173,15 @@ export namespace Bedbank {
     propertyFees?: number;
   }
 
+  interface RoomRatePromotion {
+    externalId: string;
+    description: string;
+    category: string;
+    offerType: string;
+    frequency?: string;
+    person_count?: number;
+  }
+
   interface RoomRateResponse {
     id: string;
     refundable: boolean;
@@ -183,6 +192,7 @@ export namespace Bedbank {
     occupancyPricing: Array<RateOccupancyPricingResponse>;
     nights: number;
     facilities: string[];
+    promotions: Array<RoomRatePromotion>;
     totals: RoomRateTotalResponse;
     bedGroups: BedGroupResponse[];
     price: number;
@@ -238,6 +248,7 @@ export namespace Bedbank {
     policies?: StrObject;
     finePrintPets?: Array<string>;
     general?: Array<string>;
+    safety?: Array<string>;
   }
 
   interface PropertyResponse {
