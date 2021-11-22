@@ -527,14 +527,12 @@ export namespace PublicOfferV2 {
   // Used to display the default prices for all the available departure dates for an adult twin room.
   // From price and monthly prices to be calculated from this.
   interface PurchasableOption {
-    id: string;
+    priceId: string;
     roomType: string; // Multiple room types for each departure, FE will display the cheapest room type.
     guestType: "adult"; // Adult prices only, TBC.
     price: number; // Tax inclusive
     priceTaxExclusive?: number; // Tax exclusive
     fkDepartureId: string;
-    fkSeasonId: string;
-    fkTourOptionId: string;
   }
 
   interface TourOption {
@@ -550,7 +548,6 @@ export namespace PublicOfferV2 {
     endLocation?: string;
     images: Array<Image>;
     itinerary: ItineraryItem[];
-    departures: Array<Departure>;
     copy: {
       // Large chunks of text go here
       description: string;
@@ -569,7 +566,8 @@ export namespace PublicOfferV2 {
 
   interface Departure {
     id: string;
-    fkSeasonId?: string;
+    fkSeasonId: string;
+    fkTourOptionId: string;
     startDate: string;
     startTimeLocal?: string;
     endDate: string;
