@@ -26,6 +26,7 @@ export namespace Search {
     propertyId?: string;
     nearby?: boolean;
     bounds?: string;
+    optimiseRanking?: boolean;
   }
 
   // An itermediate interface for search by either place ids or map area
@@ -40,6 +41,7 @@ export namespace Search {
     placeIds?: string;
     bounds?: string;
     sortBy?: SortBy;
+    optimiseRanking?: boolean;
   }
 
   interface ListOffersResponseBody {
@@ -57,6 +59,7 @@ export namespace Search {
     checkOut?: string;
     region: string;
     sortBy?: SortBy;
+    optimiseRanking?: boolean;
   }
 
   // TODO: change to `SearchResult`
