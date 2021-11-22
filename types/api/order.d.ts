@@ -121,7 +121,7 @@ export namespace Order {
     categories: string[];
     item?: AccommodationItem;
   }
-  
+
   interface ExperienceItem {
     _links: ItemLinks;
     booking_number: string;
@@ -130,7 +130,7 @@ export namespace Order {
     description: string;
     detailed_description: string;
     experience_image: string;
-    external_experience_id: string,
+    external_experience_id: string;
     fk_order_id: string;
     id: string;
     location_text: string;
