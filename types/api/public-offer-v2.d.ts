@@ -519,22 +519,20 @@ export namespace PublicOfferV2 {
     // which is required for the "Other packages for this tour" component. Refer to latest designs.
     // FE by default will display the option which has the lowest price, prices found in the options array.
     departures: Record<string, Departure>; // List of departures
-    options: Array<PurchasableOptions>;
+    options: Array<PurchasableOption>;
   }
 
   // From the designs, the purchasable options may be picked on another page.
   // Yet to be determined if this is to be part of booking flow or at the bottom of the offer page.
   // Used to display the default prices for all the available departure dates for an adult twin room.
   // From price and monthly prices to be calculated from this.
-  interface PurchasableOptions {
-    id: string;
+  interface PurchasableOption {
+    priceId: string;
     roomType: string; // Multiple room types for each departure, FE will display the cheapest room type.
-    travellerType: "adult"; // Adult prices only, TBC.
+    guestType: "adult"; // Adult prices only, TBC.
     price: number; // Tax inclusive
     priceTaxExclusive?: number; // Tax exclusive
     fkDepartureId: string;
-    fkSeasonId: string;
-    fkTourOptionId: string;
   }
 
   interface TourOption {
@@ -569,6 +567,7 @@ export namespace PublicOfferV2 {
   interface Departure {
     id: string;
     fkSeasonId: string;
+    fkTourOptionId: string;
     startDate: string;
     startTimeLocal?: string;
     endDate: string;
