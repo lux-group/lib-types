@@ -415,6 +415,7 @@ export namespace Order {
     };
     pets?: Array<string>;
     general?: Array<string>;
+    safety?: Array<string>;
   }
 
   interface BedbankOfferAddress {
