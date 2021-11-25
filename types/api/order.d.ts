@@ -452,6 +452,7 @@ export namespace Order {
     taxes_and_fees: number;
     sales_tax: number;
     facilities: string[];
+    promotions: string[];
     bed_group: RoomBedGroups;
     cancellation_policies: BedbankCancellationPolicy[];
   }
