@@ -222,6 +222,7 @@ export namespace Reservation {
     type: "night" | "stay";
     per_person: boolean;
     value: number;
+    currency?: string;
   }
 
   interface Property {
