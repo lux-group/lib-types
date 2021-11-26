@@ -76,6 +76,7 @@ export namespace Bedbank {
     numberOfChildren: number;
     childrenAges: number[];
     facilities: string[];
+    promotions: string[];
     bedGroup: ReservationBedGroup;
     cancellationPolicies: Array<ReservationCancellationPolicy>;
   }
