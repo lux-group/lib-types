@@ -442,6 +442,7 @@ export namespace PublicOfferV2 {
       attractions?: string;
       amenities?: string;
     };
+    phone: string;
   }
 
   interface LeOfferBase {
