@@ -288,6 +288,7 @@ export namespace PublicOfferV2 {
       longitude: number;
       latitude: number;
     };
+    phone: string;
   }
 
   interface LeProperty {
