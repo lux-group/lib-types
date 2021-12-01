@@ -7,17 +7,17 @@ export namespace Experience {
     level?: string;
     cover_image_url?: string;
     event_image_url?: string;
-  }
+  };
 
   type Category = {
     name: string;
     value: string;
-  }
+  };
 
     type Price = {
     amount: number;
     currencyCode: string;
-  }
+  };
 
   type Image = {
     description: string;
@@ -26,19 +26,19 @@ export namespace Experience {
       url: string;
       width: number
     }>
-  }
+  };
 
   type Ticket = {
     fareType: string;
     retailPrice?: Array<Price>;
     salesPrice: Array<Price>;
-  }
+  };
 
   type Location = {
     description: string | null;
     latitude: number | null;
     longitude: number | null;
-  }
+  };
 
   type PickupPoint = Location;
 
@@ -52,19 +52,19 @@ export namespace Experience {
       4: number;
       5: number;
     };
-  }
+  };
 
   type Comment = {
     author?: string;
     id: string;
     message: string;
     title?: string;
-  }
+  };
 
   type Range = {
     max?: number;
     min?: number;
-  }
+  };
 
   interface GetCategoriesResponse {
     categories: Category[];
