@@ -14,7 +14,7 @@ export namespace Experience {
     value: string;
   };
 
-    type Price = {
+  type Price = {
     amount: number;
     currencyCode: string;
   };
@@ -24,8 +24,8 @@ export namespace Experience {
     urls: Array<{
       height: number;
       url: string;
-      width: number
-    }>
+      width: number;
+    }>;
   };
 
   type Ticket = {
