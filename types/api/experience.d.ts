@@ -1,13 +1,69 @@
 export namespace Experience {
-  interface Price {
-    currency_code: string;
-    value: number;
-    price: number;
+  type ActivityCategory = {
+    id: number;
+    name: string;
+    url?: string;
+    code?: string;
+    level?: string;
+    cover_image_url?: string;
+    event_image_url?: string;
   }
 
-  interface Category {
+  type Category = {
     name: string;
     value: string;
+  }
+
+    type Price = {
+    amount: number;
+    currencyCode: string;
+  }
+
+  type Image = {
+    description: string;
+    urls: Array<{
+      height: number;
+      url: string;
+      width: number
+    }>
+  }
+
+  type Ticket = {
+    fareType: string;
+    retailPrice?: Array<Price>;
+    salesPrice: Array<Price>;
+  }
+
+  type Location = {
+    description: string | null;
+    latitude: number | null;
+    longitude: number | null;
+  }
+
+  type PickupPoint = Location;
+
+  type ProviderRating = {
+    average: number;
+    number: number;
+    stars: {
+      1: number;
+      2: number;
+      3: number;
+      4: number;
+      5: number;
+    };
+  }
+
+  type Comment = {
+    author?: string;
+    id: string;
+    message: string;
+    title?: string;
+  }
+
+  type Range = {
+    max?: number;
+    min?: number;
   }
 
   interface GetCategoriesResponse {
@@ -40,54 +96,6 @@ export namespace Experience {
     status?: string;
   }
 
-  interface ActivityCategory {
-    id: number;
-    name: string;
-    url?: string;
-    code?: string;
-    level?: string;
-    cover_image_url?: string;
-    event_image_url?: string;
-  }
-
-  interface ExperienceItem {
-    prices: Price[];
-    id_salesforce_external: string;
-    fk_opportunity_salesforce_id: string;
-    offer_salesforce_id: string;
-    name: string;
-    description: string;
-    details: string;
-    status: string;
-    purchase_limit: number;
-    addon_parent_package_salesforce_id: string;
-    travel_from_date: string;
-    travel_to_date: string;
-    book_by_date: string;
-    vendor_id: string;
-    vendor_booking_email: string;
-    vendor_contact_phone: string;
-    image_cloudinary_external: string;
-    display_value: boolean;
-    highlighted_text: string;
-    location_text: string;
-    order_index: number;
-    channel_offline_booking: boolean;
-    channel_max_days_to_book_before_checkin: number;
-    channel_instant_booking: boolean;
-    channel_booking_made: boolean;
-    complimentary: boolean;
-    fare_type_display_value: string;
-    cost_price_currency: string;
-    reviews_number: number;
-    reviews_score: number;
-    curated?: boolean;
-    notes?: string;
-    latitude?: number;
-    longitude?: number;
-    categories: ActivityCategory[];
-  }
-
   interface GetExperiencesResponse {
     experiences: ExperienceItem[];
     total: number;
@@ -95,5 +103,67 @@ export namespace Experience {
 
   interface GetExperienceResponse {
     experience: ExperienceItem;
+  }
+
+  interface ExperienceOffer {
+    baseRetailPrice: Array<Price>;
+    baseSalesPrice?: Array<Price>;
+    categories: Array<ActivityCategory>;
+    comments?: Array<Comment>;
+    curationStatus?: string;
+    description: string | null;
+    id: string;
+    images: Array<Image>;
+    location?: Array<Location>;
+    maxCancellationDays: number | null;
+    maxConfirmationHours: number | null;
+    maxModifyBookingDays: number | null;
+    meetingPoints?: Array<PickupPoint>;
+    needsProviderConfirmation: boolean;
+    notes?: string | null;
+    offlineBookingInstructions?: string;
+    providerRating?: ProviderRating;
+    providerStatus: string;
+    purchaseLimit?: Range;
+    shortDescription: string | null;
+    tickets: Array<Ticket>;
+    title: string;
+  }
+
+  interface ExperienceItem {
+    categories: Array<ActivityCategory>;
+    description: string | null;
+    experienceOfferId: string;
+    expirationDate: Date | null;
+    id: string;
+    images: Array<Image>;
+    fullDay?: boolean;
+    location: Location;
+    meetingPoint?: PickupPoint;
+    requiresBookDates: boolean;
+    retailPrice?: Array<Price>;
+    salesPrice: Array<Price>;
+    shortDescription: string | null;
+    status: string;
+    ticket: Ticket;
+    title: string;
+  }
+
+  interface BookingDetails {
+    bookingEndDate?: Date | null;
+    bookingStartDate?: Date | null;
+    experienceItemId: string;
+    experienceOfferId: string;
+    expirationDate: Date | null;
+    fullDay?: boolean;
+    id: string;
+    hasOfflineBooking: boolean;
+    maxCancellationDate: Date | null;
+    maxDateToProviderConfirm?: Date | null;
+    maxModifyBookingDate: Date | null;
+    meetingPoint: PickupPoint;
+    offlineBookingInstructions?: string;
+    requiresBookDates: boolean;
+    status: string;
   }
 }
