@@ -288,6 +288,7 @@ export namespace PublicOfferV2 {
       longitude: number;
       latitude: number;
     };
+    phone: string;
   }
 
   interface LeProperty {
@@ -442,7 +443,6 @@ export namespace PublicOfferV2 {
       attractions?: string;
       amenities?: string;
     };
-    phone: string;
   }
 
   interface LeOfferBase {
