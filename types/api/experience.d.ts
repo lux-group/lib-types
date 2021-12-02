@@ -29,9 +29,9 @@ export namespace Experience {
   };
 
   type Ticket = {
-    fareType: string;
-    retailPrice?: Array<Price>;
-    salesPrice: Array<Price>;
+    fare_type: string;
+    retail_price?: Array<Price>;
+    sales_price: Array<Price>;
   };
 
   type Location = {
@@ -66,38 +66,39 @@ export namespace Experience {
     min?: number;
   };
 
+  type CurationStatus = 'REJECTED' | 'APPROVED' |'NOT_CURATED';
+
   interface GetCategoriesResponse {
-    categories: Category[];
+    categories: Array<Category>;
   }
 
   interface CreateExperience {
-    externalId: string;
-    vendor: string;
-    curated?: boolean;
+    id: string;
     notes?: string;
+    curated?: boolean;
   }
 
   interface ActivityFilter {
+    id?: string; // Filter by activity id
     text?: string; // Text search
-    city_in?: string; // Cities, ids comma separated
-    sort_by?: string;
-    category_in?: string; // Filter by category | Category code need to be passed,
-    country_in?: string; // Filter, include only results from given countries identified by a collection of 2 chars country code,
-    default_price_range?: string; // Price range as comma separated values, accepts only floats positive or equals to 0, two points precision
     limit?: number;
     offset?: number;
-    available_from?: string; // Specify the availability starting date range [YYYY-MM-DD]
-    available_to?: string; // Specify the availability ending date range [YYYY-MM-DD]
-    currency?: string;
-    id?: string; // Filter by activity id
-    coordinates?: string;
-    distance?: string;
     rating?: string;
     status?: string;
+    city_in?: string; // Cities, ids comma separated
+    sort_by?: string;
+    currency?: string;
+    distance?: string;
+    country_in?: string; // Filter, include only results from given countries identified by a collection of 2 chars country code,
+    category_in?: string; // Filter by category | Category code need to be passed,
+    coordinates?: string;
+    available_to?: string; // Specify the availability ending date range [YYYY-MM-DD]
+    available_from?: string; // Specify the availability starting date range [YYYY-MM-DD]
+    default_price_range?: string; // Price range as comma separated values, accepts only floats positive or equals to 0, two points precision
   }
 
   interface GetExperiencesResponse {
-    experiences: ExperienceItem[];
+    experiences: Array<ExperienceItem>;
     total: number;
   }
 
@@ -106,64 +107,66 @@ export namespace Experience {
   }
 
   interface ExperienceOffer {
-    baseRetailPrice: Array<Price>;
-    baseSalesPrice?: Array<Price>;
+    base_retail_prices: Array<Price>;
+    base_sales_prices?: Array<Price>;
     categories: Array<ActivityCategory>;
     comments?: Array<Comment>;
-    curationStatus?: string;
+    curation_status: CurationStatus;
     description: string | null;
     id: string;
     images: Array<Image>;
-    location?: Array<Location>;
-    maxCancellationDays: number | null;
-    maxConfirmationHours: number | null;
-    maxModifyBookingDays: number | null;
-    meetingPoints?: Array<PickupPoint>;
-    needsProviderConfirmation: boolean;
+    locations?: Array<Location>;
+    max_cancellation_days: number | null;
+    max_confirmation_hours: number | null;
+    max_modify_booking_days: number | null;
+    meeting_points?: Array<PickupPoint>;
+    needs_provider_confirmation: boolean;
     notes?: string | null;
-    offlineBookingInstructions?: string;
-    providerRating?: ProviderRating;
-    providerStatus: string;
-    purchaseLimit?: Range;
-    shortDescription: string | null;
+    offline_booking_instructions?: string;
+    provider_rating?: ProviderRating;
+    provider_status: string;
+    purchase_limit?: Range;
+    short_description: string | null;
     tickets: Array<Ticket>;
     title: string;
   }
 
   interface ExperienceItem {
     categories: Array<ActivityCategory>;
+    curation_status: CurationStatus;
     description: string | null;
-    experienceOfferId: string;
-    expirationDate: Date | null;
+    experience_offer_id: string;
+    expiration_date: Date | null;
     id: string;
     images: Array<Image>;
-    fullDay?: boolean;
+    full_day?: boolean;
     location: Location;
-    meetingPoint?: PickupPoint;
-    requiresBookDates: boolean;
-    retailPrice?: Array<Price>;
-    salesPrice: Array<Price>;
-    shortDescription: string | null;
+    meeting_point?: PickupPoint;
+    provider_rating?: ProviderRating;
+    requires_book_dates: boolean;
+    retail_prices?: Array<Price>;
+    sales_prices: Array<Price>;
+    short_description: string | null;
     status: string;
     ticket: Ticket;
     title: string;
   }
 
   interface BookingDetails {
-    bookingEndDate?: Date | null;
-    bookingStartDate?: Date | null;
-    experienceItemId: string;
-    experienceOfferId: string;
-    expirationDate: Date | null;
-    fullDay?: boolean;
+    booking_end_date?: Date | null;
+    booking_start_date?: Date | null;
+    experience_item_id: string;
+    experience_offer_id: string;
+    expiration_date: Date | null;
+    full_day?: boolean;
     id: string;
-    hasOfflineBooking: boolean;
-    maxCancellationDate: Date | null;
-    maxDateToProviderConfirm?: Date | null;
-    maxModifyBookingDate: Date | null;
-    meetingPoint: PickupPoint;
-    offlineBookingInstructions?: string;
-    requiresBookDates: boolean;
+    has_offline_booking: boolean;
+    max_cancellation_date: Date | null;
+    max_date_to_provider_confirm?: Date | null;
+    max_modify_booking_date: Date | null;
+    meeting_point: PickupPoint;
+    offline_booking_instructions?: string;
+    requires_book_dates: boolean;
     status: string;
   }
 }
