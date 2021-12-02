@@ -66,7 +66,7 @@ export namespace Experience {
     min?: number;
   };
 
-  type CurationStatus = 'REJECTED' | 'APPROVED' |'NOT_CURATED';
+  type CurationStatus = "REJECTED" | "APPROVED" | "NOT_CURATED";
 
   interface GetCategoriesResponse {
     categories: Array<Category>;
