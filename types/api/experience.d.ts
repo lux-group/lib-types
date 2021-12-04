@@ -1,5 +1,5 @@
 export namespace Experience {
-  type ActivityCategory = {
+  type ExperienceCategory = {
     id: number;
     name: string;
     url?: string;
@@ -16,7 +16,7 @@ export namespace Experience {
 
   type Price = {
     amount: number;
-    currencyCode: string;
+    currency_code: string;
   };
 
   type Image = {
@@ -68,17 +68,13 @@ export namespace Experience {
 
   type CurationStatus = "REJECTED" | "APPROVED" | "NOT_CURATED";
 
-  interface GetCategoriesResponse {
-    categories: Array<Category>;
-  }
-
   interface CreateExperience {
     id: string;
     notes?: string;
     curated?: boolean;
   }
 
-  interface ActivityFilter {
+  interface ExperienceFilter {
     id?: string; // Filter by activity id
     text?: string; // Text search
     limit?: number;
@@ -97,21 +93,25 @@ export namespace Experience {
     default_price_range?: string; // Price range as comma separated values, accepts only floats positive or equals to 0, two points precision
   }
 
-  interface GetExperiencesResponse {
-    experiences: Array<ExperienceItem>;
+  interface GetCategoriesResponse {
+    categories: Array<Category>;
+  }
+
+  interface GetExperiencesOfferResponse {
+    experiences: Array<ExperienceOffer>;
     total: number;
   }
 
-  interface GetExperienceResponse {
-    experience: ExperienceItem;
+  interface GetExperienceOfferResponse {
+    experience: ExperienceOffer;
   }
 
   interface ExperienceOffer {
     base_retail_prices: Array<Price>;
     base_sales_prices?: Array<Price>;
-    categories: Array<ActivityCategory>;
+    categories: Array<ExperienceCategory>;
     comments?: Array<Comment>;
-    curation_status: CurationStatus;
+    curation_status?: CurationStatus;
     description: string | null;
     id: string;
     images: Array<Image>;
@@ -132,8 +132,8 @@ export namespace Experience {
   }
 
   interface ExperienceItem {
-    categories: Array<ActivityCategory>;
-    curation_status: CurationStatus;
+    booking_detail_id?: string;
+    categories: Array<ExperienceCategory>;
     description: string | null;
     experience_offer_id: string;
     expiration_date: Date | null;
@@ -142,7 +142,7 @@ export namespace Experience {
     full_day?: boolean;
     location: Location;
     meeting_point?: PickupPoint;
-    provider_rating?: ProviderRating;
+    order_id: string;
     requires_book_dates: boolean;
     retail_prices?: Array<Price>;
     sales_prices: Array<Price>;
@@ -166,6 +166,8 @@ export namespace Experience {
     max_modify_booking_date: Date | null;
     meeting_point: PickupPoint;
     offline_booking_instructions?: string;
+    provider: string;
+    provider_booking_id: string;
     requires_book_dates: boolean;
     status: string;
   }
