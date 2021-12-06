@@ -128,6 +128,7 @@ export namespace PublicOfferV2 {
     fkRoomRateId: string;
     fkRoomTypeId: string;
     fkRatePlanId: string;
+    checkInCloses?: string;
   }
 
   interface LeTourOption extends LeOptionBase {
