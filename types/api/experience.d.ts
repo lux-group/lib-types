@@ -68,6 +68,19 @@ export namespace Experience {
 
   type CurationStatus = "REJECTED" | "APPROVED" | "NOT_CURATED";
 
+  type AvailabilityInfo = {
+    available: boolean;
+    day: Date;
+    sales_price: Price;
+  };
+
+  type UserInfos = {
+    label: string
+    name: string;
+    required: boolean;
+    type: string;
+  };
+
   interface CreateExperience {
     id: string;
     notes?: string;
@@ -136,14 +149,10 @@ export namespace Experience {
     categories: Array<ExperienceCategory>;
     description: string | null;
     experience_offer_id: string;
-    expiration_date: Date | null;
     id: string;
     images: Array<Image>;
-    full_day?: boolean;
     location: Location;
-    meeting_point?: PickupPoint;
     order_id: string;
-    requires_book_dates: boolean;
     retail_prices?: Array<Price>;
     sales_prices: Array<Price>;
     short_description: string | null;
@@ -170,5 +179,11 @@ export namespace Experience {
     provider_booking_id: string;
     requires_book_dates: boolean;
     status: string;
+  }
+
+  interface BookingRequirements {
+    availability_info: Array<AvailabilityInfo>;
+    meeting_points?: Array<PickupPoint>;
+    user_infos: Array<UserInfos>;
   }
 }

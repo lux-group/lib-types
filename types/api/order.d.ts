@@ -1,3 +1,5 @@
+import { Experience } from "./experience";
+
 export namespace Order {
   interface Link {
     href: string;
@@ -122,25 +124,8 @@ export namespace Order {
     item?: AccommodationItem;
   }
 
-  interface ExperienceItem {
+  interface ExperienceItem extends Experience.ExperienceItem {
     _links: ItemLinks;
-    booking_number: string;
-    created_at: string;
-    currency: string;
-    description: string;
-    detailed_description: string;
-    experience_image: string;
-    external_experience_id: string;
-    fk_order_id: string;
-    id: string;
-    location_text: string;
-    status: string;
-    title: string;
-    total: number;
-    transaction_key: string;
-    type: string;
-    updated_at: string;
-    vendor_id: string;
   }
 
   interface FlightItemLinks extends ItemLinks {
