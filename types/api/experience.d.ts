@@ -75,7 +75,7 @@ export namespace Experience {
   };
 
   type UserInfos = {
-    label: string
+    label: string;
     name: string;
     required: boolean;
     type: string;
