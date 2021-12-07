@@ -347,9 +347,16 @@ export namespace PublicOfferV2 {
     localRewardConversionRate: number;
   }
 
+  type UrgencyTagType =
+    | "last_minute_hotel_travel_in"
+    | "new"
+    | "popular"
+    | "limited"
+    | "left";
+
   interface UrgencyTag {
-    type: string;
-    message: string;
+    type: UrgencyTagType;
+    message: string | null;
   }
 
   interface Flight {
