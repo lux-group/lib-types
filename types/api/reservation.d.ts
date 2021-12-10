@@ -393,6 +393,7 @@ export namespace Reservation {
   interface RoomLowestPrice {
     id: string;
     duration_amount: number;
+    duration_tax: number;
     currency: string;
   }
 
