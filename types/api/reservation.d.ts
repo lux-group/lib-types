@@ -164,6 +164,7 @@ export namespace Reservation {
     discount: number;
     default_plan: boolean;
     cancellation_policy: CancellationPolicy;
+    non_refundable_cancellation_policy_codes: Array<string>;
     cancellation_policy_detail?: Array<string>;
     inclusions: string | null;
     bonus_inclusions?: Array<BonusInclusion>;
