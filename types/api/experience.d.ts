@@ -35,12 +35,14 @@ export namespace Experience {
   };
 
   type Location = {
-    description: string | null;
     latitude: number | null;
     longitude: number | null;
   };
-
-  type PickupPoint = Location;
+  
+  type PickupPoint = {
+    description: string | null;
+    id: string;
+  } & Location;
 
   type ProviderRating = {
     average: number;
@@ -132,10 +134,11 @@ export namespace Experience {
     max_cancellation_days: number | null;
     max_confirmation_hours: number | null;
     max_modify_booking_days: number | null;
-    meeting_points?: Array<PickupPoint>;
+    meeting_point?: string;
     needs_provider_confirmation: boolean;
     notes?: string | null;
     offline_booking_instructions?: string;
+    pickup_points?: Array<PickupPoint>;
     provider_rating?: ProviderRating;
     provider_status: string;
     purchase_limit?: Range;
@@ -173,8 +176,9 @@ export namespace Experience {
     max_cancellation_date: Date | null;
     max_date_to_provider_confirm?: Date | null;
     max_modify_booking_date: Date | null;
-    meeting_point: PickupPoint;
+    meeting_point?: string;
     offline_booking_instructions?: string;
+    pickup_point?: PickupPoint;
     provider: string;
     provider_booking_id: string;
     requires_book_dates: boolean;
@@ -183,7 +187,6 @@ export namespace Experience {
 
   interface BookingRequirements {
     availability_info: Array<AvailabilityInfo>;
-    meeting_points?: Array<PickupPoint>;
     user_infos: Array<UserInfos>;
   }
 }
