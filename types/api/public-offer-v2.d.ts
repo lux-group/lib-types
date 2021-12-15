@@ -490,7 +490,7 @@ export namespace PublicOfferV2 {
     packages: Record<string, LeHotelPackage>;
     property: LeProperty;
     ratePlans: Record<string, RatePlan>;
-    ratePlansGroups: Record<string, RatePlansGroup>;
+    ratePlansGroups: RatePlansGroup[];
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
     options: Array<LeHotelOption>;
