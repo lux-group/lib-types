@@ -404,4 +404,14 @@ export namespace Reservation {
     count: number;
     total: number;
   }
+
+  interface RatePlansGroup {
+    id: string;
+    name: number;
+    rate_plans: string[];
+  }
+
+  interface RatePlansGroupsResult extends Result {
+    result: RatePlansGroup[];
+  }
 }
