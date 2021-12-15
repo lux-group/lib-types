@@ -109,6 +109,12 @@ export namespace PublicOfferV2 {
     };
   }
 
+  interface RatePlansGroup {
+    id: string;
+    name: number;
+    ratePlans: string[];
+  }
+
   type LeOption = LeHotelOption | LeTourOption;
   type Option = LeOption | BedbankRate;
 
@@ -484,6 +490,7 @@ export namespace PublicOfferV2 {
     packages: Record<string, LeHotelPackage>;
     property: LeProperty;
     ratePlans: Record<string, RatePlan>;
+    ratePlansGroups: RatePlansGroup[];
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
     options: Array<LeHotelOption>;
