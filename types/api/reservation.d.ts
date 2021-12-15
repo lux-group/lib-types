@@ -172,6 +172,7 @@ export namespace Reservation {
     commission?: number;
     rate_type?: string;
     markup?: number;
+    should_instant_purchase?: boolean;
   }
 
   interface RatePlanLinks {
