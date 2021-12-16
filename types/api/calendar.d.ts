@@ -39,4 +39,33 @@ export namespace Calendar {
     result: GetRatesResult[];
     status: 200;
   }
+
+  interface GetLowestPricesQueryParams {
+    region: string;
+    brand: string;
+    offer_ids: string;
+    check_in: string;
+    check_out: string;
+    occupancy: string[];
+  }
+
+  interface GetLowestPricesResult {
+    id: string;
+    type: string;
+    duration: number;
+    package_id: string;
+    package_unique_key: string;
+    room_rate_id: string;
+    package_price: number;
+    package_duration_surcharge_total: number;
+    package_duration_extra_guest_surcharge_total: number;
+    package_total_tax: number;
+    package_total_price: number;
+  }
+
+  interface GetLowestPricesResponse {
+    status: 200;
+    message: null;
+    result: GetLowestPricesResult[];
+  }
 }
