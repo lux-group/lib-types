@@ -173,6 +173,7 @@ export namespace Reservation {
     rate_type?: string;
     markup?: number;
     should_instant_purchase?: boolean;
+    group: RatePlanGroup | null;
   }
 
   interface RatePlanLinks {
@@ -405,9 +406,12 @@ export namespace Reservation {
     total: number;
   }
 
-  interface RatePlansGroup {
+  interface RatePlanGroup {
     id: string;
     name: number;
+  }
+
+  interface RatePlansGroup extends RatePlanGroup {
     rate_plans: string[];
   }
 
