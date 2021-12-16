@@ -70,17 +70,30 @@ export namespace Experience {
 
   type CurationStatus = "REJECTED" | "APPROVED" | "NOT_CURATED";
 
-  type AvailabilityInfo = {
-    available: boolean;
-    day: Date;
-    sales_price: Price;
+  type TimeTicket = {
+    availability: number;
+    identifier: string;
+    fare_type: string;
+    max_buy: number;
+    min_buy: number;
+    sales_prices: Array<Price>;
   };
 
-  type UserInfos = {
-    label: string;
+  type TimeSlots = {
+    time: string;
+    tickets: Array<TimeTicket>;
+  };
+
+  type TimeGroups = {
+    feature_code: string;
     name: string;
-    required: boolean;
     type: string;
+    slots: Array<TimeSlots>;
+  };
+
+  type DateAvailability = {
+    day: string;
+    sold_out: boolean;
   };
 
   interface CreateExperience {
@@ -130,7 +143,7 @@ export namespace Experience {
     description: string | null;
     id: string;
     images: Array<Image>;
-    locations?: Array<Location>;
+    location?: Location;
     max_cancellation_days: number | null;
     max_confirmation_hours: number | null;
     max_modify_booking_days: number | null;
@@ -185,8 +198,11 @@ export namespace Experience {
     status: string;
   }
 
-  interface BookingRequirements {
-    availability_info: Array<AvailabilityInfo>;
-    user_infos: Array<UserInfos>;
+  interface BookingTimeAvailability {
+    availability: { groups: Array<TimeGroups> };
+  }
+
+  interface BookingDateAvailability {
+    availability: Array<DateAvailability>;
   }
 }
