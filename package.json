@@ -1,6 +1,6 @@
 {
   "name": "@luxuryescapes/lib-types",
-  "version": "1.10.24",
+  "version": "1.10.28",
   "types": "types/index.d.ts",
   "repository": "git@github.com:brandsExclusive/lib-types.git",
   "author": "Rufus Post <rufuspost@gmail.com>",
