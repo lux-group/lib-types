@@ -96,6 +96,11 @@ export namespace PublicOfferV2 {
     | "prior-to-check-in-thirty-one-days"
     | "prior-to-check-in-sixty-days";
 
+  interface RatePlanGroup {
+    id: string;
+    name: number;
+  }
+
   interface RatePlan {
     id: string;
     discount: number;
@@ -107,12 +112,7 @@ export namespace PublicOfferV2 {
       bonus: BonusInclusion[];
       description?: string;
     };
-  }
-
-  interface RatePlansGroup {
-    id: string;
-    name: number;
-    ratePlans: string[];
+    group: RatePlanGroup | null;
   }
 
   type LeOption = LeHotelOption | LeTourOption;
@@ -489,7 +489,6 @@ export namespace PublicOfferV2 {
     packages: Record<string, LeHotelPackage>;
     property: LeProperty;
     ratePlans: Record<string, RatePlan>;
-    ratePlansGroups: RatePlansGroup[];
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
     options: Array<LeHotelOption>;
