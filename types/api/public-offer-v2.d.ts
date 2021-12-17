@@ -207,6 +207,7 @@ export namespace PublicOfferV2 {
   interface LeHotelPackage extends LePackageBase {
     fkRoomTypeId: string;
     allowBuyNowBookLater: boolean;
+    allowDatesRequest: boolean;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
