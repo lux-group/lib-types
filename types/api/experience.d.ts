@@ -35,6 +35,7 @@ export namespace Experience {
   };
 
   type Location = {
+    description: string | null;
     latitude: number | null;
     longitude: number | null;
   };
