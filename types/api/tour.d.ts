@@ -66,6 +66,7 @@ export namespace Tour {
   interface Price {
     id: string;
     basePrice: number;
+    fullPrice: number;
     roomType: string;
     guestType: string;
   }
