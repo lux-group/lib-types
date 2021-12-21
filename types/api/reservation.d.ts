@@ -408,7 +408,7 @@ export namespace Reservation {
 
   interface RatePlanGroup {
     id: string;
-    name: number;
+    name: string;
   }
 
   interface RatePlansGroup extends RatePlanGroup {

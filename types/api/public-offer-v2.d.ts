@@ -98,7 +98,7 @@ export namespace PublicOfferV2 {
 
   interface RatePlanGroup {
     id: string;
-    name: number;
+    name: string;
   }
 
   interface RatePlan {
