@@ -477,4 +477,21 @@ export namespace Order {
     size: string;
     quantity: string;
   }
+
+  interface DatesRequest {
+    id_dates_request: string;
+    fk_customer_id: string;
+    status: string;
+    fk_order_id: string;
+    fk_item_id: string;
+    vendor_salesforce_id: string;
+    fk_package_id: string;
+    room_name: string;
+    request_date: string;
+    created_at: string;
+    updated_at: string;
+    number_of_adults: number;
+    number_of_infants: number;
+    number_of_children: number;
+  }
 }
