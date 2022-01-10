@@ -35,10 +35,11 @@ export namespace Experience {
   };
 
   type Location = {
+    description: string | null;
     latitude: number | null;
     longitude: number | null;
   };
-  
+
   type PickupPoint = {
     description: string | null;
     id: string;
@@ -169,6 +170,8 @@ export namespace Experience {
     short_description: string | null;
     tickets: Array<Ticket>;
     title: string;
+    has_offline_booking: boolean;
+    requires_book_dates: boolean;
   }
 
   interface ExperienceItem {

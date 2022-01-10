@@ -70,6 +70,7 @@ export namespace Order {
     accommodation_items: AccommodationItem[];
     addon_items: AddonItem[];
     experience_items: ExperienceItem[];
+    experience_booking_details?: Experience.BookingDetails[];
     flight_items: FlightItem[];
     gift_card_items: GiftCardItem[];
     membership_items: MembershipItem[];
