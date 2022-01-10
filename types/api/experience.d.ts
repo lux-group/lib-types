@@ -98,13 +98,13 @@ export namespace Experience {
   };
 
   type DateAvailabilityQuery = {
-    pickupId?: string,
-    dateFrom?: Date,
-    dateTo?: Date
+    pickup_id?: string,
+    date_from?: Date,
+    date_to?: Date
   }
 
   type TimeAvailabilityQuery = {
-    pickupId?: string,
+    pickup_id?: string,
     quantity?: number
   }
 
