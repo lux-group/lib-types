@@ -96,6 +96,17 @@ export namespace Experience {
     sold_out: boolean;
   };
 
+  type DateAvailabilityQuery = {
+    pickupId?: string,
+    dateFrom?: Date,
+    dateTo?: Date
+  }
+
+  type TimeAvailabilityQuery = {
+    pickupId?: string,
+    quantity?: number
+  }
+
   interface CreateExperience {
     id: string;
     notes?: string;
@@ -204,5 +215,13 @@ export namespace Experience {
 
   interface BookingDateAvailability {
     availability: Array<DateAvailability>;
+  }
+
+  interface BookingUserInfo {
+    name: string,
+    type: string,
+    label: string,
+    required: boolean,
+    options?: Array<{ value: string, label: string }>
   }
 }
