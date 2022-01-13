@@ -98,15 +98,15 @@ export namespace Experience {
   };
 
   type DateAvailabilityQuery = {
-    pickup_id?: string,
-    date_from?: Date,
-    date_to?: Date
-  }
+    pickup_id?: string;
+    date_from?: Date;
+    date_to?: Date;
+  };
 
   type TimeAvailabilityQuery = {
-    pickup_id?: string,
-    quantity?: number
-  }
+    pickup_id?: string;
+    quantity?: number;
+  };
 
   interface CreateExperience {
     id: string;
@@ -221,10 +221,10 @@ export namespace Experience {
   }
 
   interface BookingUserInfo {
-    name: string,
-    type: string,
-    label: string,
-    required: boolean,
-    options?: Array<{ value: string, label: string }>
+    name: string;
+    type: string;
+    label: string;
+    required: boolean;
+    options?: Array<{ value: string; label: string }>;
   }
 }
