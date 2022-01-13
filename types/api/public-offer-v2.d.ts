@@ -639,7 +639,7 @@ export namespace PublicOfferV2 {
   interface GetOfferListByPropertyQueryParams {
     region: string;
     brand: string;
-    occupancy: Array<string> | string;
+    occupancy?: string;
     searchNearby: string;
     checkIn?: string;
     checkOut?: string;
