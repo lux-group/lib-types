@@ -557,6 +557,8 @@ export namespace PublicOfferV2 {
     region?: string;
     title: string;
     description: string;
+    accommodation: string | null;
+    meals: string[] | null[];
   }
 
   interface Departure {
