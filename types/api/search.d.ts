@@ -116,4 +116,28 @@ export namespace Search {
   type SearchByMapAreaResult = SearchResult;
 
   type SearchByMapAreaResponseBody = ListOffersResponseBody;
+
+  interface Place {
+    placeId: string;
+    createdAt: string;
+    availableOffers: {
+      state: string[];
+      continent: string[];
+      country: string[];
+      local: string[];
+    };
+    includesSurroundingAreas: boolean;
+    continent?: string;
+    country?: string;
+    state?: string;
+    local?: string;
+    locationAlert: {
+      level: string;
+      value: string;
+      geocode: {
+        lng: number;
+        lat: number;
+      };
+    };
+  }
 }

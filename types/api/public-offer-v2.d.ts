@@ -96,6 +96,11 @@ export namespace PublicOfferV2 {
     | "prior-to-check-in-thirty-one-days"
     | "prior-to-check-in-sixty-days";
 
+  interface RatePlanGroup {
+    id: string;
+    name: string;
+  }
+
   interface RatePlan {
     id: string;
     discount: number;
@@ -107,6 +112,7 @@ export namespace PublicOfferV2 {
       bonus: BonusInclusion[];
       description?: string;
     };
+    group: RatePlanGroup | null;
   }
 
   type LeOption = LeHotelOption | LeTourOption;
@@ -201,6 +207,7 @@ export namespace PublicOfferV2 {
   interface LeHotelPackage extends LePackageBase {
     fkRoomTypeId: string;
     allowBuyNowBookLater: boolean;
+    allowDatesRequest: boolean;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -347,9 +354,16 @@ export namespace PublicOfferV2 {
     localRewardConversionRate: number;
   }
 
+  type UrgencyTagType =
+    | "last_minute_hotel_travel_in"
+    | "new"
+    | "popular"
+    | "limited"
+    | "left";
+
   interface UrgencyTag {
-    type: string;
-    message: string;
+    type: UrgencyTagType;
+    message: string | null;
   }
 
   interface Flight {
@@ -402,29 +416,6 @@ export namespace PublicOfferV2 {
   type LeOffer = LeHotelOffer | LeTourOffer;
   type Offer = LeOffer | BedbankOffer | TourV2Offer;
 
-  interface BedBankOutboundReturningRoute {
-    cost_per_adult: number;
-    departure_date: string;
-    arrival_date: string;
-    depature_time: string;
-    arrival_time: string;
-    total_time_difference: number;
-    is_sold_out: boolean;
-  }
-
-  interface BedBankFlightPrices {
-    cost: number;
-    fees: number;
-    outbound_route: BedBankOutboundReturningRoute;
-    returning_route: BedBankOutboundReturningRoute;
-  }
-
-  interface FlightPricesWithAirportCode {
-    flightPrices: BedBankFlightPrices | undefined;
-    airportCode: string | undefined;
-    flightsEnabled: boolean;
-  }
-
   interface BedbankOffer {
     id: string;
     type: BedbankOfferType;
@@ -437,6 +428,7 @@ export namespace PublicOfferV2 {
     property: Property;
     propertyFinePrint: PropertyFinePrint;
     airport?: string;
+    isFlightEnabled: boolean;
     copy: {
       description: string;
       metaDescription: string;
@@ -647,7 +639,7 @@ export namespace PublicOfferV2 {
   interface GetOfferListByPropertyQueryParams {
     region: string;
     brand: string;
-    occupancy: Array<string> | string;
+    occupancy?: string;
     searchNearby: string;
     checkIn?: string;
     checkOut?: string;

@@ -164,6 +164,7 @@ export namespace Reservation {
     discount: number;
     default_plan: boolean;
     cancellation_policy: CancellationPolicy;
+    non_refundable_cancellation_policy_codes: Array<string>;
     cancellation_policy_detail?: Array<string>;
     inclusions: string | null;
     bonus_inclusions?: Array<BonusInclusion>;
@@ -171,6 +172,8 @@ export namespace Reservation {
     commission?: number;
     rate_type?: string;
     markup?: number;
+    should_instant_purchase?: boolean;
+    group: RatePlanGroup | null;
   }
 
   interface RatePlanLinks {
@@ -259,6 +262,7 @@ export namespace Reservation {
     outgoing_connections?: string[];
     channel_supplier_id?: string;
     channel_ari_type?: string;
+    channel_rate_type?: string;
   }
 
   interface PropertyLinks {
@@ -393,6 +397,7 @@ export namespace Reservation {
   interface RoomLowestPrice {
     id: string;
     duration_amount: number;
+    duration_tax: number;
     currency: string;
   }
 
@@ -400,5 +405,18 @@ export namespace Reservation {
     result: RoomLowestPrice[];
     count: number;
     total: number;
+  }
+
+  interface RatePlanGroup {
+    id: string;
+    name: string;
+  }
+
+  interface RatePlansGroup extends RatePlanGroup {
+    rate_plans: string[];
+  }
+
+  interface RatePlansGroupsResult extends Result {
+    result: RatePlansGroup[];
   }
 }
