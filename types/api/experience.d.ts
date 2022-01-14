@@ -155,6 +155,7 @@ export namespace Experience {
     description: string | null;
     id: string;
     images: Array<Image>;
+    has_offline_booking: boolean;
     location?: Location;
     max_cancellation_days: number | null;
     max_confirmation_hours: number | null;
@@ -167,15 +168,13 @@ export namespace Experience {
     provider_rating?: ProviderRating;
     provider_status: string;
     purchase_limit?: Range;
+    requires_book_dates: boolean;
     short_description: string | null;
     tickets: Array<Ticket>;
     title: string;
-    has_offline_booking: boolean;
-    requires_book_dates: boolean;
   }
 
   interface ExperienceItem {
-    booking_detail_id?: string;
     categories: Array<ExperienceCategory>;
     description: string | null;
     experience_offer_id: string;
@@ -198,7 +197,6 @@ export namespace Experience {
     experience_offer_id: string;
     expiration_date: Date | null;
     full_day?: boolean;
-    id: string;
     has_offline_booking: boolean;
     max_cancellation_date: Date | null;
     max_date_to_provider_confirm?: Date | null;
