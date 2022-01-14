@@ -61,6 +61,9 @@ export namespace Tour {
     startDay: number;
     duration: number;
     region?: string;
+    accommodation: string | null;
+    meals: string[] | null;
+    locationsVisited: string[] | null;
   }
 
   interface Price {
