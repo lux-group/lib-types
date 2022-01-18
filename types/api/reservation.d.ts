@@ -219,6 +219,14 @@ export namespace Reservation {
     result: Property;
   }
 
+  interface PropertiesResult {
+    message: null;
+    status: number;
+    count: number;
+    total: number;
+    result: Property[];
+  }
+
   interface TaxesAndFees {
     name: string;
     unit: "percentage" | "amount";
