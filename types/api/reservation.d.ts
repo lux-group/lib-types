@@ -140,6 +140,7 @@ export namespace Reservation {
     | "prior-to-check-in-seven-days"
     | "prior-to-check-in-fourteen-days"
     | "prior-to-check-in-twenty-one-days"
+    | "prior-to-check-in-twenty-eight-days"
     | "prior-to-check-in-thirty-one-days"
     | "prior-to-check-in-sixty-days";
 
