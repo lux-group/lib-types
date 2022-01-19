@@ -128,7 +128,7 @@ export namespace Offer {
 
   type GetOfferResponse = Common.OkResponse<Offer> | Common.NotFoundResponse;
 
-  interface GetOffersResponse = Common.OkResponse<Offer[]> {
+  interface GetOffersResponse extends Common.OkResponse<Offer[]> {
     total: number;
     count: number;
   }
