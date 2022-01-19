@@ -90,11 +90,17 @@ export namespace PublicOfferV2 {
     | "non-refundable"
     | "prior-to-check-in-one-day"
     | "prior-to-check-in-two-days"
+    | "prior-to-check-in-three-days"
     | "prior-to-check-in-seven-days"
     | "prior-to-check-in-fourteen-days"
     | "prior-to-check-in-twenty-one-days"
+    | "prior-to-check-in-twenty-eight-days"
     | "prior-to-check-in-thirty-one-days"
-    | "prior-to-check-in-sixty-days";
+    | "prior-to-check-in-forty-five-days"
+    | "prior-to-check-in-sixty-days"
+    | "post-purchase-seven-days"
+    | "dynamic"
+    | "credit-only-prior-to-check-in-fourteen-days";
 
   interface RatePlanGroup {
     id: string;
