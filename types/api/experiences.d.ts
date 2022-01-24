@@ -32,7 +32,7 @@ export namespace Experiences {
     status: string;
     tickets: Array<Ticket>;
     title: string;
-  }
+  };
 
   type Item = {
     categories: Array<Category>;
@@ -48,7 +48,7 @@ export namespace Experiences {
     status: string;
     ticket: Ticket;
     title: string;
-  }
+  };
 
   type BookingDetails = {
     bookingEndDate?: Date | null;
@@ -68,7 +68,7 @@ export namespace Experiences {
     providerBookingId: string;
     requiresBookDates: boolean;
     status: string;
-  }
+  };
 
   type Category = {
     label: string;
@@ -126,7 +126,7 @@ export namespace Experiences {
   enum CurationStatus {
     Rejected = "REJECTED",
     Approved = "APPROVED",
-    NotCurated = "NOT_CURATED"
+    NotCurated = "NOT_CURATED",
   }
 
   type TimeTicket = {
@@ -159,18 +159,18 @@ export namespace Experiences {
     notes?: string;
     experienceOfferId: string;
     curationStatus?: CurationStatus;
-  }
+  };
 
   type DateAvailabilityQuery = {
     dateTo?: Date;
     dateFrom?: Date;
     pickupId?: string;
-  }
+  };
 
   type TimeAvailabilityQuery = {
     quantity?: number;
     pickupId?: string;
-  }
+  };
 
   type FilterQuery = {
     distance?: string;
@@ -179,7 +179,7 @@ export namespace Experiences {
     ratingRange?: string;
     curationStatus?: string;
     basePriceRange?: string;
-  }
+  };
 
   interface Response<T> {
     result: T;
