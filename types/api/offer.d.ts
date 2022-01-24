@@ -126,9 +126,11 @@ export namespace Offer {
     url?: string;
   }
 
-  type GetOfferResponse = Common.OkResponse<Offer> | Common.NotFoundResponse;
+  type GetOfferResponse<OfferTypes = Offer> = Common.OkResponse<OfferTypes>;
 
-  type GetOffersResponse = Common.OkResponse<Offer[]> & {
+  type GetOffersResponse<OfferTypes = Offer> = Common.OkResponse<
+    OfferTypes[]
+  > & {
     total: number;
     count: number;
   };
