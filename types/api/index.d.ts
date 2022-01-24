@@ -16,5 +16,6 @@ export { Wishlist } from "./wishlist";
 export { Reporting } from "./reporting";
 export { Search } from "./search";
 export { Experience } from "./experience";
+export { Experiences } from "./experiences";
 export { Tour } from "./tour";
 export { Promo } from "./promo";
