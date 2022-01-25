@@ -545,12 +545,10 @@ export namespace PublicOfferV2 {
     // The equivalent of the entire content section for LE offers
     id: string;
     name: string;
-    startLocation?: string;
-    endLocation?: string;
+    startLocation: string | null;
+    endLocation: string | null;
     images: Array<Image>;
     itinerary: ItineraryItem[];
-    startPlace: string | null;
-    endPlace: string | null;
     countriesVisited: string[] | null;
     copy: {
       // Large chunks of text go here
