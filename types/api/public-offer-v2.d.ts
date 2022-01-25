@@ -549,6 +549,9 @@ export namespace PublicOfferV2 {
     endLocation?: string;
     images: Array<Image>;
     itinerary: ItineraryItem[];
+    startPlace: string | null;
+    endPlace: string | null;
+    countriesVisited: string[] | null;
     copy: {
       // Large chunks of text go here
       description: string;

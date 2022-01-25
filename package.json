@@ -1,6 +1,6 @@
 {
   "name": "@luxuryescapes/lib-types",
-  "version": "1.10.45",
+  "version": "1.10.46",
   "types": "types/index.d.ts",
   "repository": "git@github.com:brandsExclusive/lib-types.git",
   "author": "Rufus Post <rufuspost@gmail.com>",
@@ -23,5 +23,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1",
     "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "yarn": "^1.22.17"
   }
 }
