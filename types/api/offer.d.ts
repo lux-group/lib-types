@@ -28,6 +28,8 @@ export namespace Offer {
     offer_inclusions_short: string;
   }
 
+  type OfferStatusType = "content-approved" | "draft";
+
   interface BaseOffer extends OfferInclusions {
     brand_schedules: BrandSchedule[];
     id_salesforce_external: string;
@@ -40,6 +42,7 @@ export namespace Offer {
     locations: string[];
     name: string;
     slug: string;
+    status: OfferStatusType;
   }
 
   type AccommodationOfferType =
