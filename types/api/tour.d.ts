@@ -80,8 +80,8 @@ export namespace Tour {
     toDate: string;
     name: string;
     description: string;
-    startPlace: string | null;
-    endPlace: string | null;
+    startLocation: string | null;
+    endLocation: string | null;
     countriesVisited: string[] | null;
     images: Image[];
     itinerary: ItineraryItem[];
