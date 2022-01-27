@@ -30,7 +30,6 @@ export namespace Experiences {
     requiresBookDates: boolean;
     shortDescription: string | null;
     status: string;
-    tickets: Array<Ticket>;
     title: string;
   };
 
@@ -123,11 +122,7 @@ export namespace Experiences {
     min?: number;
   };
 
-  enum CurationStatus {
-    Rejected = "REJECTED",
-    Approved = "APPROVED",
-    NotCurated = "NOT_CURATED",
-  }
+  type CurationStatus = 'REJECTED' | 'APPROVED' | 'NOT_CURATED'
 
   type TimeTicket = {
     maxBuy: number;
@@ -173,10 +168,14 @@ export namespace Experiences {
   };
 
   type FilterQuery = {
+    limit?: number;
+    offset?: number;
+    sortBy?: string;
     distance?: string;
     categoryIn?: string;
     coordinates?: string;
     ratingRange?: string;
+    curationData?: boolean;
     curationStatus?: string;
     basePriceRange?: string;
   };
