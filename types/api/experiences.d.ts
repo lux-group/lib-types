@@ -122,7 +122,7 @@ export namespace Experiences {
     min?: number;
   };
 
-  type CurationStatus = 'REJECTED' | 'APPROVED' | 'NOT_CURATED'
+  type CurationStatus = "REJECTED" | "APPROVED" | "NOT_CURATED"
 
   type TimeTicket = {
     maxBuy: number;
