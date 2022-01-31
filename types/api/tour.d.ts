@@ -25,15 +25,13 @@ export namespace Tour {
     tourOptions: Array<TourOption>;
   }
 
-  export type Source = "ttc";
+  export interface Brand {
+    code: string
+    name: string
+    logoImageUrl: string
+  }
 
-  export type Brand =
-    | "luxurygold"
-    | "trafalgar"
-    | "contiki"
-    | "aatkings"
-    | "costsaver"
-    | "insightvacations";
+  export type Source = "ttc";
 
   export type SellingRegion = "au";
 
