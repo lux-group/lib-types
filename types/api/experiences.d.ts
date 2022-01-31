@@ -168,9 +168,11 @@ export namespace Experiences {
   };
 
   type FilterQuery = {
+    brand?: string;
     limit?: number;
     offset?: number;
     sortBy?: string;
+    currency?: string;
     distance?: string;
     categoryIn?: string;
     coordinates?: string;
