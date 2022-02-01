@@ -11,6 +11,7 @@ export namespace Experiences {
     baseRetailPrice?: Price;
     baseSalesPrice: Price;
     categories: Array<Category>;
+    languages: Array<Language>;
     curationStatus?: CurationStatus;
     description: string | null;
     id: string;
@@ -26,7 +27,10 @@ export namespace Experiences {
     offlineBookingInstructions?: string;
     pickupPoints?: Array<PickupPoint>;
     providerRating?: ProviderRating;
-    purchaseLimit?: Range;
+    purchaseLimit?: Range<number>;
+    duration?: Range<number>;
+    voucherAccess: VoucherAccess | null;
+    cancellationInfo: CancellationInfo;
     requiresBookDates: boolean;
     shortDescription: string | null;
     status: string;
@@ -105,6 +109,22 @@ export namespace Experiences {
     id: string;
   } & Location;
 
+  type Language = {
+    code: string;
+    name: string;
+  };
+
+  type VoucherAccess = {
+    isRequired: boolean;
+    byMobile: boolean;
+    byPrinted: boolean;
+    byMixed: boolean;
+  };
+
+  type CancellationInfo = {
+    isFree: boolean;
+  };
+
   type ProviderRating = {
     number: number;
     average: number;
@@ -117,9 +137,9 @@ export namespace Experiences {
     };
   };
 
-  type Range = {
-    max?: number;
-    min?: number;
+  type Range<T> = {
+    max?: T;
+    min?: T;
   };
 
   type CurationStatus = "REJECTED" | "APPROVED" | "NOT_CURATED";
