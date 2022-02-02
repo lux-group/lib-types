@@ -27,13 +27,11 @@ export namespace Tour {
 
   export type Source = "ttc";
 
-  export type Brand =
-    | "luxurygold"
-    | "trafalgar"
-    | "contiki"
-    | "aatkings"
-    | "costsaver"
-    | "insightvacations";
+  export interface Brand {
+    code: string;
+    name: string;
+    svcLogoId: string;
+  }
 
   export type SellingRegion = "au";
 
