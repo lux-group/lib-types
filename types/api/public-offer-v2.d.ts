@@ -77,7 +77,7 @@ export namespace PublicOfferV2 {
     childAmount: number;
     infantAmount: number;
   }
-  
+
   interface Inclusions {
     name: string;
     amount: number;
