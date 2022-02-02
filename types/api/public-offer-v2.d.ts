@@ -406,6 +406,12 @@ export namespace PublicOfferV2 {
     reviews: Review[];
   }
 
+  export interface Brand {
+    name: string;
+    code: string;
+    svcLogoId: string;
+  }
+
   type OfferType =
     | "bedbank_hotel"
     | "hotel"
