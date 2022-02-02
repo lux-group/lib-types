@@ -114,6 +114,14 @@ export namespace Reservation {
     infant_amount: number;
   }
 
+  interface Inclusions {
+    name: string;
+    amount: number;
+    currency: string;
+    unit: string;
+    minimum_los: number;
+  }
+
   interface RoomRate {
     _links: RoomRateLinks;
     id: string;
@@ -121,6 +129,7 @@ export namespace Reservation {
     included_guests: AdultChildInfant[];
     capacities: AdultChildInfant[];
     extra_guest_surcharges: Surcharges[];
+    inclusions: Inclusions[];
     max_occupancy: number;
     max_adult_occupancy: number;
     max_child_occupancy: number;

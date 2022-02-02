@@ -77,12 +77,21 @@ export namespace PublicOfferV2 {
     childAmount: number;
     infantAmount: number;
   }
+  
+  interface Inclusions {
+    name: string;
+    amount: number;
+    currency: string;
+    unit: string;
+    minimum_los: number;
+  }
 
   interface RoomRate {
     id: string;
     capacities: Occupancy[];
     includedGuests: Occupancy[];
     extraGuestSurcharges: Surcharges[];
+    inclusions: Inclusions[];
   }
 
   type LeCancellationPolicyType =
