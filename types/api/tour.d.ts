@@ -20,9 +20,16 @@ export namespace Tour {
     source: Source;
     name: string;
     brand: Brand;
+    brandObject: BrandObject;
     status: "content-approved" | "draft";
     slug: string;
     tourOptions: Array<TourOption>;
+  }
+
+  export interface BrandObject {
+    name: string;
+    code: string;
+    svcLogoId: string
   }
 
   export type Source = "ttc";
