@@ -101,4 +101,3 @@ export namespace Tour {
     seasons: Array<Season>;
   }
 }
-
