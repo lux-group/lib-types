@@ -29,7 +29,7 @@ export namespace Tour {
   export interface BrandObject {
     name: string;
     code: string;
-    svcLogoId: string
+    svcLogoId: string;
   }
 
   export type Source = "ttc";
