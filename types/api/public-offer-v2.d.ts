@@ -531,6 +531,7 @@ export namespace PublicOfferV2 {
     type: "tour_v2";
     source: Tour.Source;
     brand: Tour.Brand;
+    brandObject: Tour.BrandObject;
     tourOptions: Record<string, TourOption>; // Contains the details of the options for this offer
     // which is required for the "Other packages for this tour" component. Refer to latest designs.
     // FE by default will display the option which has the lowest price, prices found in the options array.
