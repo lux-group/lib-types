@@ -34,11 +34,13 @@ export namespace Tour {
 
   export type Source = "ttc";
 
-  export interface Brand {
-    code: string;
-    name: string;
-    svcLogoId: string;
-  }
+  export type Brand =
+    | "luxurygold"
+    | "trafalgar"
+    | "contiki"
+    | "aatkings"
+    | "costsaver"
+    | "insightvacations";
 
   export type SellingRegion = "au";
 
@@ -99,3 +101,4 @@ export namespace Tour {
     seasons: Array<Season>;
   }
 }
+
