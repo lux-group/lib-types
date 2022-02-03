@@ -20,18 +20,27 @@ export namespace Tour {
     source: Source;
     name: string;
     brand: Brand;
+    brandObject: BrandObject;
     status: "content-approved" | "draft";
     slug: string;
     tourOptions: Array<TourOption>;
   }
 
-  export type Source = "ttc";
-
-  export interface Brand {
-    code: string;
+  export interface BrandObject {
     name: string;
+    code: string;
     svcLogoId: string;
   }
+
+  export type Source = "ttc";
+
+  export type Brand =
+    | "luxurygold"
+    | "trafalgar"
+    | "contiki"
+    | "aatkings"
+    | "costsaver"
+    | "insightvacations";
 
   export type SellingRegion = "au";
 
