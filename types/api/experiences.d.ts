@@ -17,6 +17,7 @@ export namespace Experiences {
     id: string;
     images: Array<Image>;
     hasOfflineBooking: boolean;
+    leExclusive?: boolean;
     location?: Location;
     maxCancellationDays: number | null;
     maxConfirmationHours: number | null;
@@ -172,6 +173,7 @@ export namespace Experiences {
 
   type Curation = {
     notes?: string;
+    leExclusive?: boolean;
     experienceOfferId: string;
     curationStatus?: CurationStatus;
   };
