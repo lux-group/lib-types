@@ -69,7 +69,7 @@ export namespace PublicOfferV2 {
     exclusive: number;
     inclusive: number;
     taxesAndFees: number;
-    inclusions: number;
+    inclusions?: number;
     propertyFees?: number;
   }
 
