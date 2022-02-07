@@ -20,7 +20,7 @@ export namespace Experiences {
     hasOfflineBooking: boolean;
     leExclusive?: boolean;
     location?: Location;
-    maxCancellationDays: number | null;
+    maxCancellationDays?: number | null; //@deprecated won't use
     maxConfirmationHours: number | null;
     maxModifyBookingDays: number | null;
     meetingPoint?: string;
