@@ -10,6 +10,7 @@ export namespace Experiences {
   type Offer = {
     baseRetailPrice?: Price;
     baseSalesPrice: Price;
+    bookingFee: Price;
     categories: Array<Category>;
     languages: Array<Language>;
     curationStatus?: CurationStatus;
@@ -19,7 +20,7 @@ export namespace Experiences {
     hasOfflineBooking: boolean;
     leExclusive?: boolean;
     location?: Location;
-    maxCancellationDays: number | null;
+    maxCancellationDays?: number | null; //@deprecated won't use
     maxConfirmationHours: number | null;
     maxModifyBookingDays: number | null;
     meetingPoint?: string;
@@ -27,6 +28,10 @@ export namespace Experiences {
     notes?: string | null;
     offlineBookingInstructions?: string;
     pickupPoints?: Array<PickupPoint>;
+    safetyInformation?: SafetyInformation;
+    inclusions?: Array<Taxonomy>;
+    exclusions?: Array<Taxonomy>;
+    highlights?: Array<Taxonomy>;
     providerRating?: ProviderRating;
     purchaseLimit?: Range<number>;
     duration?: Range<number>;
@@ -36,6 +41,8 @@ export namespace Experiences {
     shortDescription: string | null;
     status: string;
     title: string;
+    operationalDays: string | null;
+    rememberNote: string | null;
   };
 
   type Item = {
@@ -110,6 +117,28 @@ export namespace Experiences {
     id: string;
   } & Location;
 
+  type SafetyMeasure = {
+    name: string;
+    isActive: boolean;
+  };
+
+  type SafetyInformation = {
+    measures: Array<SafetyMeasure>;
+  };
+
+  type Taxonomy = {
+    label: string;
+    category: string;
+  };
+
+  type RefundPolicy = {
+    id: string;
+    period: number;
+    type: "PERCENTAGE" | "ABSOLUTE";
+    value: number;
+    currencyCode?: string;
+  };
+
   type Language = {
     code: string;
     name: string;
@@ -124,6 +153,7 @@ export namespace Experiences {
 
   type CancellationInfo = {
     isFree: boolean;
+    refundPolicies?: RefundPolicy[];
   };
 
   type ProviderRating = {
