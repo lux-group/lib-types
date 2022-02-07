@@ -69,6 +69,7 @@ export namespace PublicOfferV2 {
     exclusive: number;
     inclusive: number;
     taxesAndFees: number;
+    inclusions?: number;
     propertyFees?: number;
   }
 
@@ -78,20 +79,11 @@ export namespace PublicOfferV2 {
     infantAmount: number;
   }
 
-  interface Inclusions {
-    name: string;
-    amount: number;
-    currency: string;
-    unit: string;
-    minimum_los: number;
-  }
-
   interface RoomRate {
     id: string;
     capacities: Occupancy[];
     includedGuests: Occupancy[];
     extraGuestSurcharges: Surcharges[];
-    inclusions: Inclusions[];
   }
 
   type LeCancellationPolicyType =
