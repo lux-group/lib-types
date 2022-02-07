@@ -6,6 +6,7 @@ export namespace Calendar {
     roomRateId: string;
     surcharge: number;
     taxesAndFees: number;
+    inclusions: number;
   }
 
   interface Price {
@@ -60,6 +61,7 @@ export namespace Calendar {
     package_duration_surcharge_total: number;
     package_duration_extra_guest_surcharge_total: number;
     package_total_tax: number;
+    package_total_inclusions: number;
     package_total_price: number;
   }
 
