@@ -9,7 +9,7 @@ export namespace Experiences {
 
   type FormData = MusementFormData;
 
-  type MusementParticipantItemSchema = Record<string, unknown>
+  type MusementParticipantItemSchema = Record<string, unknown>;
   type MusementFormData = {
     customerInfoSchema: Record<string, unknown>;
     participantInfoSchemaMap?: Record<string, MusementParticipantItemSchema>;
