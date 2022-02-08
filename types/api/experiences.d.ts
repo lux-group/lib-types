@@ -120,6 +120,7 @@ export namespace Experiences {
   type SafetyMeasure = {
     name: string;
     isActive: boolean;
+    copy?: { description?: string };
   };
 
   type SafetyInformation = {
