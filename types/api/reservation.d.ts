@@ -116,11 +116,12 @@ export namespace Reservation {
 
   interface Inclusions {
     id: string;
-    name: string;
+    description: string;
     amount: number;
     currency: string;
     unit: "per_person" | "per_day";
     minimum_los: number;
+    maximum_los: number;
   }
 
   interface RoomRate {
