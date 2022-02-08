@@ -82,7 +82,6 @@ export namespace PublicOfferV2 {
   interface Inclusions {
     description: string;
     amount: number;
-    currency: string;
     unit: "per_person" | "per_day";
     minLos: number;
     maxLos: number;
