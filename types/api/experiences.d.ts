@@ -56,17 +56,28 @@ export namespace Experiences {
   type Item = {
     categories: Array<Category>;
     description: string | null;
-    experienceOfferId: string;
+    experience_offer_id: string;
     id: string;
     images: Array<Image>;
     location: Location;
-    orderId: string;
-    retailPrice?: Price;
-    salesPrice: Price;
-    shortDescription: string | null;
+    fk_order_id: string;
+    retail_prices?: ItemPrice;
+    sales_prices: ItemPrice;
+    short_description: string | null;
     status: string;
     ticket: Ticket;
     title: string;
+  };
+
+  type Ticket = {
+    fare_type: string;
+    sales_price: ItemPrice;
+    retail_price?: ItemPrice;
+  };
+
+  type ItemPrice = {
+    amount: number;
+    currency_code: string;
   };
 
   type BookingDetails = {
@@ -107,12 +118,6 @@ export namespace Experiences {
       width: number;
       height: number;
     }>;
-  };
-
-  type Ticket = {
-    fareType: string;
-    salesPrice: Price;
-    retailPrice?: Price;
   };
 
   type Location = {
