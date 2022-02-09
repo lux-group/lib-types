@@ -71,8 +71,8 @@ export namespace Experiences {
 
   type Ticket = {
     fare_type: string;
-    sales_price: ItemPrice;
-    retail_price?: ItemPrice;
+    sales_prices: ItemPrice;
+    retail_prices?: ItemPrice;
   };
 
   type ItemPrice = {
