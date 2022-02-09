@@ -71,8 +71,8 @@ export namespace Experiences {
 
   type Ticket = {
     fare_type: string;
-    sales_price: ItemPrice;
-    retail_price?: ItemPrice;
+    sales_prices: ItemPrice;
+    retail_prices?: ItemPrice;
   };
 
   type ItemPrice = {
@@ -83,11 +83,13 @@ export namespace Experiences {
   type BookingDetails = {
     bookingEndDate?: Date | null;
     bookingStartDate?: Date | null;
+    customerInfo?: CustomerInfoData;
     experienceItemId: string;
     experienceOfferId: string;
     expirationDate: Date | null;
     fullDay?: boolean;
     hasOfflineBooking: boolean;
+    language?: string;
     maxCancellationDate: Date | null;
     maxDateToProviderConfirm?: Date | null;
     maxModifyBookingDate: Date | null;
@@ -98,6 +100,10 @@ export namespace Experiences {
     providerBookingId: string;
     requiresBookDates: boolean;
     status: string;
+  };
+
+  type CustomerInfoData = {
+    [key: string]: unknown;
   };
 
   type Category = {
