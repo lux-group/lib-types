@@ -25,6 +25,7 @@ export namespace Experiences {
   type Offer = {
     baseRetailPrice?: Price;
     baseSalesPrice: Price;
+    baseDiscount: Price;
     bookingFee: Price;
     categories: Array<Category>;
     languages: Array<Language>;
@@ -106,7 +107,7 @@ export namespace Experiences {
     provider?: string;
     providerBookingId: string;
     requiresBookDates: boolean;
-    status: string;
+    status: "active" | "cancelled";
   };
 
   type CustomerInfoData = {
@@ -209,6 +210,7 @@ export namespace Experiences {
     identifier: string;
     availability: number;
     salesPrices: Array<Price>;
+    discount: Price;
   };
 
   type TimeSlots = {
