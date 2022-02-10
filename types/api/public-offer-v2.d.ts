@@ -69,7 +69,6 @@ export namespace PublicOfferV2 {
     exclusive: number;
     inclusive: number;
     taxesAndFees: number;
-    inclusions?: number;
     propertyFees?: number;
   }
 
@@ -81,10 +80,8 @@ export namespace PublicOfferV2 {
 
   interface Inclusions {
     description: string;
-    amount: number;
-    unit: "per_person" | "per_day";
-    minLos: number;
-    maxLos: number;
+    minDuration: number;
+    maxDuration: number;
   }
 
   interface RoomRate {
