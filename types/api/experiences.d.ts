@@ -7,7 +7,14 @@ export namespace Experiences {
     options?: Array<{ value: string; label: string }>;
   };
 
-  type FormData = MusementFormData;
+  type FormData = {
+    [provider: string]: {
+      items: string[];
+      formData?: ProviderFormData;
+    };
+  };
+
+  type ProviderFormData = MusementFormData;
 
   type MusementParticipantItemSchema = Record<string, unknown>;
   type MusementFormData = {
