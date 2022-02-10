@@ -107,7 +107,7 @@ export namespace Experiences {
     provider?: string;
     providerBookingId: string;
     requiresBookDates: boolean;
-    status: string;
+    status: 'active' | 'cancelled';
   };
 
   type CustomerInfoData = {
