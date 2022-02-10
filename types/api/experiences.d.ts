@@ -65,27 +65,40 @@ export namespace Experiences {
   type Item = {
     categories: Array<Category>;
     description: string | null;
-    experienceOfferId: string;
+    experience_offer_id: string;
     id: string;
     images: Array<Image>;
     location: Location;
-    orderId: string;
-    retailPrice?: Price;
-    salesPrice: Price;
-    shortDescription: string | null;
+    fk_order_id: string;
+    retail_prices?: ItemPrice;
+    sales_prices: ItemPrice;
+    short_description: string | null;
     status: string;
     ticket: Ticket;
     title: string;
   };
 
+  type Ticket = {
+    fare_type: string;
+    sales_prices: ItemPrice;
+    retail_prices?: ItemPrice;
+  };
+
+  type ItemPrice = {
+    amount: number;
+    currency_code: string;
+  };
+
   type BookingDetails = {
     bookingEndDate?: Date | null;
     bookingStartDate?: Date | null;
+    customerInfo?: CustomerInfoData;
     experienceItemId: string;
     experienceOfferId: string;
     expirationDate: Date | null;
     fullDay?: boolean;
     hasOfflineBooking: boolean;
+    language?: string;
     maxCancellationDate: Date | null;
     maxDateToProviderConfirm?: Date | null;
     maxModifyBookingDate: Date | null;
@@ -96,6 +109,10 @@ export namespace Experiences {
     providerBookingId: string;
     requiresBookDates: boolean;
     status: string;
+  };
+
+  type CustomerInfoData = {
+    [key: string]: unknown;
   };
 
   type Category = {
@@ -116,12 +133,6 @@ export namespace Experiences {
       width: number;
       height: number;
     }>;
-  };
-
-  type Ticket = {
-    fareType: string;
-    salesPrice: Price;
-    retailPrice?: Price;
   };
 
   type Location = {
