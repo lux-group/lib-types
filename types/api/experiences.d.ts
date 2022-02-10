@@ -8,17 +8,17 @@ export namespace Experiences {
   };
 
   type FormData = {
-    [provider: string]: FormDataContainer
-  }
+    [provider: string]: FormDataContainer;
+  };
 
   type FormDataContainer = {
     items: string[];
     formData?: ProviderFormData;
-  }
+  };
 
   type ProviderFormData = MusementFormData;
 
-  type MusementParticipantItemSchema = Record<string, unknown>
+  type MusementParticipantItemSchema = Record<string, unknown>;
   type MusementFormData = {
     customerInfoSchema: Record<string, unknown>;
     participantInfoSchemaMap?: Record<string, MusementParticipantItemSchema>;
