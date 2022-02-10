@@ -11,8 +11,8 @@ export namespace Experiences {
     [provider: string]: {
       items: string[];
       formData?: ProviderFormData;
-    }
-  }
+    };
+  };
 
   type ProviderFormData = MusementFormData;
 
