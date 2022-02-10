@@ -8,13 +8,11 @@ export namespace Experiences {
   };
 
   type FormData = {
-    [provider: string]: FormDataContainer;
-  };
-
-  type FormDataContainer = {
-    items: string[];
-    formData?: ProviderFormData;
-  };
+    [provider: string]: {
+      items: string[];
+      formData?: ProviderFormData;
+    }
+  }
 
   type ProviderFormData = MusementFormData;
 
