@@ -601,6 +601,7 @@ export namespace PublicOfferV2 {
     numberOfBookings?: number; // Number of bookings made in a recent time period.
     // For partner tours where we have no availability information, this is used to determine the 'selling fast' tag.
     groupSize?: string; // To show the group size, small/large.
+    isUnavailable: boolean;
   }
 
   interface Badge {
