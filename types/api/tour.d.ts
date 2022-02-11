@@ -55,7 +55,7 @@ export namespace Tour {
     startTime?: string;
     startTimeLocal: string;
     prices: Price[];
-    isUnavailable: boolean;
+    availability: string;
   }
 
   interface Image {
