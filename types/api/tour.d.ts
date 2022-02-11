@@ -3,18 +3,24 @@ import { Common } from "./common";
 export namespace Tour {
   export type GetTourResponse = GetResponse<Tour>;
 
+  export type GetToursResponse = GetResponse<Tour[]>;
+
+  export type GetTourIdsResponse = GetResponse<TourIds>
+
   type GetResponse<T> =
     | Common.OkResponse<T>
     | Common.BadRequestResponse
     | Common.NotFoundResponse
     | Common.InternalServerErrorResponse;
 
-  interface Tour {
-    _links: {
-      self: {
-        href: string;
-      };
+  interface Links {
+    self: {
+      href: string;
     };
+  }
+
+  interface Tour {
+    _links: Links;
     id: string;
     type: "tour_v2";
     source: Source;
@@ -24,6 +30,17 @@ export namespace Tour {
     status: "content-approved" | "draft";
     slug: string;
     tourOptions: Array<TourOption>;
+  }
+
+  interface TourId {
+    _links: Links
+    id: string;
+    name: string;
+  }
+
+  interface TourIds {
+    _links: Links
+    tours: TourId[];
   }
 
   export interface BrandObject {
