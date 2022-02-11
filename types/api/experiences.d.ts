@@ -7,7 +7,14 @@ export namespace Experiences {
     options?: Array<{ value: string; label: string }>;
   };
 
-  type FormData = MusementFormData;
+  type FormData = {
+    [provider: string]: {
+      items: string[];
+      formData?: ProviderFormData;
+    };
+  };
+
+  type ProviderFormData = MusementFormData;
 
   type MusementParticipantItemSchema = Record<string, unknown>;
   type MusementFormData = {
@@ -18,6 +25,7 @@ export namespace Experiences {
   type Offer = {
     baseRetailPrice?: Price;
     baseSalesPrice: Price;
+    baseDiscount: Price;
     bookingFee: Price;
     categories: Array<Category>;
     languages: Array<Language>;
@@ -56,27 +64,40 @@ export namespace Experiences {
   type Item = {
     categories: Array<Category>;
     description: string | null;
-    experienceOfferId: string;
+    experience_offer_id: string;
     id: string;
     images: Array<Image>;
     location: Location;
-    orderId: string;
-    retailPrice?: Price;
-    salesPrice: Price;
-    shortDescription: string | null;
+    fk_order_id: string;
+    retail_prices?: ItemPrice;
+    sales_prices: ItemPrice;
+    short_description: string | null;
     status: string;
     ticket: Ticket;
     title: string;
   };
 
+  type Ticket = {
+    fare_type: string;
+    sales_prices: ItemPrice;
+    retail_prices?: ItemPrice;
+  };
+
+  type ItemPrice = {
+    amount: number;
+    currency_code: string;
+  };
+
   type BookingDetails = {
     bookingEndDate?: Date | null;
     bookingStartDate?: Date | null;
+    customerInfo?: CustomerInfoData;
     experienceItemId: string;
     experienceOfferId: string;
     expirationDate: Date | null;
     fullDay?: boolean;
     hasOfflineBooking: boolean;
+    language?: string;
     maxCancellationDate: Date | null;
     maxDateToProviderConfirm?: Date | null;
     maxModifyBookingDate: Date | null;
@@ -86,7 +107,11 @@ export namespace Experiences {
     provider?: string;
     providerBookingId: string;
     requiresBookDates: boolean;
-    status: string;
+    status: "active" | "cancelled";
+  };
+
+  type CustomerInfoData = {
+    [key: string]: unknown;
   };
 
   type Category = {
@@ -107,12 +132,6 @@ export namespace Experiences {
       width: number;
       height: number;
     }>;
-  };
-
-  type Ticket = {
-    fareType: string;
-    salesPrice: Price;
-    retailPrice?: Price;
   };
 
   type Location = {
@@ -191,6 +210,7 @@ export namespace Experiences {
     identifier: string;
     availability: number;
     salesPrices: Array<Price>;
+    discount: Price;
   };
 
   type TimeSlots = {
