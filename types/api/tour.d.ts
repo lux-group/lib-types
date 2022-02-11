@@ -44,6 +44,8 @@ export namespace Tour {
 
   export type SellingRegion = "au";
 
+  export type DepartureAvailability = "available" | "unavailable";
+
   interface Departure {
     id: string;
     currencyCode: string;
@@ -55,7 +57,7 @@ export namespace Tour {
     startTime?: string;
     startTimeLocal: string;
     prices: Price[];
-    availability: string;
+    availability: DepartureAvailability;
   }
 
   interface Image {

@@ -583,6 +583,8 @@ export namespace PublicOfferV2 {
     locationsVisited: string[] | null;
   }
 
+  type DepartureAvailability = "available" | "unavailable";
+
   interface Departure {
     id: string;
     fkSeasonId: string;
@@ -596,7 +598,7 @@ export namespace PublicOfferV2 {
     numberOfBookings?: number; // Number of bookings made in a recent time period.
     // For partner tours where we have no availability information, this is used to determine the 'selling fast' tag.
     groupSize?: string; // To show the group size, small/large.
-    availability: string;
+    availability: DepartureAvailability;
   }
 
   interface Badge {
