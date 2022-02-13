@@ -594,11 +594,15 @@ export namespace PublicOfferV2 {
     endDate: string;
     endTimeLocal?: string;
     definiteDeparture?: boolean; // Some departures are not definite departures, unsure if we will sell these.
+    availability: {
+      total: number;
+      left: number;
+      status: DepartureAvailability;
+    };
     currencyCode: string; // Might make this have enum type based on the selling regions/currencies available.
     numberOfBookings?: number; // Number of bookings made in a recent time period.
     // For partner tours where we have no availability information, this is used to determine the 'selling fast' tag.
     groupSize?: string; // To show the group size, small/large.
-    availability: DepartureAvailability;
   }
 
   interface Badge {
