@@ -5,7 +5,7 @@ export namespace Tour {
 
   export type GetToursResponse = GetResponse<Tour[]>;
 
-  export type GetTourIdsResponse = GetResponse<TourIds>
+  export type GetTourIdsResponse = GetResponse<TourIds>;
 
   type GetResponse<T> =
     | Common.OkResponse<T>
@@ -33,13 +33,13 @@ export namespace Tour {
   }
 
   interface TourId {
-    _links: Links
+    _links: Links;
     id: string;
     name: string;
   }
 
   interface TourIds {
-    _links: Links
+    _links: Links;
     tours: TourId[];
   }
 
