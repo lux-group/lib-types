@@ -583,6 +583,8 @@ export namespace PublicOfferV2 {
     locationsVisited: string[] | null;
   }
 
+  type DepartureAvailability = "available" | "unavailable";
+
   interface Departure {
     id: string;
     fkSeasonId: string;
@@ -592,10 +594,10 @@ export namespace PublicOfferV2 {
     endDate: string;
     endTimeLocal?: string;
     definiteDeparture?: boolean; // Some departures are not definite departures, unsure if we will sell these.
-    availability?: {
-      // Availability for LE curated tours, I believe this is overall availability (seats left on the bus).
+    availability: {
       total: number;
       left: number;
+      status: DepartureAvailability;
     };
     currencyCode: string; // Might make this have enum type based on the selling regions/currencies available.
     numberOfBookings?: number; // Number of bookings made in a recent time period.
