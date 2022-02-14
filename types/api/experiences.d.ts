@@ -161,7 +161,7 @@ export namespace Experiences {
 
   type RefundPolicy = {
     id: string;
-    period: number;
+    period: string;
     type: "PERCENTAGE" | "ABSOLUTE";
     value: number;
     currencyCode?: string;
