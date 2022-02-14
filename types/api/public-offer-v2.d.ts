@@ -502,7 +502,7 @@ export namespace PublicOfferV2 {
     badge?: Badge;
     whitelistedCarrierCodes?: Array<string>;
     bundledWithFlightsOnly?: boolean;
-    disableDeposit?: boolean
+    disableDeposit?: boolean;
   }
 
   interface LeHotelOffer extends LeOfferBase {
