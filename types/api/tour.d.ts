@@ -3,7 +3,7 @@ import { Common } from "./common";
 export namespace Tour {
   export type GetTourResponse = GetResponse<Tour>;
 
-  export type GetToursResponse = GetResponse<Tour[]>;
+  export type GetTourIndexResponse = GetResponse<TourIndex>;
 
   export type GetTourIdsResponse = GetResponse<TourIds>;
 
@@ -17,6 +17,12 @@ export namespace Tour {
     self: {
       href: string;
     };
+  }
+
+  interface TourIndex {
+    count: number;
+    total: number;
+    tours: Tour[];
   }
 
   interface Tour {
@@ -40,7 +46,7 @@ export namespace Tour {
 
   interface TourIds {
     _links: Links;
-    tours: TourId[];
+    tourIds: TourId[];
   }
 
   export interface BrandObject {
