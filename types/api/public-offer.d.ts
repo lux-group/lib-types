@@ -155,6 +155,7 @@ export namespace PublicOffer {
     flight_cache_active: boolean;
     whitelisted_carrier_codes?: string[];
     bundled_with_flights_only?: boolean;
+    disable_deposit?: boolean;
   }
 
   interface Schedule {
