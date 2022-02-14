@@ -50,7 +50,7 @@ export namespace Experiences {
     highlights?: Array<Taxonomy>;
     providerRating?: ProviderRating;
     purchaseLimit?: Range<number>;
-    duration?: Range<number>;
+    duration?: Range<string>;
     voucherAccess: VoucherAccess | null;
     cancellationInfo: CancellationInfo;
     requiresBookDates: boolean;
