@@ -118,6 +118,7 @@ export namespace Experiences {
     label: string;
     value: string;
     level: number;
+    parentCode?: string;
   };
 
   type Price = {
