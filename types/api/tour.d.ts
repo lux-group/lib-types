@@ -86,6 +86,7 @@ export namespace Tour {
     fullPrice: number;
     roomType: string;
     guestType: string;
+    maxChildDiscounts: number | null;
   }
 
   interface Season {
