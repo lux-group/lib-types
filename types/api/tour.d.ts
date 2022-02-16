@@ -100,6 +100,16 @@ export namespace Tour {
     images: Image[];
     itinerary: ItineraryItem[];
     departures: Departure[];
+    minChildPriceAge: number | null;
+    maxChildPriceAge: number | null;
+    travelInclusions: Inclusion[];
+    diningInclusions: Inclusion[];
+    routeMapImage: string | null;
+  }
+
+  interface Inclusion {
+    title: string;
+    items: string[];
   }
 
   interface TourOption {
