@@ -549,7 +549,7 @@ export namespace PublicOfferV2 {
     price: number; // Tax inclusive
     priceTaxExclusive?: number; // Tax exclusive
     fkDepartureId: string;
-    maxChildDiscounts: number;
+    maxChildDiscounts: number | null;
   }
 
   interface TourOption {
