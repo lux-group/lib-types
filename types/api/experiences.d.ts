@@ -118,6 +118,7 @@ export namespace Experiences {
     label: string;
     value: string;
     level: number;
+    parent?: string;
   };
 
   type Price = {
@@ -165,6 +166,7 @@ export namespace Experiences {
     type: "PERCENTAGE" | "ABSOLUTE";
     value: number;
     currencyCode?: string;
+    applicable_until?: string;
   };
 
   type Language = {
