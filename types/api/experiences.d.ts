@@ -209,7 +209,7 @@ export namespace Experiences {
     maxBuy: number;
     minBuy: number;
     fareType: string;
-    identifier: string;
+    identifier: string; //@deprecated won't use
     productId: string;
     date: string;
     pickupId: string;
