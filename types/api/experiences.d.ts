@@ -50,7 +50,7 @@ export namespace Experiences {
     highlights?: Array<Taxonomy>;
     providerRating?: ProviderRating;
     purchaseLimit?: Range<number>;
-    duration?: Range<number>;
+    duration?: Range<string>;
     voucherAccess: VoucherAccess | null;
     cancellationInfo: CancellationInfo;
     requiresBookDates: boolean;
@@ -118,6 +118,7 @@ export namespace Experiences {
     label: string;
     value: string;
     level: number;
+    parent?: string;
   };
 
   type Price = {
@@ -161,10 +162,11 @@ export namespace Experiences {
 
   type RefundPolicy = {
     id: string;
-    period: number;
+    period: string;
     type: "PERCENTAGE" | "ABSOLUTE";
     value: number;
     currencyCode?: string;
+    applicableUntil?: string;
   };
 
   type Language = {

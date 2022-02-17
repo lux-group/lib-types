@@ -550,6 +550,7 @@ export namespace PublicOfferV2 {
     price: number; // Tax inclusive
     priceTaxExclusive?: number; // Tax exclusive
     fkDepartureId: string;
+    maxChildDiscounts: number | null;
   }
 
   interface TourOption {
@@ -566,12 +567,22 @@ export namespace PublicOfferV2 {
     images: Array<Image>;
     itinerary: ItineraryItem[];
     countriesVisited: string[] | null;
+    minChildPriceAge: number | null;
+    maxChildPriceAge: number | null;
+    travelInclusions: TourInclusion[];
+    diningInclusions: TourInclusion[];
+    routeMapImage: string | null;
     copy: {
       // Large chunks of text go here
       description: string;
       highlights?: string;
       inclusions?: string;
     };
+  }
+
+  interface TourInclusion {
+    title: string;
+    items: string[];
   }
 
   interface ItineraryItem {
