@@ -166,7 +166,7 @@ export namespace Experiences {
     type: "PERCENTAGE" | "ABSOLUTE";
     value: number;
     currencyCode?: string;
-    applicable_until?: string;
+    applicableUntil?: string;
   };
 
   type Language = {
