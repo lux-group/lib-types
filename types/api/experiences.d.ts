@@ -210,6 +210,9 @@ export namespace Experiences {
     minBuy: number;
     fareType: string;
     identifier: string;
+    productId: string;
+    date: string;
+    pickupId: string;
     availability: number;
     salesPrices: Array<Price>;
     discount: Price;
