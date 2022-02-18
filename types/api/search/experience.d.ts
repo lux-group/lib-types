@@ -6,7 +6,7 @@ export namespace Experience {
     brand: string;
     checkIn?: string;
     checkOut?: string;
-    geometryId?: string;
+    geometryId: string;
   }
 
   interface ListOffersResponseBody {
