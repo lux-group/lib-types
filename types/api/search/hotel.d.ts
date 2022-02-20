@@ -34,6 +34,7 @@ export namespace Hotel {
     status: number;
     message: string | null;
     result: SearchResult;
+    total?: number;
   }
 
   interface Place {
