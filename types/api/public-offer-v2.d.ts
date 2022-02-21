@@ -570,14 +570,12 @@ export namespace PublicOfferV2 {
     countriesVisited: string[] | null;
     minChildPriceAge: number | null;
     maxChildPriceAge: number | null;
-    travelInclusions: TourInclusion[];
-    diningInclusions: TourInclusion[];
     routeMapImage: string | null;
     copy: {
       // Large chunks of text go here
       description: string;
-      highlights?: string;
-      inclusions?: string;
+      travelInclusions: TourInclusion[];
+      diningInclusions: TourInclusion[];
     };
   }
 
