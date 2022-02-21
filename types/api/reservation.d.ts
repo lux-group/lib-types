@@ -158,7 +158,8 @@ export namespace Reservation {
     | "prior-to-check-in-sixty-days"
     | "post-purchase-seven-days"
     | "dynamic"
-    | "credit-only-prior-to-check-in-fourteen-days";
+    | "credit-only-prior-to-check-in-fourteen-days"
+    | "partner-policy-prior-to-check-in-twenty-one-days";
 
   interface BonusInclusion {
     id: string;
