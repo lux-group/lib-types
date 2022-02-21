@@ -546,8 +546,10 @@ export namespace PublicOfferV2 {
   interface PurchasableOption {
     priceId: string;
     roomType: string; // Multiple room types for each departure, FE will display the cheapest room type.
-    guestType: "adult"; // Adult prices only, TBC.
-    price: number; // Tax inclusive
+    guestType?: "adult"; // @deprecated to provide adult and child prices on this object.
+    price?: number; // @deprecated to provide adult and child prices on this object.
+    adultPrice?: number; // Tax inclusive
+    childPrice?: number; // Tax inclusive
     priceTaxExclusive?: number; // Tax exclusive
     fkDepartureId: string;
     maxChildDiscounts: number | null;
