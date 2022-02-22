@@ -4,8 +4,8 @@ export namespace Experience {
   interface ListOffersParams {
     region: string;
     brand: string;
-    checkIn?: string;
-    checkOut?: string;
+    availableFrom?: string;
+    availableTo?: string;
     geometryId: string;
   }
 
