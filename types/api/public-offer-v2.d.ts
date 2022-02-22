@@ -107,7 +107,8 @@ export namespace PublicOfferV2 {
     | "prior-to-check-in-sixty-days"
     | "post-purchase-seven-days"
     | "dynamic"
-    | "credit-only-prior-to-check-in-fourteen-days";
+    | "credit-only-prior-to-check-in-fourteen-days"
+    | "partner-policy-prior-to-check-in-twenty-one-days";
 
   interface RatePlanGroup {
     id: string;
@@ -502,6 +503,7 @@ export namespace PublicOfferV2 {
     badge?: Badge;
     whitelistedCarrierCodes?: Array<string>;
     bundledWithFlightsOnly?: boolean;
+    disableDeposit?: boolean;
   }
 
   interface LeHotelOffer extends LeOfferBase {
@@ -512,6 +514,7 @@ export namespace PublicOfferV2 {
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
     options: Array<LeHotelOption>;
+    noInclusions?: boolean;
   }
 
   interface LeTourOffer extends LeOfferBase {
@@ -548,6 +551,7 @@ export namespace PublicOfferV2 {
     price: number; // Tax inclusive
     priceTaxExclusive?: number; // Tax exclusive
     fkDepartureId: string;
+    maxChildDiscounts: number | null;
   }
 
   interface TourOption {
@@ -564,12 +568,20 @@ export namespace PublicOfferV2 {
     images: Array<Image>;
     itinerary: ItineraryItem[];
     countriesVisited: string[] | null;
+    minChildPriceAge: number | null;
+    maxChildPriceAge: number | null;
+    routeMapImage: string | null;
     copy: {
       // Large chunks of text go here
       description: string;
-      highlights?: string;
-      inclusions?: string;
+      travelInclusions: TourInclusion[];
+      diningInclusions: TourInclusion[];
     };
+  }
+
+  interface TourInclusion {
+    title: string;
+    items: string[];
   }
 
   interface ItineraryItem {
@@ -583,6 +595,8 @@ export namespace PublicOfferV2 {
     locationsVisited: string[] | null;
   }
 
+  type DepartureAvailability = "available" | "unavailable";
+
   interface Departure {
     id: string;
     fkSeasonId: string;
@@ -592,10 +606,10 @@ export namespace PublicOfferV2 {
     endDate: string;
     endTimeLocal?: string;
     definiteDeparture?: boolean; // Some departures are not definite departures, unsure if we will sell these.
-    availability?: {
-      // Availability for LE curated tours, I believe this is overall availability (seats left on the bus).
+    availability: {
       total: number;
       left: number;
+      status: DepartureAvailability;
     };
     currencyCode: string; // Might make this have enum type based on the selling regions/currencies available.
     numberOfBookings?: number; // Number of bookings made in a recent time period.

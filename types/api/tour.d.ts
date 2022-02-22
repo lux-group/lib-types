@@ -65,6 +65,8 @@ export namespace Tour {
     | "costsaver"
     | "insightvacations";
 
+  export type DepartureAvailability = "available" | "unavailable";
+
   interface Departure {
     id: string;
     currencyCode: string;
@@ -76,6 +78,11 @@ export namespace Tour {
     startTime?: string;
     startTimeLocal: string;
     prices: Price[];
+    availability: {
+      total?: number;
+      left?: number;
+      status: DepartureAvailability;
+    };
   }
 
   interface Image {
@@ -100,6 +107,7 @@ export namespace Tour {
     fullPrice: number;
     roomType: string;
     guestType: string;
+    maxChildDiscounts: number | null;
   }
 
   interface Season {
@@ -114,6 +122,16 @@ export namespace Tour {
     images: Image[];
     itinerary: ItineraryItem[];
     departures: Departure[];
+    minChildPriceAge: number | null;
+    maxChildPriceAge: number | null;
+    travelInclusions: Inclusion[];
+    diningInclusions: Inclusion[];
+    routeMapImage: string | null;
+  }
+
+  interface Inclusion {
+    title: string;
+    items: string[];
   }
 
   interface TourOption {
