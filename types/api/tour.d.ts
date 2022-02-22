@@ -65,15 +65,13 @@ export namespace Tour {
     | "costsaver"
     | "insightvacations";
 
-  export type SellingRegion = "au";
-
   interface Departure {
     id: string;
     currencyCode: string;
     endDate: string;
     endTime?: string;
     endTimeLocal: string;
-    sellingRegion: SellingRegion;
+    sellingRegion: string;
     startDate: string;
     startTime?: string;
     startTimeLocal: string;
