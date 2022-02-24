@@ -288,6 +288,13 @@ export namespace Experiences {
     basePriceRange?: string;
   };
 
+  type AvailabilityEnquiryQuery = {
+    coordinates: string;
+    distance: string;
+    availableFrom: string;
+    availableTo: string;
+  };
+
   interface Response<T> {
     result: T;
     status: number;
