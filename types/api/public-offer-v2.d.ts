@@ -1,5 +1,8 @@
 import { Tour } from "./tour";
 
+/**
+ * @deprecated Use \@luxuryescapes/contract-public-offer
+ * */
 export namespace PublicOfferV2 {
   interface StrObject {
     [field: string]: string;
