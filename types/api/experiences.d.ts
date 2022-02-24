@@ -212,6 +212,7 @@ export namespace Experiences {
     identifier: string; //@deprecated won't use
     productId: string;
     date: string;
+    type: string;
     pickupId?: string;
     availability: number;
     salesPrices: Array<Price>;
