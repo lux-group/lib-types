@@ -537,6 +537,7 @@ export namespace PublicOfferV2 {
     // which is required for the "Other packages for this tour" component. Refer to latest designs.
     // FE by default will display the option which has the lowest price, prices found in the options array.
     departures: Record<string, Departure>; // List of departures
+    roomTypePricing: Record<string, RoomTypePrice>; // List of price objects that relate to a roomType for a departure.
     options: Array<PurchasableOption>;
   }
 
@@ -545,15 +546,13 @@ export namespace PublicOfferV2 {
   // Used to display the default prices for all the available departure dates for an adult twin room.
   // From price and monthly prices to be calculated from this.
   interface PurchasableOption {
-    priceId: string;
     roomType: string; // Multiple room types for each departure, FE will display the cheapest room type.
-    guestType?: "adult"; // @deprecated to provide adult and child prices on this object.
-    price?: number; // @deprecated to provide adult and child prices on this object.
-    adultPrice?: number; // Tax inclusive
-    childPrice?: number; // Tax inclusive
-    priceTaxExclusive?: number; // Tax exclusive
+    adultPrice: number; // Tax inclusive
+    fkRoomTypePricingId: string;
     fkDepartureId: string;
-    maxChildDiscounts: number | null;
+    fkSeasonId: string;
+    fkTourOptionId: string;
+    fkTourId: string;
   }
 
   interface TourOption {
@@ -617,6 +616,12 @@ export namespace PublicOfferV2 {
     numberOfBookings?: number; // Number of bookings made in a recent time period.
     // For partner tours where we have no availability information, this is used to determine the 'selling fast' tag.
     groupSize?: string; // To show the group size, small/large.
+  }
+
+  interface RoomTypePrice {
+    id: string;
+    childPrice?: number; // Tax inclusive
+    maxChildDiscounts: number | null;
   }
 
   interface Badge {
