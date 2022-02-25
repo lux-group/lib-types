@@ -252,6 +252,7 @@ export namespace Reservation {
     per_person: boolean;
     value: number;
     currency?: string;
+    additional_tax?: boolean;
   }
 
   interface Property {
