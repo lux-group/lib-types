@@ -37,6 +37,11 @@ export namespace Experiences {
   };
 
   type Offer = {
+    bookingType:
+      | "CALENDAR-TIMESLOTS"
+      | "CALENDAR-NO-TIMESLOTS"
+      | "NO-CALENDAR-FIXED-END"
+      | "NO-CALENDAR-FIXED-VALIDITY";
     baseRetailPrice?: Price;
     baseSalesPrice: Price;
     baseDiscount: Price;
