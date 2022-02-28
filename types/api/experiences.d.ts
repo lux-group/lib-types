@@ -1,5 +1,5 @@
 export namespace Experiences {
-  type BookingCustomerInfo = {
+  type FormItemSchema = {
     name: string;
     type: string;
     label: string;
@@ -7,11 +7,25 @@ export namespace Experiences {
     options?: Array<{ value: string; label: string }>;
   };
 
+  type BookingCustomerInfo = FormItemSchema;
+
+  type ParticipantInfo = {
+    experienceOfferId: string;
+    productId: string;
+    quantity: number;
+    requitedInfo: FormItemSchema[];
+  };
+
   type FormData = {
     [provider: string]: {
       items: string[];
       formData?: ProviderFormData;
     };
+  };
+
+  type TravellersForm = {
+    customerInfo: BookingCustomerInfo[];
+    participantsInfo: ParticipantInfo;
   };
 
   type ProviderFormData = MusementFormData;
@@ -23,6 +37,11 @@ export namespace Experiences {
   };
 
   type Offer = {
+    bookingType:
+      | "CALENDAR-TIMESLOTS"
+      | "CALENDAR-NO-TIMESLOTS"
+      | "NO-CALENDAR-FIXED-END"
+      | "NO-CALENDAR-FIXED-VALIDITY";
     baseRetailPrice?: Price;
     baseSalesPrice: Price;
     baseDiscount: Price;
