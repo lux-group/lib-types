@@ -547,7 +547,7 @@ export namespace PublicOfferV2 {
   // From price and monthly prices to be calculated from this.
   interface PurchasableOption {
     roomType: string; // Multiple room types for each departure, FE will display the cheapest room type.
-    adultPrice: number; // Tax inclusive
+    price: number; // Tax inclusive
     fkRoomTypePricingId: string;
     fkDepartureId: string;
     fkSeasonId: string;
