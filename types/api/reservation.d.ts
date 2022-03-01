@@ -252,6 +252,7 @@ export namespace Reservation {
     per_person: boolean;
     value: number;
     currency?: string;
+    additional_tax?: boolean;
   }
 
   interface Property {
@@ -277,6 +278,10 @@ export namespace Reservation {
     use_dynamic_taxes_fees: boolean;
     use_dynamic_cancellation_policies: boolean;
     use_dynamic_occupancy: boolean;
+    lead_days: {
+      query: boolean;
+      manage: boolean;
+    };
     siteminder_channel_region: string;
     geo_data: Geo.Data;
     max_child_age: number | null;
@@ -291,6 +296,7 @@ export namespace Reservation {
     channel_rate_type?: string;
     hotel_meta_provider?: string;
     hotel_meta_code?: string;
+    taxes_payable_at_property?: boolean;
   }
 
   interface PropertyLinks {
