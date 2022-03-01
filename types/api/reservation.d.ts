@@ -294,8 +294,8 @@ export namespace Reservation {
     channel_supplier_id?: string;
     channel_ari_type?: string;
     channel_rate_type?: string;
-    hotel_meta_provider?: string;
-    hotel_meta_code?: string;
+    hotel_meta_provider: string | null;
+    hotel_meta_code: string | null;
     taxes_payable_at_property?: boolean;
   }
 
