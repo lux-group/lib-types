@@ -517,7 +517,7 @@ export namespace PublicOfferV2 {
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
     options: Array<LeHotelOption>;
-    noInclusions?: boolean;
+    isPartnerProperty?: boolean;
   }
 
   interface LeTourOffer extends LeOfferBase {
