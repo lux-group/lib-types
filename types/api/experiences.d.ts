@@ -61,6 +61,7 @@ export namespace Experiences {
     meetingPoint?: string;
     needsProviderConfirmation: boolean;
     notes?: string | null;
+    sellerGateway?: string | null;
     offlineBookingInstructions?: string;
     pickupPoints?: Array<PickupPoint>;
     safetyInformation?: SafetyInformation;
