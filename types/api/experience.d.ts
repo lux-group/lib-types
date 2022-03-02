@@ -1,3 +1,6 @@
+/**
+ * @deprecated Use \@luxuryescapes/contract-svc-experience
+ * */
 export namespace Experience {
   interface Price {
     currency_code: string;

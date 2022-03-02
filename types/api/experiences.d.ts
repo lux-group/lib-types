@@ -1,3 +1,6 @@
+/**
+ * @deprecated Use \@luxuryescapes/contract-svc-experience
+ * */
 export namespace Experiences {
   type FormItemSchema = {
     name: string;
