@@ -1,6 +1,9 @@
 import { Geo } from "./geo";
 import { Reservation } from "./reservation";
 
+/**
+ * @deprecated Use \@luxuryescapes/contract-public-offer
+ * */
 export namespace PublicOffer {
   interface Link {
     href: string;
