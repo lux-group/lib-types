@@ -3,18 +3,30 @@ import { Common } from "./common";
 export namespace Tour {
   export type GetTourResponse = GetResponse<Tour>;
 
+  export type GetTourIndexResponse = GetResponse<TourIndex>;
+
+  export type GetTourIdsResponse = GetResponse<TourIds>;
+
   type GetResponse<T> =
     | Common.OkResponse<T>
     | Common.BadRequestResponse
     | Common.NotFoundResponse
     | Common.InternalServerErrorResponse;
 
-  interface Tour {
-    _links: {
-      self: {
-        href: string;
-      };
+  interface Links {
+    self: {
+      href: string;
     };
+  }
+
+  interface TourIndex {
+    count: number;
+    total: number;
+    tours: Tour[];
+  }
+
+  interface Tour {
+    _links: Links;
     id: string;
     type: "tour_v2";
     source: Source;
@@ -24,6 +36,17 @@ export namespace Tour {
     status: "content-approved" | "draft";
     slug: string;
     tourOptions: Array<TourOption>;
+  }
+
+  interface TourId {
+    _links: Links;
+    id: string;
+    name: string;
+  }
+
+  interface TourIds {
+    _links: Links;
+    tourIds: TourId[];
   }
 
   export interface BrandObject {
@@ -42,8 +65,6 @@ export namespace Tour {
     | "costsaver"
     | "insightvacations";
 
-  export type SellingRegion = "au";
-
   export type DepartureAvailability = "available" | "unavailable";
 
   interface Departure {
@@ -52,7 +73,7 @@ export namespace Tour {
     endDate: string;
     endTime?: string;
     endTimeLocal: string;
-    sellingRegion: SellingRegion;
+    sellingRegion: string;
     startDate: string;
     startTime?: string;
     startTimeLocal: string;
