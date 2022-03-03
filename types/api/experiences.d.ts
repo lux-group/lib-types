@@ -85,7 +85,6 @@ export namespace Experiences {
     categories: Array<Category>; //@deprecated won't use
     description: string | null; //@deprecated won't use
     experience_offer_id: string; //@deprecated won't use
-    id: string; //@deprecated won't use
     images: Array<Image>; //@deprecated won't use
     location: Location; //@deprecated won't use
     retail_prices?: ItemPrice; //@deprecated won't use
@@ -93,11 +92,11 @@ export namespace Experiences {
     short_description: string | null; //@deprecated won't use
     title: string; //@deprecated won't use
 
-    id_experience_items: string;
+    id: string;
     booking_number: string;
     transaction_key: string;
     fk_order_id: string;
-    provider_offer_id?: string;
+    provider_offer_id: string;
     provider_order_id?: string;
     provider_item_id?: string;
     le_exclusive?: boolean;
@@ -111,7 +110,7 @@ export namespace Experiences {
     ticket?: { fareType: string; identifier: string };
     max_date_to_provider_confirm?: Date;
     max_modify_booking_date?: Date;
-    cost_price: number;
+    cost_price?: number;
     sale_price: number;
     currency: string;
     total: number;
