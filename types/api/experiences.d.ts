@@ -100,8 +100,8 @@ export namespace Experiences {
     provider_offer_id?: string;
     provider_order_id?: string;
     provider_item_id?: string;
-    le_exclusive?: boolean
-    language?: string
+    le_exclusive?: boolean;
+    language?: string;
     pickup_point_name?: string;
     pickup_point_id?: string;
     meeting_point?: string;
