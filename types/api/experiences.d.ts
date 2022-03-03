@@ -93,7 +93,7 @@ export namespace Experiences {
     short_description: string | null; //@deprecated won't use
     title: string; //@deprecated won't use
 
-    id_experiece_items: string;
+    id_experience_items: string;
     booking_number: string;
     transaction_key: string;
     fk_order_id: string;
