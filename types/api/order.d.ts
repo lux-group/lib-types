@@ -134,7 +134,7 @@ export namespace Order {
     type: string; // @deprecated
     updated_at: string; // @deprecated
     vendor_id: string; // @deprecated
-    
+
     id: string;
     booking_number: string;
     transaction_key: string;
