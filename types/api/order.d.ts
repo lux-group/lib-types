@@ -124,24 +124,67 @@ export namespace Order {
 
   interface ExperienceItem {
     _links: ItemLinks;
-    booking_number: string;
-    created_at: string;
-    currency: string;
-    description: string;
-    detailed_description: string;
-    experience_image: string;
-    external_experience_id: string;
-    fk_order_id: string;
+    created_at: string; // @deprecated
+    description: string; // @deprecated
+    detailed_description: string; // @deprecated
+    experience_image: string; // @deprecated
+    external_experience_id: string; // @deprecated
+    location_text: string; // @deprecated
+    title: string; // @deprecated
+    type: string; // @deprecated
+    updated_at: string; // @deprecated
+    vendor_id: string; // @deprecated
+
     id: string;
-    location_text: string;
-    status: string;
-    title: string;
-    total: number;
+    booking_number: string;
     transaction_key: string;
-    type: string;
-    updated_at: string;
-    vendor_id: string;
+    fk_order_id: string;
+    provider_offer_id: string;
+    provider_order_id?: string;
+    provider_item_id?: string;
+    le_exclusive?: boolean;
+    language?: string;
+    pickup_point_name?: string;
+    pickup_point_id?: string;
+    meeting_point?: string;
+    customer_info?: CustomerInfoData;
+    cancellation_policies?: CancellationInfo;
+    ticket?: Ticket;
+    max_date_to_provider_confirm?: Date;
+    max_modify_booking_date?: Date;
+    cost_price?: number;
+    sale_price: number;
+    currency: string;
+    total: number;
+    discount_amount?: number;
+    discount_percent?: number;
+    booking_start_date?: Date;
+    expiration_date?: Date;
+    status: "pending" | "completed" | "cancelled" | "processing";
   }
+
+  type Ticket = {
+    fareType: string;
+    identifier: string;
+  };
+
+  type CustomerInfoData = {
+    [key: string]: unknown;
+  };
+
+  type CancellationInfo = {
+    isFree: boolean;
+    refundPolicies?: RefundPolicy[];
+  };
+
+  type RefundPolicy = {
+    id: string;
+    period: string;
+    type: "PERCENTAGE" | "ABSOLUTE";
+    value: number;
+    currencyCode?: string;
+    applicableUntil?: string;
+  };
 
   interface FlightItemLinks extends ItemLinks {
     flight_details: Link;
