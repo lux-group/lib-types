@@ -13,7 +13,7 @@ export namespace Experiences {
     experienceOfferId: string;
     productId: string;
     quantity: number;
-    requitedInfo: FormItemSchema[];
+    requiredInfo: FormItemSchema[];
   };
 
   type FormData = {
@@ -149,7 +149,9 @@ export namespace Experiences {
     offlineBookingInstructions?: string;
     pickupPoint?: PickupPoint;
     provider?: string;
-    providerBookingId: string;
+    providerItemId?: string;
+    providerOrderId?: string;
+    providerBookingId?: string; // @deprecated
     requiresBookDates: boolean;
     status: "active" | "cancelled";
   };
