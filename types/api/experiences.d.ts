@@ -61,6 +61,7 @@ export namespace Experiences {
     meetingPoint?: string;
     needsProviderConfirmation: boolean;
     notes?: string | null;
+    sellerGateway?: string | null;
     offlineBookingInstructions?: string;
     pickupPoints?: Array<PickupPoint>;
     safetyInformation?: SafetyInformation;
@@ -81,19 +82,43 @@ export namespace Experiences {
   };
 
   type Item = {
-    categories: Array<Category>;
-    description: string | null;
-    experience_offer_id: string;
+    categories: Array<Category>; //@deprecated won't use
+    description: string | null; //@deprecated won't use
+    experience_offer_id: string; //@deprecated won't use
+    images: Array<Image>; //@deprecated won't use
+    location: Location; //@deprecated won't use
+    retail_prices?: ItemPrice; //@deprecated won't use
+    sales_prices: ItemPrice; //@deprecated won't use
+    short_description: string | null; //@deprecated won't use
+    title: string; //@deprecated won't use
+
     id: string;
-    images: Array<Image>;
-    location: Location;
+    booking_number: string;
+    transaction_key: string;
     fk_order_id: string;
-    retail_prices?: ItemPrice;
-    sales_prices: ItemPrice;
-    short_description: string | null;
-    status: string;
-    ticket: Ticket;
-    title: string;
+    provider_offer_id: string;
+    provider_order_id?: string;
+    provider_item_id?: string;
+    le_exclusive?: boolean;
+    language?: string;
+    pickup_point_name?: string;
+    pickup_point_id?: string;
+    meeting_point?: string;
+    customer_info?: CustomerInfoData;
+    cancellation_policies?: CancellationInfo;
+    // ticket: Ticket; //@deprecated won't use
+    ticket?: { fareType: string; identifier: string };
+    max_date_to_provider_confirm?: Date;
+    max_modify_booking_date?: Date;
+    cost_price?: number;
+    sale_price: number;
+    currency: string;
+    total: number;
+    discount_amount?: number;
+    discount_percent?: number;
+    booking_start_date?: Date;
+    expiration_date?: Date;
+    status: "pending" | "completed" | "cancelled" | "processing";
   };
 
   type Ticket = {
@@ -288,6 +313,13 @@ export namespace Experiences {
     curationData?: boolean;
     curationStatus?: string;
     basePriceRange?: string;
+  };
+
+  type AvailabilityEnquiryQuery = {
+    coordinates: string;
+    distance: string;
+    availableFrom: string;
+    availableTo: string;
   };
 
   interface Response<T> {

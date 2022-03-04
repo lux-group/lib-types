@@ -1,5 +1,8 @@
 import { Tour } from "./tour";
 
+/**
+ * @deprecated Use \@luxuryescapes/contract-public-offer
+ * */
 export namespace PublicOfferV2 {
   interface StrObject {
     [field: string]: string;
@@ -514,7 +517,7 @@ export namespace PublicOfferV2 {
     roomRates: Record<string, RoomRate>;
     roomTypes: Record<string, RoomType>;
     options: Array<LeHotelOption>;
-    noInclusions?: boolean;
+    isPartnerProperty?: boolean;
   }
 
   interface LeTourOffer extends LeOfferBase {
