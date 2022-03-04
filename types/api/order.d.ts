@@ -153,19 +153,21 @@ export namespace Order {
     max_date_to_provider_confirm?: Date;
     max_modify_booking_date?: Date;
     cost_price?: number;
-    sale_price: number;
     currency: string;
     total: number;
     discount_amount?: number;
     discount_percent?: number;
     booking_start_date?: Date;
     expiration_date?: Date;
-    status: "pending" | "completed" | "cancelled" | "processing";
+    status: string;
   }
 
   type Ticket = {
+    date: Date;
+    type: string;
     fareType: string;
     identifier: string;
+    productId: string;
   };
 
   type CustomerInfoData = {
