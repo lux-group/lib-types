@@ -192,6 +192,11 @@ export namespace Reservation {
     markup?: number;
     should_instant_purchase?: boolean;
     group: RatePlanGroup | null;
+    product_type?:
+      | "limited_time_exclusive"
+      | "lux_premium_collection"
+      | "last_minute"
+      | "partner";
   }
 
   interface RatePlanLinks {
