@@ -136,6 +136,7 @@ export namespace Reservation {
     max_adult_occupancy: number;
     max_child_occupancy: number;
     max_infant_occupancy: number;
+    inclusions_hide_value: boolean;
   }
 
   interface RoomRateLinks {
