@@ -1,5 +1,8 @@
 import { Geo } from "./geo";
 
+/**
+ * @deprecated Use \@luxuryescapes/contract-svc-reservation
+ * */
 export namespace Reservation {
   interface Link {
     href: string;
