@@ -85,6 +85,7 @@ export namespace PublicOfferV2 {
     description: string;
     minDuration: number;
     maxDuration: number;
+    is_bonus: boolean;
   }
 
   interface RoomRate {
