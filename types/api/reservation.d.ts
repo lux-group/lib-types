@@ -125,6 +125,7 @@ export namespace Reservation {
     unit: "per_stay" | "per_night" | "per_person";
     minimum_los: number;
     maximum_los: number;
+    is_bonus: boolean;
   }
 
   interface RoomRate {
