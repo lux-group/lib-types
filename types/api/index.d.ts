@@ -19,3 +19,4 @@ export { Experience } from "./experience";
 export { Experiences } from "./experiences";
 export { Tour } from "./tour";
 export { Promo } from "./promo";
+export { Common } from "./common";
