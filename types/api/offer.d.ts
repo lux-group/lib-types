@@ -43,6 +43,7 @@ export namespace Offer {
     name: string;
     slug: string;
     status: OfferStatusType;
+    is_partner_property: boolean;
   }
 
   type AccommodationOfferType =
