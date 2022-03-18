@@ -1,5 +1,9 @@
 import { Common } from "./common";
 
+/**
+ * @deprecated Use \@luxuryescapes/contract-svc-tour
+ * */
+
 export namespace Tour {
   export type GetTourResponse = GetResponse<Tour>;
 
