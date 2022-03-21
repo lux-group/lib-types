@@ -463,4 +463,38 @@ export namespace Reservation {
   interface RatePlansGroupsResult extends Result {
     result: RatePlansGroup[];
   }
+
+  interface RoomAvailabilityEnquiry {
+    room_type_id: string;
+    number_of_nights: number;
+    min_rooms: number;
+  }
+
+  interface RoomAvailabilityResult {
+    enquiry: RoomAvailabilityEnquiry;
+    availabilities: RoomAvailability[];
+  }
+
+  interface RoomAvailability {
+    check_in: string;
+    check_out: string;
+    availability: Availability;
+  }
+
+  interface RoomReservationEnquiry {
+    property_id: string;
+    start_date: string;
+    end_date: string;
+  }
+
+  interface RoomReservationResult {
+    enquiry: RoomReservationEnquiry;
+    room_reservations: RoomReservation[];
+  }
+
+  interface RoomReservation {
+    room_type_id: string;
+    total: number;
+    booking_count: number;
+  }
 }
