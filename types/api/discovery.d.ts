@@ -65,4 +65,21 @@ export namespace Discovery {
     currency: string;
     languages: string[];
   }
+  interface PriorityPhoneNumber {
+    code: string;
+    lang: string;
+    name: string;
+    phone_prefix: string;
+    phone: RegionPhone;
+  }
+
+  interface PriorityPhoneNumberResult {
+    result: PriorityPhoneNumbers;
+  }
+
+  interface PriorityPhoneNumbers {
+    priority_phone_numbers: PriorityPhoneNumber[];
+    default_priority_phone_number: PriorityPhoneNumber;
+    current_priority_phone_number: string;
+  }
 }
