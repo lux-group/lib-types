@@ -131,6 +131,7 @@ export namespace PublicOfferV2 {
       description?: string;
     };
     group: RatePlanGroup | null;
+    regions: string[];
   }
 
   type LeOption = LeHotelOption | LeTourOption;
