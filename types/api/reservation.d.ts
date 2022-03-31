@@ -202,6 +202,7 @@ export namespace Reservation {
       | "lux_premium_collection"
       | "last_minute"
       | "partner";
+    regions: string[];
   }
 
   interface RatePlanLinks {
