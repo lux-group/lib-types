@@ -7,6 +7,7 @@ export namespace Calendar {
     surcharge: number;
     taxesAndFees: number;
     inclusions: number;
+    availableRooms: number;
   }
 
   interface Price {
