@@ -27,8 +27,6 @@ export namespace Bedbank {
   interface OccupancyFee {
     type: string;
     amount: number;
-    scope: string;
-    frequency: string;
   }
 
   interface ReservationRoom {
