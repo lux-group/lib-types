@@ -46,8 +46,8 @@ export namespace PublicOfferV2 {
   interface OccupancyFee {
     type: string;
     amount: number;
-    scope: string;
-    frequency: string;
+    scope?: string;
+    frequency?: string;
   }
 
   interface RateOccupancyPricing {
