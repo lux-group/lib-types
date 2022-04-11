@@ -66,7 +66,7 @@ export namespace Flights {
     validating_carrier_name: string;
     price_breakdown: { adults: Price; children: Price; infants: Price };
     departing: Itinerary;
-    returning: Itinerary;
+    returning?: Itinerary;
     segments: unknown[];
     seat_selection_policy: string;
     is_itx_fare: boolean;
@@ -74,6 +74,7 @@ export namespace Flights {
     apis_required: boolean;
     au_contact_tracing_required: boolean;
     is_alliance_carrier: boolean;
+    fareType?: string;
   }
 
   interface Itinerary {
