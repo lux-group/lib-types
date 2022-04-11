@@ -81,6 +81,8 @@ export namespace Order {
     has_insurance: boolean;
     total: number;
     user_agent: string | null;
+    payments: any;
+    is_deposit_order: boolean;
   }
 
   type AnyItem =
