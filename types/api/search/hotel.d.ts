@@ -6,7 +6,7 @@ export namespace Hotel {
     | "tactical_ao_hotel"
     | "tour";
 
-  type SortBy = "price.asc" | "price.desc";
+  type SortBy = "price.asc" | "price.desc" | "distance.asc" | "distance.desc";
 
   type SearchResult = Array<{
     id: string;
@@ -28,6 +28,7 @@ export namespace Hotel {
     bounds?: string;
     sortBy?: SortBy;
     optimiseRanking?: boolean;
+    searchType?: "destination" | "property" | "landmark";
   }
 
   interface ListOffersResponseBody {
