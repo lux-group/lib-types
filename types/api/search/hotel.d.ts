@@ -6,7 +6,7 @@ export namespace Hotel {
     | "tactical_ao_hotel"
     | "tour";
 
-  type SortBy = "price.asc" | "price.desc" | "distance.asc" | "distance.desc";
+  type SortBy = "price.asc" | "price.desc" | "distance";
 
   type SearchResult = Array<{
     id: string;
