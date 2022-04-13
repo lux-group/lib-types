@@ -6,12 +6,13 @@ export namespace Hotel {
     | "tactical_ao_hotel"
     | "tour";
 
-  type SortBy = "price.asc" | "price.desc";
+  type SortBy = "price.asc" | "price.desc" | "distance";
 
   type SearchResult = Array<{
     id: string;
     kind: string;
     packages?: string[];
+    distance?: number;
   }>;
 
   interface ListOffersParams {
@@ -28,6 +29,7 @@ export namespace Hotel {
     bounds?: string;
     sortBy?: SortBy;
     optimiseRanking?: boolean;
+    searchType?: "destination" | "property" | "landmark";
   }
 
   interface ListOffersResponseBody {
