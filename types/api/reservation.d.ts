@@ -262,6 +262,7 @@ export namespace Reservation {
     type: "night" | "stay";
     per_person: boolean;
     value: number;
+    payable_at_property?: boolean;
     currency?: string;
     additional_tax?: boolean;
   }
