@@ -29,7 +29,7 @@ export namespace Hotel {
     bounds?: string;
     sortBy?: SortBy;
     optimiseRanking?: boolean;
-    searchType?: "destination" | "property" | "landmark";
+    searchType?: "destination" | "property" | "landmark" | "map_area";
   }
 
   interface ListOffersResponseBody {
