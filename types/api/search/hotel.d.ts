@@ -30,6 +30,7 @@ export namespace Hotel {
     sortBy?: SortBy;
     optimiseRanking?: boolean;
     searchType?: "destination" | "property" | "landmark" | "map_area";
+    applyFrontPageOrder?: boolean;
   }
 
   interface ListOffersResponseBody {

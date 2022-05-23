@@ -53,6 +53,8 @@ export namespace Offer {
 
   type TourOfferType = "tour";
 
+  type AllTypes = AccommodationOfferType | TourOfferType;
+
   interface AccommodationOffer extends BaseOffer {
     type: AccommodationOfferType;
     packages: AccommodationPackage[];
@@ -128,6 +130,18 @@ export namespace Offer {
     tag_tooltip: string;
     updated_at: string;
     url?: string;
+  }
+
+  interface OfferContent {
+    id_salesforce_external: string;
+    list_order: number;
+    list_visibility_regions: string[];
+    location: string;
+    locations: string[];
+    name: string;
+    slug: string;
+    subject_line: string;
+    type: AllTypes;
   }
 
   type GetOfferResponse<OfferTypes = Offer> = Common.OkResponse<OfferTypes>;
