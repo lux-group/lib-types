@@ -39,6 +39,8 @@ export namespace Experiences {
     participantInfoSchemaMap?: Record<string, MusementParticipantItemSchema>;
   };
 
+  type OfferType = "flash" | "always_on" | "channel_manager";
+
   type Offer = {
     bookingType:
       | "CALENDAR-TIMESLOTS"
@@ -82,6 +84,7 @@ export namespace Experiences {
     title: string;
     operationalDays: string | null;
     rememberNote: string | null;
+    offerType: OfferType;
   };
 
   type Item = {
