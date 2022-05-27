@@ -31,8 +31,8 @@ export namespace Hotel {
     optimiseRanking?: boolean;
     searchType?: "destination" | "property" | "landmark" | "map_area";
     applyFrontPageOrder?: boolean;
-    propertyType?: "HOTEL" | "UNIQUE_STAYS";
-    propertyCategory?: string;
+    propertyTypes?: string;
+    propertyCategories?: string;
   }
 
   interface ListOffersResponseBody {
