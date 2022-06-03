@@ -144,6 +144,7 @@ export namespace Order {
     provider_offer_id: string;
     provider_order_id?: string;
     provider_item_id?: string;
+    provider: string;
     le_exclusive?: boolean;
     language?: string;
     pickup_point_name?: string;
