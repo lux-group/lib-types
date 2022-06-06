@@ -41,15 +41,15 @@ export namespace Referral {
     message?: string;
     result: {
       referral_logs: ReferralLog[];
-      totals:ReferralLogTotal;
+      totals: ReferralLogTotal;
     };
   }
 
   interface ReferralLogTotal {
-      pending: number;
-      available: number;
-      redeemed: number;
-      total_amount_redeemed: number;
+    pending: number;
+    available: number;
+    redeemed: number;
+    total_amount_redeemed: number;
   }
 
   interface ReferralLog {
@@ -63,20 +63,20 @@ export namespace Referral {
   }
 
   interface RedeemReferralRewardBody {
-    earn_option_id:string
-    brand:string
-    region:string
-    payload?: QFFReferralRewardPayLoad //add: "| OtherTypeOfPayload"
+    earn_option_id: string;
+    brand: string;
+    region: string;
+    payload?: QFFReferralRewardPayLoad; //add: "| OtherTypeOfPayload"
   }
 
   interface QFFReferralRewardPayLoad {
-    membership_number:string
-    membership_last_name:string
+    membership_number: string;
+    membership_last_name: string;
   }
 
   interface RedeemReferralRewardResult {
-    status: string
-    success:boolean
-    message: string
+    status: string;
+    success: boolean;
+    message: string;
   }
 }
