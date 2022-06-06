@@ -10,5 +10,5 @@ export namespace Tour {
     offerType: string;
   }
 
-  export type GetOfferIds200Response = Common.OkResponse<SearchResult>
+  export type GetOfferIds200Response = Common.OkResponse<SearchResult>;
 }
