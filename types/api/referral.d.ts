@@ -70,8 +70,8 @@ export namespace Referral {
   }
 
   interface QFFReferralRewardPayLoad {
-    first_name:string
-    account_number:string
+    membership_number:string
+    membership_last_name:string
   }
 
   interface RedeemReferralRewardResult {
