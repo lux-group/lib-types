@@ -24,7 +24,7 @@ export namespace Referral {
   }
 
   interface GetReferralEarnOptionsResponse {
-    status: 200;
+    status: number;
     success: boolean;
     region: string;
     brand: string;
@@ -36,7 +36,7 @@ export namespace Referral {
   }
 
   interface GetReferralLogsResponse {
-    status: 200;
+    status: number;
     success: boolean;
     message?: string;
     result: {
@@ -75,7 +75,7 @@ export namespace Referral {
   }
 
   interface RedeemReferralRewardResult {
-    status: string;
+    status: number;
     success: boolean;
     message: string;
   }
