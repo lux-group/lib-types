@@ -24,7 +24,7 @@ export namespace Referral {
   }
 
   interface GetReferralEarnOptionsResponse {
-    status: 200;
+    status: number;
     success: boolean;
     region: string;
     brand: string;
@@ -36,7 +36,7 @@ export namespace Referral {
   }
 
   interface GetReferralLogsResponse {
-    status: 200;
+    status: number;
     success: boolean;
     message?: string;
     result: {
@@ -49,7 +49,13 @@ export namespace Referral {
     pending: number;
     available: number;
     redeemed: number;
-    total_amount_redeemed: number;
+    redeeming: number;
+    total_amount_redeemed: RedeemSum[];
+  }
+
+  interface RedeemSum {
+    kind: EarnTypeCode;
+    sum: number;
   }
 
   interface ReferralLog {
@@ -75,8 +81,12 @@ export namespace Referral {
   }
 
   interface RedeemReferralRewardResult {
-    status: string;
+    status: number;
     success: boolean;
     message: string;
+    result: {
+      earn_option_id: string;
+      referral_log_id: string;
+    };
   }
 }
