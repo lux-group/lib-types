@@ -6,7 +6,7 @@ export namespace Tour {
   interface ListOffersParams {
     region: string;
     brand: string;
-    placeId: string;
+    placeIds: string[];
     offerType: string;
   }
 
