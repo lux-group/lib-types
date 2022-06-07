@@ -81,6 +81,6 @@ export namespace Referral {
     result: {
       earn_option_id: string;
       referral_log_id: string;
-    }
+    };
   }
 }
