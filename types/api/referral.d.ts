@@ -49,13 +49,13 @@ export namespace Referral {
     pending: number;
     available: number;
     redeemed: number;
-    redeeming:number
+    redeeming: number;
     total_amount_redeemed: RedeemSum[];
   }
 
   interface RedeemSum {
-    kind: EarnTypeCode
-    sum: number
+    kind: EarnTypeCode;
+    sum: number;
   }
 
   interface ReferralLog {
