@@ -78,7 +78,9 @@ export namespace Referral {
     status: number;
     success: boolean;
     message: string;
-    earn_option_id: string;
-    referral_log_id: string;
+    result: {
+      earn_option_id: string;
+      referral_log_id: string;
+    }
   }
 }
