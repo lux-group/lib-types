@@ -75,7 +75,7 @@ export namespace Referral {
   }
 
   interface RedeemReferralRewardResult {
-    status: string;
+    status: 200;
     success: boolean;
     message: string;
   }
