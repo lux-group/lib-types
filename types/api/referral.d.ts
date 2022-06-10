@@ -5,8 +5,7 @@ export namespace Referral {
    * Aligns with the 'referral_log_status' db enum
    */
   type LogStatus =
-    | "pending_cooldown"
-    | "pending_selection"
+    | "pending"
     | "redeeming"
     | "redeemed";
 
