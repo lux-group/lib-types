@@ -4,10 +4,7 @@ export namespace Referral {
   /**
    * Aligns with the 'referral_log_status' db enum
    */
-  type LogStatus =
-    | "pending"
-    | "redeeming"
-    | "redeemed";
+  type LogStatus = "pending" | "redeeming" | "redeemed";
 
   /**
    * Used to match Referral Log Types in the db to type of Earn Option
