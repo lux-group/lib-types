@@ -220,6 +220,7 @@ export namespace Order {
 
   interface InsuranceItem extends Item {
     _links: InsuranceItemLinks;
+    status_reason: string;
   }
 
   interface AccommodationItemLinks extends ItemLinks {
