@@ -4,7 +4,8 @@ export namespace Referral {
   /**
    * Aligns with the 'referral_log_status' db enum
    */
-  type LogStatus = "pending" | "available" | "redeemed";
+  type LogStatus = "pending_cooldown"|"pending_selection"|"redeeming"| // Old (to be removed)
+  "pending" | "available" | "redeemed"; // New
 
   /**
    * Used to match Referral Log Types in the db to type of Earn Option
@@ -46,12 +47,7 @@ export namespace Referral {
     available: number;
     redeemed: number;
     redeeming: number;
-    total_amount_redeemed: RedeemSum[];
-  }
-
-  interface RedeemSum {
-    kind: EarnTypeCode;
-    sum: number;
+    total_amount_redeemed: number
   }
 
   interface ReferralLog {
