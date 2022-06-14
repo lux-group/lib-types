@@ -16,11 +16,11 @@ enum TYPEAHEAD_TYPE {
 }
 
 export const POSSIBLE_TOUR_TYPEAHEAD_PLACE_TYPES = [
-  TYPEAHEAD_TYPE.CITY,
-  TYPEAHEAD_TYPE.MULTI_CITY_VICINITY,
-  TYPEAHEAD_TYPE.COLLOQUIAL_AREA,
-  TYPEAHEAD_TYPE.PROVINCE_STATE,
-  TYPEAHEAD_TYPE.COUNTRY,
-  TYPEAHEAD_TYPE.HIGH_LEVEL_REGION,
-  TYPEAHEAD_TYPE.CONTINENT,
+  "province_state",
+  "city",
+  "high_level_region",
+  "country",
+  "multi_city_vicinity",
+  "continent",
+  "colloquial_area",
 ] as const;
