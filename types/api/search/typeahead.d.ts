@@ -1,5 +1,5 @@
 declare namespace Typeahead {
-  enum TYPEAHEAD_TYPE {
+  enum TYPES {
     AIRPORT = "airport",
     PROVINCE_STATE = "province_state",
     NEIGHBORHOOD = "neighborhood",

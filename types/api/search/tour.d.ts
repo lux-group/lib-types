@@ -1,7 +1,6 @@
 import { Common } from "../common";
 
 declare namespace Tour {
-  import TYPEAHEAD_TYPE = Typeahead.TYPEAHEAD_TYPE;
   type SearchResult = Array<string>;
 
   interface ListOffersParams {
@@ -14,6 +13,6 @@ declare namespace Tour {
   type GetOfferIds200Response = Common.OkResponse<SearchResult>;
 
   enum PossibleTypeaheadPlaceTypes {
-    CITY = TYPEAHEAD_TYPE.CITY,
+    CITY = Typeahead.TYPES.CITY,
   }
 }
