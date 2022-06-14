@@ -13,5 +13,6 @@ export namespace Tour {
 
   type GetOfferIds200Response = Common.OkResponse<SearchResult>;
 
-  type TYPEAHEAD_PLACE_TYPES = typeof POSSIBLE_TOUR_TYPEAHEAD_PLACE_TYPES[number];
+  type TYPEAHEAD_PLACE_TYPES =
+    typeof POSSIBLE_TOUR_TYPEAHEAD_PLACE_TYPES[number];
 }
