@@ -1,4 +1,4 @@
-declare namespace Typeahead {
+export namespace Typeahead {
   enum TYPES {
     AIRPORT = "airport",
     PROVINCE_STATE = "province_state",

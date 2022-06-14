@@ -1,4 +1,5 @@
 import { Common } from "../common";
+import { Typeahead } from "./typeahead";
 
 declare namespace Tour {
   type SearchResult = Array<string>;
