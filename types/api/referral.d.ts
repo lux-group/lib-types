@@ -2,12 +2,16 @@
 
 export namespace Referral {
   /**
-   * Aligns with the 'referral_log_status' db enum
+   * The status of the referral log
+   *
+   * 'pending_cooldown', 'pending_selection', & 'redeeming' have been depreciated
    */
   type LogStatus =
     | "pending_cooldown"
     | "pending_selection"
     | "redeeming"
+    | "pending"
+    | "available"
     | "redeemed";
 
   /**
@@ -50,12 +54,7 @@ export namespace Referral {
     available: number;
     redeemed: number;
     redeeming: number;
-    total_amount_redeemed: RedeemSum[];
-  }
-
-  interface RedeemSum {
-    kind: EarnTypeCode;
-    sum: number;
+    total_amount_redeemed: number;
   }
 
   interface ReferralLog {
@@ -66,6 +65,7 @@ export namespace Referral {
     log_status: LogStatus;
     earn_amount?: string;
     first_name?: string;
+    available_by?: string;
   }
 
   interface RedeemReferralRewardBody {
