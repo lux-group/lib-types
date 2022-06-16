@@ -5,13 +5,13 @@ export namespace Referral {
    * The status of the referral log
    *
    * 'pending_cooldown' - Waiting for earn cooldown to complete
-   * 
+   *
    * 'pending_selection' - Waiting for earn selection to be made
-   * 
+   *
    * 'redeeming' - Earn redemption in progress (deprecated)
-   * 
+   *
    * 'redeemed' - Earn redemption successful
-   * 
+   *
    */
   type LogStatus =
     | "pending_cooldown"
@@ -60,7 +60,7 @@ export namespace Referral {
     /** Total # of successful completed referral events */
     total_amount_redeemed: number;
     /** Total credits earn via the referral system */
-    creditsRedeemed: number; 
+    creditsRedeemed: number;
   }
 
   interface ReferralLog {
