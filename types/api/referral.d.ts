@@ -4,14 +4,19 @@ export namespace Referral {
   /**
    * The status of the referral log
    *
-   * 'pending_cooldown', 'pending_selection', & 'redeeming' have been depreciated
+   * 'pending_cooldown' - Waiting for earn cooldown to complete
+   *
+   * 'pending_selection' - Waiting for earn selection to be made
+   *
+   * 'redeeming' - Earn redemption in progress (deprecated)
+   *
+   * 'redeemed' - Earn redemption successful
+   *
    */
   type LogStatus =
     | "pending_cooldown"
     | "pending_selection"
     | "redeeming"
-    | "pending"
-    | "available"
     | "redeemed";
 
   /**
@@ -29,7 +34,6 @@ export namespace Referral {
 
   interface GetReferralEarnOptionsResponse {
     status: number;
-    success: boolean;
     region: string;
     brand: string;
     referral_log_id: string;
@@ -41,7 +45,6 @@ export namespace Referral {
 
   interface GetReferralLogsResponse {
     status: number;
-    success: boolean;
     message?: string;
     result: {
       referral_logs: ReferralLog[];
@@ -50,11 +53,14 @@ export namespace Referral {
   }
 
   interface ReferralLogTotal {
+    /** Total # of referral events awaiting cooldown  */
     pending: number;
-    available: number;
-    redeemed: number;
-    redeeming: number;
+    /** Total # of referral events for earn selection */
+    available_referrals: number;
+    /** Total # of successful completed referral events */
     total_amount_redeemed: number;
+    /** Total credits earn via the referral system */
+    creditsRedeemed: number;
   }
 
   interface ReferralLog {
