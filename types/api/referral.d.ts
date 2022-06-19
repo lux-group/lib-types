@@ -42,7 +42,7 @@ export namespace Referral {
     value_new_user: number;
   };
 
-  type ReferreeValue = {
+  type GetRefereeValueResult = {
     type: ReferreeValueType;
     min_spend: number;
     product_type_discount: {
