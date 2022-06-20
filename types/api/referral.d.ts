@@ -44,12 +44,12 @@ export namespace Referral {
     | "tactical_ao_hotel"
     | "tour";
 
-  type ProductTypeDiscount = Record<ProductType, ProductTypeReferreeValue>;
-
   type ProductTypeReferreeValue = {
     value: number;
     value_new_user: number;
   };
+
+  type ProductTypeDiscount = Record<ProductType, ProductTypeReferreeValue>;
 
   type GetRefereeValueResult = {
     type: ReferreeValueType;
