@@ -1,10 +1,11 @@
-// Referral types (svc-promo)
 
 export interface ApiResponse<T = unknown> {
   message: string;
   result: T;
   [key: string]: unknown;
 }
+
+// Referral types (svc-promo)
 
 export namespace Referral {
   /**
@@ -37,6 +38,14 @@ export namespace Referral {
 
   type ReferreeValueType = "fixed_amount" | "percentage";
 
+  type ProductName =
+    | "hotel"
+    | "last_minute_hotel"
+    | "tactical_ao_hotel"
+    | "tour";
+
+  type ProductTypeDiscount = Record<ProductName, ProductTypeReferreeValue>;
+
   type ProductTypeReferreeValue = {
     value: number;
     value_new_user: number;
@@ -45,12 +54,7 @@ export namespace Referral {
   type GetRefereeValueResult = {
     type: ReferreeValueType;
     min_spend: number;
-    product_type_discount: {
-      hotel: ProductTypeReferreeValue;
-      last_minute_hotel: ProductTypeReferreeValue;
-      tactical_ao_hotel: ProductTypeReferreeValue;
-      tour: ProductTypeReferreeValue;
-    };
+    product_type_discount: ProductTypeDiscount[];
   };
 
   // Referral Log
