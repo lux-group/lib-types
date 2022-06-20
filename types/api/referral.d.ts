@@ -38,13 +38,13 @@ export namespace Referral {
 
   type ReferreeValueType = "fixed_amount" | "percentage";
 
-  type ProductName =
+  type ProductType =
     | "hotel"
     | "last_minute_hotel"
     | "tactical_ao_hotel"
     | "tour";
 
-  type ProductTypeDiscount = Record<ProductName, ProductTypeReferreeValue>;
+  type ProductTypeDiscount = Record<ProductType, ProductTypeReferreeValue>;
 
   type ProductTypeReferreeValue = {
     value: number;
