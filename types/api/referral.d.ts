@@ -1,28 +1,18 @@
+export interface ApiResponse<T = unknown> {
+  message: string;
+  result: T;
+  [key: string]: unknown;
+}
+
 // Referral types (svc-promo)
 
 export namespace Referral {
   /**
-   * The status of the referral log
-   *
-   * 'pending_cooldown' - Waiting for earn cooldown to complete
-   *
-   * 'pending_selection' - Waiting for earn selection to be made
-   *
-   * 'redeeming' - Earn redemption in progress (deprecated)
-   *
-   * 'redeemed' - Earn redemption successful
-   *
-   */
-  type LogStatus =
-    | "pending_cooldown"
-    | "pending_selection"
-    | "redeeming"
-    | "redeemed";
-
-  /**
    * Used to match Referral Log Types in the db to type of Earn Option
    */
   type EarnTypeCode = "credit" | "qff" | "unknown";
+
+  // Referral Earn Options
 
   interface EarnOption {
     earn_option_id: string;
@@ -43,14 +33,48 @@ export namespace Referral {
     };
   }
 
-  interface GetReferralLogsResponse {
-    status: number;
-    message?: string;
-    result: {
-      referral_logs: ReferralLog[];
-      totals: ReferralLogTotal;
-    };
-  }
+  // Refereee Value
+
+  type ReferreeValueType = "fixed_amount" | "percentage";
+
+  type ProductType =
+    | "hotel"
+    | "last_minute_hotel"
+    | "tactical_ao_hotel"
+    | "tour";
+
+  type ProductTypeReferreeValue = {
+    value: number;
+    value_new_user: number;
+  };
+
+  type ProductTypeDiscount = Record<ProductType, ProductTypeReferreeValue>;
+
+  type GetRefereeValueResult = {
+    type: ReferreeValueType;
+    min_spend: number;
+    product_type_discount: ProductTypeDiscount[];
+  };
+
+  // Referral Log
+
+  /**
+   * The status of the referral log
+   *
+   * 'pending_cooldown' - Waiting for earn cooldown to complete
+   *
+   * 'pending_selection' - Waiting for earn selection to be made
+   *
+   * 'redeeming' - Earn redemption in progress (deprecated)
+   *
+   * 'redeemed' - Earn redemption successful
+   *
+   */
+  type LogStatus =
+    | "pending_cooldown"
+    | "pending_selection"
+    | "redeeming"
+    | "redeemed";
 
   interface ReferralLogTotal {
     /** Total # of referral events awaiting cooldown  */
@@ -73,6 +97,8 @@ export namespace Referral {
     first_name?: string;
     available_by?: string;
   }
+
+  // Redeem Referral (WIP)
 
   interface RedeemReferralRewardBody {
     earn_option_id: string;
