@@ -147,6 +147,8 @@ export namespace Order {
     provider: string;
     le_exclusive?: boolean;
     language?: string;
+    redemption_location_name?: string;
+    redemption_location_id?: string;
     pickup_point_name?: string;
     pickup_point_id?: string;
     meeting_point?: string;
