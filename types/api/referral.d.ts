@@ -40,6 +40,7 @@ export namespace Referral {
     utm_content?: string;
   };
 
+  // We need this as the '_link' param sits outside of the 'result' object
   interface GetCodeByUserIdApiResponse
     extends ApiResponse<GetCodeByUserIdResult> {
     _link: string;
