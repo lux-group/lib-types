@@ -22,6 +22,11 @@ export namespace Referral {
     summary?: string;
   }
 
+  type ReferralUTMParams = {
+    utm_campaign?: string;
+    utm_content?: string;
+  };
+
   interface GetReferralEarnOptionsResponse {
     status: number;
     region: string;
@@ -30,6 +35,7 @@ export namespace Referral {
     user_id: string;
     result: {
       earn_options: EarnOption[];
+      ReferralUTMParams?: ReferralUTMParams;
     };
   }
 
