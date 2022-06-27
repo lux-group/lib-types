@@ -22,8 +22,6 @@ export namespace Referral {
     summary?: string;
   }
 
-
-
   interface GetReferralEarnOptionsResponse {
     status: number;
     region: string;
@@ -34,6 +32,8 @@ export namespace Referral {
       earn_options: EarnOption[];
     };
   }
+
+  // Get Referral Code By User
 
   type ReferralUTMParams = {
     utm_campaign?: string;
