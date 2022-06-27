@@ -22,10 +22,7 @@ export namespace Referral {
     summary?: string;
   }
 
-  type ReferralUTMParams = {
-    utm_campaign?: string;
-    utm_content?: string;
-  };
+
 
   interface GetReferralEarnOptionsResponse {
     status: number;
@@ -35,8 +32,25 @@ export namespace Referral {
     user_id: string;
     result: {
       earn_options: EarnOption[];
-      ReferralUTMParams?: ReferralUTMParams;
     };
+  }
+
+  type ReferralUTMParams = {
+    utm_campaign?: string;
+    utm_content?: string;
+  };
+
+  interface GetCodeByUserIdApiResponse
+    extends ApiResponse<GetCodeByUserIdResult> {
+    _link: string;
+  }
+
+  interface GetCodeByUserIdResult {
+    referral_code_id: string;
+    id_user: string;
+    referral_code: string;
+    created_at: string;
+    referral_utm_params?: ReferralUTMParams;
   }
 
   // Refereee Value
