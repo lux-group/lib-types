@@ -35,7 +35,7 @@ export namespace Referral {
 
   // Get Referral Code By User
 
-  type ReferralUTMParams = {
+  type UTMParams = {
     utm_campaign?: string;
     utm_content?: string;
   };
@@ -48,14 +48,15 @@ export namespace Referral {
 
   interface GetCodeByUserIdResult {
     details: GetCodeByUserIdDetails;
-    meta_data: ReferralUTMParams;
+    meta_data: UTMParams;
   }
+
   interface GetCodeByUserIdDetails {
     referral_code_id: string;
     id_user: string;
     referral_code: string;
     created_at: string;
-    referral_utm_params?: ReferralUTMParams;
+    referral_utm_params?: UTMParams;
   }
 
   // Refereee Value
