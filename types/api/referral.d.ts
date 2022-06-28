@@ -47,6 +47,10 @@ export namespace Referral {
   }
 
   interface GetCodeByUserIdResult {
+    details: GetCodeByUserIdDetails;
+    meta_data: ReferralUTMParams;
+  }
+  interface GetCodeByUserIdDetails {
     referral_code_id: string;
     id_user: string;
     referral_code: string;
