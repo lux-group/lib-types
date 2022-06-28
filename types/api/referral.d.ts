@@ -33,6 +33,27 @@ export namespace Referral {
     };
   }
 
+  // Get Referral Code By User
+
+  type ReferralUTMParams = {
+    utm_campaign?: string;
+    utm_content?: string;
+  };
+
+  // We need this as the '_link' param sits outside of the 'result' object
+  interface GetCodeByUserIdApiResponse
+    extends ApiResponse<GetCodeByUserIdResult> {
+    _link: string;
+  }
+
+  interface GetCodeByUserIdResult {
+    referral_code_id: string;
+    id_user: string;
+    referral_code: string;
+    created_at: string;
+    referral_utm_params?: ReferralUTMParams;
+  }
+
   // Refereee Value
 
   type ReferreeValueType = "fixed_amount" | "percentage";
@@ -54,12 +75,6 @@ export namespace Referral {
     type: ReferreeValueType;
     min_spend: number;
     product_type_discount: ProductTypeDiscount[];
-    referral_utm_params: ReferralUTMParams;
-  };
-
-  type ReferralUTMParams = {
-    utm_campaign?: string;
-    utm_content?: string;
   };
 
   // Referral Log
