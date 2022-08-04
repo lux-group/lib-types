@@ -40,6 +40,13 @@ export namespace Tour {
     status: "content-approved" | "draft";
     slug: string;
     tourOptions: Array<TourOption>;
+    rankings?: Ranking[];
+  }
+
+  interface Ranking {
+    id: string;
+    region: string;
+    rank: number;
   }
 
   interface TourId {
