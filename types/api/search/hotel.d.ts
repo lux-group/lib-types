@@ -13,6 +13,7 @@ export namespace Hotel {
     kind: string;
     packages?: string[];
     distance?: number;
+    available?: boolean;
   }>;
 
   interface ListOffersParams {
@@ -33,6 +34,7 @@ export namespace Hotel {
     applyFrontPageOrder?: boolean;
     propertyTypes?: string;
     propertyCategories?: string;
+    showUnavailableResult?: boolean;
   }
 
   interface ListOffersResponseBody {
