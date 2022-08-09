@@ -13,6 +13,7 @@ export namespace Hotel {
     kind: string;
     packages?: string[];
     distance?: number;
+    available?: boolean;
   }>;
 
   interface ListOffersParams {
