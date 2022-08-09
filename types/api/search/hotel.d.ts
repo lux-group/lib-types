@@ -34,6 +34,7 @@ export namespace Hotel {
     applyFrontPageOrder?: boolean;
     propertyTypes?: string;
     propertyCategories?: string;
+    showUnavailableResult?: boolean;
   }
 
   interface ListOffersResponseBody {
