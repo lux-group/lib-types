@@ -103,7 +103,6 @@ export namespace PublicOffer {
     qff_enabled: boolean;
     upsell_text_qantas: string;
     partnerships: OfferPartnership[];
-    memberships: OfferMembership[];
     tour_flight_details_required: boolean;
     staff_discount_enabled: boolean;
     no_index: boolean;
@@ -113,7 +112,6 @@ export namespace PublicOffer {
     images_count: number;
     images: Image[];
     hero_image: Image;
-    benefit_labels: BenefitLabelWithMembershipCode[];
     booking_guarantee: string;
     getting_there: string;
     fine_print: string;
@@ -232,7 +230,6 @@ export namespace PublicOffer {
     room_occupancy: string;
     addons: Addon[];
     partnerships: PackagePartnership[];
-    memberships: PackageMembership[];
     check_in_closes: string;
     price: number;
     value: number;
@@ -410,14 +407,6 @@ export namespace PublicOffer {
     package_points: number;
   }
 
-  interface PackageMembership {
-    code: string;
-    fk_upgrade_offer_package_salesforce_id: string | null;
-    fk_upgrade_offer_package_unique_key: string | null;
-    benefit_label: BenefitLabel;
-    is_exclusive: boolean;
-  }
-
   interface OfferPartnership {
     code: string;
     prefix: string;
@@ -428,16 +417,6 @@ export namespace PublicOffer {
   interface BenefitLabel {
     type: string;
     label: string;
-  }
-
-  interface BenefitLabelWithMembershipCode extends BenefitLabel {
-    membership_code: string;
-  }
-
-  interface OfferMembership {
-    code: string;
-    benefit_label: BenefitLabel;
-    is_exclusive: boolean;
   }
 
   interface AddonLinks {
