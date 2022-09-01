@@ -54,8 +54,6 @@ export namespace Order {
     refund_ticket_id: string;
     legacy_id_orders: null;
     customer_email: string;
-    customer_membership_code: string;
-    customer_membership_number: number | null;
     customer_given_name: string;
     customer_surname: string;
     customer_full_name: string;
@@ -70,14 +68,12 @@ export namespace Order {
     experience_items: ExperienceItem[];
     flight_items: FlightItem[];
     gift_card_items: GiftCardItem[];
-    membership_items: MembershipItem[];
     insurance_items: InsuranceItem[];
     bedbank_items: BedbankItem[];
     partnerships: Partnerships;
     has_addons: boolean;
     has_flight: boolean;
     has_gift_card: boolean;
-    has_membership: boolean;
     has_insurance: boolean;
     total: number;
     user_agent: string | null;
@@ -89,7 +85,6 @@ export namespace Order {
     | AddonItem
     | FlightItem
     | GiftCardItem
-    | MembershipItem
     | InsuranceItem
     | AccommodationItem
     | ExperienceItem;
@@ -210,11 +205,6 @@ export namespace Order {
     _links: GiftCardItemLinks;
   }
 
-  interface MembershipItem extends Item {
-    code: string;
-    number: number;
-  }
-
   interface InsuranceItemLinks extends ItemLinks {
     subscription: Link;
     pds: Link;
@@ -284,20 +274,6 @@ export namespace Order {
     upsell_text: null;
   }
 
-  interface OfferUpgradePackageMembership {
-    id_salesforce_external: string;
-    max_extra_nights: number;
-    nightly_price: number;
-    nightly_value: number;
-    price: number;
-    value: number;
-  }
-
-  interface OfferPackageMembership {
-    code: string;
-    upgrade_package?: OfferUpgradePackageMembership;
-  }
-
   interface OfferPackagePartnership {
     cvp_bonus_points?: number;
     kfp_bonus_points?: number;
@@ -316,7 +292,6 @@ export namespace Order {
     number_of_nights: number;
     cost_price: number;
     cost_currency: string;
-    memberships: Array<OfferPackageMembership>;
     nightly_price: number;
     nightly_value: number;
     nightly_cost_price: number;
@@ -331,7 +306,6 @@ export namespace Order {
     number_of_days: number;
     cost_price: number;
     cost_currency: string;
-    memberships: Array<OfferPackageMembership>;
   }
 
   type OfferPackage = OfferHotelPackage | OfferTourPackage;

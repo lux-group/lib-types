@@ -3,17 +3,6 @@ export namespace Auth {
     result: User;
   }
 
-  interface MembershipsResult {
-    result: Array<Membership>;
-  }
-
-  interface Membership {
-    code: string;
-    number: number | null;
-    expiration_date: string | null;
-    brand?: string;
-  }
-
   interface Partnership {
     account_id: string;
     first_name: string;
@@ -47,7 +36,6 @@ export namespace Auth {
     legacy_id?: number;
     legacy_platform: string | null;
     partnerships: { [code: string]: Partnership };
-    membership: Membership;
     lastLogin: LastLogin;
     person_contact_id?: string;
     toggles: { [name: string]: boolean | null | string };
