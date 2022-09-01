@@ -95,6 +95,8 @@ export namespace Offer {
     regions: string[];
   }
 
+  type AccommodationPackageStatusType = "content-approved" | "draft";
+
   interface AccommodationPackage extends BasePackage {
     fk_property_id: string;
     fk_room_rate_id: string;
@@ -104,6 +106,7 @@ export namespace Offer {
     max_days_in_future_check_in_is_allowed: number | undefined;
     number_of_nights: number;
     package_options: PackageOption[];
+    status?: AccommodationPackageStatusType;
   }
 
   interface TourPackage extends BasePackage {
