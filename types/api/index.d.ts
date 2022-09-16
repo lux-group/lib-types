@@ -18,6 +18,4 @@ export { Search } from "./search";
 export { Experience } from "./experience";
 export { Experiences } from "./experiences";
 export { Tour } from "./tour";
-export { Promo } from "./promo";
-export { Referral } from "./referral";
 export { Common } from "./common";
