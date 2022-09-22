@@ -1,10 +1,17 @@
 import { Common } from "./common";
 
 export namespace Flights {
+  interface AirportError {
+    code: string;
+    internalCode: string;
+    message: string;
+  }
+
   interface AirportsResult {
     status: 200;
     message: null;
     result: AirportRegion;
+    errors?: AirportError;
   }
 
   interface AirportRegion {
