@@ -23,6 +23,7 @@ export namespace Hotel {
     offerType: string;
     checkIn?: string;
     checkOut?: string;
+    bedrooms?: Array<number>;
     // Params for different search type
     placeIds?: string;
     propertyId?: string;
