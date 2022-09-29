@@ -29,6 +29,7 @@ export namespace Discovery {
     phone: RegionPhone;
     referral_amount: string;
     referral_min_spend_amount: string;
+    marketed_los: number;
   }
 
   interface FlightPort {
