@@ -629,9 +629,9 @@ export namespace PublicOfferV2 {
     tagIcon: string;
     tagText: string;
     tagTooltip: string;
-    isScheduled: boolean;
-    start: string;
-    end: string;
+    isScheduled?: boolean;
+    start?: string;
+    end?: string;
   }
 
   interface GetOfferQueryParams {
