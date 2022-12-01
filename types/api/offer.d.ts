@@ -130,6 +130,9 @@ export namespace Offer {
     tag_tooltip: string;
     updated_at: string;
     url?: string;
+    is_scheduled?: boolean;
+    start?: string;
+    end?: string;
   }
 
   interface OfferContent {
