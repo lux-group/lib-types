@@ -196,6 +196,7 @@ export namespace Reservation {
     rate_type?: string;
     markup?: number;
     should_instant_purchase?: boolean;
+    is_base_rate?: boolean;
     group: RatePlanGroup | null;
     product_type?:
       | "limited_time_exclusive"
