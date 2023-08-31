@@ -151,6 +151,7 @@ export namespace Reservation {
   type CancellationPolicy =
     | "refundable"
     | "non-refundable"
+    | "hidden-cancellation-policy"
     | "prior-to-check-in-one-day"
     | "prior-to-check-in-two-days"
     | "prior-to-check-in-three-days"
@@ -161,10 +162,12 @@ export namespace Reservation {
     | "prior-to-check-in-thirty-one-days"
     | "prior-to-check-in-forty-five-days"
     | "prior-to-check-in-sixty-days"
+    | "prior-to-check-in-ninety-days"
     | "post-purchase-seven-days"
     | "dynamic"
     | "credit-only-prior-to-check-in-fourteen-days"
-    | "partner-policy-prior-to-check-in-twenty-one-days";
+    | "partner-policy-prior-to-check-in-twenty-one-days"
+    | "flexible-cancellation-forty-five-days";
 
   interface BonusInclusion {
     id: string;
