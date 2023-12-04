@@ -19,24 +19,9 @@ export namespace Experiences {
     requiredInfo: FormItemSchema[];
   };
 
-  type FormData = {
-    [provider: string]: {
-      items: string[];
-      formData?: ProviderFormData;
-    };
-  };
-
   type TravellersForm = {
     customerInfo: BookingCustomerInfo[];
     participantsInfo: ParticipantInfo;
-  };
-
-  type ProviderFormData = MusementFormData;
-
-  type MusementParticipantItemSchema = Record<string, unknown>;
-  type MusementFormData = {
-    customerInfoSchema: Record<string, unknown>;
-    participantInfoSchemaMap?: Record<string, MusementParticipantItemSchema>;
   };
 
   type Offer = {
