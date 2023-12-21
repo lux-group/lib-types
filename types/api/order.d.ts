@@ -70,6 +70,7 @@ export namespace Order {
     gift_card_items: GiftCardItem[];
     insurance_items: InsuranceItem[];
     bedbank_items: BedbankItem[];
+    cruise_items: CruiseItem[];
     partnerships: Partnerships;
     has_addons: boolean;
     has_flight: boolean;
@@ -87,6 +88,7 @@ export namespace Order {
     | GiftCardItem
     | InsuranceItem
     | AccommodationItem
+    | CruiseItem
     | ExperienceItem;
 
   interface ItemLinks {
@@ -106,6 +108,21 @@ export namespace Order {
 
   interface AddonItemLinks extends ItemLinks {
     addon: Link;
+  }
+
+  interface CruiseItem {
+    _links: ItemLinks;
+    id: string;
+    status: string;
+    total: number;
+    fk_order_id: string;
+    transaction_key: string;
+    session_id: string;
+    departure_id: string;
+    departure_date: string;
+    arrival_date: string;
+    booking_id: string;
+    booking_number: string | number | null;
   }
 
   interface AddonItem extends Item {
