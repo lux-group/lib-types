@@ -313,6 +313,7 @@ export namespace Reservation {
     hotel_meta_provider: string | null;
     hotel_meta_code: string | null;
     taxes_payable_at_property?: boolean;
+    chain_id: string | null;
   }
 
   interface PropertyLinks {
