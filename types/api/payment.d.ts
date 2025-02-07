@@ -28,6 +28,8 @@ export namespace Payment {
   }
 
   interface ResponseJson {
-    [property: string]: string | number | boolean | null;
+    // This is a dynamic response from payment providers like Stripe, PayPal etc
+    // The shape varies completely between providers and can be deeply nested
+    [key: string]: unknown;
   }
 }
