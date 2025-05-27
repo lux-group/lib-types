@@ -1,10 +1,10 @@
 {
   "name": "@luxuryescapes/lib-types",
-  "version": "1.16.16",
+  "version": "1.16.18",
   "types": "types/index.d.ts",
   "repository": "git@github.com:brandsExclusive/lib-types.git",
   "author": "Rufus Post <rufuspost@gmail.com>",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "rm -rf lib && tsc",
     "test": "tsc && yarn lint",
