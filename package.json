@@ -5,6 +5,7 @@
   "repository": "git@github.com:brandsExclusive/lib-types.git",
   "author": "Rufus Post <rufuspost@gmail.com>",
   "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "build": "rm -rf lib && tsc",
     "test": "tsc && yarn lint",
